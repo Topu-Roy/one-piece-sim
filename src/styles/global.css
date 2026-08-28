@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+/*
+  Design tokens from DESIGN.md (The Verge-inspired system).
+  Tailwind v4 exposes these as utilities, e.g. bg-canvas-black, text-jelly-mint.
+*/
+@theme {
+  /* Brand hazards */
+  --color-jelly-mint: #3cffd0;
+  --color-verge-uv: #5200ff;
+  --color-console-mint: #309875;
+  --color-deep-link: #3860be;
+  --color-focus-cyan: #1eaedb;
+  --color-purple-rule: #3d00bf;
+
+  /* Surfaces */
+  --color-canvas-black: #131313;
+  --color-surface-slate: #2d2d2d;
+  --color-image-frame: #313131;
+
+  /* Text */
+  --color-hazard-white: #ffffff;
+  --color-secondary-text: #949494;
+  --color-muted-text: #e9e9e9;
+  --color-inverted-text: #131313;
+  --color-dim-gray: #8c8c8c;
+
+  /* Font families */
+  --font-display: "Anton", Impact, "Helvetica Neue", sans-serif;
+  --font-ui: "Space Grotesk", Helvetica, Arial, sans-serif;
+  --font-mono: "Space Mono", "Courier New", Courier, monospace;
+  --font-serif: "Newsreader", Georgia, serif;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: var(--color-canvas-black);
+  color: var(--color-hazard-white);
+  font-family: var(--font-ui);
+  min-height: 100%;
+}
