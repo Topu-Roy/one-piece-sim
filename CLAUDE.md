@@ -13,6 +13,7 @@
 - Always think of potential issues and bug before you make the change in the code
 - Break big task into smaller many logical steps/tasks and use subagents if needed
 - After one task is done, run lint:fix and then format command listed in package.json then you run lint (if you have a lot of task no need for do it on each step, you may run it after multiple steps)
+- Use types over interface, when possible
 
 ## Documentation
 

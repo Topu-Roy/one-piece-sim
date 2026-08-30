@@ -43,15 +43,12 @@ export type Character = {
 
   devilFruit: {
     // hand-authored per DF
-    japaneseName: string;
-    englishName: string;
     type: DevilFruitType;
     state: { awakened: false } | { awakened: true; awakenedMultiplier: number; target: Stats[] };
     attackMultiplier: number;
     durabilityMultiplier: number;
     speedMultiplier: number;
     awarenessMultiplier: number;
-    staminaMultiplier: number;
   };
 
   weapon: {
