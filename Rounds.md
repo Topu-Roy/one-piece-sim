@@ -1,16 +1,45 @@
-# Note: The values are just for inspiration or examples (except for the race table). All the stats of the chartecters and devil fruits stats will be hand picked.
-
-## Drafts
-
-Each round will have 4 options to choose from, one option is a charecter from that rounds pool. User selcects only one and that picked charecter bocomes the donor of that rounds trait.
-
-## Pool
-
-All charecters will be listed in a database, in a object in this case. Each rounds options charecters will be pre selected from that obj. like race = [1,2,...,15] only store the ids
+- Note:
+  - the calculations of stats will happen after the draft rounds are finished. Not during the draft. So after each pick you will store the picks in a shared state. For images, use a placeholder image for now.
 
 ## Round 1 - Race
 
-This are the stats of each race:
+You will create an array that will hold at most 3 charecter per race in it. When the round starts you will first randomly select 4 unique races, and to desplay one random charecter as the option out of the 3. No need for additional info just show the race name.
+
+## Haki Rounds - (2/3/4)
+
+For this the options can be charecters who can use haki or can't both will be presented. Names shown.
+
+## Round 5 - Devil fruit
+
+For this round you will only show DF users. Charecters with no DF are ommited. Charecter names shown.
+
+## Round 6 - Weapon
+
+For this round you will show Weapon users and also non weapon user but at least 3 of them must be weappon user. Charecter names shown.
+
+## Round 7 - Inteligence
+
+For this round you will show All charecter. Names shown.
+
+- Buffs at end:
+  - Awareness
+  - BattleIQ
+
+## Round 8 - BattleIQ
+
+For this round you will show All charecter. Names shown.
+
+## Round 9 - Apperiance
+
+This is just cosmetic, no effect on the stats just how the charecter looks. User can refresh and get new ones as many times as they have to.
+
+## The claculation flow
+
+You will show the stats and final calculation at the end in a result screen.
+
+Setp 1:
+
+This are the stats of each race, set base stats from this table according to users selection:
 
 | Race     | Strength | Durability | Speed | Awareness | Stamina |
 | -------- | -------: | ---------: | ----: | --------: | ------: |
@@ -27,93 +56,32 @@ This are the stats of each race:
 | Dwarf    |     1500 |        400 |   600 |       160 |     300 |
 | Oni      |    11000 |       9000 |   250 |       150 |     900 |
 
-### Haki Tier Meaning
+step 2: (Note: all the stats multipliers applied will be stacked on top of it)
 
-| Tier     | Meaning                                    |
-| -------- | ------------------------------------------ |
-| None     | No confirmed use of that Haki              |
-| Basic    | Confirmed normal/standard use of that Haki |
-| Advanced | Confirmed advanced technique/application   |
+Apply the multiplier of each haki round to the base stats:
 
 - Armament
-  - None → No Armament
-  - Basic → Hardening/coating
-  - Advanced → Emission or Internal Destruction
+  - Attack (100% multiplier)
+  - Durability (100% multiplier)
 
 - Observation
-  - None → No Observation
-  - Basic → Normal sensing
-  - Advanced → Future Sight
+  - Awareness (100% multiplier)
+  - Speed (30% multiplier)
 
 - Conqueror's
-  - None → No Conqueror's
-  - Basic → Normal Conqueror's burst
-  - Advanced → Conqueror's Coating/Infusion
+  - Attack (100% multiplier)
+  - Durability (30% multiplier)
 
-## Round 2 - Armament haki
+Step 3:
 
-- Buffs:
-  - Attack
-  - Durability
+Apply the DF multipliers on the stats. After applied if Awakened It applis another layer to the target fields.
 
-## Round 3 - Observation haki
+Step 4:
 
-- Buffs:
-  - Speed
-  - Awareness
+Apply the Weapon multipliers on the stats.
 
-## Round 4 - Conquerer's haki
+Setp 5:
 
-- Buffs:
-  - Attack
-  - Defense
-  - Stamina
+According to the IQ increase Awareness and BattleIQ by certain amount, based on IQ points.
 
-## Round 5 - Devil fruit
-
-Each DF will have it's own multiplier of Attack, durability, speed, awareness, this is a general overview of how much each may look like by type
-
-| Devil Fruit Type | Strength | Durability | Speed | Awareness | Stamina |
-| ---------------- | -------: | ---------: | ----: | --------: | ------: |
-| Paramecia        |     +20% |       +10% |  +10% |      +10% |    +20% |
-| Zoan             |     +40% |       +40% |  +30% |      +10% |    +50% |
-| Ancient Zoan     |     +60% |       +70% |  +40% |      +10% |    +70% |
-| Mythical Zoan    |     +70% |       +70% |  +50% |      +20% |    +80% |
-| Logia            |     +10% |       +20% |  +20% |      +30% |    +20% |
-
-## Round 6 - Weapon
-
-Each weapon will have certain buffs and nurfs, somthing like this, but each weapon stats multiplier will be calibrated with hand:
-
-| Weapon          | Attack | Durability | Speed | Awareness | Stamina |
-| --------------- | -----: | ---------: | ----: | --------: | ------: |
-| Sword           |   +15% |         0% |  +10% |        0% |      0% |
-| Spear / Polearm |   +15% |        +5% |   +5% |       +5% |      0% |
-| Club            |   +25% |        +5% |  −10% |        0% |    −10% |
-| Rifle           |   +15% |        −5% |    0% |      +15% |     −5% |
-| Slingshot       |   +10% |        −5% |   +5% |      +15% |      0% |
-| Staff           |   +10% |         0% |   +5% |      +10% |      0% |
-| Mechanical      |   +30% |       +30% |  −15% |       +5% |    −20% |
-
-## Round 7 - Inteligence
-
-Each charecter will be calibrated with hand;
-
-- Buffs:
-  - Awareness
-  - BattleIQ
-
-## Round 8 - BattleIQ
-
-Each charecter will be calibrated with hand
-
-- Buffs:
-  - Inteligence
-
-## Round 9 - Apperiance
-
-This is just cosmetic, no effect on the stats just how the charecter looks
-
-## The claculation flow
-
-You will store the picks of each round and not calculate untill all the steps are complete: You will shoew the stats and final calculation at the end in a result screen.
+Finally present the created charecter with all the stats.
