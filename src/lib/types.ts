@@ -69,3 +69,64 @@ export type Character = {
   intelligence: number; // Raw stats, but will be used in the calculations
   battleIQ: number; // Raw stats, but will be used in the calculations
 };
+
+// --- Draft types ---
+
+export type StatBlock = {
+  strength: number;
+  durability: number;
+  speed: number;
+  awareness: number;
+  stamina: number;
+};
+
+export type RoundType =
+  | "race"
+  | "armament"
+  | "observation"
+  | "conqueror"
+  | "devil_fruit"
+  | "weapon"
+  | "intelligence"
+  | "battle_iq"
+  | "appearance";
+
+export type DraftPick = {
+  round: number;
+  roundType: RoundType;
+  characterId: string;
+  characterName: string;
+  rarity: Rarity;
+};
+
+export type DraftPickWithRace = DraftPick & {
+  race: Race;
+};
+
+export type DraftPickWithHaki = DraftPick & {
+  hakiTier: HakiTier;
+  hakiMultiplier: number;
+};
+
+export type DraftPickWithDF = DraftPick & {
+  dfName: string;
+  dfType: DevilFruitType;
+};
+
+export type DraftPickWithWeapon = DraftPick & {
+  weaponName: string;
+  weaponType: WeaponType;
+};
+
+export type DraftPickWithStat = DraftPick & {
+  value: number;
+};
+
+export type DraftState = {
+  currentRound: number;
+  rerollsLeft: number;
+  picks: DraftPick[];
+  baseStats: StatBlock | null;
+  roundOptions: Character[];
+  isComplete: boolean;
+};
