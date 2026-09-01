@@ -549,8 +549,8 @@ export const Characters: Character[] = [
       "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Mihawk?_a=BAMAROFG0",
     race: "human",
     haki: {
-      armament: { tier: "advanced", multiplier: 2.15 },
-      observation: { tier: "advanced", multiplier: 1.9 },
+      armament: { tier: "advanced", multiplier: 3.85 },
+      observation: { tier: "advanced", multiplier: 3.5 },
       conqueror: { tier: "none", multiplier: 1.0 },
     },
     devilFruit: {
@@ -567,15 +567,15 @@ export const Characters: Character[] = [
     weapon: {
       type: "sword",
       name: "Yoru",
-      attackMultiplier: 1.15,
-      durabilityMultiplier: 1.0,
+      attackMultiplier: 2.1,
+      durabilityMultiplier: 2.1,
       speedMultiplier: 1.1,
       awarenessMultiplier: 1.0,
       staminaMultiplier: 1.0,
     },
     rarity: "legend",
-    intelligence: 82,
-    battleIQ: 96,
+    intelligence: 95,
+    battleIQ: 95,
   },
   {
     id: "figarland-shamrock",
@@ -585,9 +585,9 @@ export const Characters: Character[] = [
       "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shamrock?_a=BAMAROFG0",
     race: "human",
     haki: {
-      armament: { tier: "advanced", multiplier: 2.1 },
+      armament: { tier: "advanced", multiplier: 2.5 },
       observation: { tier: "advanced", multiplier: 2.0 },
-      conqueror: { tier: "advanced", multiplier: 2.3 },
+      conqueror: { tier: "advanced", multiplier: 2.57 },
     },
     devilFruit: {
       type: "none",
@@ -603,7 +603,7 @@ export const Characters: Character[] = [
     weapon: {
       type: "sword",
       name: "Cerberus",
-      attackMultiplier: 1.25,
+      attackMultiplier: 1.35,
       durabilityMultiplier: 1.1,
       speedMultiplier: 1.15,
       awarenessMultiplier: 1.05,
@@ -621,8 +621,8 @@ export const Characters: Character[] = [
       "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kuzan?_a=BAMAROFG0",
     race: "human",
     haki: {
-      armament: { tier: "advanced", multiplier: 1.95 },
-      observation: { tier: "basic", multiplier: 1.35 },
+      armament: { tier: "advanced", multiplier: 2.65 },
+      observation: { tier: "advanced", multiplier: 2.4 },
       conqueror: { tier: "none", multiplier: 1.0 },
     },
     devilFruit: {
@@ -630,11 +630,11 @@ export const Characters: Character[] = [
       japaneseName: "Hie Hie no Mi",
       englishName: "Ice-Ice Fruit",
       state: { awakened: false },
-      attackMultiplier: 1.45,
-      durabilityMultiplier: 1.4,
-      speedMultiplier: 1.25,
-      awarenessMultiplier: 1.2,
-      staminaMultiplier: 1.4,
+      attackMultiplier: 2.1,
+      durabilityMultiplier: 2.1,
+      speedMultiplier: 1.9,
+      awarenessMultiplier: 1.8,
+      staminaMultiplier: 2.0,
     },
     weapon: {
       type: "none",
@@ -646,7 +646,7 @@ export const Characters: Character[] = [
       staminaMultiplier: 1.0,
     },
     rarity: "legend",
-    intelligence: 75,
+    intelligence: 92,
     battleIQ: 92,
   },
   {
@@ -657,9 +657,9 @@ export const Characters: Character[] = [
       "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Harald?_a=BAMAROFG0",
     race: "giant",
     haki: {
-      armament: { tier: "advanced", multiplier: 2.2 },
-      observation: { tier: "basic", multiplier: 1.35 },
-      conqueror: { tier: "advanced", multiplier: 2.25 },
+      armament: { tier: "advanced", multiplier: 1.32 },
+      observation: { tier: "basic", multiplier: 1.15 },
+      conqueror: { tier: "advanced", multiplier: 1.4 },
     },
     devilFruit: {
       type: "none",
@@ -675,15 +675,15 @@ export const Characters: Character[] = [
     weapon: {
       type: "sword",
       name: "Sword",
-      attackMultiplier: 1.15,
+      attackMultiplier: 1.0,
       durabilityMultiplier: 1.0,
-      speedMultiplier: 1.1,
+      speedMultiplier: 1.0,
       awarenessMultiplier: 1.0,
       staminaMultiplier: 1.0,
     },
     rarity: "legend",
-    intelligence: 85,
-    battleIQ: 90,
+    intelligence: 65,
+    battleIQ: 70,
   },
   {
     id: "ethanbaron-v-nusjuro",
@@ -693,9 +693,9 @@ export const Characters: Character[] = [
       "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Nusjuro?_a=BAMAROFG0",
     race: "human",
     haki: {
-      armament: { tier: "advanced", multiplier: 2.0 },
-      observation: { tier: "basic", multiplier: 1.45 },
-      conqueror: { tier: "advanced", multiplier: 2.15 },
+      armament: { tier: "advanced", multiplier: 1.65 },
+      observation: { tier: "advanced", multiplier: 1.4 },
+      conqueror: { tier: "advanced", multiplier: 1.7 },
     },
     devilFruit: {
       type: "mythical_zoan",
