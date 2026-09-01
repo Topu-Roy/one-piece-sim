@@ -22,17 +22,17 @@ The game has no backend — all logic, data, and simulation run client-side.
 
 ## The 9 Rounds
 
-| Round | Attribute | What's Shown | Pool Rules |
-|-------|-----------|--------------|------------|
-| 1 | Race | Race name + stat preview | 4 unique races, 1 random character per race |
-| 2 | Armament Haki | Character name + haki tier | All characters |
-| 3 | Observation Haki | Character name + haki tier | All characters |
-| 4 | Conqueror's Haki | Character name + haki tier | All characters |
-| 5 | Devil Fruit | Character name + DF name/type | DF users only |
-| 6 | Weapon | Character name + weapon name/type | At least 3 of 4 must be weapon users |
-| 7 | Intelligence | Character name + intelligence value | All characters |
-| 8 | Battle IQ | Character name + battle IQ value | All characters |
-| 9 | Appearance | Character image + name | All characters, free refresh (max 10) |
+| Round | Attribute        | What's Shown                        | Pool Rules                                  |
+| ----- | ---------------- | ----------------------------------- | ------------------------------------------- |
+| 1     | Race             | Race name + stat preview            | 4 unique races, 1 random character per race |
+| 2     | Armament Haki    | Character name + haki tier          | All characters                              |
+| 3     | Observation Haki | Character name + haki tier          | All characters                              |
+| 4     | Conqueror's Haki | Character name + haki tier          | All characters                              |
+| 5     | Devil Fruit      | Character name + DF name/type       | DF users only                               |
+| 6     | Weapon           | Character name + weapon name/type   | At least 3 of 4 must be weapon users        |
+| 7     | Intelligence     | Character name + intelligence value | All characters                              |
+| 8     | Battle IQ        | Character name + battle IQ value    | All characters                              |
+| 9     | Appearance       | Character image + name              | All characters, free refresh (max 10)       |
 
 ---
 
@@ -84,20 +84,20 @@ All calculations happen **after the draft is complete**, not during. Picks are s
 
 Set base stats from the race table according to the user's Round 1 selection:
 
-| Race | Strength | Durability | Speed | Awareness | Stamina |
-|------|----------|------------|-------|-----------|---------|
-| Human | 100 | 100 | 100 | 100 | 100 |
-| Fish-man | 1000 | 450 | 125 | 120 | 300 |
-| Giant | 10000 | 4000 | 140 | 100 | 1000 |
-| Mink | 400 | 270 | 300 | 180 | 350 |
-| Skypiean | 110 | 110 | 140 | 130 | 120 |
-| Shandia | 180 | 120 | 190 | 150 | 150 |
-| Lunarian | 6500 | 10000 | 400 | 200 | 800 |
-| Longarm | 145 | 120 | 135 | 115 | 120 |
-| Longleg | 250 | 140 | 210 | 125 | 180 |
-| Merfolk | 300 | 250 | 1000 | 140 | 250 |
-| Dwarf | 1500 | 400 | 600 | 160 | 300 |
-| Oni | 11000 | 9000 | 250 | 150 | 900 |
+| Race     | Strength | Durability | Speed | Awareness | Stamina |
+| -------- | -------- | ---------- | ----- | --------- | ------- |
+| Human    | 100      | 100        | 100   | 100       | 100     |
+| Fish-man | 1000     | 450        | 125   | 120       | 300     |
+| Giant    | 10000    | 4000       | 140   | 100       | 1000    |
+| Mink     | 400      | 270        | 300   | 180       | 350     |
+| Skypiean | 110      | 110        | 140   | 130       | 120     |
+| Shandia  | 180      | 120        | 190   | 150       | 150     |
+| Lunarian | 6500     | 10000      | 400   | 200       | 800     |
+| Longarm  | 145      | 120        | 135   | 115       | 120     |
+| Longleg  | 250      | 140        | 210   | 125       | 180     |
+| Merfolk  | 300      | 250        | 1000  | 140       | 250     |
+| Dwarf    | 1500     | 400        | 600   | 160       | 300     |
+| Oni      | 11000    | 9000       | 250   | 150       | 900     |
 
 ### Step 2: Haki Multipliers
 

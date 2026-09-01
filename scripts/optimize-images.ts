@@ -15,10 +15,7 @@ for (const file of files) {
   const output = join(outputDir, `${name}.webp`);
 
   try {
-    execSync(
-      `ffmpeg -i "${input}" -vf "scale=512:512" -c:v libwebp -q:v 80 -y "${output}"`,
-      { stdio: "pipe" },
-    );
+    execSync(`ffmpeg -i "${input}" -vf "scale=512:512" -c:v libwebp -q:v 80 -y "${output}"`, { stdio: "pipe" });
     converted++;
   } catch {
     console.error(`FAILED: ${file}`);
