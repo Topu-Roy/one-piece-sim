@@ -1,9 +1,17 @@
 <script lang="ts">
   import { draft, finalStats } from "../stores/draft";
+  import { Characters } from "../data/characters";
 
   $: stats = $finalStats;
   $: picks = $draft.picks;
   $: appearancePick = picks.find((p) => p.roundType === "appearance");
+
+  function getCharImage(name: string): string {
+    const char = Characters.find((c) => c.displayName === name);
+    return char?.imageURL ?? "";
+  }
+
+  let pickImageErrors: Record<number, boolean> = {};
 
   function handleNewDraft() {
     draft.reset();
@@ -67,10 +75,29 @@
       <h2 class="mb-4 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">Draft Picks</h2>
       <div class="flex flex-col gap-2">
         {#each picks as pick (pick.round)}
-          <div class="flex items-center justify-between border-b border-white/5 py-2">
-            <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+          <div class="flex items-center gap-3 border-b border-white/5 py-2">
+            <span
+              class="w-20 shrink-0 font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase"
+            >
               R{pick.round} — {pick.roundType.replace("_", " ")}
             </span>
+            <div
+              class="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10 bg-[var(--color-canvas-black)]"
+            >
+              {#if getCharImage(pick.characterName) && !pickImageErrors[pick.round]}
+                <img
+                  src={getCharImage(pick.characterName)}
+                  alt={pick.characterName}
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                  on:error={() => (pickImageErrors[pick.round] = true)}
+                />
+              {:else}
+                <span class="flex h-full w-full items-center justify-center text-xs text-white">
+                  {pick.characterName.charAt(0)}
+                </span>
+              {/if}
+            </div>
             <span class="font-mono text-xs text-white">
               {pick.characterName}
               {#if pick.rarity !== "basic"}
