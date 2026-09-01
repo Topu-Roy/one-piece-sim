@@ -42,7 +42,11 @@
   <div
     class="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-[var(--color-canvas-black)] text-2xl"
   >
-    {#if character.imageURL && !imageError}
+    {#if roundType === "race"}
+      <span class="text-3xl font-bold text-[var(--color-jelly-mint)] uppercase">
+        {character.race.charAt(0)}
+      </span>
+    {:else if character.imageURL && !imageError}
       <img
         src={character.imageURL}
         alt={character.displayName}
