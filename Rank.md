@@ -2,188 +2,187 @@
 
 | Rank | Names        |
 | ---- | ------------ |
-| 1    | Imu          |
-| 2    | Joy Boy      |
-| 3    | Rocks        |
-| 4    | Roger        |
-| 5    | Garp         |
-| 6    | Blackbeard   |
-| 7    | Shanks       |
-| 8    | Loki         |
-| 9    | Dragon       |
-| 10   | Akainu       |
-| 11   | Luffy        |
-| 12   | Kizaru       |
-| 13   | Whitebeard   |
-| 14   | Kaido        |
-| 15   | Big Mom      |
-| 16   | Mihawk       |
-| 17   | Shamrock     |
-| 18   | Kuzan        |
-| 19   | Harald       |
-| 20   | Nusjuro      |
-| 21   | Saturn       |
-| 22   | Warcury      |
-| 23   | Ju Peter     |
-| 24   | Mars         |
-| 25   | Rayleigh     |
-| 26   | Gaban        |
-| 27   | Fujitora     |
-| 28   | Sengoku      |
-| 29   | Killingham   |
-| 30   | Sommers      |
-| 31   | Enel         |
-| 32   | Green Bull   |
-| 33   | Ryuma        |
-| 34   | Oden         |
-| 35   | Shiki        |
-| 36   | Garling      |
-| 37   | Law          |
-| 38   | Beckman      |
-| 39   | Zoro         |
-| 40   | Sabo         |
-| 41   | Yamato       |
-| 42   | Shiryu       |
-| 43   | Kid          |
-| 44   | Hancock      |
-| 45   | King         |
-| 46   | Marco        |
-| 47   | Sanji        |
-| 48   | Kuma         |
-| 49   | Crocodile    |
-| 50   | Lucci        |
-| 51   | Katakuri     |
-| 52   | Weevil       |
-| 53   | Ace          |
-| 54   | Doflamingo   |
-| 55   | Killer       |
-| 56   | Smoothie     |
-| 57   | Queen        |
-| 58   | Jack         |
-| 59   | Karasu       |
-| 60   | Jinbe        |
-| 61   | Vista        |
-| 62   | Shiryu       |
-| 63   | Magellan     |
-| 64   | Kalgara      |
-| 65   | Ivankov      |
-| 66   | Drake        |
-| 67   | Cracker      |
-| 68   | Inuarashi    |
-| 69   | Nekomamushi  |
-| 70   | Perospero    |
-| 71   | Oven         |
-| 72   | Who's-Who    |
-| 73   | Kaku         |
-| 74   | Pica         |
-| 75   | Sentomaru    |
-| 76   | Gunko        |
-| 77   | Carrot       |
-| 78   | Yasopp       |
-| 79   | Lucky Roux   |
-| 80   | Dorry        |
-| 81   | Brogy        |
-| 82   | Morley       |
-| 83   | Urouge       |
-| 84   | Burgess      |
-| 85   | Pizarro      |
-| 86   | Vasco Shot   |
-| 87   | Koby         |
-| 88   | Kawamatsu    |
-| 89   | Denjiro      |
-| 90   | Ashura Doji  |
-| 91   | Saul         |
-| 92   | Franky       |
-| 93   | Pedro        |
-| 94   | Smoker       |
-| 95   | Cavendish    |
-| 96   | Robin        |
-| 97   | Ulti         |
-| 98   | Sasaki       |
-| 99   | Black Maria  |
-| 100  | Apoo         |
-| 101  | Hawkins      |
-| 102  | Page One     |
-| 103  | Fisher Tiger |
-| 104  | Kyros        |
-| 105  | Hajrudin     |
-| 106  | Brook        |
-| 107  | Bonney       |
-| 108  | Ideo         |
-| 109  | Lindbergh    |
-| 110  | Sandersonia  |
-| 111  | Marigold     |
-| 112  | Kiku         |
-| 113  | Kin'emon     |
-| 114  | Laffitte     |
-| 115  | Van Augur    |
-| 116  | Daifuku      |
-| 117  | Moria        |
-| 118  | Bege         |
-| 119  | Devon        |
-| 120  | Doc Q        |
-| 121  | Wyper        |
-| 122  | Gan Fall     |
-| 123  | Sugar        |
-| 124  | Monet        |
-| 125  | Mr. 3        |
-| 126  | Senor Pink   |
-| 127  | Rebecca      |
-| 128  | Hody         |
-| 129  | Wadatsumi    |
-| 130  | Arlong       |
-| 131  | Bartolomeo   |
-| 132  | Caesar       |
-| 133  | Daz Bonez    |
-| 134  | Momonosuke   |
-| 135  | Hack         |
-| 136  | Hyouzou      |
-| 137  | Fukaboshi    |
-| 138  | Bon Clay     |
-| 139  | Tamago       |
-| 140  | Hannyabal    |
-| 141  | Koala        |
-| 142  | Raizo        |
-| 143  | Kanjuro      |
-| 144  | Perona       |
-| 145  | Corazon      |
-| 146  | Hatchan      |
-| 147  | Blue Gilly   |
-| 148  | Leo          |
-| 149  | Kamakiri     |
-| 150  | Neptune      |
-| 151  | Mont-d'Or    |
-| 152  | Hina         |
-| 153  | Tsuru        |
-| 154  | Tashigi      |
-| 155  | Helmeppo     |
-| 156  | Chopper      |
-| 157  | Nami         |
-| 158  | Usopp        |
-| 159  | Pudding      |
-| 160  | Brûlée       |
-| 161  | Wapol        |
-| 162  | Zala         |
-| 163  | Koza         |
-| 164  | Buggy        |
-| 165  | Pell         |
-| 166  | Bepo         |
-| 167  | Shinobu      |
-| 168  | Hogback      |
-| 169  | Caribou      |
-| 170  | Kabu         |
-| 171  | Gancho       |
-| 172  | Wicca        |
-| 173  | Bian         |
-| 174  | Goldenweek   |
-| 175  | Cobra        |
-| 176  | Vivi         |
-| 177  | Shirahoshi   |
-| 178  | Vegapunk     |
-| 179  | Camie        |
-| 180  | Ryuboshi     |
-| 181  | Manboshi     |
-| 182  | Mansherry    |
-| 183  | Conis        |
-| 184  | Aisa         |
-| 185  | Raki         |
+| 1   | Imu          |
+| 2   | Joy Boy      |
+| 3   | Rocks        |
+| 4   | Roger        |
+| 5   | Garp         |
+| 6   | Blackbeard   |
+| 7   | Shanks       |
+| 8   | Loki         |
+| 9   | Dragon       |
+| 10  | Akainu       |
+| 11  | Luffy        |
+| 12  | Kizaru       |
+| 13  | Whitebeard   |
+| 14  | Kaido        |
+| 15  | Big Mom      |
+| 16  | Mihawk       |
+| 17  | Shamrock     |
+| 18  | Kuzan        |
+| 19  | Harald       |
+| 20  | Nusjuro      |
+| 21  | Saturn       |
+| 22  | Warcury      |
+| 23  | Ju Peter     |
+| 24  | Mars         |
+| 25  | Rayleigh     |
+| 26  | Gaban        |
+| 27  | Fujitora     |
+| 28  | Sengoku      |
+| 29  | Killingham   |
+| 30  | Sommers      |
+| 31  | Enel         |
+| 32  | Green Bull   |
+| 33  | Ryuma        |
+| 34  | Oden         |
+| 35  | Shiki        |
+| 36  | Garling      |
+| 37  | Law          |
+| 38  | Beckman      |
+| 39  | Zoro         |
+| 40  | Sabo         |
+| 41  | Yamato       |
+| 42  | Kid          |
+| 43  | Hancock      |
+| 44  | King         |
+| 45  | Marco        |
+| 46  | Sanji        |
+| 47  | Kuma         |
+| 48  | Crocodile    |
+| 49  | Lucci        |
+| 50  | Katakuri     |
+| 51  | Weevil       |
+| 52  | Ace          |
+| 53  | Doflamingo   |
+| 54  | Killer       |
+| 55  | Smoothie     |
+| 56  | Queen        |
+| 57  | Jack         |
+| 58  | Karasu       |
+| 59  | Jinbe        |
+| 60  | Vista        |
+| 61  | Shiryu       |
+| 62  | Magellan     |
+| 63  | Kalgara      |
+| 64  | Ivankov      |
+| 65  | Drake        |
+| 66  | Cracker      |
+| 67  | Inuarashi    |
+| 68  | Nekomamushi  |
+| 69  | Perospero    |
+| 70  | Oven         |
+| 71  | Who's-Who    |
+| 72  | Kaku         |
+| 73  | Pica         |
+| 74  | Sentomaru    |
+| 75  | Gunko        |
+| 76  | Carrot       |
+| 77  | Yasopp       |
+| 78  | Lucky Roux   |
+| 79  | Dorry        |
+| 80  | Brogy        |
+| 81  | Morley       |
+| 82  | Urouge       |
+| 83  | Burgess      |
+| 84  | Pizarro      |
+| 85  | Vasco Shot   |
+| 86  | Koby         |
+| 87  | Kawamatsu    |
+| 88  | Denjiro      |
+| 89  | Ashura Doji  |
+| 90  | Saul         |
+| 91  | Franky       |
+| 92  | Pedro        |
+| 93  | Smoker       |
+| 94  | Cavendish    |
+| 95  | Robin        |
+| 96  | Ulti         |
+| 97  | Sasaki       |
+| 98  | Black Maria  |
+| 99  | Apoo         |
+| 100 | Hawkins      |
+| 101 | Page One     |
+| 102 | Fisher Tiger |
+| 103 | Kyros        |
+| 104 | Hajrudin     |
+| 105 | Brook        |
+| 106 | Bonney       |
+| 107 | Ideo         |
+| 108 | Lindbergh    |
+| 109 | Sandersonia  |
+| 110 | Marigold     |
+| 111 | Kiku         |
+| 112 | Kin'emon     |
+| 113 | Laffitte     |
+| 114 | Van Augur    |
+| 115 | Daifuku      |
+| 116 | Moria        |
+| 117 | Bege         |
+| 118 | Devon        |
+| 119 | Doc Q        |
+| 120 | Wyper        |
+| 121 | Gan Fall     |
+| 122 | Sugar        |
+| 123 | Monet        |
+| 124 | Mr. 3        |
+| 125 | Senor Pink   |
+| 126 | Rebecca      |
+| 127 | Hody         |
+| 128 | Wadatsumi    |
+| 129 | Arlong       |
+| 130 | Bartolomeo   |
+| 131 | Caesar       |
+| 132 | Daz Bonez    |
+| 133 | Momonosuke   |
+| 134 | Hack         |
+| 135 | Hyouzou      |
+| 136 | Fukaboshi    |
+| 137 | Bon Clay     |
+| 138 | Tamago       |
+| 139 | Hannyabal    |
+| 140 | Koala        |
+| 141 | Raizo        |
+| 142 | Kanjuro      |
+| 143 | Perona       |
+| 144 | Corazon      |
+| 145 | Hatchan      |
+| 146 | Blue Gilly   |
+| 147 | Leo          |
+| 148 | Kamakiri     |
+| 149 | Neptune      |
+| 150 | Mont-d'Or    |
+| 151 | Hina         |
+| 152 | Tsuru        |
+| 153 | Tashigi      |
+| 154 | Helmeppo     |
+| 155 | Chopper      |
+| 156 | Nami         |
+| 157 | Usopp        |
+| 158 | Pudding      |
+| 159 | Brûlée       |
+| 160 | Wapol        |
+| 161 | Zala         |
+| 162 | Koza         |
+| 163 | Buggy        |
+| 164 | Pell         |
+| 165 | Bepo         |
+| 166 | Shinobu      |
+| 167 | Hogback      |
+| 168 | Caribou      |
+| 169 | Kabu         |
+| 170 | Gancho       |
+| 171 | Wicca        |
+| 172 | Bian         |
+| 173 | Goldenweek   |
+| 174 | Cobra        |
+| 175 | Vivi         |
+| 176 | Shirahoshi   |
+| 177 | Vegapunk     |
+| 178 | Camie        |
+| 179 | Ryuboshi     |
+| 180 | Manboshi     |
+| 181 | Mansherry    |
+| 182 | Conis        |
+| 183 | Aisa         |
+| 184 | Raki         |
