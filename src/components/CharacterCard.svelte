@@ -23,6 +23,8 @@
         : roundType === "conqueror"
           ? character.haki.conqueror.tier
           : null;
+
+  let imageError = false;
 </script>
 
 <button
@@ -38,9 +40,19 @@
   {/if}
 
   <div
-    class="flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-[var(--color-canvas-black)] text-2xl"
+    class="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-[var(--color-canvas-black)] text-2xl"
   >
-    {character.displayName.charAt(0)}
+    {#if character.imageURL && !imageError}
+      <img
+        src={character.imageURL}
+        alt={character.displayName}
+        class="h-full w-full object-cover"
+        loading="lazy"
+        on:error={() => (imageError = true)}
+      />
+    {:else}
+      <span>{character.displayName.charAt(0)}</span>
+    {/if}
   </div>
 
   {#if roundType === "race"}

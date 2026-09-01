@@ -5,7 +5,8 @@ export const Characters: Character[] = [
     id: "nerona-imu",
     displayName: "Imu",
     fullName: "Nerona Imu",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Imu?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -40,7 +41,8 @@ export const Characters: Character[] = [
     id: "monkey-d-luffy",
     displayName: "Luffy",
     fullName: "Monkey D. Luffy",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Luffy?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.2 },
@@ -75,7 +77,8 @@ export const Characters: Character[] = [
     id: "shanks",
     displayName: "Shanks",
     fullName: "Shanks",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shanks?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.15 },
@@ -110,7 +113,8 @@ export const Characters: Character[] = [
     id: "marshall-d-teach",
     displayName: "Blackbeard",
     fullName: "Marshall D. Teach",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Blackbeard?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.8 },
@@ -145,7 +149,8 @@ export const Characters: Character[] = [
     id: "sakazuki",
     displayName: "Akainu",
     fullName: "Sakazuki",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Akainu?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.0 },
@@ -180,7 +185,8 @@ export const Characters: Character[] = [
     id: "dracule-mihawk",
     displayName: "Mihawk",
     fullName: "Dracule Mihawk",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Mihawk?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.15 },
@@ -215,7 +221,8 @@ export const Characters: Character[] = [
     id: "monkey-d-dragon",
     displayName: "Dragon",
     fullName: "Monkey D. Dragon",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Dragon?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -250,7 +257,8 @@ export const Characters: Character[] = [
     id: "loki",
     displayName: "Loki",
     fullName: "Loki",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Loki?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -285,7 +293,8 @@ export const Characters: Character[] = [
     id: "figarland-shamrock",
     displayName: "Shamrock",
     fullName: "Figarland Shamrock",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shamrock?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -320,7 +329,8 @@ export const Characters: Character[] = [
     id: "kuzan",
     displayName: "Kuzan",
     fullName: "Kuzan",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kuzan?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.95 },
@@ -355,7 +365,8 @@ export const Characters: Character[] = [
     id: "joy-boy",
     displayName: "Joy Boy",
     fullName: "Joy Boy",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Joy%20Boy?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.35 },
@@ -390,7 +401,8 @@ export const Characters: Character[] = [
     id: "rocks-d-xebec",
     displayName: "Rocks",
     fullName: "Rocks D. Xebec",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Rocks?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.25 },
@@ -425,7 +437,8 @@ export const Characters: Character[] = [
     id: "gol-d-roger",
     displayName: "Roger",
     fullName: "Gol D. Roger",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Roger?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.35 },
@@ -460,7 +473,8 @@ export const Characters: Character[] = [
     id: "edward-newgate",
     displayName: "Whitebeard",
     fullName: "Edward Newgate",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Whitebeard?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.2 },
@@ -495,7 +509,8 @@ export const Characters: Character[] = [
     id: "kozuki-oden",
     displayName: "Oden",
     fullName: "Kozuki Oden",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Oden?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -530,7 +545,8 @@ export const Characters: Character[] = [
     id: "shimotsuki-ryuma",
     displayName: "Ryuma",
     fullName: "Shimotsuki Ryuma",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ryuma?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.05 },
@@ -565,7 +581,8 @@ export const Characters: Character[] = [
     id: "portgas-d-ace",
     displayName: "Ace",
     fullName: "Portgas D. Ace",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ace?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -600,7 +617,8 @@ export const Characters: Character[] = [
     id: "fisher-tiger",
     displayName: "Fisher Tiger",
     fullName: "Fisher Tiger",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Fisher%20Tiger?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -635,7 +653,8 @@ export const Characters: Character[] = [
     id: "harald",
     displayName: "Harald",
     fullName: "Harald",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Harald?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "advanced", multiplier: 2.2 },
@@ -670,7 +689,8 @@ export const Characters: Character[] = [
     id: "pedro",
     displayName: "Pedro",
     fullName: "Pedro",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Pedro?_a=BAMAROFG0",
     race: "mink",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -705,7 +725,8 @@ export const Characters: Character[] = [
     id: "shiki",
     displayName: "Shiki",
     fullName: "Shiki",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shiki?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -740,7 +761,8 @@ export const Characters: Character[] = [
     id: "scopper-gaban",
     displayName: "Gaban",
     fullName: "Scopper Gaban",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Gaban?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -775,7 +797,8 @@ export const Characters: Character[] = [
     id: "borsalino",
     displayName: "Kizaru",
     fullName: "Borsalino",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kizaru?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.9 },
@@ -810,7 +833,8 @@ export const Characters: Character[] = [
     id: "monkey-d-garp",
     displayName: "Garp",
     fullName: "Monkey D. Garp",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Garp?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -845,7 +869,8 @@ export const Characters: Character[] = [
     id: "roronoa-zoro",
     displayName: "Zoro",
     fullName: "Roronoa Zoro",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Zoro?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.05 },
@@ -880,7 +905,8 @@ export const Characters: Character[] = [
     id: "sanji",
     displayName: "Sanji",
     fullName: "Vinsmoke Sanji",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sanji?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -915,7 +941,8 @@ export const Characters: Character[] = [
     id: "sabo",
     displayName: "Sabo",
     fullName: "Sabo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sabo?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -950,7 +977,8 @@ export const Characters: Character[] = [
     id: "fujitora",
     displayName: "Fujitora",
     fullName: "Issho",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Fujitora?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.9 },
@@ -985,7 +1013,8 @@ export const Characters: Character[] = [
     id: "sengoku",
     displayName: "Sengoku",
     fullName: "Sengoku",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sengoku?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.0 },
@@ -1020,7 +1049,8 @@ export const Characters: Character[] = [
     id: "ethanbaron-v-nusjuro",
     displayName: "Nusjuro",
     fullName: "Ethanbaron V. Nusjuro",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Nusjuro?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.0 },
@@ -1055,7 +1085,8 @@ export const Characters: Character[] = [
     id: "jaygarcia-saturn",
     displayName: "Saturn",
     fullName: "Jaygarcia Saturn",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Saturn?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.0 },
@@ -1090,7 +1121,8 @@ export const Characters: Character[] = [
     id: "marcus-mars",
     displayName: "Mars",
     fullName: "Marcus Mars",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Mars?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.15 },
@@ -1125,7 +1157,8 @@ export const Characters: Character[] = [
     id: "topman-warcury",
     displayName: "Warcury",
     fullName: "Topman Warcury",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Warcury?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.0 },
@@ -1160,7 +1193,8 @@ export const Characters: Character[] = [
     id: "shepherd-ju-peter",
     displayName: "Ju Peter",
     fullName: "Shepherd Ju Peter",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ju%20Peter?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.0 },
@@ -1195,7 +1229,8 @@ export const Characters: Character[] = [
     id: "figarland-garling",
     displayName: "Garling",
     fullName: "Figarland Garling",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Garling?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.05 },
@@ -1230,7 +1265,8 @@ export const Characters: Character[] = [
     id: "shepherd-sommers",
     displayName: "Sommers",
     fullName: "Saint Shepherd Sommers",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sommers?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -1265,7 +1301,8 @@ export const Characters: Character[] = [
     id: "rimoshifu-killingham",
     displayName: "Killingham",
     fullName: "Rimoshifu Killingham",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Killingham?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -1300,7 +1337,8 @@ export const Characters: Character[] = [
     id: "manmayer-gunko",
     displayName: "Gunko",
     fullName: "Manmayer Gunko",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Gunko?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -1335,7 +1373,8 @@ export const Characters: Character[] = [
     id: "benn-beckman",
     displayName: "Beckman",
     fullName: "Benn Beckman",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Beckman?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.9 },
@@ -1370,7 +1409,8 @@ export const Characters: Character[] = [
     id: "silvers-rayleigh",
     displayName: "Rayleigh",
     fullName: "Silvers Rayleigh",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Rayleigh?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.15 },
@@ -1405,7 +1445,8 @@ export const Characters: Character[] = [
     id: "kaido",
     displayName: "Kaido",
     fullName: "Kaido",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kaido?_a=BAMAROFG0",
     race: "oni",
     haki: {
       armament: { tier: "advanced", multiplier: 2.2 },
@@ -1440,7 +1481,8 @@ export const Characters: Character[] = [
     id: "charlotte-linlin",
     displayName: "Big Mom",
     fullName: "Charlotte Linlin",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Big%20Mom?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 2.1 },
@@ -1475,7 +1517,8 @@ export const Characters: Character[] = [
     id: "trafalgar-d-water-law",
     displayName: "Law",
     fullName: "Trafalgar D. Water Law",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Law?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.9 },
@@ -1510,7 +1553,8 @@ export const Characters: Character[] = [
     id: "shiryu",
     displayName: "Shiryu",
     fullName: "Shiryu",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shiryu?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -1545,7 +1589,8 @@ export const Characters: Character[] = [
     id: "king-the-conflagration",
     displayName: "King",
     fullName: "King the Conflagration",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/King?_a=BAMAROFG0",
     race: "lunarian",
     haki: {
       armament: { tier: "basic", multiplier: 1.42 },
@@ -1580,7 +1625,8 @@ export const Characters: Character[] = [
     id: "charlotte-katakuri",
     displayName: "Katakuri",
     fullName: "Charlotte Katakuri",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Katakuri?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.7 },
@@ -1615,7 +1661,8 @@ export const Characters: Character[] = [
     id: "marco-the-phoenix",
     displayName: "Marco",
     fullName: "Marco the Phoenix",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Marco?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.55 },
@@ -1650,7 +1697,8 @@ export const Characters: Character[] = [
     id: "yamato",
     displayName: "Yamato",
     fullName: "Yamato",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Yamato?_a=BAMAROFG0",
     race: "oni",
     haki: {
       armament: { tier: "advanced", multiplier: 1.95 },
@@ -1685,7 +1733,8 @@ export const Characters: Character[] = [
     id: "jinbe",
     displayName: "Jinbe",
     fullName: "Jinbe",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Jinbe?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "advanced", multiplier: 1.65 },
@@ -1720,7 +1769,8 @@ export const Characters: Character[] = [
     id: "killer",
     displayName: "Killer",
     fullName: "Killer",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Killer?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -1755,7 +1805,8 @@ export const Characters: Character[] = [
     id: "edward-weevil",
     displayName: "Weevil",
     fullName: "Edward Weevil",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Weevil?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -1790,7 +1841,8 @@ export const Characters: Character[] = [
     id: "boa-hancock",
     displayName: "Hancock",
     fullName: "Boa Hancock",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hancock?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -1825,7 +1877,8 @@ export const Characters: Character[] = [
     id: "crocodile",
     displayName: "Crocodile",
     fullName: "Sir Crocodile",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Crocodile?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -1860,7 +1913,8 @@ export const Characters: Character[] = [
     id: "buggy-the-star-clown",
     displayName: "Buggy",
     fullName: "Buggy the Star Clown",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Buggy?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -1895,7 +1949,8 @@ export const Characters: Character[] = [
     id: "donquixote-doflamingo",
     displayName: "Doflamingo",
     fullName: "Donquixote Doflamingo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Doflamingo?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -1930,7 +1985,8 @@ export const Characters: Character[] = [
     id: "aramaki",
     displayName: "Green Bull",
     fullName: "Aramaki",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Green%20Bull?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -1965,7 +2021,8 @@ export const Characters: Character[] = [
     id: "jesus-burgess",
     displayName: "Burgess",
     fullName: "Jesus Burgess",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Burgess?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -2000,7 +2057,8 @@ export const Characters: Character[] = [
     id: "lucky-roux",
     displayName: "Lucky Roux",
     fullName: "Lucky Roux",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Lucky%20Roux?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.42 },
@@ -2035,7 +2093,8 @@ export const Characters: Character[] = [
     id: "yasopp",
     displayName: "Yasopp",
     fullName: "Yasopp",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Yasopp?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2070,7 +2129,8 @@ export const Characters: Character[] = [
     id: "charlotte-cracker",
     displayName: "Cracker",
     fullName: "Charlotte Cracker",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Cracker?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.55 },
@@ -2105,7 +2165,8 @@ export const Characters: Character[] = [
     id: "charlotte-perospero",
     displayName: "Perospero",
     fullName: "Charlotte Perospero",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Perospero?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -2140,7 +2201,8 @@ export const Characters: Character[] = [
     id: "nico-robin",
     displayName: "Robin",
     fullName: "Nico Robin",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Robin?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2175,7 +2237,8 @@ export const Characters: Character[] = [
     id: "franky",
     displayName: "Franky",
     fullName: "Franky",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Franky?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2210,7 +2273,8 @@ export const Characters: Character[] = [
     id: "brook",
     displayName: "Brook",
     fullName: "Brook",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Brook?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2245,7 +2309,8 @@ export const Characters: Character[] = [
     id: "tony-tony-chopper",
     displayName: "Chopper",
     fullName: "Tony Tony Chopper",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Chopper?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2280,7 +2345,8 @@ export const Characters: Character[] = [
     id: "smoker",
     displayName: "Smoker",
     fullName: "Smoker",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Smoker?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -2315,7 +2381,8 @@ export const Characters: Character[] = [
     id: "bartholomew-kuma",
     displayName: "Kuma",
     fullName: "Bartholomew Kuma",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kuma?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -2350,7 +2417,8 @@ export const Characters: Character[] = [
     id: "eustass-kid",
     displayName: "Kid",
     fullName: "Eustass Kid",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kid?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -2385,7 +2453,8 @@ export const Characters: Character[] = [
     id: "magellan",
     displayName: "Magellan",
     fullName: "Magellan",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Magellan?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -2420,7 +2489,8 @@ export const Characters: Character[] = [
     id: "jewelry-bonney",
     displayName: "Bonney",
     fullName: "Jewelry Bonney",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Bonney?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -2455,7 +2525,8 @@ export const Characters: Character[] = [
     id: "sugar",
     displayName: "Sugar",
     fullName: "Sugar",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sugar?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2490,7 +2561,8 @@ export const Characters: Character[] = [
     id: "vegapunk",
     displayName: "Vegapunk",
     fullName: "Vegapunk",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Vegapunk?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2525,7 +2597,8 @@ export const Characters: Character[] = [
     id: "van-augur",
     displayName: "Augur",
     fullName: "Van Augur",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Augur?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2560,7 +2633,8 @@ export const Characters: Character[] = [
     id: "doc-q",
     displayName: "Doc Q",
     fullName: "Doc Q",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Doc%20Q?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2595,7 +2669,8 @@ export const Characters: Character[] = [
     id: "emporio-ivankov",
     displayName: "Ivankov",
     fullName: "Emporio Ivankov",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ivankov?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2630,7 +2705,8 @@ export const Characters: Character[] = [
     id: "gecko-moria",
     displayName: "Moria",
     fullName: "Gecko Moria",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Moria?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2665,7 +2741,8 @@ export const Characters: Character[] = [
     id: "capone-bege",
     displayName: "Bege",
     fullName: "Capone Bege",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Bege?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2700,7 +2777,8 @@ export const Characters: Character[] = [
     id: "rob-lucci",
     displayName: "Lucci",
     fullName: "Rob Lucci",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Lucci?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.5 },
@@ -2735,7 +2813,8 @@ export const Characters: Character[] = [
     id: "bartolomeo",
     displayName: "Bartolomeo",
     fullName: "Bartolomeo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Bartolomeo?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2770,7 +2849,8 @@ export const Characters: Character[] = [
     id: "pell",
     displayName: "Pell",
     fullName: "Pell",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Pell?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2805,7 +2885,8 @@ export const Characters: Character[] = [
     id: "kaku",
     displayName: "Kaku",
     fullName: "Kaku",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kaku?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -2840,7 +2921,8 @@ export const Characters: Character[] = [
     id: "jack",
     displayName: "Jack",
     fullName: "Jack",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Jack?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -2875,7 +2957,8 @@ export const Characters: Character[] = [
     id: "page-one",
     displayName: "Page One",
     fullName: "Page One",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Page%20One?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -2910,7 +2993,8 @@ export const Characters: Character[] = [
     id: "x-drake",
     displayName: "Drake",
     fullName: "X Drake",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Drake?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -2945,7 +3029,8 @@ export const Characters: Character[] = [
     id: "ulti",
     displayName: "Ulti",
     fullName: "Ulti",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ulti?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -2980,7 +3065,8 @@ export const Characters: Character[] = [
     id: "whos-who",
     displayName: "Who's-Who",
     fullName: "Who's-Who",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Who's-Who?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -3015,7 +3101,8 @@ export const Characters: Character[] = [
     id: "enel",
     displayName: "Enel",
     fullName: "Enel",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Enel?_a=BAMAROFG0",
     race: "skypiean",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3050,7 +3137,8 @@ export const Characters: Character[] = [
     id: "karasu",
     displayName: "Karasu",
     fullName: "Karasu",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Karasu?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -3085,7 +3173,8 @@ export const Characters: Character[] = [
     id: "caesar-clown",
     displayName: "Caesar",
     fullName: "Caesar Clown",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Caesar?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3120,7 +3209,8 @@ export const Characters: Character[] = [
     id: "caribou",
     displayName: "Caribou",
     fullName: "Caribou",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Caribou?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3155,7 +3245,8 @@ export const Characters: Character[] = [
     id: "monet",
     displayName: "Monet",
     fullName: "Monet",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Monet?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3190,7 +3281,8 @@ export const Characters: Character[] = [
     id: "hody-jones",
     displayName: "Hody",
     fullName: "Hody Jones",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hody?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3225,7 +3317,8 @@ export const Characters: Character[] = [
     id: "arlong",
     displayName: "Arlong",
     fullName: "Arlong",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Arlong?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3260,7 +3353,8 @@ export const Characters: Character[] = [
     id: "hatchan",
     displayName: "Hatchan",
     fullName: "Hatchan",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hatchan?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3295,7 +3389,8 @@ export const Characters: Character[] = [
     id: "hack",
     displayName: "Hack",
     fullName: "Hack",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hack?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3330,7 +3425,8 @@ export const Characters: Character[] = [
     id: "wadatsumi",
     displayName: "Wadatsumi",
     fullName: "Wadatsumi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Wadatsumi?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3365,7 +3461,8 @@ export const Characters: Character[] = [
     id: "kawamatsu",
     displayName: "Kawamatsu",
     fullName: "Kawamatsu",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kawamatsu?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -3400,7 +3497,8 @@ export const Characters: Character[] = [
     id: "dorry",
     displayName: "Dorry",
     fullName: "Dorry",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Dorry?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "advanced", multiplier: 1.65 },
@@ -3435,7 +3533,8 @@ export const Characters: Character[] = [
     id: "brogy",
     displayName: "Brogy",
     fullName: "Brogy",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Brogy?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "advanced", multiplier: 1.65 },
@@ -3470,7 +3569,8 @@ export const Characters: Character[] = [
     id: "hajrudin",
     displayName: "Hajrudin",
     fullName: "Hajrudin",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hajrudin?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "basic", multiplier: 1.75 },
@@ -3505,7 +3605,8 @@ export const Characters: Character[] = [
     id: "jaguar-d-saul",
     displayName: "Saul",
     fullName: "Jaguar D. Saul",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Saul?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -3540,7 +3641,8 @@ export const Characters: Character[] = [
     id: "morley",
     displayName: "Morley",
     fullName: "Morley",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Morley?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -3575,7 +3677,8 @@ export const Characters: Character[] = [
     id: "sanjuan-wolf",
     displayName: "Wolf",
     fullName: "Sanjuan Wolf",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Wolf?_a=BAMAROFG0",
     race: "giant",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3610,7 +3713,8 @@ export const Characters: Character[] = [
     id: "inuarashi",
     displayName: "Inuarashi",
     fullName: "Inuarashi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Inuarashi?_a=BAMAROFG0",
     race: "mink",
     haki: {
       armament: { tier: "advanced", multiplier: 1.75 },
@@ -3645,7 +3749,8 @@ export const Characters: Character[] = [
     id: "nekomamushi",
     displayName: "Nekomamushi",
     fullName: "Nekomamushi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Nekomamushi?_a=BAMAROFG0",
     race: "mink",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -3680,7 +3785,8 @@ export const Characters: Character[] = [
     id: "carrot",
     displayName: "Carrot",
     fullName: "Carrot",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Carrot?_a=BAMAROFG0",
     race: "mink",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3715,7 +3821,8 @@ export const Characters: Character[] = [
     id: "bepo",
     displayName: "Bepo",
     fullName: "Bepo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Bepo?_a=BAMAROFG0",
     race: "mink",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3750,7 +3857,8 @@ export const Characters: Character[] = [
     id: "conis",
     displayName: "Conis",
     fullName: "Conis",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Conis?_a=BAMAROFG0",
     race: "skypiean",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3785,7 +3893,8 @@ export const Characters: Character[] = [
     id: "gan-fall",
     displayName: "Gan Fall",
     fullName: "Gan Fall",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Gan%20Fall?_a=BAMAROFG0",
     race: "skypiean",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3820,7 +3929,8 @@ export const Characters: Character[] = [
     id: "wyper",
     displayName: "Wyper",
     fullName: "Wyper",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Wyper?_a=BAMAROFG0",
     race: "shandia",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3855,7 +3965,8 @@ export const Characters: Character[] = [
     id: "aisa",
     displayName: "Aisa",
     fullName: "Aisa",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Aisa?_a=BAMAROFG0",
     race: "shandia",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3890,7 +4001,8 @@ export const Characters: Character[] = [
     id: "raki",
     displayName: "Raki",
     fullName: "Raki",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Raki?_a=BAMAROFG0",
     race: "shandia",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3925,7 +4037,8 @@ export const Characters: Character[] = [
     id: "kamakiri",
     displayName: "Kamakiri",
     fullName: "Kamakiri",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kamakiri?_a=BAMAROFG0",
     race: "shandia",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3960,7 +4073,8 @@ export const Characters: Character[] = [
     id: "kalgara",
     displayName: "Kalgara",
     fullName: "Kalgara",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kalgara?_a=BAMAROFG0",
     race: "shandia",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -3995,7 +4109,8 @@ export const Characters: Character[] = [
     id: "ideo",
     displayName: "Ideo",
     fullName: "Ideo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ideo?_a=BAMAROFG0",
     race: "longarm",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4030,7 +4145,8 @@ export const Characters: Character[] = [
     id: "scratchmen-apoo",
     displayName: "Apoo",
     fullName: "Scratchmen Apoo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Apoo?_a=BAMAROFG0",
     race: "longarm",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -4065,7 +4181,8 @@ export const Characters: Character[] = [
     id: "charlotte-smoothie",
     displayName: "Smoothie",
     fullName: "Charlotte Smoothie",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Smoothie?_a=BAMAROFG0",
     race: "longleg",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -4100,7 +4217,8 @@ export const Characters: Character[] = [
     id: "baron-tamago",
     displayName: "Tamago",
     fullName: "Baron Tamago",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Tamago?_a=BAMAROFG0",
     race: "longleg",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -4135,7 +4253,8 @@ export const Characters: Character[] = [
     id: "blue-gilly",
     displayName: "Blue Gilly",
     fullName: "Blue Gilly",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Blue%20Gilly?_a=BAMAROFG0",
     race: "longleg",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4170,7 +4289,8 @@ export const Characters: Character[] = [
     id: "fukaboshi",
     displayName: "Fukaboshi",
     fullName: "Fukaboshi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Fukaboshi?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4205,7 +4325,8 @@ export const Characters: Character[] = [
     id: "shirahoshi",
     displayName: "Shirahoshi",
     fullName: "Shirahoshi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shirahoshi?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4240,7 +4361,8 @@ export const Characters: Character[] = [
     id: "neptune",
     displayName: "Neptune",
     fullName: "Neptune",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Neptune?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4275,7 +4397,8 @@ export const Characters: Character[] = [
     id: "otohime",
     displayName: "Otohime",
     fullName: "Otohime",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Otohime?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4310,7 +4433,8 @@ export const Characters: Character[] = [
     id: "ryuboshi",
     displayName: "Ryuboshi",
     fullName: "Ryuboshi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ryuboshi?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4345,7 +4469,8 @@ export const Characters: Character[] = [
     id: "manboshi",
     displayName: "Manboshi",
     fullName: "Manboshi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Manboshi?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4380,7 +4505,8 @@ export const Characters: Character[] = [
     id: "camie",
     displayName: "Camie",
     fullName: "Camie",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Camie?_a=BAMAROFG0",
     race: "merfolk",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4415,7 +4541,8 @@ export const Characters: Character[] = [
     id: "hyouzou",
     displayName: "Hyouzou",
     fullName: "Hyouzou",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hyouzou?_a=BAMAROFG0",
     race: "fishman",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4450,7 +4577,8 @@ export const Characters: Character[] = [
     id: "leo",
     displayName: "Leo",
     fullName: "Leo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Leo?_a=BAMAROFG0",
     race: "dwarf",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4485,7 +4613,8 @@ export const Characters: Character[] = [
     id: "mansherry",
     displayName: "Mansherry",
     fullName: "Mansherry",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Mansherry?_a=BAMAROFG0",
     race: "dwarf",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4520,7 +4649,8 @@ export const Characters: Character[] = [
     id: "gancho",
     displayName: "Gancho",
     fullName: "Gancho",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Gancho?_a=BAMAROFG0",
     race: "dwarf",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4555,7 +4685,8 @@ export const Characters: Character[] = [
     id: "kabu",
     displayName: "Kabu",
     fullName: "Kabu",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kabu?_a=BAMAROFG0",
     race: "dwarf",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4590,7 +4721,8 @@ export const Characters: Character[] = [
     id: "wicca",
     displayName: "Wicca",
     fullName: "Wicca",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Wicca?_a=BAMAROFG0",
     race: "dwarf",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4625,7 +4757,8 @@ export const Characters: Character[] = [
     id: "bian",
     displayName: "Bian",
     fullName: "Bian",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Bian?_a=BAMAROFG0",
     race: "dwarf",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4660,7 +4793,8 @@ export const Characters: Character[] = [
     id: "nami",
     displayName: "Nami",
     fullName: "Nami",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Nami?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4695,7 +4829,8 @@ export const Characters: Character[] = [
     id: "usopp",
     displayName: "Usopp",
     fullName: "Usopp",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Usopp?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4730,7 +4865,8 @@ export const Characters: Character[] = [
     id: "basil-hawkins",
     displayName: "Hawkins",
     fullName: "Basil Hawkins",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hawkins?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -4765,7 +4901,8 @@ export const Characters: Character[] = [
     id: "urouge",
     displayName: "Urouge",
     fullName: "Urouge",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Urouge?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -4800,7 +4937,8 @@ export const Characters: Character[] = [
     id: "koby",
     displayName: "Koby",
     fullName: "Koby",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Koby?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.9 },
@@ -4835,7 +4973,8 @@ export const Characters: Character[] = [
     id: "helmeppo",
     displayName: "Helmeppo",
     fullName: "Helmeppo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Helmeppo?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -4870,7 +5009,8 @@ export const Characters: Character[] = [
     id: "tsuru",
     displayName: "Tsuru",
     fullName: "Tsuru",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Tsuru?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -4905,7 +5045,8 @@ export const Characters: Character[] = [
     id: "tashigi",
     displayName: "Tashigi",
     fullName: "Tashigi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Tashigi?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.3 },
@@ -4940,7 +5081,8 @@ export const Characters: Character[] = [
     id: "lindbergh",
     displayName: "Lindbergh",
     fullName: "Lindbergh",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Lindbergh?_a=BAMAROFG0",
     race: "mink",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -4975,7 +5117,8 @@ export const Characters: Character[] = [
     id: "vista",
     displayName: "Vista",
     fullName: "Vista",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Vista?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.55 },
@@ -5010,7 +5153,8 @@ export const Characters: Character[] = [
     id: "hina",
     displayName: "Hina",
     fullName: "Hina",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hina?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5045,7 +5189,8 @@ export const Characters: Character[] = [
     id: "charlotte-pudding",
     displayName: "Pudding",
     fullName: "Charlotte Pudding",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Pudding?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5080,7 +5225,8 @@ export const Characters: Character[] = [
     id: "charlotte-oven",
     displayName: "Oven",
     fullName: "Charlotte Oven",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Oven?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -5115,7 +5261,8 @@ export const Characters: Character[] = [
     id: "charlotte-brulee",
     displayName: "Brûlée",
     fullName: "Charlotte Brûlée",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Br%C3%BBl%C3%A9e?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5150,7 +5297,8 @@ export const Characters: Character[] = [
     id: "charlotte-daifuku",
     displayName: "Daifuku",
     fullName: "Charlotte Daifuku",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Daifuku?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.3 },
@@ -5185,7 +5333,8 @@ export const Characters: Character[] = [
     id: "charlotte-mont-dor",
     displayName: "Mont-d'Or",
     fullName: "Charlotte Mont-d'Or",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Mont-d'Or?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5220,7 +5369,8 @@ export const Characters: Character[] = [
     id: "laffitte",
     displayName: "Laffitte",
     fullName: "Laffitte",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Laffitte?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.3 },
@@ -5255,7 +5405,8 @@ export const Characters: Character[] = [
     id: "vasco-shot",
     displayName: "Vasco Shot",
     fullName: "Vasco Shot",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Vasco%20Shot?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.3 },
@@ -5290,7 +5441,8 @@ export const Characters: Character[] = [
     id: "avalo-pizarro",
     displayName: "Pizarro",
     fullName: "Avalo Pizarro",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Pizarro?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5325,7 +5477,8 @@ export const Characters: Character[] = [
     id: "catarina-devon",
     displayName: "Devon",
     fullName: "Catarina Devon",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Devon?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5360,7 +5513,8 @@ export const Characters: Character[] = [
     id: "kikunojo",
     displayName: "Kiku",
     fullName: "Kikunojo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kiku?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.45 },
@@ -5395,7 +5549,8 @@ export const Characters: Character[] = [
     id: "denjiro",
     displayName: "Denjiro",
     fullName: "Denjiro",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Denjiro?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.7 },
@@ -5430,7 +5585,8 @@ export const Characters: Character[] = [
     id: "kinemon",
     displayName: "Kin'emon",
     fullName: "Kin'emon",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kin'emon?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.3 },
@@ -5465,7 +5621,8 @@ export const Characters: Character[] = [
     id: "ashura-doji",
     displayName: "Ashura Doji",
     fullName: "Ashura Doji",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Ashura%20Doji?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.85 },
@@ -5500,7 +5657,8 @@ export const Characters: Character[] = [
     id: "raizo",
     displayName: "Raizo",
     fullName: "Raizo",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Raizo?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.3 },
@@ -5535,7 +5693,8 @@ export const Characters: Character[] = [
     id: "kurozumi-kanjuro",
     displayName: "Kanjuro",
     fullName: "Kurozumi Kanjuro",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kanjuro?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -5570,7 +5729,8 @@ export const Characters: Character[] = [
     id: "shinobu",
     displayName: "Shinobu",
     fullName: "Shinobu",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Shinobu?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5605,7 +5765,8 @@ export const Characters: Character[] = [
     id: "kozuki-momonosuke",
     displayName: "Momonosuke",
     fullName: "Kozuki Momonosuke",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Momonosuke?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5640,7 +5801,8 @@ export const Characters: Character[] = [
     id: "nefertari-vivi",
     displayName: "Vivi",
     fullName: "Nefertari Vivi",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Vivi?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5675,7 +5837,8 @@ export const Characters: Character[] = [
     id: "nefertari-cobra",
     displayName: "Cobra",
     fullName: "Nefertari Cobra",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Cobra?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5710,7 +5873,8 @@ export const Characters: Character[] = [
     id: "bentham",
     displayName: "Bon Clay",
     fullName: "Bentham",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Bon%20Clay?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5745,7 +5909,8 @@ export const Characters: Character[] = [
     id: "daz-bonez",
     displayName: "Daz Bonez",
     fullName: "Daz Bonez",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Daz%20Bonez?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -5780,7 +5945,8 @@ export const Characters: Character[] = [
     id: "galdino",
     displayName: "Mr. 3",
     fullName: "Galdino",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Mr.%203?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5815,7 +5981,8 @@ export const Characters: Character[] = [
     id: "zala",
     displayName: "Zala",
     fullName: "Zala",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Zala?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5850,7 +6017,8 @@ export const Characters: Character[] = [
     id: "miss-goldenweek",
     displayName: "Goldenweek",
     fullName: "Marianne",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Goldenweek?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5885,7 +6053,8 @@ export const Characters: Character[] = [
     id: "koza",
     displayName: "Koza",
     fullName: "Koza",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Koza?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5920,7 +6089,8 @@ export const Characters: Character[] = [
     id: "perona",
     displayName: "Perona",
     fullName: "Perona",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Perona?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5955,7 +6125,8 @@ export const Characters: Character[] = [
     id: "doctor-hogback",
     displayName: "Hogback",
     fullName: "Doctor Hogback",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hogback?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -5990,7 +6161,8 @@ export const Characters: Character[] = [
     id: "boa-sandersonia",
     displayName: "Sandersonia",
     fullName: "Boa Sandersonia",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sandersonia?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -6025,7 +6197,8 @@ export const Characters: Character[] = [
     id: "boa-marigold",
     displayName: "Marigold",
     fullName: "Boa Marigold",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Marigold?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -6060,7 +6233,8 @@ export const Characters: Character[] = [
     id: "hannyabal",
     displayName: "Hannyabal",
     fullName: "Hannyabal",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Hannyabal?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -6095,7 +6269,8 @@ export const Characters: Character[] = [
     id: "cavendish",
     displayName: "Cavendish",
     fullName: "Cavendish",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Cavendish?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.5 },
@@ -6130,7 +6305,8 @@ export const Characters: Character[] = [
     id: "rebecca",
     displayName: "Rebecca",
     fullName: "Rebecca",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Rebecca?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -6165,7 +6341,8 @@ export const Characters: Character[] = [
     id: "kyros",
     displayName: "Kyros",
     fullName: "Kyros",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Kyros?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -6200,7 +6377,8 @@ export const Characters: Character[] = [
     id: "pica",
     displayName: "Pica",
     fullName: "Pica",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Pica?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -6235,7 +6413,8 @@ export const Characters: Character[] = [
     id: "senor-pink",
     displayName: "Senor Pink",
     fullName: "Senor Pink",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Senor%20Pink?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -6270,7 +6449,8 @@ export const Characters: Character[] = [
     id: "sentomaru",
     displayName: "Sentomaru",
     fullName: "Sentomaru",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sentomaru?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "advanced", multiplier: 1.75 },
@@ -6305,7 +6485,8 @@ export const Characters: Character[] = [
     id: "queen",
     displayName: "Queen",
     fullName: "Queen",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Queen?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.4 },
@@ -6340,7 +6521,8 @@ export const Characters: Character[] = [
     id: "black-maria",
     displayName: "Black Maria",
     fullName: "Black Maria",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Black%20Maria?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.25 },
@@ -6375,7 +6557,8 @@ export const Characters: Character[] = [
     id: "sasaki",
     displayName: "Sasaki",
     fullName: "Sasaki",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Sasaki?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "basic", multiplier: 1.35 },
@@ -6410,7 +6593,8 @@ export const Characters: Character[] = [
     id: "wapol",
     displayName: "Wapol",
     fullName: "Wapol",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Wapol?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -6445,7 +6629,8 @@ export const Characters: Character[] = [
     id: "koala",
     displayName: "Koala",
     fullName: "Koala",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Koala?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
@@ -6480,7 +6665,8 @@ export const Characters: Character[] = [
     id: "donquixote-rosinante",
     displayName: "Corazon",
     fullName: "Donquixote Rosinante",
-    imageURL: "placeholder.webp",
+    imageURL:
+      "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/Corazon?_a=BAMAROFG0",
     race: "human",
     haki: {
       armament: { tier: "none", multiplier: 1.0 },
