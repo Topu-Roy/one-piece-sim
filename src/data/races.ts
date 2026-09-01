@@ -20,39 +20,39 @@ export const RaceTable: RaceStats[] = [
   },
   {
     name: "longleg",
-    stats: { strength: 100, durability: 100, speed: 400, awareness: 120, stamina: 140 },
+    stats: { strength: 100, durability: 100, speed: 220, awareness: 120, stamina: 140 },
   },
   {
     name: "shandia",
-    stats: { strength: 180, durability: 160, speed: 200, awareness: 180, stamina: 200 },
+    stats: { strength: 180, durability: 160, speed: 200, awareness: 180, stamina: 180 },
   },
   {
     name: "merfolk",
-    stats: { strength: 130, durability: 130, speed: 700, awareness: 150, stamina: 100 },
+    stats: { strength: 130, durability: 130, speed: 600, awareness: 150, stamina: 100 },
   },
   {
     name: "mink",
-    stats: { strength: 250, durability: 220, speed: 500, awareness: 400, stamina: 350 },
+    stats: { strength: 250, durability: 220, speed: 450, awareness: 250, stamina: 190 },
   },
   {
     name: "dwarf",
-    stats: { strength: 300, durability: 180, speed: 600, awareness: 200, stamina: 250 },
+    stats: { strength: 300, durability: 180, speed: 400, awareness: 200, stamina: 200 },
   },
   {
     name: "fishman",
-    stats: { strength: 1000, durability: 500, speed: 300, awareness: 150, stamina: 500 },
+    stats: { strength: 500, durability: 400, speed: 300, awareness: 150, stamina: 250 },
   },
   {
     name: "lunarian",
-    stats: { strength: 700, durability: 2000, speed: 400, awareness: 200, stamina: 500 },
+    stats: { strength: 600, durability: 650, speed: 280, awareness: 190, stamina: 300 },
   },
   {
     name: "giant",
-    stats: { strength: 2000, durability: 1000, speed: 100, awareness: 100, stamina: 900 },
+    stats: { strength: 850, durability: 550, speed: 100, awareness: 100, stamina: 250 },
   },
   {
     name: "oni",
-    stats: { strength: 900, durability: 900, speed: 200, awareness: 200, stamina: 1000 },
+    stats: { strength: 650, durability: 450, speed: 200, awareness: 180, stamina: 350 },
   },
 ];
 

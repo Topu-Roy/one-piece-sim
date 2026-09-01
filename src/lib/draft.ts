@@ -233,16 +233,22 @@ export function pickOption(state: DraftState, characterIndex: number): DraftStat
   };
 }
 
+/** Resolve a DraftPick to its Character */
+function resolveChar(pick: DraftPick | undefined): Character | null {
+  if (!pick) return null;
+  return Characters.find((c) => c.id === pick.characterId) ?? null;
+}
+
 /** Calculate final stats from all picks */
 export function calculateFinalStats(picks: DraftPick[]): {
   stats: StatBlock;
   breakdown: { label: string; modifier: string }[];
 } {
   const breakdown: { label: string; modifier: string }[] = [];
+  const get = (type: RoundType) => resolveChar(picks.find((p) => p.roundType === type));
 
   // Step 1: Get base stats from race pick
-  const racePick = picks.find((p) => p.roundType === "race");
-  const raceChar = racePick ? Characters.find((c) => c.id === racePick.characterId) : null;
+  const raceChar = get("race");
   const stats: StatBlock = raceChar
     ? getRaceStats(raceChar.race)
     : { strength: 100, durability: 100, speed: 100, awareness: 100, stamina: 100 };
@@ -253,111 +259,67 @@ export function calculateFinalStats(picks: DraftPick[]): {
   });
 
   // Step 2: Apply haki multipliers
-  const hakiTypes = [
-    { roundType: "armament" as const, statAffects: ["strength", "durability"] as const },
-    { roundType: "observation" as const, statAffects: ["speed", "awareness"] as const },
-    { roundType: "conqueror" as const, statAffects: ["strength", "durability", "stamina"] as const },
+  const hakiConfig = [
+    { type: "armament" as const, affects: ["strength", "durability"] as const, getMultiplier: (c: Character) => c.haki.armament },
+    { type: "observation" as const, affects: ["speed", "awareness"] as const, getMultiplier: (c: Character) => c.haki.observation },
+    { type: "conqueror" as const, affects: ["strength", "durability", "stamina"] as const, getMultiplier: (c: Character) => c.haki.conqueror },
   ];
 
-  for (const { roundType, statAffects } of hakiTypes) {
-    const pick = picks.find((p) => p.roundType === roundType);
-    if (!pick) continue;
-    const char = Characters.find((c) => c.id === pick.characterId);
+  for (const { type, affects, getMultiplier } of hakiConfig) {
+    const char = get(type);
     if (!char) continue;
-
-    const haki =
-      roundType === "armament"
-        ? char.haki.armament
-        : roundType === "observation"
-          ? char.haki.observation
-          : char.haki.conqueror;
-
-    for (const stat of statAffects) {
-      stats[stat] *= haki.multiplier;
-    }
-
-    breakdown.push({
-      label: `${roundType} (${haki.tier})`,
-      modifier: `×${haki.multiplier} on ${statAffects.join(", ")}`,
-    });
+    const haki = getMultiplier(char);
+    for (const stat of affects) stats[stat] *= haki.multiplier;
+    breakdown.push({ label: `${type} (${haki.tier})`, modifier: `×${haki.multiplier} on ${affects.join(", ")}` });
   }
 
   // Step 3: Apply DF multipliers
-  const dfPick = picks.find((p) => p.roundType === "devil_fruit");
-  if (dfPick) {
-    const char = Characters.find((c) => c.id === dfPick.characterId);
-    if (char && char.devilFruit.type !== "none") {
-      const df = char.devilFruit;
-      stats.strength *= df.attackMultiplier;
-      stats.durability *= df.durabilityMultiplier;
-      stats.speed *= df.speedMultiplier;
-      stats.awareness *= df.awarenessMultiplier;
-      stats.stamina *= df.staminaMultiplier;
-
-      breakdown.push({
-        label: `DF (${df.englishName})`,
-        modifier: `STR×${df.attackMultiplier} DEF×${df.durabilityMultiplier} SPD×${df.speedMultiplier} AWR×${df.awarenessMultiplier} STA×${df.staminaMultiplier}`,
-      });
-
-      // Awakened bonus
-      if (df.state.awakened) {
-        const aw = df.state;
-        for (const stat of aw.target) {
-          stats[stat] *= aw.awakenedMultiplier;
-        }
-        breakdown.push({
-          label: "Awakened",
-          modifier: `×${aw.awakenedMultiplier} on ${aw.target.join(", ")}`,
-        });
-      }
+  const dfChar = get("devil_fruit");
+  if (dfChar && dfChar.devilFruit.type !== "none") {
+    const df = dfChar.devilFruit;
+    stats.strength *= df.attackMultiplier;
+    stats.durability *= df.durabilityMultiplier;
+    stats.speed *= df.speedMultiplier;
+    stats.awareness *= df.awarenessMultiplier;
+    stats.stamina *= df.staminaMultiplier;
+    breakdown.push({
+      label: `DF (${df.englishName})`,
+      modifier: `STR×${df.attackMultiplier} DEF×${df.durabilityMultiplier} SPD×${df.speedMultiplier} AWR×${df.awarenessMultiplier} STA×${df.staminaMultiplier}`,
+    });
+    if (df.state.awakened) {
+      for (const stat of df.state.target) stats[stat] *= df.state.awakenedMultiplier;
+      breakdown.push({ label: "Awakened", modifier: `×${df.state.awakenedMultiplier} on ${df.state.target.join(", ")}` });
     }
   }
 
   // Step 4: Apply weapon multipliers
-  const weaponPick = picks.find((p) => p.roundType === "weapon");
-  if (weaponPick) {
-    const char = Characters.find((c) => c.id === weaponPick.characterId);
-    if (char && char.weapon.type !== "none") {
-      const w = char.weapon;
-      stats.strength *= w.attackMultiplier;
-      stats.durability *= w.durabilityMultiplier;
-      stats.speed *= w.speedMultiplier;
-      stats.awareness *= w.awarenessMultiplier;
-      stats.stamina *= w.staminaMultiplier;
-
-      breakdown.push({
-        label: `Weapon (${w.name})`,
-        modifier: `STR×${w.attackMultiplier} DEF×${w.durabilityMultiplier} SPD×${w.speedMultiplier} AWR×${w.awarenessMultiplier} STA×${w.staminaMultiplier}`,
-      });
-    }
+  const weaponChar = get("weapon");
+  if (weaponChar && weaponChar.weapon.type !== "none") {
+    const w = weaponChar.weapon;
+    stats.strength *= w.attackMultiplier;
+    stats.durability *= w.durabilityMultiplier;
+    stats.speed *= w.speedMultiplier;
+    stats.awareness *= w.awarenessMultiplier;
+    stats.stamina *= w.staminaMultiplier;
+    breakdown.push({
+      label: `Weapon (${w.name})`,
+      modifier: `STR×${w.attackMultiplier} DEF×${w.durabilityMultiplier} SPD×${w.speedMultiplier} AWR×${w.awarenessMultiplier} STA×${w.staminaMultiplier}`,
+    });
   }
 
-  // Step 5: Intelligence and Battle IQ bonuses
-  const intPick = picks.find((p) => p.roundType === "intelligence");
-  if (intPick) {
-    const char = Characters.find((c) => c.id === intPick.characterId);
-    if (char) {
-      // Scale intelligence contribution: value / 100 as percentage boost
-      const intBonus = char.intelligence / 100;
-      stats.awareness *= 1 + intBonus * 0.3;
-      breakdown.push({
-        label: `Intelligence (${char.intelligence})`,
-        modifier: `+${(intBonus * 30).toFixed(0)}% Awareness`,
-      });
-    }
+  // Step 5: Intelligence boosts awareness, Battle IQ boosts strength
+  const intChar = get("intelligence");
+  if (intChar) {
+    const bonus = intChar.intelligence / 100;
+    stats.awareness *= 1 + bonus * 0.3;
+    breakdown.push({ label: `Intelligence (${intChar.intelligence})`, modifier: `+${(bonus * 30).toFixed(0)}% Awareness` });
   }
 
-  const biqPick = picks.find((p) => p.roundType === "battle_iq");
-  if (biqPick) {
-    const char = Characters.find((c) => c.id === biqPick.characterId);
-    if (char) {
-      const biqBonus = char.battleIQ / 100;
-      stats.strength *= 1 + biqBonus * 0.2;
-      breakdown.push({
-        label: `Battle IQ (${char.battleIQ})`,
-        modifier: `+${(biqBonus * 20).toFixed(0)}% Strength`,
-      });
-    }
+  const biqChar = get("battle_iq");
+  if (biqChar) {
+    const bonus = biqChar.battleIQ / 100;
+    stats.strength *= 1 + bonus * 0.2;
+    breakdown.push({ label: `Battle IQ (${biqChar.battleIQ})`, modifier: `+${(bonus * 20).toFixed(0)}% Strength` });
   }
 
   // Round to 1 decimal
@@ -368,4 +330,55 @@ export function calculateFinalStats(picks: DraftPick[]): {
   stats.stamina = Math.round(stats.stamina * 10) / 10;
 
   return { stats, breakdown };
+}
+
+/** Simplified BST calculator — takes a single character, returns total stat sum */
+export function calculateCharacterBST(char: Character): number {
+  const race = getRaceStats(char.race);
+  const s = {
+    strength: race.strength,
+    durability: race.durability,
+    speed: race.speed,
+    awareness: race.awareness,
+    stamina: race.stamina,
+  };
+
+  // Haki — armament boosts STR+DEF, observation boosts SPD+AWR, conqueror boosts STR+DEF+STA
+  s.strength *= char.haki.armament.multiplier * char.haki.conqueror.multiplier;
+  s.durability *= char.haki.armament.multiplier * char.haki.conqueror.multiplier;
+  s.speed *= char.haki.observation.multiplier;
+  s.awareness *= char.haki.observation.multiplier;
+  s.stamina *= char.haki.conqueror.multiplier;
+
+  // Devil Fruit
+  if (char.devilFruit.type !== "none") {
+    const df = char.devilFruit;
+    s.strength *= df.attackMultiplier;
+    s.durability *= df.durabilityMultiplier;
+    s.speed *= df.speedMultiplier;
+    s.awareness *= df.awarenessMultiplier;
+    s.stamina *= df.staminaMultiplier;
+
+    if (df.state.awakened) {
+      for (const stat of df.state.target) {
+        s[stat] *= df.state.awakenedMultiplier;
+      }
+    }
+  }
+
+  // Weapon
+  if (char.weapon.type !== "none") {
+    const w = char.weapon;
+    s.strength *= w.attackMultiplier;
+    s.durability *= w.durabilityMultiplier;
+    s.speed *= w.speedMultiplier;
+    s.awareness *= w.awarenessMultiplier;
+    s.stamina *= w.staminaMultiplier;
+  }
+
+  // Intelligence boosts awareness, Battle IQ boosts strength
+  s.awareness *= 1 + (char.intelligence / 100) * 0.3;
+  s.strength *= 1 + (char.battleIQ / 100) * 0.2;
+
+  return Math.round((s.strength + s.durability + s.speed + s.awareness + s.stamina) * 10) / 10;
 }

@@ -15,7 +15,7 @@ export type Race =
 export type HakiTier = "none" | "basic" | "advanced";
 export type DevilFruitType = "paramecia" | "zoan" | "ancient_zoan" | "mythical_zoan" | "logia" | "none";
 export type WeaponType = "sword" | "spear" | "club" | "rifle" | "slingshot" | "staff" | "mechanical" | "none";
-export type Stats = "attack" | "durability" | "speed" | "awareness" | "stamina";
+export type Stats = "strength" | "durability" | "speed" | "awareness" | "stamina";
 export type Rarity = "basic" | "epic" | "legend";
 
 export type Character = {

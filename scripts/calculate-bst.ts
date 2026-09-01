@@ -1,59 +1,28 @@
 import { Characters } from "../src/data/characters";
-import { calculateFinalStats } from "../src/lib/draft";
-import type { DraftPick, RoundType } from "../src/lib/types";
+import { calculateCharacterBST } from "../src/lib/draft";
 import { writeFileSync } from "fs";
 
-const statRoundTypes: RoundType[] = [
-  "race",
-  "armament",
-  "observation",
-  "conqueror",
-  "devil_fruit",
-  "weapon",
-  "intelligence",
-  "battle_iq",
-];
+const results = Characters.map((char) => ({
+  name: char.displayName,
+  bst: calculateCharacterBST(char),
+  race: char.race,
+  df: char.devilFruit.englishName || "None",
+  weapon: char.weapon.name || "None",
+}));
 
-const results = Characters.map((char) => {
-  // Simulate a draft where this character is used for every stat round
-  const picks: DraftPick[] = statRoundTypes.map((roundType, i) => ({
-    round: i + 1,
-    roundType,
-    characterId: char.id,
-    characterName: char.displayName,
-    rarity: char.rarity,
-  }));
-
-  const { stats } = calculateFinalStats(picks);
-  const bst = Math.round((stats.strength + stats.durability + stats.speed + stats.awareness + stats.stamina) * 10) / 10;
-
-  return {
-    name: char.displayName,
-    bst,
-    race: char.race,
-    df: char.devilFruit.englishName || "None",
-    weapon: char.weapon.name || "None",
-    stats,
-  };
-});
-
-// Sort by BST descending
 results.sort((a, b) => b.bst - a.bst);
 
-// Build markdown
 const lines = [
   "# Character Base Stat Totals (BST)",
   "",
-  "Each character used for all 8 stat rounds (race → haki → DF → weapon → intelligence → battle IQ). BST = sum of final 5 stats.",
+  "BST = sum of final 5 stats after all multipliers (race + haki + DF + weapon + intelligence + battle IQ).",
   "",
-  "| # | Name | BST | Race | DF | Weapon |",
-  "| - | ---- | --- | ---- | -- | ------ |",
+  "| Rank | Name | BST |",
+  "| ---- | ---- | --- |",
 ];
 
 results.forEach((r, i) => {
-  lines.push(
-    `| ${i + 1} | ${r.name} | ${r.bst.toLocaleString()} | ${r.race} | ${r.df} | ${r.weapon} |`,
-  );
+  lines.push(`| ${i + 1} | ${r.name} | ${r.bst.toLocaleString()} |`);
 });
 
 writeFileSync("BST.md", lines.join("\n"));
