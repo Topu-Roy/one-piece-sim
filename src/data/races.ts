@@ -16,43 +16,43 @@ export const RaceTable: RaceStats[] = [
   },
   {
     name: "longarm",
-    stats: { strength: 200, durability: 130, speed: 110, awareness: 110, stamina: 130 },
+    stats: { strength: 180, durability: 130, speed: 110, awareness: 110, stamina: 120 },
   },
   {
     name: "longleg",
-    stats: { strength: 100, durability: 100, speed: 220, awareness: 120, stamina: 140 },
+    stats: { strength: 100, durability: 130, speed: 200, awareness: 120, stamina: 120 },
   },
   {
     name: "shandia",
-    stats: { strength: 180, durability: 160, speed: 200, awareness: 180, stamina: 180 },
+    stats: { strength: 180, durability: 160, speed: 200, awareness: 180, stamina: 120 },
   },
   {
     name: "merfolk",
-    stats: { strength: 130, durability: 130, speed: 600, awareness: 150, stamina: 100 },
+    stats: { strength: 130, durability: 230, speed: 400, awareness: 150, stamina: 130 },
   },
   {
     name: "mink",
-    stats: { strength: 250, durability: 220, speed: 450, awareness: 250, stamina: 190 },
+    stats: { strength: 250, durability: 200, speed: 350, awareness: 250, stamina: 140 },
   },
   {
     name: "dwarf",
-    stats: { strength: 300, durability: 180, speed: 400, awareness: 200, stamina: 200 },
+    stats: { strength: 300, durability: 200, speed: 300, awareness: 180, stamina: 170 },
   },
   {
     name: "fishman",
-    stats: { strength: 500, durability: 400, speed: 300, awareness: 150, stamina: 250 },
+    stats: { strength: 350, durability: 350, speed: 260, awareness: 150, stamina: 180 },
   },
   {
     name: "lunarian",
-    stats: { strength: 600, durability: 650, speed: 280, awareness: 190, stamina: 300 },
+    stats: { strength: 390, durability: 600, speed: 220, awareness: 190, stamina: 220 },
   },
   {
     name: "giant",
-    stats: { strength: 850, durability: 550, speed: 100, awareness: 100, stamina: 250 },
+    stats: { strength: 450, durability: 450, speed: 100, awareness: 100, stamina: 200 },
   },
   {
     name: "oni",
-    stats: { strength: 650, durability: 450, speed: 200, awareness: 180, stamina: 350 },
+    stats: { strength: 400, durability: 400, speed: 200, awareness: 180, stamina: 200 },
   },
 ];
 
