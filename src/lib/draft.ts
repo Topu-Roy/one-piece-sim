@@ -260,9 +260,21 @@ export function calculateFinalStats(picks: DraftPick[]): {
 
   // Step 2: Apply haki multipliers
   const hakiConfig = [
-    { type: "armament" as const, affects: ["strength", "durability"] as const, getMultiplier: (c: Character) => c.haki.armament },
-    { type: "observation" as const, affects: ["speed", "awareness"] as const, getMultiplier: (c: Character) => c.haki.observation },
-    { type: "conqueror" as const, affects: ["strength", "durability", "stamina"] as const, getMultiplier: (c: Character) => c.haki.conqueror },
+    {
+      type: "armament" as const,
+      affects: ["strength", "durability"] as const,
+      getMultiplier: (c: Character) => c.haki.armament,
+    },
+    {
+      type: "observation" as const,
+      affects: ["speed", "awareness"] as const,
+      getMultiplier: (c: Character) => c.haki.observation,
+    },
+    {
+      type: "conqueror" as const,
+      affects: ["strength", "durability", "stamina"] as const,
+      getMultiplier: (c: Character) => c.haki.conqueror,
+    },
   ];
 
   for (const { type, affects, getMultiplier } of hakiConfig) {
@@ -288,7 +300,10 @@ export function calculateFinalStats(picks: DraftPick[]): {
     });
     if (df.state.awakened) {
       for (const stat of df.state.target) stats[stat] *= df.state.awakenedMultiplier;
-      breakdown.push({ label: "Awakened", modifier: `×${df.state.awakenedMultiplier} on ${df.state.target.join(", ")}` });
+      breakdown.push({
+        label: "Awakened",
+        modifier: `×${df.state.awakenedMultiplier} on ${df.state.target.join(", ")}`,
+      });
     }
   }
 
@@ -312,14 +327,20 @@ export function calculateFinalStats(picks: DraftPick[]): {
   if (intChar) {
     const bonus = intChar.intelligence / 100;
     stats.awareness *= 1 + bonus * 0.3;
-    breakdown.push({ label: `Intelligence (${intChar.intelligence})`, modifier: `+${(bonus * 30).toFixed(0)}% Awareness` });
+    breakdown.push({
+      label: `Intelligence (${intChar.intelligence})`,
+      modifier: `+${(bonus * 30).toFixed(0)}% Awareness`,
+    });
   }
 
   const biqChar = get("battle_iq");
   if (biqChar) {
     const bonus = biqChar.battleIQ / 100;
     stats.strength *= 1 + bonus * 0.2;
-    breakdown.push({ label: `Battle IQ (${biqChar.battleIQ})`, modifier: `+${(bonus * 20).toFixed(0)}% Strength` });
+    breakdown.push({
+      label: `Battle IQ (${biqChar.battleIQ})`,
+      modifier: `+${(bonus * 20).toFixed(0)}% Strength`,
+    });
   }
 
   // Round to 1 decimal
