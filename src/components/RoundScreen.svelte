@@ -4,14 +4,43 @@
   import CharacterCard from "./CharacterCard.svelte";
   import RerollButton from "./RerollButton.svelte";
 
+  // Round 1 reveal: cards shuffle one at a time (~600ms each), left to right.
+  // Each card owns its timers (see CharacterCard); {#key} remounts them per options.
+  const LOCK_BASE_MS = 600;
+
   $: round = $currentRound;
   $: options = $roundOptions;
   $: roundType = getRoundType(round);
   $: label = getRoundLabel(round);
   $: showReroll = round <= 7;
+  $: isBodyRound = roundType === "body";
+
+  // Signature changes on new Round 1 options (initial + rerolls) → fresh cards.
+  $: revealKey = roundType + ":" + options.map((o) => o.id).join(",");
+  $: reducedMotion =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Sequential reveal: card i shuffles only after card i-1 locks.
+  // -1 = none forced. Reset whenever fresh options arrive.
+  let lockUpTo = -1;
+  let activeIndex = 0;
+  $: {
+    void revealKey;
+    lockUpTo = -1;
+    activeIndex = reducedMotion ? 99 : 0;
+  }
 
   function handleSelect(index: number) {
     draft.pick(index);
+  }
+
+  function handleLockRequest(index: number) {
+    lockUpTo = Math.max(lockUpTo, index);
+    activeIndex = Math.max(activeIndex, index + 1);
+  }
+
+  function handleLocked(index: number) {
+    activeIndex = Math.max(activeIndex, index + 1);
   }
 </script>
 
@@ -31,11 +60,23 @@
     </div>
   {/if}
 
-  <div class="grid w-full grid-cols-2 gap-6 md:grid-cols-4">
-    {#each options as character, i (character.id)}
-      <CharacterCard {character} {roundType} index={i} onSelect={handleSelect} />
-    {/each}
-  </div>
+  {#key revealKey}
+    <div class="grid w-full grid-cols-2 gap-6 md:grid-cols-4">
+      {#each options as character, i (character.id)}
+        <CharacterCard
+          {character}
+          {roundType}
+          index={i}
+          onSelect={handleSelect}
+          onLockRequest={handleLockRequest}
+          onLocked={handleLocked}
+          revealDelay={isBodyRound && !reducedMotion ? LOCK_BASE_MS : 0}
+          canStart={i <= activeIndex}
+          {lockUpTo}
+        />
+      {/each}
+    </div>
+  {/key}
 
   {#if $draft.picks.length > 0}
     <div class="mt-12 w-full">

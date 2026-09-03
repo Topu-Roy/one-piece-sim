@@ -1853,7 +1853,7 @@ export const Characters: Character[] = [
   {
     id: "king-the-conflagration",
     displayName: "King",
-    fullName: "King the Conflagration",
+    fullName: "King",
     imageURL:
       "https://res.cloudinary.com/nn2w9isf/image/upload/c_fill,f_auto,h_512,q_auto,w_512/v1/anime-draft/characters/King?_a=BAMAROFG0",
     race: "lunarian",
