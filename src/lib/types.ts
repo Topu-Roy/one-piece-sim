@@ -121,7 +121,7 @@ export type RaceModifier = {
 };
 
 export type RoundType =
-  "race" | "armament" | "observation" | "conqueror" | "devil_fruit" | "weapon" | "intelligence" | "battle_iq";
+  "body" | "armament" | "observation" | "conqueror" | "devil_fruit" | "weapon" | "intelligence" | "battle_iq";
 
 export type DraftPick = {
   round: number;

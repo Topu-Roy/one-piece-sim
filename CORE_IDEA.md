@@ -25,7 +25,7 @@ The game has no backend — all logic, data, and simulation run client-side.
 
 | Round | Attribute        | What's Shown                                    | Pool Rules                                |
 | ----- | ---------------- | ----------------------------------------------- | ----------------------------------------- |
-| 1     | Identity         | Character name + race + base stats + race bonus | 4 unique races, max 3 characters per race |
+| 1     | Body             | Character name + race + base stats + race bonus | 4 unique races, max 3 characters per race |
 | 2     | Armament Haki    | Character name + haki tier                      | All characters                            |
 | 3     | Observation Haki | Character name + haki tier                      | All characters                            |
 | 4     | Conqueror's Haki | Character name + haki tier                      | All characters                            |
@@ -34,7 +34,7 @@ The game has no backend — all logic, data, and simulation run client-side.
 | 7     | Intelligence     | Character name + intelligence value             | All characters                            |
 | 8     | Battle IQ        | Character name + battle IQ value                | All characters                            |
 
-Round 1 (Identity) merges the old Race + Appearance rounds: the picked character provides the looks, the name, the base stat block, and the race. No separate cosmetic round.
+Round 1 (Body) merges the old Race + Appearance rounds: the picked character provides the looks, the name, the base stat block, and the race. No separate cosmetic round.
 
 ---
 
@@ -57,7 +57,7 @@ Each of the 4 options in a round gets an **independent** rarity roll (from Round
 
 ### Round 1 Exception
 
-Round 1 (Identity) has **no rarity** — options are grouped by race (max 3 characters per race), one random character per shown race. The focus is on body selection, not power pulls.
+Round 1 (Body) has **no rarity** — options are grouped by race (max 3 characters per race), one random character per shown race. The focus is on body selection, not power pulls.
 
 ### Selection Process
 
@@ -97,7 +97,7 @@ BST (Battle Stat Total) = sum of all 7.
 
 All calculations happen **after the draft is complete**, not during. Picks are stored in shared state and computed at the end.
 
-### Step 1: Base Stats (from Identity pick)
+### Step 1: Base Stats (from Body pick)
 
 Set STR/DUR/SPD/AWR/STA from the Round 1 character's individual baseStats (evaluated from canonical feats — not from a race table). ATK and DEF start at 0.
 
@@ -132,7 +132,7 @@ Finally, present the created character with all 7 stats on the result screen.
 
 After all 8 rounds are complete, the result screen shows:
 
-- **Final character name** (from the Round 1 Identity pick)
+- **Final character name** (from the Round 1 Body pick)
 - **Live rank** (`#X of 185`) computed in-browser against all 184 roster characters, with the closest neighbor above and below plus tie info
 - **All 7 stats** with calculated values
 - **Full breakdown** of each round's contribution (base, haki, DF, weapon, race %, intelligence, battle IQ)

@@ -63,8 +63,8 @@ function getWeaponUsersByRarity(rarity: Rarity): Character[] {
 
 /** Generate 4 options for a round */
 function generateRoundOptions(roundType: RoundType, racePool?: Map<Race, Character[]>): Character[] {
-  // Round 1: race selection — unique races, 1 character each
-  if (roundType === "race" && racePool) {
+  // Round 1: body selection — unique races, 1 character each
+  if (roundType === "body" && racePool) {
     const races = pick4UniqueRaces(racePool);
     return races.map((race) => {
       const chars = racePool.get(race) ?? [];
@@ -132,13 +132,13 @@ function generateRoundOptions(roundType: RoundType, racePool?: Map<Race, Charact
   return options;
 }
 
-/** Total draft rounds (1 Identity + 6 power + 1 mind... see labels) */
+/** Total draft rounds (1 Body + 5 power + 2 mind... see labels) */
 export const TOTAL_ROUNDS = 8;
 
 /** Get the round type for a given round number */
 export function getRoundType(round: number): RoundType {
   const types: RoundType[] = [
-    "race",
+    "body",
     "armament",
     "observation",
     "conqueror",
@@ -153,7 +153,7 @@ export function getRoundType(round: number): RoundType {
 /** Get the display label for a round type */
 export function getRoundLabel(round: number): string {
   const labels: Record<number, string> = {
-    1: "Choose Your Identity",
+    1: "Choose Your Body",
     2: "Armament Haki",
     3: "Observation Haki",
     4: "Conqueror's Haki",
@@ -168,7 +168,7 @@ export function getRoundLabel(round: number): string {
 /** Initialize a new draft */
 export function initDraft(): DraftState {
   const racePool = buildRacePool();
-  const options = generateRoundOptions("race", racePool);
+  const options = generateRoundOptions("body", racePool);
 
   return {
     currentRound: 1,
@@ -185,7 +185,7 @@ export function rerollOptions(state: DraftState): DraftState {
   if (state.rerollsLeft <= 0) return state;
 
   const roundType = getRoundType(state.currentRound);
-  const racePool = roundType === "race" ? buildRacePool() : undefined;
+  const racePool = roundType === "body" ? buildRacePool() : undefined;
   const options = generateRoundOptions(roundType, racePool);
 
   return {
@@ -212,9 +212,9 @@ export function pickOption(state: DraftState, characterIndex: number): DraftStat
 
   const newPicks = [...state.picks, pick];
 
-  // Set base stats from race pick (Round 1) — per-character base, not race table
+  // Set base stats from body pick (Round 1) — per-character base, not race table
   let baseStats = state.baseStats;
-  if (roundType === "race") {
+  if (roundType === "body") {
     const b = character.baseStats;
     baseStats = {
       strength: b.strength,
@@ -274,21 +274,21 @@ export function calculateFinalStats(picks: DraftPick[]): {
 
   // Step 1: Base stats from character (individual, evaluated from feats).
   // Attack/defense start at 0 — derived purely from haki/DF/weapon.
-  const raceChar = get("race");
-  const stats: StatBlock = raceChar
+  const bodyChar = get("body");
+  const stats: StatBlock = bodyChar
     ? {
-        strength: raceChar.baseStats.strength,
+        strength: bodyChar.baseStats.strength,
         attack: 0,
-        durability: raceChar.baseStats.durability,
+        durability: bodyChar.baseStats.durability,
         defense: 0,
-        speed: raceChar.baseStats.speed,
-        awareness: raceChar.baseStats.awareness,
-        stamina: raceChar.baseStats.stamina,
+        speed: bodyChar.baseStats.speed,
+        awareness: bodyChar.baseStats.awareness,
+        stamina: bodyChar.baseStats.stamina,
       }
     : { strength: 100, attack: 0, durability: 100, defense: 0, speed: 100, awareness: 100, stamina: 100 };
 
   breakdown.push({
-    label: `Base (${raceChar?.displayName ?? "unknown"})`,
+    label: `Base (${bodyChar?.displayName ?? "unknown"})`,
     modifier: `STR:${stats.strength} DUR:${stats.durability} SPD:${stats.speed} AWR:${stats.awareness} STA:${stats.stamina}`,
   });
 
@@ -362,16 +362,16 @@ export function calculateFinalStats(picks: DraftPick[]): {
   }
 
   // Step 5: Race % modifiers (body stats only — never attack/defense).
-  // Race comes from the Round 1 Identity pick.
-  if (raceChar) {
-    const mod = getRaceModifier(raceChar.race);
+  // Race comes from the Round 1 Body pick.
+  if (bodyChar) {
+    const mod = getRaceModifier(bodyChar.race);
     stats.strength *= 1 + mod.strength / 100;
     stats.durability *= 1 + mod.durability / 100;
     stats.speed *= 1 + mod.speed / 100;
     stats.awareness *= 1 + mod.awareness / 100;
     stats.stamina *= 1 + mod.stamina / 100;
     breakdown.push({
-      label: `Race (${raceChar.race})`,
+      label: `Race (${bodyChar.race})`,
       modifier: `STR:+${mod.strength}% DUR:+${mod.durability}% SPD:+${mod.speed}% AWR:+${mod.awareness}% STA:+${mod.stamina}%`,
     });
   }

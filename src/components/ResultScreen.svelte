@@ -5,7 +5,7 @@
 
   $: stats = $finalStats;
   $: picks = $draft.picks;
-  $: appearancePick = picks.find((p) => p.roundType === "race");
+  $: appearancePick = picks.find((p) => p.roundType === "body");
   $: buildRank = stats ? rankBuild(stats.stats) : null;
 
   function getCharImage(name: string): string {

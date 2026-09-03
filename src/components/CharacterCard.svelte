@@ -8,8 +8,8 @@
   export let onSelect: (index: number) => void;
 
   // Per-character base (attack/defense derive later from haki/DF/weapon, start at 0)
-  $: raceStats = roundType === "race" ? character.baseStats : null;
-  $: raceMod = roundType === "race" ? getRaceModifier(character.race) : null;
+  $: raceStats = roundType === "body" ? character.baseStats : null;
+  $: raceMod = roundType === "body" ? getRaceModifier(character.race) : null;
   $: raceModLabel =
     raceMod !== null
       ? (
@@ -25,7 +25,7 @@
           .map(([k, v]) => `${k} ${v > 0 ? "+" : ""}${v}%`)
           .join(" · ")
       : "";
-  $: showRarity = roundType !== "race";
+  $: showRarity = roundType !== "body";
   $: rarityColor =
     character.rarity === "legend"
       ? "text-yellow-400"
@@ -72,7 +72,7 @@
     {/if}
   </div>
 
-  {#if roundType === "race"}
+  {#if roundType === "body"}
     <span class="text-sm font-bold text-white">{character.fullName}</span>
     <span class="font-mono text-xs tracking-wider text-[var(--color-secondary-text)] uppercase">
       {character.race}

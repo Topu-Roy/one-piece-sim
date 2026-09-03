@@ -2,7 +2,7 @@
 
 - Calculations happen after the draft finishes, not during. Picks stored in shared state, computed at end. Placeholder images only where real art missing.
 
-## Round 1 — Identity
+## Round 1 — Body
 
 - Pool: at most 3 characters per race. When round starts, pick 4 unique races, show 1 random character per race.
 - Shows: character name, race, base stat preview (STR/DUR/SPD/AWR/STA), race % bonus.
