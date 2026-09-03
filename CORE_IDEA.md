@@ -23,18 +23,18 @@ The game has no backend — all logic, data, and simulation run client-side.
 
 ## The 8 Rounds
 
-| Round | Attribute        | What's Shown                                    | Pool Rules                                |
-| ----- | ---------------- | ----------------------------------------------- | ----------------------------------------- |
-| 1     | Body             | Character name + race + base stats + race bonus | 4 unique races, max 3 characters per race |
-| 2     | Armament Haki    | Character name + haki tier                      | All characters                            |
-| 3     | Observation Haki | Character name + haki tier                      | All characters                            |
-| 4     | Conqueror's Haki | Character name + haki tier                      | All characters                            |
-| 5     | Devil Fruit      | Character name + DF name/type                   | DF users only                             |
-| 6     | Weapon           | Character name + weapon name/type               | At least 3 of 4 must be weapon users      |
-| 7     | Intelligence     | Character name + intelligence value             | All characters                            |
-| 8     | Battle IQ        | Character name + battle IQ value                | All characters                            |
+| Round | Attribute        | What's Shown                        | Pool Rules                           |
+| ----- | ---------------- | ----------------------------------- | ------------------------------------ |
+| 1     | Body             | Character name + race + rarity chip | All characters, rarity-weighted      |
+| 2     | Armament Haki    | Character name + haki tier          | All characters                       |
+| 3     | Observation Haki | Character name + haki tier          | All characters                       |
+| 4     | Conqueror's Haki | Character name + haki tier          | All characters                       |
+| 5     | Devil Fruit      | Character name + DF name/type       | DF users only                        |
+| 6     | Weapon           | Character name + weapon name/type   | At least 3 of 4 must be weapon users |
+| 7     | Intelligence     | Character name + intelligence value | All characters                       |
+| 8     | Battle IQ        | Character name + battle IQ value    | All characters                       |
 
-Round 1 (Body) merges the old Race + Appearance rounds: the picked character provides the looks, the name, the base stat block, and the race. No separate cosmetic round.
+Round 1 (Body) merges the old Race + Appearance rounds: the picked character provides the looks, the name, the base stat block, and the race. Options are rarity-weighted like every other round — race plays no part in selection, but the body's race % still buffs the final BST. No separate cosmetic round.
 
 ---
 
@@ -49,21 +49,19 @@ Round 1 (Body) merges the old Race + Appearance rounds: the picked character pro
 
 ## Rarity System
 
-Each of the 4 options in a round gets an **independent** rarity roll (from Round 2 onwards):
+Each of the 4 options in a round gets an **independent** rarity roll (all 8 rounds, body included):
 
-- **50% Basic** — standard-strength canon characters.
+- **40% Basic** — standard-strength canon characters.
 - **30% Epic** — notably powerful characters (e.g. Warlord-level, top commanders).
-- **20% Legend** — the strongest characters in the setting (e.g. Garp, Joy Boy, Admirals, Yonko-level figures).
-
-### Round 1 Exception
-
-Round 1 (Body) has **no rarity** — options are grouped by race (max 3 characters per race), one random character per shown race. The focus is on body selection, not power pulls.
+- **20% Legend** — the strongest characters in the setting (e.g. Admirals, Yonko commanders, Gorosei).
+- **10% God** — the canon apex (Imu, Joy Boy, Rocks, Luffy, Shanks, Roger, Dragon, Whitebeard).
 
 ### Selection Process
 
 1. Roll rarity for each of the 4 options independently.
 2. Pick a random character matching that rarity from the available pool.
-3. If no character exists for that rarity in the pool, fall back to any available character.
+3. Options are unique within the round and never re-offer already-picked donors.
+4. If no fresh character exists for that rarity in the pool, fall back to any rarity (fresh first, picked donors only as a last resort).
 
 ---
 

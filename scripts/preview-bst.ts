@@ -63,7 +63,7 @@ function newStats(char: Char): Seven & { bst: number } {
 /** OLD values: read live Rankings-v2.md (7-stat split, no race) — honest delta. */
 const oldBstMap = new Map<string, number>();
 for (const line of readFileSync("Rankings-v2.md", "utf8").split("\n")) {
-  const m = line.match(/\| \d+ \| (.+?) \| (?:basic|epic|legend) \| ([\d,]+) \|/);
+  const m = line.match(/\| \d+ \| (.+?) \| (?:basic|epic|legend|god) \| ([\d,]+) \|/);
   if (m) oldBstMap.set(m[1], parseInt(m[2].replace(/,/g, "")));
 }
 

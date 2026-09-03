@@ -42,7 +42,7 @@ export const Characters: Character[] = [
       awareness: 120,
       stamina: 120,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "joy-boy",
@@ -85,7 +85,7 @@ export const Characters: Character[] = [
       awareness: 0,
       stamina: 0,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "rocks-d-xebec",
@@ -128,7 +128,7 @@ export const Characters: Character[] = [
       awareness: 300,
       stamina: 300,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "gol-d-roger",
@@ -171,7 +171,7 @@ export const Characters: Character[] = [
       awareness: 350,
       stamina: 350,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "monkey-d-garp",
@@ -300,7 +300,7 @@ export const Characters: Character[] = [
       awareness: 400,
       stamina: 400,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "loki",
@@ -386,7 +386,7 @@ export const Characters: Character[] = [
       awareness: 0,
       stamina: 0,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "sakazuki",
@@ -472,7 +472,7 @@ export const Characters: Character[] = [
       awareness: 0,
       stamina: 0,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "borsalino",
@@ -558,7 +558,7 @@ export const Characters: Character[] = [
       awareness: 350,
       stamina: 350,
     },
-    rarity: "legend",
+    rarity: "god",
   },
   {
     id: "kaido",

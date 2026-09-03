@@ -4,10 +4,11 @@
 
 ## Round 1 — Body
 
-- Pool: at most 3 characters per race. When round starts, pick 4 unique races, show 1 random character per race.
-- Shows: character name, race, base stat preview (STR/DUR/SPD/AWR/STA), race % bonus.
-- Pick gives: looks + name + base stat block + race. No rarity roll.
+- Pool: all characters, rarity-weighted per slot (40/30/20/10) like every other round. Race plays no part in selection.
+- Shows: character name, race (flavor label), rarity chip. No numbers shown.
+- Pick gives: looks + name + base stat block + race. Race % still buffs the final BST.
 - Note: per-character baseStats (hand-tuned from canonical feats), NOT a shared race table.
+- Options are unique within the round and exclude already-picked donors.
 
 ## Haki rounds — 2/3/4
 

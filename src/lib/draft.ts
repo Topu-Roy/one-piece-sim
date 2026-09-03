@@ -1,49 +1,19 @@
-import type { Character, Race, Rarity, DraftState, DraftPick, StatBlock, RoundType } from "./types";
+import type { Character, Rarity, DraftState, DraftPick, StatBlock, RoundType } from "./types";
 import { Characters } from "../data/characters-v2";
-import { getAllRaces, getRaceModifier } from "../data/races";
+import { getRaceModifier } from "../data/races";
 
-/** Max characters per race in the Round 1 pool */
-const MAX_PER_RACE = 3;
-
-/** Rarity roll probabilities: 50% basic, 30% epic, 20% legend */
+/** Rarity roll probabilities: 40% basic, 30% epic, 20% legend, 10% god */
 function rollRarity(): Rarity {
   const roll = Math.random() * 100;
-  if (roll < 20) return "legend";
-  if (roll < 50) return "epic";
+  if (roll < 10) return "god";
+  if (roll < 30) return "legend";
+  if (roll < 60) return "epic";
   return "basic";
-}
-
-/** Shuffle array in place (Fisher-Yates) */
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
 }
 
 /** Get a random item from an array */
 function pickRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
-}
-
-/** Build Round 1 pool: max 3 characters per race, grouped by race */
-function buildRacePool(): Map<Race, Character[]> {
-  const pool = new Map<Race, Character[]>();
-
-  for (const race of getAllRaces()) {
-    const raceChars = shuffle(Characters.filter((c) => c.race === race)).slice(0, MAX_PER_RACE);
-    pool.set(race, raceChars);
-  }
-
-  return pool;
-}
-
-/** Get 4 unique random races from the pool */
-function pick4UniqueRaces(pool: Map<Race, Character[]>): Race[] {
-  const available = Array.from(pool.keys()).filter((race) => (pool.get(race)?.length ?? 0) > 0);
-  return shuffle(available).slice(0, 4);
 }
 
 /** Get characters filtered by rarity */
@@ -61,54 +31,66 @@ function getWeaponUsersByRarity(rarity: Rarity): Character[] {
   return Characters.filter((c) => c.weapon.type !== "none" && c.rarity === rarity);
 }
 
-/** Generate 4 options for a round */
-function generateRoundOptions(roundType: RoundType, racePool?: Map<Race, Character[]>): Character[] {
-  // Round 1: body selection — unique races, 1 character each
-  if (roundType === "body" && racePool) {
-    const races = pick4UniqueRaces(racePool);
-    return races.map((race) => {
-      const chars = racePool.get(race) ?? [];
-      return pickRandom(chars);
-    });
+/** Full fallback pool for a round type (any rarity) */
+function getFullPool(roundType: RoundType): Character[] {
+  switch (roundType) {
+    case "devil_fruit":
+      return Characters.filter((c) => c.devilFruit.type !== "none");
+    case "weapon":
+      return Characters.filter((c) => c.weapon.type !== "none");
+    default:
+      return Characters;
+  }
+}
+
+/**
+ * Draw one option: rarity roll → random char of that rarity.
+ * Sampling is without replacement within the round (taken = already drawn
+ * this round) and excludes already-picked donors (excludedIds).
+ * Fallback ladder: rarity pool → any-rarity pool → any-rarity incl. picked
+ * (last resort only fires in tiny DF/weapon rarity slices).
+ */
+function drawOption(roundType: RoundType, taken: Set<string>, excludedIds: Set<string>): Character {
+  const rarity = rollRarity();
+
+  let pool: Character[];
+  switch (roundType) {
+    case "devil_fruit":
+      pool = getDFUsersByRarity(rarity);
+      break;
+    case "weapon":
+      pool = getWeaponUsersByRarity(rarity);
+      break;
+    default:
+      pool = getCharactersByRarity(rarity);
+      break;
   }
 
-  // All other rounds: rarity roll per option
+  const fresh = (list: Character[]) => list.filter((c) => !taken.has(c.id) && !excludedIds.has(c.id));
+
+  let candidates = fresh(pool);
+  if (candidates.length === 0) candidates = fresh(getFullPool(roundType));
+  if (candidates.length === 0) candidates = getFullPool(roundType).filter((c) => !taken.has(c.id));
+  if (candidates.length === 0) candidates = getFullPool(roundType);
+
+  const choice = pickRandom(candidates);
+  taken.add(choice.id);
+  return choice;
+}
+
+/**
+ * Generate 4 options for a round.
+ * Every round (body included) rolls rarity per slot (40/30/20/10).
+ * Options are unique within the round and never re-offer picked donors.
+ */
+function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = new Set()): Character[] {
+  // Round 1 body uses the standard rarity-weighted path — race plays
+  // no part in selection (race % still buffs the final BST).
+  const taken = new Set<string>();
   const options: Character[] = [];
 
   for (let i = 0; i < 4; i++) {
-    const rarity = rollRarity();
-    let pool: Character[];
-
-    switch (roundType) {
-      case "devil_fruit":
-        pool = getDFUsersByRarity(rarity);
-        break;
-      case "weapon": {
-        // At least 3 of 4 must be weapon users
-        pool = getWeaponUsersByRarity(rarity);
-        break;
-      }
-      default:
-        pool = getCharactersByRarity(rarity);
-        break;
-    }
-
-    // Fallback: if pool is empty for this rarity, use any rarity
-    if (pool.length === 0) {
-      switch (roundType) {
-        case "devil_fruit":
-          pool = Characters.filter((c) => c.devilFruit.type !== "none");
-          break;
-        case "weapon":
-          pool = Characters.filter((c) => c.weapon.type !== "none");
-          break;
-        default:
-          pool = Characters;
-          break;
-      }
-    }
-
-    options.push(pickRandom(pool));
+    options.push(drawOption(roundType, taken, excludedIds));
   }
 
   // For weapon round: ensure at least 3 weapon users
@@ -120,8 +102,13 @@ function generateRoundOptions(roundType: RoundType, racePool?: Map<Race, Charact
       for (const nw of nonWeapon) {
         if (weaponUsers.length >= 3) break;
         const idx = options.indexOf(nw);
-        const replacement = pickRandom(Characters.filter((c) => c.weapon.type !== "none" && !options.includes(c)));
+        const candidates = Characters.filter(
+          (c) => c.weapon.type !== "none" && !options.some((o) => o.id === c.id),
+        );
+        const replacement = candidates.length > 0 ? pickRandom(candidates) : undefined;
         if (replacement) {
+          taken.delete(nw.id);
+          taken.add(replacement.id);
           options[idx] = replacement;
           weaponUsers.push(replacement);
         }
@@ -165,10 +152,14 @@ export function getRoundLabel(round: number): string {
   return labels[round] ?? "Unknown";
 }
 
+/** IDs of already-picked donors — excluded from future option sets */
+function pickedIds(picks: DraftPick[]): Set<string> {
+  return new Set(picks.map((p) => p.characterId));
+}
+
 /** Initialize a new draft */
 export function initDraft(): DraftState {
-  const racePool = buildRacePool();
-  const options = generateRoundOptions("body", racePool);
+  const options = generateRoundOptions("body");
 
   return {
     currentRound: 1,
@@ -185,8 +176,10 @@ export function rerollOptions(state: DraftState): DraftState {
   if (state.rerollsLeft <= 0) return state;
 
   const roundType = getRoundType(state.currentRound);
-  const racePool = roundType === "body" ? buildRacePool() : undefined;
-  const options = generateRoundOptions(roundType, racePool);
+  // Reroll offers fresh faces: exclude picked donors + current 4 options.
+  const excluded = pickedIds(state.picks);
+  for (const o of state.roundOptions) excluded.add(o.id);
+  const options = generateRoundOptions(roundType, excluded);
 
   return {
     ...state,
@@ -230,8 +223,8 @@ export function pickOption(state: DraftState, characterIndex: number): DraftStat
   const nextRound = state.currentRound + 1;
   const isComplete = nextRound > TOTAL_ROUNDS;
 
-  // Generate options for next round if not complete
-  const nextOptions = isComplete ? [] : generateRoundOptions(getRoundType(nextRound));
+  // Generate options for next round if not complete (picked donors excluded)
+  const nextOptions = isComplete ? [] : generateRoundOptions(getRoundType(nextRound), pickedIds(newPicks));
 
   return {
     currentRound: nextRound,

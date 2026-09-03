@@ -16,7 +16,7 @@ export type HakiTier = "none" | "basic" | "advanced" | "supreme";
 export type DevilFruitType = "paramecia" | "zoan" | "ancient_zoan" | "mythical_zoan" | "logia" | "none";
 export type WeaponType = "sword" | "spear" | "club" | "rifle" | "slingshot" | "staff" | "mechanical" | "none";
 export type Stats = "strength" | "attack" | "durability" | "defense" | "speed" | "awareness" | "stamina";
-export type Rarity = "basic" | "epic" | "legend";
+export type Rarity = "basic" | "epic" | "legend" | "god";
 
 /**
  * V2 Character type — flat additive stat values.

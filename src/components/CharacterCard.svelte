@@ -84,14 +84,16 @@
     onSelect(index);
   }
 
-  $: showRarity = roundType !== "body";
-  // Rarity chips: legend = dark navy, epic = forest, basic hidden. White type on both.
+  // Rarity chips: god = gold, legend = dark navy, epic = forest, basic hidden.
+  // Ink type on gold (legibility), white type on navy/forest.
   $: rarityChip =
-    character.rarity === "legend"
-      ? "bg-surface-dark text-on-dark"
-      : character.rarity === "epic"
-        ? "bg-forest text-on-dark"
-        : "";
+    character.rarity === "god"
+      ? "bg-mustard text-ink"
+      : character.rarity === "legend"
+        ? "bg-surface-dark text-on-dark"
+        : character.rarity === "epic"
+          ? "bg-forest text-on-dark"
+          : "";
   $: currentHakiTier =
     roundType === "armament"
       ? character.haki.armament.tier
@@ -110,7 +112,7 @@
     : ''}"
   on:click={handleClick}
 >
-  {#if showRarity && !shuffling && character.rarity !== "basic"}
+  {#if !shuffling && character.rarity !== "basic"}
     <span
       class="absolute top-3 right-3 rounded-full px-2 py-0.5 text-[10px] font-medium tracking-widest uppercase {rarityChip}"
     >
