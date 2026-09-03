@@ -1,4 +1,4 @@
-import type { Character, Rarity, DraftState, DraftPick, StatBlock, RoundType } from "./types";
+import type { Character, Race, Rarity, DraftState, DraftPick, StatBlock, RoundType } from "./types";
 import { Characters } from "../data/characters-v2";
 import { getRaceModifier } from "../data/races";
 
@@ -8,6 +8,19 @@ function rollRarity(): Rarity {
   if (roll < 10) return "god";
   if (roll < 30) return "legend";
   if (roll < 60) return "epic";
+  return "basic";
+}
+
+/**
+ * Round 1 body odds lean strong (rolls): 20% basic, 30% epic, 25% legend, 25% god.
+ * Observed runs slightly lower on god — the big-race guarantee backfills
+ * ~1 slot per round from a pool with no gods (5 legend / 5 epic).
+ */
+function rollBodyRarity(): Rarity {
+  const roll = Math.random() * 100;
+  if (roll < 25) return "god";
+  if (roll < 50) return "legend";
+  if (roll < 80) return "epic";
   return "basic";
 }
 
@@ -31,6 +44,9 @@ function getWeaponUsersByRarity(rarity: Rarity): Character[] {
   return Characters.filter((c) => c.weapon.type !== "none" && c.rarity === rarity);
 }
 
+/** Body-round guarantee: at least one option is a big-race body. */
+const BIG_RACES: Race[] = ["giant", "oni", "lunarian"];
+
 /** Full fallback pool for a round type (any rarity) */
 function getFullPool(roundType: RoundType): Character[] {
   switch (roundType) {
@@ -51,7 +67,7 @@ function getFullPool(roundType: RoundType): Character[] {
  * (last resort only fires in tiny DF/weapon rarity slices).
  */
 function drawOption(roundType: RoundType, taken: Set<string>, excludedIds: Set<string>): Character {
-  const rarity = rollRarity();
+  const rarity = roundType === "body" ? rollBodyRarity() : rollRarity();
 
   let pool: Character[];
   switch (roundType) {
@@ -91,6 +107,25 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
 
   for (let i = 0; i < 4; i++) {
     options.push(drawOption(roundType, taken, excludedIds));
+  }
+
+  // Body round: guarantee at least one giant/oni/lunarian option.
+  if (roundType === "body" && !options.some((o) => BIG_RACES.includes(o.race))) {
+    const rarity = rollBodyRarity();
+    const freshBig = (list: Character[]) => list.filter((c) => !taken.has(c.id) && !excludedIds.has(c.id));
+    const bigOfRarity = freshBig(Characters.filter((c) => BIG_RACES.includes(c.race) && c.rarity === rarity));
+    const anyBigFresh = freshBig(Characters.filter((c) => BIG_RACES.includes(c.race)));
+    const candidates =
+      bigOfRarity.length > 0
+        ? bigOfRarity
+        : anyBigFresh.length > 0
+          ? anyBigFresh
+          : Characters.filter((c) => BIG_RACES.includes(c.race));
+    const idx = Math.floor(Math.random() * options.length);
+    taken.delete(options[idx].id);
+    const choice = pickRandom(candidates);
+    taken.add(choice.id);
+    options[idx] = choice;
   }
 
   // For weapon round: ensure at least 3 weapon users

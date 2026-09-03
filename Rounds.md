@@ -4,7 +4,7 @@
 
 ## Round 1 — Body
 
-- Pool: all characters, rarity-weighted per slot (40/30/20/10) like every other round. Race plays no part in selection.
+- Pool: all characters, rarity-weighted per slot with stronger Round 1 dice (~16/35/30/20). Race plays no part in selection, except the guarantee: at least one option is always giant, oni, or lunarian.
 - Shows: character name, race (flavor label), rarity chip. No numbers shown.
 - Pick gives: looks + name + base stat block + race. Race % still buffs the final BST.
 - Note: per-character baseStats (hand-tuned from canonical feats), NOT a shared race table.

@@ -49,12 +49,14 @@ Round 1 (Body) merges the old Race + Appearance rounds: the picked character pro
 
 ## Rarity System
 
-Each of the 4 options in a round gets an **independent** rarity roll (all 8 rounds, body included):
+Each of the 4 options in a round gets an **independent** rarity roll:
 
 - **40% Basic** — standard-strength canon characters.
 - **30% Epic** — notably powerful characters (e.g. Warlord-level, top commanders).
 - **20% Legend** — the strongest characters in the setting (e.g. Admirals, Yonko commanders, Gorosei).
 - **10% God** — the canon apex (Imu, Joy Boy, Rocks, Luffy, Shanks, Roger, Dragon, Whitebeard).
+
+Round 1 (Body) rolls stronger dice — observed roughly 16% basic / 35% epic / 30% legend / 20% god — and guarantees at least one giant, oni, or lunarian among the 4 options.
 
 ### Selection Process
 

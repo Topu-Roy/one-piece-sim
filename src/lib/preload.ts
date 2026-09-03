@@ -1,8 +1,5 @@
 import { Characters } from "../data/characters-v2";
 
-/** Decoys preloaded per round (plus the 4 real option faces). */
-export const DECOY_POOL_SIZE = 16;
-
 /** Give up waiting for one card's real art and lock anyway. */
 export const REAL_ART_CAP_MS = 1000;
 
@@ -49,17 +46,35 @@ export function preloadImages(
 }
 
 /**
- * Pick N random decoy faces, excluding the round's real options
- * (decoys never wear another option's face mid-shuffle).
+ * Fixed decoy cast: 15 recognizable mid-tier faces, no god-tier
+ * (decoys shouldn't imply the option). Cycled every round.
+ * Overlap with real options is allowed — a decoy may flash a real face.
  */
-export function pickDecoyPool(excludeIds: string[], size: number = DECOY_POOL_SIZE): string[] {
-  const excluded = new Set(excludeIds);
-  const pool = Characters.filter((c) => c.imageURL && !excluded.has(c.id)).map((c) => c.imageURL as string);
+export const FIXED_DECOY_IDS = [
+  "portgas-d-ace",
+  "crocodile",
+  "donquixote-doflamingo",
+  "boa-hancock",
+  "jinbe",
+  "nico-robin",
+  "franky",
+  "brook",
+  "nami",
+  "usopp",
+  "tony-tony-chopper",
+  "smoker",
+  "enel",
+  "buggy-the-star-clown",
+  "charlotte-katakuri",
+];
 
-  // Fisher-Yates take without replacement.
-  for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-  return pool.slice(0, size);
+/** Resolve the fixed decoy cast to image URLs (stable order). */
+export function getFixedDecoyURLs(): string[] {
+  const byId = new Map(Characters.map((c) => [c.id, c]));
+  return FIXED_DECOY_IDS.map((id) => byId.get(id)?.imageURL).filter((u): u is string => Boolean(u));
+}
+
+/** Every roster face — background-warmed once so later rounds open instantly. */
+export function getAllImageURLs(): string[] {
+  return Characters.map((c) => c.imageURL).filter((u): u is string => Boolean(u));
 }

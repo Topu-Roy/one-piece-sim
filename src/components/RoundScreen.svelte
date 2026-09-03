@@ -1,7 +1,7 @@
 <script lang="ts">
   import { draft, currentRound, roundOptions, rerollsLeft } from "../stores/draft";
   import { getRoundLabel, getRoundType } from "../lib/draft";
-  import { preloadImages, pickDecoyPool } from "../lib/preload";
+  import { preloadImages, getFixedDecoyURLs, getAllImageURLs } from "../lib/preload";
   import CharacterCard from "./CharacterCard.svelte";
   import RerollButton from "./RerollButton.svelte";
 
@@ -25,35 +25,43 @@
   let lockUpTo = -1;
   let activeIndex = 0;
 
-  // Image warm-up: 4 real faces + 16 decoys preloaded into the browser
-  // (HTTP disk) cache before cards unlock — no blank frames mid-shuffle.
-  // Skeleton grid holds the layout until every image settles.
+  // Image warm-up: the round starts once the 15 fixed decoys settle.
+  // The 4 real faces warm in the background (not gated) — each card's
+  // lock additionally waits for its own art to decode (1s cap), so a
+  // card never lands blank. Skeleton grid holds the layout meanwhile.
   let preloading = true;
   let loadedCount = 0;
   let loadTotal = 0;
-  let decoyPool: string[] = [];
+  const decoyPool: string[] = getFixedDecoyURLs();
+  // Full-roster background warm runs once (first round) — afterwards every
+  // round's real faces are already in cache/SW before their options exist.
+  let rosterWarming = false;
   // Freshness guard: stale preloads (rapid rerolls) must not clear the loader.
   let preloadKey = "";
   // Orchestration lives in a plain function (not inline in the reactive
   // statement) so the linter can't mistake cache writes for a render loop.
-  function startRound(key: string, motion: boolean, opts: typeof options) {
+  function startRound(key: string, motion: boolean) {
     lockUpTo = -1;
     activeIndex = motion ? 99 : 0;
+
+    // Whole roster warms in the background (cache + SW), gated or not.
+    // Runs once — all 184 faces download while the player drafts.
+    if (!motion && !rosterWarming) {
+      rosterWarming = true;
+      void preloadImages(getAllImageURLs());
+    }
 
     if (motion) {
       // Nothing animates — reals render eager, no warm-up needed.
       preloading = false;
-      decoyPool = [];
       return;
     }
 
     preloadKey = key;
     preloading = true;
     loadedCount = 0;
-    decoyPool = pickDecoyPool(opts.map((o) => o.id));
-    const urls = [...opts.map((o) => o.imageURL), ...decoyPool];
-    loadTotal = new Set(urls.filter(Boolean)).size;
-    preloadImages(urls, (done) => {
+    loadTotal = decoyPool.length;
+    preloadImages(decoyPool, (done) => {
       if (preloadKey !== key) return;
       loadedCount = done;
     }).then(() => {
@@ -61,7 +69,7 @@
       preloading = false;
     });
   }
-  $: startRound(revealKey, reducedMotion, options);
+  $: startRound(revealKey, reducedMotion);
 
   function handleSelect(index: number) {
     draft.pick(index);

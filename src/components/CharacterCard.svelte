@@ -16,7 +16,7 @@
   export let canStart: boolean = true;
   // Parent raises this to force-lock cards at or before the clicked index.
   export let lockUpTo: number = -1;
-  // Preloaded decoy faces for this round (never the round's real options).
+  // Fixed 15-face decoy cast (preloaded before the round starts).
   export let decoyPool: string[] = [];
 
   const SHUFFLE_TICK_MS = 80;
