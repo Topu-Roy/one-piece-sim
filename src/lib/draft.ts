@@ -47,6 +47,20 @@ function getWeaponUsersByRarity(rarity: Rarity): Character[] {
 /** Body-round guarantee: at least one option is a big-race body. */
 const BIG_RACES: Race[] = ["giant", "oni", "lunarian"];
 
+/** Haki key for haki rounds (null otherwise). */
+function hakiKeyFor(roundType: RoundType): "armament" | "observation" | "conqueror" | null {
+  switch (roundType) {
+    case "armament":
+      return "armament";
+    case "observation":
+      return "observation";
+    case "conqueror":
+      return "conqueror";
+    default:
+      return null;
+  }
+}
+
 /** Full fallback pool for a round type (any rarity) */
 function getFullPool(roundType: RoundType): Character[] {
   switch (roundType) {
@@ -126,6 +140,31 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
     const choice = pickRandom(candidates);
     taken.add(choice.id);
     options[idx] = choice;
+  }
+
+  // Haki rounds: ensure at least 2 holders of the round's haki type.
+  const hakiKey = hakiKeyFor(roundType);
+  if (hakiKey) {
+    const holds = (c: Character) => c.haki[hakiKey].tier !== "none";
+    let holders = options.filter(holds);
+    if (holders.length < 2) {
+      const nonHolders = options.filter((c) => !holds(c));
+      for (const nh of nonHolders) {
+        if (holders.length >= 2) break;
+        const idx = options.indexOf(nh);
+        const fresh = Characters.filter(
+          (c) => holds(c) && !options.some((o) => o.id === c.id) && !excludedIds.has(c.id),
+        );
+        const pool =
+          fresh.length > 0 ? fresh : Characters.filter((c) => holds(c) && !options.some((o) => o.id === c.id));
+        if (pool.length === 0) break;
+        const replacement = pickRandom(pool);
+        taken.delete(nh.id);
+        taken.add(replacement.id);
+        options[idx] = replacement;
+        holders = options.filter(holds);
+      }
+    }
   }
 
   // For weapon round: ensure at least 3 weapon users

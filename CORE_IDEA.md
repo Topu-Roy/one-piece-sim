@@ -26,9 +26,9 @@ The game has no backend — all logic, data, and simulation run client-side.
 | Round | Attribute        | What's Shown                        | Pool Rules                           |
 | ----- | ---------------- | ----------------------------------- | ------------------------------------ |
 | 1     | Body             | Character name + race + rarity chip | All characters, rarity-weighted      |
-| 2     | Armament Haki    | Character name + haki tier          | All characters                       |
-| 3     | Observation Haki | Character name + haki tier          | All characters                       |
-| 4     | Conqueror's Haki | Character name + haki tier          | All characters                       |
+| 2     | Armament Haki    | Character name + haki tier          | All characters, ≥2 holders           |
+| 3     | Observation Haki | Character name + haki tier          | All characters, ≥2 holders           |
+| 4     | Conqueror's Haki | Character name + haki tier          | All characters, ≥2 holders           |
 | 5     | Devil Fruit      | Character name + DF name/type       | DF users only                        |
 | 6     | Weapon           | Character name + weapon name/type   | At least 3 of 4 must be weapon users |
 | 7     | Intelligence     | Character name + intelligence value | All characters                       |

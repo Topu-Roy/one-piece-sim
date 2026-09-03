@@ -12,7 +12,7 @@
 
 ## Haki rounds — 2/3/4
 
-- Options: all characters (haki users or not — tier `none` contributes 0). Names + tiers shown.
+- Options: all characters (haki users or not — tier `none` contributes 0), with at least 2 of 4 holding the round's haki type. Names + tiers shown.
 - Armament → ATK, DEF, STA.
 - Observation → AWR, SPD (incl. reflex).
 - Conqueror → ATK, STA, DEF.
