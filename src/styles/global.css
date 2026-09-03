@@ -1,42 +1,51 @@
 @import "tailwindcss";
 
 /*
-  Design tokens from DESIGN.md (The Verge-inspired system).
-  Tailwind v4 exposes these as utilities, e.g. bg-canvas-black, text-jelly-mint.
+  Design tokens from DESIGN.md (Airtable editorial system).
+  Tailwind v4 exposes these as utilities, e.g. bg-canvas, text-ink.
+  Haas Grotesk substitute: system grotesk stack (Inter/system-ui per spec note).
 */
 @theme {
-  /* Brand hazards */
-  --color-jelly-mint: #3cffd0;
-  --color-verge-uv: #5200ff;
-  --color-console-mint: #309875;
-  --color-deep-link: #3860be;
-  --color-focus-cyan: #1eaedb;
-  --color-purple-rule: #3d00bf;
+  /* Text */
+  --color-ink: #181d26;
+  --color-body: #333840;
+  --color-muted: #41454d;
 
   /* Surfaces */
-  --color-canvas-black: #131313;
-  --color-surface-slate: #2d2d2d;
-  --color-image-frame: #313131;
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f8fafc;
+  --color-surface-strong: #e0e2e6;
+  --color-surface-dark: #181d26;
+  --color-hairline: #dddddd;
+  --color-border-strong: #9297a0;
 
-  /* Text */
-  --color-hazard-white: #ffffff;
-  --color-secondary-text: #949494;
-  --color-muted-text: #e9e9e9;
-  --color-inverted-text: #131313;
-  --color-dim-gray: #8c8c8c;
+  /* Signature card surfaces (full-bleed cards only, never small accents) */
+  --color-coral: #aa2d00;
+  --color-forest: #0a2e0e;
+  --color-cream: #f5e9d4;
+  --color-peach: #fcab79;
+  --color-mint: #a8d8c4;
+  --color-yellow: #f4d35e;
+  --color-mustard: #d9a441;
 
-  /* Font families */
-  --font-display: "Anton", Impact, "Helvetica Neue", sans-serif;
-  --font-ui: "Space Grotesk", Helvetica, Arial, sans-serif;
-  --font-mono: "Space Mono", "Courier New", Courier, monospace;
-  --font-serif: "Newsreader", Georgia, serif;
+  /* Semantic */
+  --color-link: #1b61c9;
+  --color-on-dark: #ffffff;
+
+  /* Font families (Haas substitute stack) */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-display:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial,
+    sans-serif;
 }
 
 html,
 body {
   margin: 0;
-  background-color: var(--color-canvas-black);
-  color: var(--color-hazard-white);
-  font-family: var(--font-ui);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
   min-height: 100%;
 }

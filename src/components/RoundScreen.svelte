@@ -15,37 +15,35 @@
   }
 </script>
 
-<div class="flex min-h-screen flex-col items-center px-4 py-8">
-  <div class="mb-8 text-center">
-    <span
-      class="mb-2 inline-block rounded-full border border-[var(--color-jelly-mint)]/30 px-3 py-1 font-mono text-[10px] tracking-widest text-[var(--color-jelly-mint)] uppercase"
-    >
+<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-24">
+  <div class="mb-12 text-center">
+    <p class="mb-4 text-sm font-medium tracking-[0.16px] text-muted uppercase">
       Round {round} of 8
-    </span>
-    <h1 class="font-display text-3xl font-bold tracking-tight text-white uppercase md:text-4xl">
+    </p>
+    <h1 class="font-display text-4xl leading-[1.2] font-normal text-ink md:text-[40px]">
       {label}
     </h1>
   </div>
 
   {#if showReroll}
-    <div class="mb-6">
+    <div class="mb-8">
       <RerollButton />
     </div>
   {/if}
 
-  <div class="grid w-full max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
+  <div class="grid w-full grid-cols-2 gap-6 md:grid-cols-4">
     {#each options as character, i (character.id)}
       <CharacterCard {character} {roundType} index={i} onSelect={handleSelect} />
     {/each}
   </div>
 
   {#if $draft.picks.length > 0}
-    <div class="mt-8 w-full max-w-4xl">
-      <h2 class="mb-3 font-mono text-[10px] tracking-widest text-[var(--color-dim-gray)] uppercase">Your Picks</h2>
+    <div class="mt-12 w-full">
+      <h2 class="mb-3 text-sm font-medium tracking-[0.16px] text-muted uppercase">Your Picks</h2>
       <div class="flex flex-wrap gap-2">
         {#each $draft.picks as pick (pick.round)}
           <span
-            class="rounded-full border border-white/10 bg-[var(--color-canvas-black)] px-3 py-1 font-mono text-[10px] tracking-wider text-[var(--color-secondary-text)] uppercase"
+            class="rounded-full border border-hairline bg-canvas px-3 py-1 text-xs font-medium tracking-wider text-body uppercase"
           >
             R{pick.round}: {pick.characterName}
           </span>

@@ -12,9 +12,7 @@
 </script>
 
 <button
-  class="flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-xs tracking-wider uppercase transition-all {canReroll
-    ? 'border-[var(--color-jelly-mint)] text-[var(--color-jelly-mint)] hover:bg-[var(--color-jelly-mint)] hover:text-black'
-    : 'cursor-not-allowed border-white/10 text-[var(--color-dim-gray)]'}"
+  class="flex items-center gap-2 rounded-xl border border-hairline bg-canvas px-6 py-4 text-base font-medium text-ink active:bg-surface-soft disabled:cursor-not-allowed disabled:border-border-strong disabled:text-muted"
   on:click={handleReroll}
   disabled={!canReroll}
 >

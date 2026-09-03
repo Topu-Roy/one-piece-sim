@@ -1,37 +1,19 @@
 <script lang="ts">
   import type { Character, RoundType } from "../lib/types";
-  import { getRaceModifier } from "../data/races";
 
   export let character: Character;
   export let roundType: RoundType;
   export let index: number;
   export let onSelect: (index: number) => void;
 
-  // Per-character base (attack/defense derive later from haki/DF/weapon, start at 0)
-  $: raceStats = roundType === "body" ? character.baseStats : null;
-  $: raceMod = roundType === "body" ? getRaceModifier(character.race) : null;
-  $: raceModLabel =
-    raceMod !== null
-      ? (
-          [
-            ["STR", raceMod.strength],
-            ["DUR", raceMod.durability],
-            ["SPD", raceMod.speed],
-            ["AWR", raceMod.awareness],
-            ["STA", raceMod.stamina],
-          ] as const
-        )
-          .filter(([, v]) => v !== 0)
-          .map(([k, v]) => `${k} ${v > 0 ? "+" : ""}${v}%`)
-          .join(" · ")
-      : "";
   $: showRarity = roundType !== "body";
-  $: rarityColor =
+  // Rarity chips: legend = dark navy, epic = forest, basic hidden. White type on both.
+  $: rarityChip =
     character.rarity === "legend"
-      ? "text-yellow-400"
+      ? "bg-surface-dark text-on-dark"
       : character.rarity === "epic"
-        ? "text-purple-400"
-        : "text-gray-400";
+        ? "bg-forest text-on-dark"
+        : "";
   $: currentHakiTier =
     roundType === "armament"
       ? character.haki.armament.tier
@@ -45,19 +27,19 @@
 </script>
 
 <button
-  class="group relative flex w-full flex-col items-center gap-3 rounded-2xl border border-white/10 bg-surface-slate p-6 transition-all hover:border-[var(--color-jelly-mint)] hover:bg-surface-slate/80"
+  class="relative flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-canvas p-4 active:bg-surface-soft"
   on:click={() => onSelect(index)}
 >
   {#if showRarity && character.rarity !== "basic"}
     <span
-      class="absolute top-3 right-3 rounded-full border border-white/20 px-2 py-0.5 font-mono text-[10px] tracking-widest uppercase {rarityColor}"
+      class="absolute top-3 right-3 rounded-full px-2 py-0.5 text-[10px] font-medium tracking-widest uppercase {rarityChip}"
     >
       {character.rarity}
     </span>
   {/if}
 
   <div
-    class="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-[var(--color-canvas-black)] text-2xl"
+    class="relative -mx-4 -mt-4 flex aspect-square w-[calc(100%+2rem)] items-center justify-center overflow-hidden rounded-t-[10px] bg-surface-soft text-4xl text-ink"
   >
     {#if character.imageURL && !imageError}
       <img
@@ -73,72 +55,45 @@
   </div>
 
   {#if roundType === "body"}
-    <span class="text-sm font-bold text-white">{character.fullName}</span>
-    <span class="font-mono text-xs tracking-wider text-[var(--color-secondary-text)] uppercase">
+    <span class="text-lg leading-[1.4] font-medium text-ink">{character.fullName}</span>
+    <span class="text-xs tracking-wider text-muted uppercase">
       {character.race}
     </span>
-    {#if raceModLabel}
-      <span class="font-mono text-[10px] tracking-wider text-[var(--color-jelly-mint)] uppercase">
-        {raceModLabel}
-      </span>
-    {/if}
-    <div class="grid w-full grid-cols-5 gap-1 text-center">
-      <div class="flex flex-col">
-        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">STR</span>
-        <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.strength}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">DUR</span>
-        <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.durability}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">SPD</span>
-        <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.speed}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">AWR</span>
-        <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.awareness}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">STA</span>
-        <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.stamina}</span>
-      </div>
-    </div>
   {:else}
-    <span class="text-sm font-bold text-white">{character.displayName}</span>
+    <span class="text-lg leading-[1.4] font-medium text-ink">{character.displayName}</span>
 
     {#if currentHakiTier}
-      <span class="font-mono text-xs tracking-wider text-[var(--color-secondary-text)] uppercase">
+      <span class="text-xs tracking-wider text-muted uppercase">
         Haki: {currentHakiTier}
       </span>
     {/if}
 
     {#if roundType === "devil_fruit" && character.devilFruit.type !== "none"}
-      <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+      <span class="text-xs text-body">
         {character.devilFruit.englishName}
       </span>
-      <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+      <span class="text-[10px] tracking-wider text-muted uppercase">
         {character.devilFruit.type.replace("_", " ")}
       </span>
     {/if}
 
     {#if roundType === "weapon" && character.weapon.type !== "none"}
-      <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+      <span class="text-xs text-body">
         {character.weapon.name}
       </span>
-      <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+      <span class="text-[10px] tracking-wider text-muted uppercase">
         {character.weapon.type}
       </span>
     {/if}
 
     {#if roundType === "intelligence"}
-      <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+      <span class="text-xs text-body">
         Intelligence: {character.baseStats.intelligence}
       </span>
     {/if}
 
     {#if roundType === "battle_iq"}
-      <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+      <span class="text-xs text-body">
         Battle IQ: {character.baseStats.battleIQ}
       </span>
     {/if}

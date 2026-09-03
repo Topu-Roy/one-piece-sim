@@ -1,15 +1,8 @@
 ---
-// Self-hosted fonts (free substitutes per design system). Imported here so Vite
-// bundles them globally; keeping them out of global.css avoids the Tailwind
-// Prettier plugin trying to resolve node_modules @import paths.
-import "@fontsource/anton/400.css";
-import "@fontsource/space-grotesk/300.css";
-import "@fontsource/space-grotesk/400.css";
-import "@fontsource/space-grotesk/500.css";
-import "@fontsource/space-grotesk/700.css";
-import "@fontsource/space-mono/400.css";
-import "@fontsource/space-mono/700.css";
-import "@fontsource/newsreader/400.css";
+/*
+ * Type runs the Haas-substitute system stack (see global.css).
+ * No webfonts — keeps the editorial body calm and the bundle lean.
+ */
 import "../styles/global.css";
 ---
 

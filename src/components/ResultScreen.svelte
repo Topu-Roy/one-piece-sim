@@ -8,6 +8,9 @@
   $: appearancePick = picks.find((p) => p.roundType === "body");
   $: buildRank = stats ? rankBuild(stats.stats) : null;
 
+  // Demo-grid pastel cycle for the 7 stat tiles.
+  const tileSurfaces = ["bg-peach", "bg-mint", "bg-cream", "bg-yellow", "bg-surface-soft", "bg-peach", "bg-mint"];
+
   function getCharImage(name: string): string {
     const char = Characters.find((c) => c.displayName === name);
     return char?.imageURL ?? "";
@@ -20,57 +23,49 @@
   }
 </script>
 
-<div class="flex min-h-screen flex-col items-center px-4 py-8">
-  <div class="mb-8 text-center">
-    <span
-      class="mb-2 inline-block rounded-full border border-[var(--color-jelly-mint)]/30 px-3 py-1 font-mono text-[10px] tracking-widest text-[var(--color-jelly-mint)] uppercase"
-    >
-      Draft Complete
-    </span>
-    <h1 class="font-display text-3xl font-bold tracking-tight text-white uppercase md:text-4xl">
+<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-24">
+  <div class="mb-12 text-center">
+    <p class="mb-4 text-sm font-medium tracking-[0.16px] text-muted uppercase">Draft Complete</p>
+    <h1 class="font-display text-4xl leading-[1.2] font-normal text-ink md:text-[40px]">
       {appearancePick?.characterName ?? "Your Character"}
     </h1>
   </div>
 
   {#if stats}
     {#if buildRank}
-      <div class="mb-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-surface-slate p-6 text-center">
-        <h2 class="mb-2 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">Your Rank</h2>
-        <div class="font-display text-5xl font-bold text-white">
+      <div class="mb-12 w-full max-w-2xl rounded-xl bg-forest p-8 text-center md:p-12">
+        <h2 class="mb-2 text-sm font-medium tracking-[0.16px] text-on-dark uppercase">Your Rank</h2>
+        <div class="font-display text-[32px] leading-[1.2] font-normal text-on-dark">
           #{buildRank.rank}
-          <span class="font-mono text-sm font-normal text-[var(--color-dim-gray)]">
-            of {buildRank.total}
-          </span>
+          <span class="text-sm font-normal text-on-dark"> of {buildRank.total} </span>
         </div>
-        <div class="mt-1 font-mono text-xs text-[var(--color-secondary-text)]">
+        <div class="mt-1 text-sm text-on-dark">
           BST {buildRank.bst.toLocaleString()}
           {#if buildRank.tied.length > 0}
-            <span class="text-[var(--color-dim-gray)]">· tied with {buildRank.tied.join(", ")}</span>
+            <span>· tied with {buildRank.tied.join(", ")}</span>
           {/if}
         </div>
-        <div class="mx-auto mt-4 flex max-w-md flex-col gap-1">
+        <div class="mx-auto mt-6 flex max-w-md flex-col gap-1">
           {#if buildRank.above}
-            <div class="flex items-center justify-between border-b border-white/5 py-1.5">
-              <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+            <div class="flex items-center justify-between border-b border-white/20 py-1.5">
+              <span class="text-[10px] font-medium tracking-wider text-on-dark uppercase">
                 ▲ {buildRank.above.name}
               </span>
-              <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+              <span class="text-xs text-on-dark">
                 {buildRank.above.bst.toLocaleString()}
               </span>
             </div>
           {/if}
-          <div class="flex items-center justify-between border-b border-[var(--color-jelly-mint)]/30 py-1.5">
-            <span class="font-mono text-[10px] tracking-wider text-[var(--color-jelly-mint)] uppercase">
-              ● You
-            </span>
-            <span class="font-mono text-xs font-bold text-white">{buildRank.bst.toLocaleString()}</span>
+          <div class="flex items-center justify-between border-b border-white/20 py-1.5">
+            <span class="text-[10px] font-medium tracking-wider text-on-dark uppercase"> ● You </span>
+            <span class="text-xs font-medium text-on-dark">{buildRank.bst.toLocaleString()}</span>
           </div>
           {#if buildRank.below}
-            <div class="flex items-center justify-between border-b border-white/5 py-1.5">
-              <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+            <div class="flex items-center justify-between border-b border-white/20 py-1.5">
+              <span class="text-[10px] font-medium tracking-wider text-on-dark uppercase">
                 ▼ {buildRank.below.name}
               </span>
-              <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+              <span class="text-xs text-on-dark">
                 {buildRank.below.bst.toLocaleString()}
               </span>
             </div>
@@ -79,66 +74,40 @@
       </div>
     {/if}
 
-    <div class="mb-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-surface-slate p-6">
-      <h2 class="mb-4 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">Final Stats</h2>
-      <div class="grid grid-cols-4 gap-4 text-center md:grid-cols-7">
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">STR</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.strength}</span>
-        </div>
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">ATK</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.attack}</span>
-        </div>
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">DUR</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.durability}</span>
-        </div>
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">DEF</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.defense}</span>
-        </div>
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">SPD</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.speed}</span>
-        </div>
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">AWR</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.awareness}</span>
-        </div>
-        <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">STA</span>
-          <span class="font-mono text-2xl font-bold text-white">{stats.stats.stamina}</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="mb-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-surface-slate p-6">
-      <h2 class="mb-4 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">
-        Stat Breakdown
-      </h2>
-      <div class="flex flex-col gap-2">
-        {#each stats.breakdown as item (item.label)}
-          <div class="flex items-center justify-between border-b border-white/5 py-2">
-            <span class="font-mono text-xs text-white">{item.label}</span>
-            <span class="font-mono text-[10px] text-[var(--color-secondary-text)]">{item.modifier}</span>
+    <div class="mb-12 w-full max-w-2xl">
+      <h2 class="mb-4 text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Final Stats</h2>
+      <div class="grid grid-cols-4 gap-3 text-center md:grid-cols-7">
+        {#each [{ k: "STR", v: stats.stats.strength }, { k: "ATK", v: stats.stats.attack }, { k: "DUR", v: stats.stats.durability }, { k: "DEF", v: stats.stats.defense }, { k: "SPD", v: stats.stats.speed }, { k: "AWR", v: stats.stats.awareness }, { k: "STA", v: stats.stats.stamina }] as tile, i (tile.k)}
+          <div class="flex flex-col gap-1 rounded-[10px] p-4 {tileSurfaces[i % tileSurfaces.length]}">
+            <span class="text-[10px] font-medium tracking-wider text-muted uppercase">{tile.k}</span>
+            <span class="font-display text-2xl leading-[1.2] font-normal text-ink">{tile.v}</span>
           </div>
         {/each}
       </div>
     </div>
 
-    <div class="mb-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-surface-slate p-6">
-      <h2 class="mb-4 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">Draft Picks</h2>
+    <div class="mb-12 w-full max-w-2xl rounded-[10px] border border-hairline bg-canvas p-6">
+      <h2 class="mb-4 text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Stat Breakdown</h2>
+      <div class="flex flex-col gap-2">
+        {#each stats.breakdown as item (item.label)}
+          <div class="flex items-center justify-between border-b border-hairline py-2">
+            <span class="text-sm text-ink">{item.label}</span>
+            <span class="text-[10px] text-muted">{item.modifier}</span>
+          </div>
+        {/each}
+      </div>
+    </div>
+
+    <div class="mb-12 w-full max-w-2xl rounded-[10px] border border-hairline bg-canvas p-6">
+      <h2 class="mb-4 text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Draft Picks</h2>
       <div class="flex flex-col gap-2">
         {#each picks as pick (pick.round)}
-          <div class="flex items-center gap-3 border-b border-white/5 py-2">
-            <span
-              class="w-20 shrink-0 font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase"
-            >
+          <div class="flex items-center gap-3 border-b border-hairline py-2">
+            <span class="w-20 shrink-0 text-[10px] font-medium tracking-wider text-muted uppercase">
               R{pick.round} — {pick.roundType.replace("_", " ")}
             </span>
             <div
-              class="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10 bg-[var(--color-canvas-black)]"
+              class="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-hairline bg-surface-soft"
             >
               {#if getCharImage(pick.characterName) && !pickImageErrors[pick.round]}
                 <img
@@ -149,15 +118,15 @@
                   on:error={() => (pickImageErrors[pick.round] = true)}
                 />
               {:else}
-                <span class="flex h-full w-full items-center justify-center text-xs text-white">
+                <span class="flex h-full w-full items-center justify-center text-xs text-ink">
                   {pick.characterName.charAt(0)}
                 </span>
               {/if}
             </div>
-            <span class="font-mono text-xs text-white">
+            <span class="text-sm text-ink">
               {pick.characterName}
               {#if pick.rarity !== "basic"}
-                <span class="ml-1 text-[10px] text-[var(--color-dim-gray)]">({pick.rarity})</span>
+                <span class="ml-1 text-[10px] text-muted">({pick.rarity})</span>
               {/if}
             </span>
           </div>
@@ -167,7 +136,7 @@
   {/if}
 
   <button
-    class="rounded-full bg-[var(--color-jelly-mint)] px-6 py-3 font-mono text-xs tracking-widest text-black uppercase transition-all hover:bg-white"
+    class="rounded-xl bg-ink px-6 py-4 text-base font-medium text-on-dark active:bg-surface-dark"
     on:click={handleNewDraft}
   >
     New Draft
