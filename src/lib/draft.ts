@@ -1,6 +1,6 @@
 import type { Character, Race, Rarity, DraftState, DraftPick, StatBlock, RoundType } from "./types";
-import { Characters } from "../data/characters";
-import { getRaceStats, getAllRaces } from "../data/races";
+import { Characters } from "../data/characters-v2";
+import { getAllRaces, getRaceModifier } from "../data/races";
 
 /** Max characters per race in the Round 1 pool */
 const MAX_PER_RACE = 3;
@@ -132,6 +132,9 @@ function generateRoundOptions(roundType: RoundType, racePool?: Map<Race, Charact
   return options;
 }
 
+/** Total draft rounds (1 Identity + 6 power + 1 mind... see labels) */
+export const TOTAL_ROUNDS = 8;
+
 /** Get the round type for a given round number */
 export function getRoundType(round: number): RoundType {
   const types: RoundType[] = [
@@ -143,15 +146,14 @@ export function getRoundType(round: number): RoundType {
     "weapon",
     "intelligence",
     "battle_iq",
-    "appearance",
   ];
-  return types[round - 1] ?? "appearance";
+  return types[round - 1] ?? "battle_iq";
 }
 
 /** Get the display label for a round type */
 export function getRoundLabel(round: number): string {
   const labels: Record<number, string> = {
-    1: "Choose Your Race",
+    1: "Choose Your Identity",
     2: "Armament Haki",
     3: "Observation Haki",
     4: "Conqueror's Haki",
@@ -159,7 +161,6 @@ export function getRoundLabel(round: number): string {
     6: "Weapon",
     7: "Intelligence",
     8: "Battle IQ",
-    9: "Appearance",
   };
   return labels[round] ?? "Unknown";
 }
@@ -211,14 +212,23 @@ export function pickOption(state: DraftState, characterIndex: number): DraftStat
 
   const newPicks = [...state.picks, pick];
 
-  // Set base stats from race pick (Round 1)
+  // Set base stats from race pick (Round 1) — per-character base, not race table
   let baseStats = state.baseStats;
   if (roundType === "race") {
-    baseStats = getRaceStats(character.race);
+    const b = character.baseStats;
+    baseStats = {
+      strength: b.strength,
+      attack: 0,
+      durability: b.durability,
+      defense: 0,
+      speed: b.speed,
+      awareness: b.awareness,
+      stamina: b.stamina,
+    };
   }
 
   const nextRound = state.currentRound + 1;
-  const isComplete = nextRound > 9;
+  const isComplete = nextRound > TOTAL_ROUNDS;
 
   // Generate options for next round if not complete
   const nextOptions = isComplete ? [] : generateRoundOptions(getRoundType(nextRound));
@@ -239,7 +249,22 @@ function resolveChar(pick: DraftPick | undefined): Character | null {
   return Characters.find((c) => c.id === pick.characterId) ?? null;
 }
 
-/** Calculate final stats from all picks */
+/**
+ * Calculate final stats from all picks — V2 additive system (7 stats).
+ *
+ * Formula: finalStat = characterBase + hakiBonus + dfBonus + weaponBonus,
+ * then race % (body only), then intelligence boosts awareness
+ * and battle IQ boosts strength (%).
+ *
+ * Routing (attack/defense are distinct from strength/durability):
+ *   STR = base.strength only (+ battleIQ %)
+ *   ATK = armament.attack + conqueror.attack + DF.attack + weapon.attack (base 0)
+ *   DUR = base.durability only
+ *   DEF = armament.defense + conqueror.defense + DF.defense + weapon.defense (base 0)
+ *   SPD = base.speed + observation.speed + observation.reflex + DF/weapon.speed
+ *   AWR = base.awareness + observation.awareness + DF/weapon.awareness (+ int %)
+ *   STA = base.stamina + armament/conqueror stamina + DF/weapon.stamina
+ */
 export function calculateFinalStats(picks: DraftPick[]): {
   stats: StatBlock;
   breakdown: { label: string; modifier: string }[];
@@ -247,105 +272,136 @@ export function calculateFinalStats(picks: DraftPick[]): {
   const breakdown: { label: string; modifier: string }[] = [];
   const get = (type: RoundType) => resolveChar(picks.find((p) => p.roundType === type));
 
-  // Step 1: Get base stats from race pick
+  // Step 1: Base stats from character (individual, evaluated from feats).
+  // Attack/defense start at 0 — derived purely from haki/DF/weapon.
   const raceChar = get("race");
   const stats: StatBlock = raceChar
-    ? getRaceStats(raceChar.race)
-    : { strength: 100, durability: 100, speed: 100, awareness: 100, stamina: 100 };
+    ? {
+        strength: raceChar.baseStats.strength,
+        attack: 0,
+        durability: raceChar.baseStats.durability,
+        defense: 0,
+        speed: raceChar.baseStats.speed,
+        awareness: raceChar.baseStats.awareness,
+        stamina: raceChar.baseStats.stamina,
+      }
+    : { strength: 100, attack: 0, durability: 100, defense: 0, speed: 100, awareness: 100, stamina: 100 };
 
   breakdown.push({
-    label: `Race (${raceChar?.race ?? "human"})`,
-    modifier: `STR:${stats.strength} DEF:${stats.durability} SPD:${stats.speed} AWR:${stats.awareness} STA:${stats.stamina}`,
+    label: `Base (${raceChar?.displayName ?? "unknown"})`,
+    modifier: `STR:${stats.strength} DUR:${stats.durability} SPD:${stats.speed} AWR:${stats.awareness} STA:${stats.stamina}`,
   });
 
-  // Step 2: Apply haki multipliers
-  const hakiConfig = [
-    {
-      type: "armament" as const,
-      affects: ["strength", "durability"] as const,
-      getMultiplier: (c: Character) => c.haki.armament,
-    },
-    {
-      type: "observation" as const,
-      affects: ["speed", "awareness"] as const,
-      getMultiplier: (c: Character) => c.haki.observation,
-    },
-    {
-      type: "conqueror" as const,
-      affects: ["strength", "durability", "stamina"] as const,
-      getMultiplier: (c: Character) => c.haki.conqueror,
-    },
-  ];
-
-  for (const { type, affects, getMultiplier } of hakiConfig) {
-    const char = get(type);
-    if (!char) continue;
-    const haki = getMultiplier(char);
-    for (const stat of affects) stats[stat] *= haki.multiplier;
-    breakdown.push({ label: `${type} (${haki.tier})`, modifier: `×${haki.multiplier} on ${affects.join(", ")}` });
+  // Step 2: Add haki raw values
+  // Armament → attack, defense, stamina
+  const armChar = get("armament");
+  if (armChar) {
+    const arm = armChar.haki.armament;
+    stats.attack += arm.attack;
+    stats.defense += arm.defense;
+    stats.stamina += arm.stamina;
+    breakdown.push({
+      label: `Armament (${arm.tier})`,
+      modifier: `+${arm.attack} ATK, +${arm.defense} DEF, +${arm.stamina} STA`,
+    });
   }
 
-  // Step 3: Apply DF multipliers
+  // Observation → awareness, speed, reflex (dodge sense → speed)
+  const obsChar = get("observation");
+  if (obsChar) {
+    const obs = obsChar.haki.observation;
+    stats.awareness += obs.awareness;
+    stats.speed += obs.speed + obs.reflex;
+    breakdown.push({
+      label: `Observation (${obs.tier})`,
+      modifier: `+${obs.awareness} AWR, +${obs.speed + obs.reflex} SPD`,
+    });
+  }
+
+  // Conqueror → attack, stamina, defense
+  const conChar = get("conqueror");
+  if (conChar) {
+    const con = conChar.haki.conqueror;
+    stats.attack += con.attack;
+    stats.stamina += con.stamina;
+    stats.defense += con.defense;
+    breakdown.push({
+      label: `Conqueror (${con.tier})`,
+      modifier: `+${con.attack} ATK, +${con.stamina} STA, +${con.defense} DEF`,
+    });
+  }
+
+  // Step 3: Add DF raw values
   const dfChar = get("devil_fruit");
   if (dfChar && dfChar.devilFruit.type !== "none") {
     const df = dfChar.devilFruit;
-    stats.strength *= df.attackMultiplier;
-    stats.durability *= df.durabilityMultiplier;
-    stats.speed *= df.speedMultiplier;
-    stats.awareness *= df.awarenessMultiplier;
-    stats.stamina *= df.staminaMultiplier;
+    stats.attack += df.attack;
+    stats.defense += df.defense;
+    stats.speed += df.speed;
+    stats.awareness += df.awareness;
+    stats.stamina += df.stamina;
     breakdown.push({
       label: `DF (${df.englishName})`,
-      modifier: `STR×${df.attackMultiplier} DEF×${df.durabilityMultiplier} SPD×${df.speedMultiplier} AWR×${df.awarenessMultiplier} STA×${df.staminaMultiplier}`,
+      modifier: `+${df.attack} ATK, +${df.defense} DEF, +${df.speed} SPD, +${df.awareness} AWR, +${df.stamina} STA`,
     });
-    if (df.state.awakened) {
-      for (const stat of df.state.target) stats[stat] *= df.state.awakenedMultiplier;
-      breakdown.push({
-        label: "Awakened",
-        modifier: `×${df.state.awakenedMultiplier} on ${df.state.target.join(", ")}`,
-      });
-    }
   }
 
-  // Step 4: Apply weapon multipliers
+  // Step 4: Add weapon raw values
   const weaponChar = get("weapon");
   if (weaponChar && weaponChar.weapon.type !== "none") {
     const w = weaponChar.weapon;
-    stats.strength *= w.attackMultiplier;
-    stats.durability *= w.durabilityMultiplier;
-    stats.speed *= w.speedMultiplier;
-    stats.awareness *= w.awarenessMultiplier;
-    stats.stamina *= w.staminaMultiplier;
+    stats.attack += w.attack;
+    stats.defense += w.defense;
+    stats.speed += w.speed;
+    stats.awareness += w.awareness;
+    stats.stamina += w.stamina;
     breakdown.push({
       label: `Weapon (${w.name})`,
-      modifier: `STR×${w.attackMultiplier} DEF×${w.durabilityMultiplier} SPD×${w.speedMultiplier} AWR×${w.awarenessMultiplier} STA×${w.staminaMultiplier}`,
+      modifier: `+${w.attack} ATK, +${w.defense} DEF, +${w.speed} SPD, +${w.awareness} AWR, +${w.stamina} STA`,
     });
   }
 
-  // Step 5: Intelligence boosts awareness, Battle IQ boosts strength
+  // Step 5: Race % modifiers (body stats only — never attack/defense).
+  // Race comes from the Round 1 Identity pick.
+  if (raceChar) {
+    const mod = getRaceModifier(raceChar.race);
+    stats.strength *= 1 + mod.strength / 100;
+    stats.durability *= 1 + mod.durability / 100;
+    stats.speed *= 1 + mod.speed / 100;
+    stats.awareness *= 1 + mod.awareness / 100;
+    stats.stamina *= 1 + mod.stamina / 100;
+    breakdown.push({
+      label: `Race (${raceChar.race})`,
+      modifier: `STR:+${mod.strength}% DUR:+${mod.durability}% SPD:+${mod.speed}% AWR:+${mod.awareness}% STA:+${mod.stamina}%`,
+    });
+  }
+
+  // Step 6: Intelligence boosts awareness, Battle IQ boosts strength (percentage bonuses)
   const intChar = get("intelligence");
   if (intChar) {
-    const bonus = intChar.intelligence / 100;
+    const bonus = intChar.baseStats.intelligence / 100;
     stats.awareness *= 1 + bonus * 0.3;
     breakdown.push({
-      label: `Intelligence (${intChar.intelligence})`,
+      label: `Intelligence (${intChar.baseStats.intelligence})`,
       modifier: `+${(bonus * 30).toFixed(0)}% Awareness`,
     });
   }
 
   const biqChar = get("battle_iq");
   if (biqChar) {
-    const bonus = biqChar.battleIQ / 100;
+    const bonus = biqChar.baseStats.battleIQ / 100;
     stats.strength *= 1 + bonus * 0.2;
     breakdown.push({
-      label: `Battle IQ (${biqChar.battleIQ})`,
+      label: `Battle IQ (${biqChar.baseStats.battleIQ})`,
       modifier: `+${(bonus * 20).toFixed(0)}% Strength`,
     });
   }
 
   // Round to 1 decimal
   stats.strength = Math.round(stats.strength * 10) / 10;
+  stats.attack = Math.round(stats.attack * 10) / 10;
   stats.durability = Math.round(stats.durability * 10) / 10;
+  stats.defense = Math.round(stats.defense * 10) / 10;
   stats.speed = Math.round(stats.speed * 10) / 10;
   stats.awareness = Math.round(stats.awareness * 10) / 10;
   stats.stamina = Math.round(stats.stamina * 10) / 10;
@@ -353,53 +409,99 @@ export function calculateFinalStats(picks: DraftPick[]): {
   return { stats, breakdown };
 }
 
-/** Simplified BST calculator — takes a single character, returns total stat sum */
+/** Simplified BST calculator — V2 additive system (7 stats) */
 export function calculateCharacterBST(char: Character): number {
-  const race = getRaceStats(char.race);
   const s = {
-    strength: race.strength,
-    durability: race.durability,
-    speed: race.speed,
-    awareness: race.awareness,
-    stamina: race.stamina,
+    strength: char.baseStats.strength,
+    attack: 0,
+    durability: char.baseStats.durability,
+    defense: 0,
+    speed: char.baseStats.speed,
+    awareness: char.baseStats.awareness,
+    stamina: char.baseStats.stamina,
   };
 
-  // Haki — armament boosts STR+DEF, observation boosts SPD+AWR, conqueror boosts STR+DEF+STA
-  s.strength *= char.haki.armament.multiplier * char.haki.conqueror.multiplier;
-  s.durability *= char.haki.armament.multiplier * char.haki.conqueror.multiplier;
-  s.speed *= char.haki.observation.multiplier;
-  s.awareness *= char.haki.observation.multiplier;
-  s.stamina *= char.haki.conqueror.multiplier;
+  // Haki — additive (attack/defense separate from strength/durability)
+  s.attack += char.haki.armament.attack + char.haki.conqueror.attack;
+  s.defense += char.haki.armament.defense + char.haki.conqueror.defense;
+  s.speed += char.haki.observation.speed + char.haki.observation.reflex;
+  s.awareness += char.haki.observation.awareness;
+  s.stamina += char.haki.armament.stamina + char.haki.conqueror.stamina;
 
-  // Devil Fruit
+  // Devil Fruit — additive
   if (char.devilFruit.type !== "none") {
     const df = char.devilFruit;
-    s.strength *= df.attackMultiplier;
-    s.durability *= df.durabilityMultiplier;
-    s.speed *= df.speedMultiplier;
-    s.awareness *= df.awarenessMultiplier;
-    s.stamina *= df.staminaMultiplier;
-
-    if (df.state.awakened) {
-      for (const stat of df.state.target) {
-        s[stat] *= df.state.awakenedMultiplier;
-      }
-    }
+    s.attack += df.attack;
+    s.defense += df.defense;
+    s.speed += df.speed;
+    s.awareness += df.awareness;
+    s.stamina += df.stamina;
   }
 
-  // Weapon
+  // Weapon — additive
   if (char.weapon.type !== "none") {
     const w = char.weapon;
-    s.strength *= w.attackMultiplier;
-    s.durability *= w.durabilityMultiplier;
-    s.speed *= w.speedMultiplier;
-    s.awareness *= w.awarenessMultiplier;
-    s.stamina *= w.staminaMultiplier;
+    s.attack += w.attack;
+    s.defense += w.defense;
+    s.speed += w.speed;
+    s.awareness += w.awareness;
+    s.stamina += w.stamina;
   }
 
-  // Intelligence boosts awareness, Battle IQ boosts strength
-  s.awareness *= 1 + (char.intelligence / 100) * 0.3;
-  s.strength *= 1 + (char.battleIQ / 100) * 0.2;
+  // Race % modifiers (body stats only — never attack/defense)
+  const mod = getRaceModifier(char.race);
+  s.strength *= 1 + mod.strength / 100;
+  s.durability *= 1 + mod.durability / 100;
+  s.speed *= 1 + mod.speed / 100;
+  s.awareness *= 1 + mod.awareness / 100;
+  s.stamina *= 1 + mod.stamina / 100;
 
-  return Math.round((s.strength + s.durability + s.speed + s.awareness + s.stamina) * 10) / 10;
+  // Intelligence boosts awareness, Battle IQ boosts strength (percentage)
+  s.awareness *= 1 + (char.baseStats.intelligence / 100) * 0.3;
+  s.strength *= 1 + (char.baseStats.battleIQ / 100) * 0.2;
+
+  return (
+    Math.round((s.strength + s.attack + s.durability + s.defense + s.speed + s.awareness + s.stamina) * 10) / 10
+  );
+}
+
+export type BuildRank = {
+  rank: number;
+  total: number;
+  bst: number;
+  above: { name: string; bst: number } | null;
+  below: { name: string; bst: number } | null;
+  tied: string[];
+};
+
+/**
+ * Rank a drafted build against all 184 roster characters.
+ * Rank = 1 + count(roster BST strictly greater). Ties share rank.
+ * Runs live in-browser (184 cheap calcs) — always in sync with tuning.
+ */
+export function rankBuild(stats: StatBlock): BuildRank {
+  const r = (n: number) => Math.round(n * 10) / 10;
+  const bst = r(
+    stats.strength +
+      stats.attack +
+      stats.durability +
+      stats.defense +
+      stats.speed +
+      stats.awareness +
+      stats.stamina,
+  );
+
+  const table = Characters.map((c) => ({ name: c.displayName, bst: calculateCharacterBST(c) })).sort(
+    (a, b) => b.bst - a.bst,
+  );
+
+  const better = table.filter((t) => t.bst > bst);
+  const tied = table.filter((t) => t.bst === bst).map((t) => t.name);
+  const rank = better.length + 1;
+
+  // Neighbors: closest roster BST strictly above / below
+  const above = better.length > 0 ? better[better.length - 1] : null;
+  const below = table.find((t) => t.bst < bst) ?? null;
+
+  return { rank, total: table.length + 1, bst, above, below, tied };
 }

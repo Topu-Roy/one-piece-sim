@@ -1,13 +1,30 @@
 <script lang="ts">
   import type { Character, RoundType } from "../lib/types";
-  import { getRaceStats } from "../data/races";
+  import { getRaceModifier } from "../data/races";
 
   export let character: Character;
   export let roundType: RoundType;
   export let index: number;
   export let onSelect: (index: number) => void;
 
-  $: raceStats = roundType === "race" ? getRaceStats(character.race) : null;
+  // Per-character base (attack/defense derive later from haki/DF/weapon, start at 0)
+  $: raceStats = roundType === "race" ? character.baseStats : null;
+  $: raceMod = roundType === "race" ? getRaceModifier(character.race) : null;
+  $: raceModLabel =
+    raceMod !== null
+      ? (
+          [
+            ["STR", raceMod.strength],
+            ["DUR", raceMod.durability],
+            ["SPD", raceMod.speed],
+            ["AWR", raceMod.awareness],
+            ["STA", raceMod.stamina],
+          ] as const
+        )
+          .filter(([, v]) => v !== 0)
+          .map(([k, v]) => `${k} ${v > 0 ? "+" : ""}${v}%`)
+          .join(" · ")
+      : "";
   $: showRarity = roundType !== "race";
   $: rarityColor =
     character.rarity === "legend"
@@ -56,16 +73,22 @@
   </div>
 
   {#if roundType === "race"}
+    <span class="text-sm font-bold text-white">{character.fullName}</span>
     <span class="font-mono text-xs tracking-wider text-[var(--color-secondary-text)] uppercase">
       {character.race}
     </span>
+    {#if raceModLabel}
+      <span class="font-mono text-[10px] tracking-wider text-[var(--color-jelly-mint)] uppercase">
+        {raceModLabel}
+      </span>
+    {/if}
     <div class="grid w-full grid-cols-5 gap-1 text-center">
       <div class="flex flex-col">
         <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">STR</span>
         <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.strength}</span>
       </div>
       <div class="flex flex-col">
-        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">DEF</span>
+        <span class="font-mono text-[9px] tracking-wider text-[var(--color-dim-gray)] uppercase">DUR</span>
         <span class="font-mono text-xs text-[var(--color-jelly-mint)]">{raceStats?.durability}</span>
       </div>
       <div class="flex flex-col">
@@ -110,18 +133,14 @@
 
     {#if roundType === "intelligence"}
       <span class="font-mono text-xs text-[var(--color-secondary-text)]">
-        Intelligence: {character.intelligence}
+        Intelligence: {character.baseStats.intelligence}
       </span>
     {/if}
 
     {#if roundType === "battle_iq"}
       <span class="font-mono text-xs text-[var(--color-secondary-text)]">
-        Battle IQ: {character.battleIQ}
+        Battle IQ: {character.baseStats.battleIQ}
       </span>
-    {/if}
-
-    {#if roundType === "appearance"}
-      <span class="text-sm font-bold text-white">{character.fullName}</span>
     {/if}
   {/if}
 </button>

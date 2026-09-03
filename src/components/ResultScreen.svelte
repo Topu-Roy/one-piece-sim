@@ -1,10 +1,12 @@
 <script lang="ts">
   import { draft, finalStats } from "../stores/draft";
-  import { Characters } from "../data/characters";
+  import { Characters } from "../data/characters-v2";
+  import { rankBuild } from "../lib/draft";
 
   $: stats = $finalStats;
   $: picks = $draft.picks;
-  $: appearancePick = picks.find((p) => p.roundType === "appearance");
+  $: appearancePick = picks.find((p) => p.roundType === "race");
+  $: buildRank = stats ? rankBuild(stats.stats) : null;
 
   function getCharImage(name: string): string {
     const char = Characters.find((c) => c.displayName === name);
@@ -31,16 +33,70 @@
   </div>
 
   {#if stats}
+    {#if buildRank}
+      <div class="mb-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-surface-slate p-6 text-center">
+        <h2 class="mb-2 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">Your Rank</h2>
+        <div class="font-display text-5xl font-bold text-white">
+          #{buildRank.rank}
+          <span class="font-mono text-sm font-normal text-[var(--color-dim-gray)]">
+            of {buildRank.total}
+          </span>
+        </div>
+        <div class="mt-1 font-mono text-xs text-[var(--color-secondary-text)]">
+          BST {buildRank.bst.toLocaleString()}
+          {#if buildRank.tied.length > 0}
+            <span class="text-[var(--color-dim-gray)]">· tied with {buildRank.tied.join(", ")}</span>
+          {/if}
+        </div>
+        <div class="mx-auto mt-4 flex max-w-md flex-col gap-1">
+          {#if buildRank.above}
+            <div class="flex items-center justify-between border-b border-white/5 py-1.5">
+              <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+                ▲ {buildRank.above.name}
+              </span>
+              <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+                {buildRank.above.bst.toLocaleString()}
+              </span>
+            </div>
+          {/if}
+          <div class="flex items-center justify-between border-b border-[var(--color-jelly-mint)]/30 py-1.5">
+            <span class="font-mono text-[10px] tracking-wider text-[var(--color-jelly-mint)] uppercase">
+              ● You
+            </span>
+            <span class="font-mono text-xs font-bold text-white">{buildRank.bst.toLocaleString()}</span>
+          </div>
+          {#if buildRank.below}
+            <div class="flex items-center justify-between border-b border-white/5 py-1.5">
+              <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">
+                ▼ {buildRank.below.name}
+              </span>
+              <span class="font-mono text-xs text-[var(--color-secondary-text)]">
+                {buildRank.below.bst.toLocaleString()}
+              </span>
+            </div>
+          {/if}
+        </div>
+      </div>
+    {/if}
+
     <div class="mb-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-surface-slate p-6">
       <h2 class="mb-4 font-mono text-xs tracking-widest text-[var(--color-jelly-mint)] uppercase">Final Stats</h2>
-      <div class="grid grid-cols-5 gap-4 text-center">
+      <div class="grid grid-cols-4 gap-4 text-center md:grid-cols-7">
         <div class="flex flex-col gap-1">
           <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">STR</span>
           <span class="font-mono text-2xl font-bold text-white">{stats.stats.strength}</span>
         </div>
         <div class="flex flex-col gap-1">
-          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">DEF</span>
+          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">ATK</span>
+          <span class="font-mono text-2xl font-bold text-white">{stats.stats.attack}</span>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">DUR</span>
           <span class="font-mono text-2xl font-bold text-white">{stats.stats.durability}</span>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">DEF</span>
+          <span class="font-mono text-2xl font-bold text-white">{stats.stats.defense}</span>
         </div>
         <div class="flex flex-col gap-1">
           <span class="font-mono text-[10px] tracking-wider text-[var(--color-dim-gray)] uppercase">SPD</span>

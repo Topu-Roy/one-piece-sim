@@ -1,4 +1,4 @@
-import type { Character } from "../lib/types-v2";
+import type { Character } from "../lib/types";
 
 export const Characters: Character[] = [
   {

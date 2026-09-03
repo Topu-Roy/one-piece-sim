@@ -8,7 +8,7 @@
   $: options = $roundOptions;
   $: roundType = getRoundType(round);
   $: label = getRoundLabel(round);
-  $: showReroll = round <= 8;
+  $: showReroll = round <= 7;
 
   function handleSelect(index: number) {
     draft.pick(index);
@@ -20,7 +20,7 @@
     <span
       class="mb-2 inline-block rounded-full border border-[var(--color-jelly-mint)]/30 px-3 py-1 font-mono text-[10px] tracking-widest text-[var(--color-jelly-mint)] uppercase"
     >
-      Round {round} of 9
+      Round {round} of 8
     </span>
     <h1 class="font-display text-3xl font-bold tracking-tight text-white uppercase md:text-4xl">
       {label}

@@ -12,67 +12,107 @@ export type Race =
   | "oni"
   | "shandia";
 
-export type HakiTier = "none" | "basic" | "advanced";
+export type HakiTier = "none" | "basic" | "advanced" | "supreme";
 export type DevilFruitType = "paramecia" | "zoan" | "ancient_zoan" | "mythical_zoan" | "logia" | "none";
 export type WeaponType = "sword" | "spear" | "club" | "rifle" | "slingshot" | "staff" | "mechanical" | "none";
-export type Stats = "strength" | "durability" | "speed" | "awareness" | "stamina";
+export type Stats = "strength" | "attack" | "durability" | "defense" | "speed" | "awareness" | "stamina";
 export type Rarity = "basic" | "epic" | "legend";
 
+/**
+ * V2 Character type — flat additive stat values.
+ *
+ * Final block has 7 stats: strength, attack, durability, defense, speed,
+ * awareness, stamina.
+ *   - strength/durability come ONLY from baseStats (raw body).
+ *   - attack/defense start at 0 and come ONLY from haki, DF, weapon
+ *     (technique output / blocking ability).
+ * Haki sub-objects:
+ *   - armament → attack, defense, stamina
+ *   - observation → awareness, speed, reflex (dodge sense)
+ *   - conqueror → attack, stamina, defense
+ *
+ * DF and weapon have attack/defense/speed/awareness/stamina.
+ * Characters with no DF or no weapon have all stat fields set to 0.
+ * intelligence/battleIQ live in baseStats and act as % multipliers
+ * (awareness/strength), not flat bonuses.
+ */
 export type Character = {
   id: string;
-  displayName: string; // "Monkey D. Luffy" - but Shorten extremely long names
-  fullName: string; // "Monkey D. Luffy"
+  displayName: string;
+  fullName: string;
   imageURL: string;
   race: Race;
+  rarity: Rarity;
+
+  /** Individual base stats — evaluated from canonical feats, not from race */
+  baseStats: {
+    strength: number;
+    durability: number;
+    speed: number;
+    awareness: number;
+    stamina: number;
+    intelligence: number;
+    battleIQ: number;
+  };
 
   haki: {
-    // hand-authored per character
     armament: {
       tier: HakiTier;
-      multiplier: number; // ( ex: 2, 1.5 ) If picked: base stat gets this multiplier
+      attack: number;
+      defense: number;
+      stamina: number;
     };
     observation: {
       tier: HakiTier;
-      multiplier: number; // same as armament
+      awareness: number;
+      speed: number;
+      reflex: number;
     };
     conqueror: {
       tier: HakiTier;
-      multiplier: number; // same as armament
+      attack: number;
+      stamina: number;
+      defense: number;
     };
   };
 
   devilFruit: {
-    // hand-authored per DF
+    type: DevilFruitType;
     japaneseName: string;
     englishName: string;
-    type: DevilFruitType;
-    state: { awakened: false } | { awakened: true; awakenedMultiplier: number; target: Stats[] };
-    attackMultiplier: number;
-    durabilityMultiplier: number;
-    speedMultiplier: number;
-    awarenessMultiplier: number;
-    staminaMultiplier: number;
+    awakened: boolean;
+    attack: number;
+    defense: number;
+    speed: number;
+    awareness: number;
+    stamina: number;
   };
 
   weapon: {
-    // hand-authored per Weapon
     type: WeaponType;
     name: string;
-    attackMultiplier: number;
-    durabilityMultiplier: number;
-    speedMultiplier: number;
-    awarenessMultiplier: number;
-    staminaMultiplier: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    awareness: number;
+    stamina: number;
   };
-
-  rarity: Rarity;
-  intelligence: number; // Raw stats, but will be used in the calculations
-  battleIQ: number; // Raw stats, but will be used in the calculations
 };
 
 // --- Draft types ---
 
 export type StatBlock = {
+  strength: number;
+  attack: number;
+  durability: number;
+  defense: number;
+  speed: number;
+  awareness: number;
+  stamina: number;
+};
+
+/** Race % modifiers (body stats only — never attack/defense). Values are percents. */
+export type RaceModifier = {
   strength: number;
   durability: number;
   speed: number;
@@ -81,15 +121,7 @@ export type StatBlock = {
 };
 
 export type RoundType =
-  | "race"
-  | "armament"
-  | "observation"
-  | "conqueror"
-  | "devil_fruit"
-  | "weapon"
-  | "intelligence"
-  | "battle_iq"
-  | "appearance";
+  "race" | "armament" | "observation" | "conqueror" | "devil_fruit" | "weapon" | "intelligence" | "battle_iq";
 
 export type DraftPick = {
   round: number;
@@ -105,7 +137,9 @@ export type DraftPickWithRace = DraftPick & {
 
 export type DraftPickWithHaki = DraftPick & {
   hakiTier: HakiTier;
-  hakiMultiplier: number;
+  hakiAttack: number;
+  hakiDefense: number;
+  hakiStamina: number;
 };
 
 export type DraftPickWithDF = DraftPick & {

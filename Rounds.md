@@ -1,87 +1,53 @@
-- Note:
-  - the calculations of stats will happen after the draft rounds are finished. Not during the draft. So after each pick you will store the picks in a shared state. For images, use a placeholder image for now.
+# Draft Rounds — current spec (8 rounds, 7 stats)
 
-## Round 1 - Race
+- Calculations happen after the draft finishes, not during. Picks stored in shared state, computed at end. Placeholder images only where real art missing.
 
-You will create an array that will hold at most 3 charecter per race in it. When the round starts you will first randomly select 4 unique races, and to desplay one random charecter as the option out of the 3. No need for additional info just show the race name.
+## Round 1 — Identity
 
-## Haki Rounds - (2/3/4)
+- Pool: at most 3 characters per race. When round starts, pick 4 unique races, show 1 random character per race.
+- Shows: character name, race, base stat preview (STR/DUR/SPD/AWR/STA), race % bonus.
+- Pick gives: looks + name + base stat block + race. No rarity roll.
+- Note: per-character baseStats (hand-tuned from canonical feats), NOT a shared race table.
 
-For this the options can be charecters who can use haki or can't both will be presented. Names shown.
+## Haki rounds — 2/3/4
 
-## Round 5 - Devil fruit
+- Options: all characters (haki users or not — tier `none` contributes 0). Names + tiers shown.
+- Armament → ATK, DEF, STA.
+- Observation → AWR, SPD (incl. reflex).
+- Conqueror → ATK, STA, DEF.
 
-For this round you will only show DF users. Charecters with no DF are ommited. Charecter names shown.
+## Round 5 — Devil Fruit
 
-## Round 6 - Weapon
+- DF users only. Characters with no DF omitted. Names + DF names shown.
 
-For this round you will show Weapon users and also non weapon user but at least 3 of them must be weappon user. Charecter names shown.
+## Round 6 — Weapon
 
-## Round 7 - Inteligence
+- Weapon users + non-weapon users, but at least 3 of 4 must be weapon users. Names shown.
 
-For this round you will show All charecter. Names shown.
+## Round 7 — Intelligence
 
-- Buffs at end:
-  - Awareness
-  - BattleIQ
+- All characters. Names shown.
+- End buff: AWR *= 1 + (intelligence / 100) * 0.3.
 
-## Round 8 - BattleIQ
+## Round 8 — Battle IQ
 
-For this round you will show All charecter. Names shown.
+- All characters. Names shown.
+- End buff: STR *= 1 + (battleIQ / 100) * 0.2.
 
-## Round 9 - Apperiance
+## Calculation flow (result screen)
 
-This is just cosmetic, no effect on the stats just how the charecter looks. User can refresh and get new ones as many times as they have to.
+Step 1: base STR/DUR/SPD/AWR/STA from Round 1 character. ATK/DEF start at 0.
 
-## The claculation flow
+Step 2: flat haki additions (armament → ATK/DEF/STA; observation → AWR/SPD; conqueror → ATK/STA/DEF).
 
-You will show the stats and final calculation at the end in a result screen.
+Step 3: flat DF additions (ATK/DEF/SPD/AWR/STA). Skipped if donor has none.
 
-Setp 1:
+Step 4: flat weapon additions (ATK/DEF/SPD/AWR/STA). Skipped if donor has none.
 
-This are the stats of each race, set base stats from this table according to users selection:
+Step 5: race % modifiers on STR/DUR/SPD/AWR/STA only (giant +10/+10/−10/0/+5, human +2% all, etc.). Never ATK/DEF.
 
-| Race     | Strength | Durability | Speed | Awareness | Stamina |
-| -------- | -------: | ---------: | ----: | --------: | ------: |
-| Human    |      100 |        100 |   100 |       100 |     100 |
-| Fish-man |     1000 |        450 |   125 |       120 |     300 |
-| Giant    |    10000 |       4000 |   140 |       100 |    1000 |
-| Mink     |      400 |        270 |   300 |       180 |     350 |
-| Skypiean |      110 |        110 |   140 |       130 |     120 |
-| Shandia  |      180 |        120 |   190 |       150 |     150 |
-| Lunarian |     6500 |      10000 |   400 |       200 |     800 |
-| Longarm  |      145 |        120 |   135 |       115 |     120 |
-| Longleg  |      250 |        140 |   210 |       125 |     180 |
-| Merfolk  |      300 |        250 |  1000 |       140 |     250 |
-| Dwarf    |     1500 |        400 |   600 |       160 |     300 |
-| Oni      |    11000 |       9000 |   250 |       150 |     900 |
+Step 6: intelligence % on AWR, battle IQ % on STR.
 
-step 2: (Note: all the stats multipliers applied will be stacked on top of it)
+Result screen shows: final name (Round 1 pick), live rank vs all 184 roster characters with neighbors above/below, all 7 stats, per-round breakdown, picks recap, New Draft button.
 
-Apply the multiplier of each haki round to the base stats:
-
-- Armament
-  - Attack (100% multiplier)
-  - Durability (100% multiplier)
-
-- Observation
-  - Awareness (100% multiplier)
-  - Speed (30% multiplier)
-
-- Conqueror's
-  - Attack (100% multiplier)
-  - Durability (30% multiplier)
-
-Step 3:
-
-Apply the DF multipliers on the stats. After applied if Awakened It applis another layer to the target fields.
-
-Step 4:
-
-Apply the Weapon multipliers on the stats.
-
-Setp 5:
-
-According to the IQ increase Awareness and BattleIQ by certain amount, based on IQ points.
-
-Finally present the created charecter with all the stats.
+BST = STR + ATK + DUR + DEF + SPD + AWR + STA.
