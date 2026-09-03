@@ -207,44 +207,64 @@
     </div>
   </div>
 
-  {#if roundType === "body" && !shuffling && !waiting}
-    <span class="text-xs tracking-wider text-muted uppercase">
+  <!-- Info lines always occupy space (invisible until revealed) so cards
+       never grow mid-reveal and shift the grid. -->
+  {#if roundType === "body"}
+    <span
+      class="text-xs tracking-wider text-muted uppercase {revealed ? '' : 'invisible'}"
+      aria-hidden={!revealed}
+    >
       {character.race}
     </span>
   {/if}
 
-  {#if revealed && roundType !== "body" && currentHakiTier}
-    <span class="text-xs tracking-wider text-muted uppercase">
+  {#if roundType !== "body" && currentHakiTier}
+    <span
+      class="text-xs tracking-wider text-muted uppercase {revealed ? '' : 'invisible'}"
+      aria-hidden={!revealed}
+    >
       Haki: {currentHakiTier}
     </span>
   {/if}
 
-  {#if revealed && roundType === "devil_fruit" && character.devilFruit.type !== "none"}
-    <span class="text-xs text-body">
-      {character.devilFruit.englishName}
-    </span>
-    <span class="text-[10px] tracking-wider text-muted uppercase">
-      {character.devilFruit.type.replace("_", " ")}
-    </span>
+  {#if roundType === "devil_fruit" && character.devilFruit.type !== "none"}
+    <!-- Name + type share one line: name truncates, type never clips. -->
+    <div
+      class="flex w-full items-baseline justify-center gap-1 {revealed ? '' : 'invisible'}"
+      aria-hidden={!revealed}
+    >
+      <span class="min-w-0 truncate text-xs text-body" title={character.devilFruit.englishName}>
+        {character.devilFruit.englishName}
+      </span>
+      <span class="shrink-0 text-[10px] tracking-wider text-muted uppercase">
+        ({character.devilFruit.type.replace("_", " ")})
+      </span>
+    </div>
   {/if}
 
-  {#if revealed && roundType === "weapon" && character.weapon.type !== "none"}
-    <span class="text-xs text-body">
-      {character.weapon.name}
-    </span>
-    <span class="text-[10px] tracking-wider text-muted uppercase">
-      {character.weapon.type}
-    </span>
+  {#if roundType === "weapon" && character.weapon.type !== "none"}
+    <!-- Name + type share one line: name truncates, type never clips. -->
+    <div
+      class="flex w-full items-baseline justify-center gap-1 {revealed ? '' : 'invisible'}"
+      aria-hidden={!revealed}
+    >
+      <span class="min-w-0 truncate text-xs text-body" title={character.weapon.name}>
+        {character.weapon.name}
+      </span>
+      <span class="shrink-0 text-[10px] tracking-wider text-muted uppercase">
+        ({character.weapon.type})
+      </span>
+    </div>
   {/if}
 
-  {#if revealed && roundType === "intelligence"}
-    <span class="text-xs text-body">
+  {#if roundType === "intelligence"}
+    <span class="text-xs text-body {revealed ? '' : 'invisible'}" aria-hidden={!revealed}>
       Intelligence: {character.baseStats.intelligence}
     </span>
   {/if}
 
-  {#if revealed && roundType === "battle_iq"}
-    <span class="text-xs text-body">
+  {#if roundType === "battle_iq"}
+    <span class="text-xs text-body {revealed ? '' : 'invisible'}" aria-hidden={!revealed}>
       Battle IQ: {character.baseStats.battleIQ}
     </span>
   {/if}

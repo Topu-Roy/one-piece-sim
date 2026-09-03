@@ -4,6 +4,7 @@
   import { preloadImages, getFixedDecoyURLs, getAllImageURLs } from "../lib/preload";
   import CharacterCard from "./CharacterCard.svelte";
   import RerollButton from "./RerollButton.svelte";
+  import DraftPicks from "./DraftPicks.svelte";
 
   // Round reveal: cards shuffle one at a time (~600ms each), left to right.
   // Each card owns its timers (see CharacterCard); {#key} remounts them per options.
@@ -29,6 +30,8 @@
   // The 4 real faces warm in the background (not gated) — each card's
   // lock additionally waits for its own art to decode (1s cap), so a
   // card never lands blank. Skeleton grid holds the layout meanwhile.
+  // Skeleton mirrors the loaded card shape (art + one text bar) so the
+  // swap doesn't shift layout. DF and weapon name+type share one line.
   let preloading = true;
   let loadedCount = 0;
   let loadTotal = 0;
@@ -104,7 +107,11 @@
   {#key revealKey}
     {#if preloading}
       <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
-      <div class="grid w-full grid-cols-2 gap-6 md:grid-cols-4" aria-busy="true" aria-label="Loading characters">
+      <div
+        class="grid min-h-70 w-full grid-cols-2 gap-6 md:min-h-90 md:grid-cols-4"
+        aria-busy="true"
+        aria-label="Loading characters"
+      >
         {#each Array(4) as _, i (i)}
           <div class="flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-canvas p-4">
             <div class="-mx-4 -mt-4 aspect-square w-[calc(100%+2rem)] rounded-t-[10px] bg-surface-soft"></div>
@@ -116,7 +123,7 @@
         Loading faces… {loadedCount}/{loadTotal}
       </p>
     {:else}
-      <div class="grid w-full grid-cols-2 gap-6 md:grid-cols-4">
+      <div class="grid min-h-70 w-full grid-cols-2 gap-6 md:min-h-48 md:grid-cols-4">
         {#each options as character, i (character.id)}
           <CharacterCard
             {character}
@@ -136,17 +143,8 @@
   {/key}
 
   {#if $draft.picks.length > 0}
-    <div class="mt-12 w-full">
-      <h2 class="mb-3 text-sm font-medium tracking-[0.16px] text-muted uppercase">Your Picks</h2>
-      <div class="flex flex-wrap gap-2">
-        {#each $draft.picks as pick (pick.round)}
-          <span
-            class="rounded-full border border-hairline bg-canvas px-3 py-1 text-xs font-medium tracking-wider text-body uppercase"
-          >
-            R{pick.round}: {pick.characterName}
-          </span>
-        {/each}
-      </div>
+    <div class="mt-12 flex w-full justify-center">
+      <DraftPicks picks={$draft.picks} />
     </div>
   {/if}
 </div>
