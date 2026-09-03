@@ -2,6 +2,7 @@
   import { onDestroy, onMount } from "svelte";
   import type { Character, RoundType } from "../lib/types";
   import { Characters } from "../data/characters-v2";
+  import { REAL_ART_CAP_MS } from "../lib/preload";
 
   export let character: Character;
   export let roundType: RoundType;
@@ -9,29 +10,42 @@
   export let onSelect: (index: number) => void;
   export let onLockRequest: (index: number) => void = () => {};
   export let onLocked: (index: number) => void = () => {};
-  // Round 1 reveal: ms this card shuffles once started (0 = already locked).
+  // Round reveal: ms this card shuffles once started (0 = already locked).
   export let revealDelay: number = 0;
   // Parent gates start order: card shuffles only after the previous one locks.
   export let canStart: boolean = true;
   // Parent raises this to force-lock cards at or before the clicked index.
   export let lockUpTo: number = -1;
+  // Preloaded decoy faces for this round (never the round's real options).
+  export let decoyPool: string[] = [];
 
   const SHUFFLE_TICK_MS = 80;
 
   let selfLocked = false;
   let started = false;
   let decoyURL = "";
+  // Lock needs both: shuffle delay elapsed (or fast-forward requested)
+  // AND the real art decoded — a card never lands on a blank frame.
+  let delayElapsed = false;
+  let lockRequested = false;
+  let capExpired = false;
+  let realLoaded = !character.imageURL;
   let shuffleTimer: ReturnType<typeof setInterval> | null = null;
-  let lockTimer: ReturnType<typeof setTimeout> | null = null;
+  let delayTimer: ReturnType<typeof setTimeout> | null = null;
+  let capTimer: ReturnType<typeof setTimeout> | null = null;
 
   function stopShuffle() {
     if (shuffleTimer !== null) {
       clearInterval(shuffleTimer);
       shuffleTimer = null;
     }
-    if (lockTimer !== null) {
-      clearTimeout(lockTimer);
-      lockTimer = null;
+    if (delayTimer !== null) {
+      clearTimeout(delayTimer);
+      delayTimer = null;
+    }
+    if (capTimer !== null) {
+      clearTimeout(capTimer);
+      capTimer = null;
     }
   }
 
@@ -40,7 +54,17 @@
     stopShuffle();
   }
 
+  function tryLock() {
+    if (selfLocked) return;
+    if ((delayElapsed || lockRequested) && (realLoaded || capExpired)) {
+      lock();
+      onLocked(index);
+    }
+  }
+
   function randomDecoy(): string {
+    if (decoyPool.length > 0) return decoyPool[Math.floor(Math.random() * decoyPool.length)];
+    // Fallback (shouldn't fire — parent always passes a preloaded pool).
     const pool = Characters.filter((c) => c.imageURL && c.id !== character.id);
     return pool[Math.floor(Math.random() * pool.length)]?.imageURL ?? "";
   }
@@ -52,14 +76,26 @@
     shuffleTimer = setInterval(() => {
       if (!selfLocked) decoyURL = randomDecoy();
     }, SHUFFLE_TICK_MS);
-    lockTimer = setTimeout(() => {
-      lock();
-      onLocked(index);
+    delayTimer = setTimeout(() => {
+      delayElapsed = true;
+      tryLock();
     }, revealDelay);
+    capTimer = setTimeout(() => {
+      capExpired = true;
+      tryLock();
+    }, revealDelay + REAL_ART_CAP_MS);
+  }
+
+  function requestLock() {
+    // Fast-forward (click): start shuffling cards that haven't, then lock
+    // each as soon as its (already preloaded) art is ready.
+    if (!started) start();
+    lockRequested = true;
+    tryLock();
   }
 
   onMount(() => {
-    if (revealDelay <= 0 || roundType !== "body") {
+    if (revealDelay <= 0) {
       selfLocked = true;
       return;
     }
@@ -69,12 +105,14 @@
   onDestroy(stopShuffle);
 
   // Parent gates sequence order; parent-driven early lock.
-  $: if (canStart && !started && !selfLocked && roundType === "body" && revealDelay > 0) start();
-  $: if (lockUpTo >= index) lock();
+  $: if (canStart && !started && !selfLocked && revealDelay > 0) start();
+  $: if (lockUpTo >= index && !selfLocked && revealDelay > 0) requestLock();
 
-  $: inReveal = roundType === "body" && revealDelay > 0;
+  $: inReveal = revealDelay > 0;
   $: shuffling = inReveal && started && !selfLocked;
   $: waiting = inReveal && !started && !selfLocked;
+  // Card identity fully visible (art + name + round info all locked in).
+  $: revealed = !shuffling && !waiting;
 
   function handleClick() {
     if (shuffling || waiting) {
@@ -112,7 +150,7 @@
     : ''}"
   on:click={handleClick}
 >
-  {#if !shuffling && character.rarity !== "basic"}
+  {#if revealed && character.rarity !== "basic"}
     <span
       class="absolute top-3 right-3 rounded-full px-2 py-0.5 text-[10px] font-medium tracking-widest uppercase {rarityChip}"
     >
@@ -123,6 +161,24 @@
   <div
     class="relative -mx-4 -mt-4 flex aspect-square w-[calc(100%+2rem)] items-center justify-center overflow-hidden rounded-t-[10px] bg-surface-soft text-4xl text-ink"
   >
+    {#if !realLoaded && character.imageURL}
+      <!-- Hidden warm-up: card locks only after its real art decodes (1s cap). -->
+      <img
+        src={character.imageURL}
+        alt=""
+        aria-hidden="true"
+        class="hidden"
+        loading="eager"
+        on:load={() => {
+          realLoaded = true;
+          tryLock();
+        }}
+        on:error={() => {
+          realLoaded = true;
+          tryLock();
+        }}
+      />
+    {/if}
     {#if shuffling && decoyURL}
       <img src={decoyURL} alt="" class="h-full w-full object-cover" loading="eager" draggable="false" />
     {:else if waiting}
@@ -132,7 +188,7 @@
         src={character.imageURL}
         alt={character.displayName}
         class="h-full w-full object-cover"
-        loading="lazy"
+        loading="eager"
         on:error={() => (imageError = true)}
       />
     {:else}
@@ -157,13 +213,13 @@
     </span>
   {/if}
 
-  {#if roundType !== "body" && currentHakiTier}
+  {#if revealed && roundType !== "body" && currentHakiTier}
     <span class="text-xs tracking-wider text-muted uppercase">
       Haki: {currentHakiTier}
     </span>
   {/if}
 
-  {#if roundType === "devil_fruit" && character.devilFruit.type !== "none"}
+  {#if revealed && roundType === "devil_fruit" && character.devilFruit.type !== "none"}
     <span class="text-xs text-body">
       {character.devilFruit.englishName}
     </span>
@@ -172,7 +228,7 @@
     </span>
   {/if}
 
-  {#if roundType === "weapon" && character.weapon.type !== "none"}
+  {#if revealed && roundType === "weapon" && character.weapon.type !== "none"}
     <span class="text-xs text-body">
       {character.weapon.name}
     </span>
@@ -181,13 +237,13 @@
     </span>
   {/if}
 
-  {#if roundType === "intelligence"}
+  {#if revealed && roundType === "intelligence"}
     <span class="text-xs text-body">
       Intelligence: {character.baseStats.intelligence}
     </span>
   {/if}
 
-  {#if roundType === "battle_iq"}
+  {#if revealed && roundType === "battle_iq"}
     <span class="text-xs text-body">
       Battle IQ: {character.baseStats.battleIQ}
     </span>
