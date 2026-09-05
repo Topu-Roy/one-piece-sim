@@ -122,16 +122,6 @@
     onSelect(index);
   }
 
-  // Rarity chips: god = gold, legend = dark navy, epic = forest, basic hidden.
-  // Ink type on gold (legibility), white type on navy/forest.
-  $: rarityChip =
-    character.rarity === "god"
-      ? "bg-mustard text-ink"
-      : character.rarity === "legend"
-        ? "bg-surface-dark text-on-dark"
-        : character.rarity === "epic"
-          ? "bg-forest text-on-dark"
-          : "";
   $: currentHakiTier =
     roundType === "armament"
       ? character.haki.armament.tier
@@ -141,25 +131,67 @@
           ? character.haki.conqueror.tier
           : null;
 
+  // Top-left in-image chips: the round's key info at a glance.
+  // Body → race, haki rounds → tier, weapon/DF rounds → item name
+  // only (no type chips), mind rounds → value.
+  $: infoChip =
+    roundType === "body"
+      ? character.race
+      : currentHakiTier && currentHakiTier !== "none"
+        ? currentHakiTier
+        : roundType === "intelligence"
+          ? `INT ${character.baseStats.intelligence}`
+          : roundType === "battle_iq"
+            ? `BIQ ${character.baseStats.battleIQ}`
+            : null;
+
+  // Whether this round shows a name chip at all (even if the name is blank).
+  function nameChipWanted(): boolean {
+    return (
+      (roundType === "devil_fruit" && character.devilFruit.type !== "none") ||
+      (roundType === "weapon" && character.weapon.type !== "none")
+    );
+  }
+
+  // Item name chip (stacked under the info chip): the fruit / weapon
+  // name is the whole point of those rounds. Blank names show "Unknown".
+  $: nameChip = (() => {
+    if (!nameChipWanted()) return null;
+    const raw = roundType === "devil_fruit" ? character.devilFruit.englishName : character.weapon.name;
+    return raw.trim() === "" ? "Unknown" : raw;
+  })();
+
   let imageError = false;
 </script>
 
 <button
-  class="relative flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-parchment p-4 active:bg-surface-strong {waiting
-    ? 'opacity-60'
+  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-md border border-hairline bg-parchment active:bg-surface-strong {waiting
+    ? 'opacity-80'
     : ''}"
   on:click={handleClick}
 >
-  {#if revealed && character.rarity !== "basic"}
-    <span
-      class="absolute top-3 right-3 rounded-full px-2 py-0.5 text-[10px] font-medium tracking-widest uppercase {rarityChip}"
-    >
-      {character.rarity}
+  {#if revealed && (infoChip || nameChip)}
+    <span class="absolute top-3 left-3 z-10 flex max-w-[70%] flex-col items-start gap-1">
+      {#if infoChip}
+        <span
+          class="rounded-full bg-ink/70 px-2 py-0.5 text-[10px] font-medium tracking-widest text-on-dark uppercase"
+        >
+          {infoChip}
+        </span>
+      {/if}
+      {#if nameChip}
+        <span
+          class="max-w-full truncate rounded-full bg-ink/70 px-2 py-0.5 text-[10px] font-medium tracking-wider text-on-dark"
+          title={nameChip}
+        >
+          {nameChip}
+        </span>
+      {/if}
     </span>
   {/if}
 
   <div
-    class="relative -mx-4 -mt-4 flex aspect-square w-[calc(100%+2rem)] items-center justify-center overflow-hidden rounded-t-[10px] bg-surface-soft text-4xl text-ink"
+    class="relative flex aspect-square w-full items-center justify-center overflow-hidden bg-surface-soft text-4xl text-ink"
   >
     {#if !realLoaded && character.imageURL}
       <!-- Hidden warm-up: card locks only after its real art decodes (1s cap). -->
@@ -207,65 +239,6 @@
     </div>
   </div>
 
-  <!-- Info lines always occupy space (invisible until revealed) so cards
-       never grow mid-reveal and shift the grid. -->
-  {#if roundType === "body"}
-    <span
-      class="text-xs tracking-wider text-muted uppercase {revealed ? '' : 'invisible'}"
-      aria-hidden={!revealed}
-    >
-      {character.race}
-    </span>
-  {/if}
-
-  {#if roundType !== "body" && currentHakiTier}
-    <span
-      class="text-xs tracking-wider text-muted uppercase {revealed ? '' : 'invisible'}"
-      aria-hidden={!revealed}
-    >
-      Haki: {currentHakiTier}
-    </span>
-  {/if}
-
-  {#if roundType === "devil_fruit" && character.devilFruit.type !== "none"}
-    <!-- Name + type share one line: name truncates, type never clips. -->
-    <div
-      class="flex w-full items-baseline justify-center gap-1 {revealed ? '' : 'invisible'}"
-      aria-hidden={!revealed}
-    >
-      <span class="min-w-0 truncate text-xs text-body" title={character.devilFruit.englishName}>
-        {character.devilFruit.englishName}
-      </span>
-      <span class="shrink-0 text-[10px] tracking-wider text-muted uppercase">
-        ({character.devilFruit.type.replace("_", " ")})
-      </span>
-    </div>
-  {/if}
-
-  {#if roundType === "weapon" && character.weapon.type !== "none"}
-    <!-- Name + type share one line: name truncates, type never clips. -->
-    <div
-      class="flex w-full items-baseline justify-center gap-1 {revealed ? '' : 'invisible'}"
-      aria-hidden={!revealed}
-    >
-      <span class="min-w-0 truncate text-xs text-body" title={character.weapon.name}>
-        {character.weapon.name}
-      </span>
-      <span class="shrink-0 text-[10px] tracking-wider text-muted uppercase">
-        ({character.weapon.type})
-      </span>
-    </div>
-  {/if}
-
-  {#if roundType === "intelligence"}
-    <span class="text-xs text-body {revealed ? '' : 'invisible'}" aria-hidden={!revealed}>
-      Intelligence: {character.baseStats.intelligence}
-    </span>
-  {/if}
-
-  {#if roundType === "battle_iq"}
-    <span class="text-xs text-body {revealed ? '' : 'invisible'}" aria-hidden={!revealed}>
-      Battle IQ: {character.baseStats.battleIQ}
-    </span>
-  {/if}
+  <!-- No below-art labels: name overlays the art, info lives in the
+       top-left chip. Card height is art + padding, always stable. -->
 </button>

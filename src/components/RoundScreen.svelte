@@ -127,19 +127,15 @@
   {#key revealKey}
     {#if preloading}
       <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
-      <!-- One shared height floor (art square + padding + one info line)
-           on all screens — no overshoot, no jump. -->
+      <!-- One shared height floor (edge-to-edge square art) on all screens. -->
       <div
-        class="grid min-h-55 w-full grid-cols-2 gap-6 md:grid-cols-4"
+        class="grid min-h-[160px] w-full grid-cols-2 gap-6 md:min-h-[230px] md:grid-cols-4"
         aria-busy="true"
         aria-label="Loading characters"
       >
         {#each Array(4) as _, i (i)}
-          <div
-            class="flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-parchment p-4"
-          >
-            <div class="-mx-4 -mt-4 aspect-square w-[calc(100%+2rem)] rounded-t-[10px] bg-surface-strong"></div>
-            <div class="h-3 w-2/3 rounded-full bg-surface-strong"></div>
+          <div class="flex w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-parchment">
+            <div class="aspect-square w-full bg-surface-strong"></div>
           </div>
         {/each}
       </div>
@@ -147,7 +143,7 @@
         Loading faces… {loadedCount}/{loadTotal}
       </p>
     {:else}
-      <div class="grid min-h-55 w-full grid-cols-2 gap-6 md:grid-cols-4">
+      <div class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4">
         {#each options as character, i (character.id)}
           <CharacterCard
             {character}
