@@ -88,27 +88,31 @@
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-24">
-  <div class="mb-12 text-center">
-    <p class="mb-4 text-sm font-medium tracking-[0.16px] text-muted uppercase">
-      Round {round} of 8
-    </p>
-    <h1 class="font-display text-4xl leading-[1.2] font-normal text-ink md:text-[40px]">
-      {label}
-    </h1>
-  </div>
-
-  {#if showReroll}
-    <div class="mb-8">
-      <RerollButton />
+<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
+  <div class="mb-6 flex w-full items-center justify-between gap-4">
+    <div class="text-left">
+      <p class="mb-1 text-xs font-medium tracking-[0.16px] text-on-dark/70 uppercase">
+        Round {round} of 8
+      </p>
+      <h1 class="font-display text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
+        {label}
+      </h1>
     </div>
-  {/if}
+
+    {#if showReroll}
+      <div class="shrink-0">
+        <RerollButton />
+      </div>
+    {/if}
+  </div>
 
   {#key revealKey}
     {#if preloading}
       <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
+      <!-- One shared height floor (art square + padding + one info line)
+           on all screens — no overshoot, no jump. -->
       <div
-        class="grid min-h-70 w-full grid-cols-2 gap-6 md:min-h-90 md:grid-cols-4"
+        class="grid min-h-55 w-full grid-cols-2 gap-6 md:grid-cols-4"
         aria-busy="true"
         aria-label="Loading characters"
       >
@@ -119,11 +123,11 @@
           </div>
         {/each}
       </div>
-      <p class="mt-6 text-sm tracking-wider text-muted uppercase">
+      <p class="mt-6 text-sm tracking-wider text-on-dark/70 uppercase">
         Loading faces… {loadedCount}/{loadTotal}
       </p>
     {:else}
-      <div class="grid min-h-70 w-full grid-cols-2 gap-6 md:min-h-48 md:grid-cols-4">
+      <div class="grid min-h-55 w-full grid-cols-2 gap-6 md:grid-cols-4">
         {#each options as character, i (character.id)}
           <CharacterCard
             {character}

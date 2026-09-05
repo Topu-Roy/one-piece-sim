@@ -18,8 +18,8 @@
 
 <div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-24">
   <div class="mb-12 text-center">
-    <p class="mb-4 text-sm font-medium tracking-[0.16px] text-muted uppercase">Draft Complete</p>
-    <h1 class="font-display text-4xl leading-[1.2] font-normal text-ink md:text-[40px]">
+    <p class="mb-4 text-sm font-medium tracking-[0.16px] text-on-dark/70 uppercase">Draft Complete</p>
+    <h1 class="font-display text-4xl leading-[1.2] font-normal text-on-dark md:text-[40px]">
       {appearancePick?.characterName ?? "Your Character"}
     </h1>
   </div>

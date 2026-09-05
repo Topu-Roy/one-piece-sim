@@ -39,9 +39,9 @@
   let pickImageErrors: Record<number, boolean> = {};
 </script>
 
-<div class="w-full max-w-2xl rounded-[10px] border border-hairline bg-canvas p-6">
-  <div class="mb-4 flex items-baseline justify-between">
-    <h2 class="text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Draft Picks</h2>
+<div class="w-full max-w-2xl rounded-[10px] border border-hairline bg-canvas p-4">
+  <div class="mb-2 flex items-baseline justify-between">
+    <h2 class="text-lg leading-[1.35] font-normal tracking-[0.12px] text-ink">Draft Picks</h2>
     <span class="text-xs font-medium tracking-wider text-muted uppercase">
       {picks.length}/{TOTAL_ROUNDS}
     </span>
@@ -51,12 +51,12 @@
       {@const pick = byRound.get(round)}
       {@const roundType = getRoundType(round)}
       {#if pick}
-        <div class="flex items-center gap-3 border-b border-hairline py-2 last:border-b-0">
+        <div class="flex items-center gap-2.5 border-b border-hairline py-1.5 last:border-b-0">
           <span class="w-28 shrink-0 text-[10px] font-medium tracking-wider text-muted uppercase">
             {roundName(pick.roundType)}
           </span>
           <div
-            class="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border border-hairline bg-surface-soft"
+            class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-hairline bg-surface-soft"
           >
             {#if getCharImage(pick.characterName) && !pickImageErrors[pick.round]}
               <img
@@ -83,12 +83,12 @@
         </div>
       {:else}
         <!-- Upcoming pick: ghost row doubles as draft progress. -->
-        <div class="flex items-center gap-3 border-b border-hairline py-2 opacity-50 last:border-b-0">
+        <div class="flex items-center gap-2.5 border-b border-hairline py-1.5 opacity-50 last:border-b-0">
           <span class="w-28 shrink-0 text-[10px] font-medium tracking-wider text-muted uppercase">
             {roundName(roundType)}
           </span>
           <div
-            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-dashed border-border-strong bg-canvas text-xs text-muted"
+            class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-dashed border-border-strong bg-canvas text-xs text-muted"
           >
             ?
           </div>
