@@ -148,8 +148,8 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 350, defense: 350, stamina: 350 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 350, stamina: 300, defense: 300 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "supreme", attack: 500, stamina: 500, defense: 500 },
     },
     devilFruit: {
       type: "none",
@@ -191,7 +191,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "supreme", attack: 550, defense: 550, stamina: 550 },
-      observation: { tier: "supreme", awareness: 500, speed: 500, reflex: 500 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "supreme", attack: 500, stamina: 500, defense: 500 },
     },
     devilFruit: {
@@ -234,7 +234,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -277,8 +277,8 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 350, defense: 350, stamina: 350 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 350, stamina: 300, defense: 300 },
+      observation: { tier: "supreme", awareness: 500, speed: 500, reflex: 500 },
+      conqueror: { tier: "supreme", attack: 500, stamina: 500, defense: 500 },
     },
     devilFruit: {
       type: "none",
@@ -406,7 +406,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 400, defense: 400, stamina: 400 },
-      observation: { tier: "advanced", awareness: 400, speed: 400, reflex: 400 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -449,7 +449,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "supreme", attack: 500, defense: 500, stamina: 500 },
-      observation: { tier: "supreme", awareness: 500, speed: 500, reflex: 500 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "supreme", attack: 500, stamina: 500, defense: 500 },
     },
     devilFruit: {
@@ -492,7 +492,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 400, defense: 400, stamina: 400 },
-      observation: { tier: "advanced", awareness: 400, speed: 400, reflex: 400 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -535,7 +535,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
     },
     devilFruit: {
@@ -579,7 +579,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
       observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      conqueror: { tier: "supreme", attack: 500, stamina: 500, defense: 500 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -750,7 +750,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 400, defense: 400, stamina: 400 },
-      observation: { tier: "advanced", awareness: 400, speed: 400, reflex: 400 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -794,7 +794,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
       observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "none",
@@ -837,7 +837,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
       observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -878,9 +878,9 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -921,9 +921,9 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -964,9 +964,9 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -1007,9 +1007,9 @@ export const Characters: Character[] = [
       battleIQ: 81,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -1051,7 +1051,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
     },
     devilFruit: {
@@ -1137,7 +1137,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -1179,9 +1179,9 @@ export const Characters: Character[] = [
       battleIQ: 90,
     },
     haki: {
-      armament: { tier: "advanced", attack: 400, defense: 400, stamina: 400 },
-      observation: { tier: "advanced", awareness: 400, speed: 400, reflex: 400 },
-      conqueror: { tier: "advanced", attack: 400, stamina: 400, defense: 400 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -1222,9 +1222,9 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -1265,9 +1265,9 @@ export const Characters: Character[] = [
       battleIQ: 82,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "paramecia",
@@ -1308,8 +1308,8 @@ export const Characters: Character[] = [
       battleIQ: 65,
     },
     haki: {
-      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
-      observation: { tier: "basic", awareness: 200, speed: 200, reflex: 200 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -1351,7 +1351,7 @@ export const Characters: Character[] = [
       battleIQ: 85,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "advanced", attack: 400, defense: 400, stamina: 400 },
       observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -1437,9 +1437,9 @@ export const Characters: Character[] = [
       battleIQ: 86,
     },
     haki: {
-      armament: { tier: "advanced", attack: 400, defense: 400, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "advanced", attack: 400, stamina: 300, defense: 400 },
+      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
     },
     devilFruit: {
       type: "none",
@@ -1480,8 +1480,8 @@ export const Characters: Character[] = [
       battleIQ: 88,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -1566,7 +1566,7 @@ export const Characters: Character[] = [
       battleIQ: 93,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -1609,9 +1609,9 @@ export const Characters: Character[] = [
       battleIQ: 94,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 200, speed: 200, reflex: 200 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "none",
@@ -1695,9 +1695,9 @@ export const Characters: Character[] = [
       battleIQ: 91,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "logia",
@@ -1781,9 +1781,9 @@ export const Characters: Character[] = [
       battleIQ: 65,
     },
     haki: {
-      armament: { tier: "basic", attack: 110, defense: 110, stamina: 110 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 200, stamina: 200, defense: 200 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "paramecia",
@@ -1826,7 +1826,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 200, stamina: 200, defense: 200 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "paramecia",
@@ -1867,9 +1867,9 @@ export const Characters: Character[] = [
       battleIQ: 69,
     },
     haki: {
-      armament: { tier: "basic", attack: 200, defense: 200, stamina: 200 },
-      observation: { tier: "basic", awareness: 150, speed: 150, reflex: 150 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "ancient_zoan",
@@ -1910,7 +1910,7 @@ export const Characters: Character[] = [
       battleIQ: 90,
     },
     haki: {
-      armament: { tier: "basic", attack: 200, defense: 200, stamina: 200 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -1953,8 +1953,8 @@ export const Characters: Character[] = [
       battleIQ: 91,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 250, speed: 250, reflex: 250 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -1996,8 +1996,8 @@ export const Characters: Character[] = [
       battleIQ: 80,
     },
     haki: {
-      armament: { tier: "basic", attack: 130, defense: 130, stamina: 130 },
-      observation: { tier: "basic", awareness: 130, speed: 130, reflex: 130 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -2039,7 +2039,7 @@ export const Characters: Character[] = [
       battleIQ: 80,
     },
     haki: {
-      armament: { tier: "basic", attack: 150, defense: 150, stamina: 150 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -2082,7 +2082,7 @@ export const Characters: Character[] = [
       battleIQ: 91,
     },
     haki: {
-      armament: { tier: "basic", attack: 200, defense: 200, stamina: 200 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -2125,7 +2125,7 @@ export const Characters: Character[] = [
       battleIQ: 92,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
       conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
@@ -2168,9 +2168,9 @@ export const Characters: Character[] = [
       battleIQ: 62,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "none",
@@ -2254,9 +2254,9 @@ export const Characters: Character[] = [
       battleIQ: 80,
     },
     haki: {
-      armament: { tier: "basic", attack: 200, defense: 200, stamina: 200 },
-      observation: { tier: "basic", awareness: 200, speed: 200, reflex: 200 },
-      conqueror: { tier: "advanced", attack: 300, stamina: 300, defense: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
     },
     devilFruit: {
       type: "paramecia",
@@ -2426,7 +2426,7 @@ export const Characters: Character[] = [
       battleIQ: 60,
     },
     haki: {
-      armament: { tier: "basic", attack: 150, defense: 150, stamina: 150 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -2512,8 +2512,8 @@ export const Characters: Character[] = [
       battleIQ: 80,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 150, speed: 150, reflex: 150 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -2685,7 +2685,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -2729,7 +2729,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
       observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "paramecia",
@@ -2856,7 +2856,7 @@ export const Characters: Character[] = [
       battleIQ: 84,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -2901,7 +2901,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "none",
@@ -3329,8 +3329,8 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "basic", attack: 200, defense: 200, stamina: 200 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -3372,9 +3372,9 @@ export const Characters: Character[] = [
       battleIQ: 74,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "none",
@@ -3415,9 +3415,9 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "none",
@@ -3458,7 +3458,7 @@ export const Characters: Character[] = [
       battleIQ: 75,
     },
     haki: {
-      armament: { tier: "basic", attack: 150, defense: 150, stamina: 150 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -3587,7 +3587,7 @@ export const Characters: Character[] = [
       battleIQ: 75,
     },
     haki: {
-      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
       observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -3630,8 +3630,8 @@ export const Characters: Character[] = [
       battleIQ: 65,
     },
     haki: {
-      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -3673,9 +3673,9 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "basic", attack: 150, defense: 150, stamina: 150 },
-      observation: { tier: "advanced", awareness: 300, speed: 300, reflex: 300 },
-      conqueror: { tier: "basic", attack: 125, stamina: 125, defense: 125 },
+      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "none",
@@ -3716,7 +3716,7 @@ export const Characters: Character[] = [
       battleIQ: 80,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -3759,7 +3759,7 @@ export const Characters: Character[] = [
       battleIQ: 84,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -3802,7 +3802,7 @@ export const Characters: Character[] = [
       battleIQ: 80,
     },
     haki: {
-      armament: { tier: "advanced", attack: 300, defense: 300, stamina: 300 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -3889,7 +3889,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -4105,7 +4105,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "ancient_zoan",
@@ -4318,8 +4318,8 @@ export const Characters: Character[] = [
       battleIQ: 62,
     },
     haki: {
-      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
-      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -4361,8 +4361,8 @@ export const Characters: Character[] = [
       battleIQ: 82,
     },
     haki: {
-      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -4791,7 +4791,7 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "basic", attack: 130, defense: 130, stamina: 130 },
+      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -4834,8 +4834,8 @@ export const Characters: Character[] = [
       battleIQ: 72,
     },
     haki: {
-      armament: { tier: "basic", attack: 130, defense: 130, stamina: 130 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
@@ -5049,7 +5049,7 @@ export const Characters: Character[] = [
       battleIQ: 78,
     },
     haki: {
-      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
       observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -5651,7 +5651,7 @@ export const Characters: Character[] = [
       battleIQ: 72,
     },
     haki: {
-      armament: { tier: "basic", attack: 100, defense: 100, stamina: 100 },
+      armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
       observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
@@ -5696,7 +5696,7 @@ export const Characters: Character[] = [
     haki: {
       armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
       observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
-      conqueror: { tier: "basic", attack: 100, stamina: 100, defense: 100 },
+      conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
       type: "mythical_zoan",
@@ -6684,7 +6684,7 @@ export const Characters: Character[] = [
     },
     haki: {
       armament: { tier: "none", attack: 0, defense: 0, stamina: 0 },
-      observation: { tier: "basic", awareness: 100, speed: 100, reflex: 100 },
+      observation: { tier: "none", awareness: 0, speed: 0, reflex: 0 },
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
