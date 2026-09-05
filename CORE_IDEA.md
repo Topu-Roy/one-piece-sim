@@ -34,7 +34,7 @@ The game has no backend — all logic, data, and simulation run client-side.
 | 7     | Intelligence     | Character name + intelligence value | All characters                       |
 | 8     | Battle IQ        | Character name + battle IQ value    | All characters                       |
 
-Round 1 (Body) merges the old Race + Appearance rounds: the picked character provides the looks, the name, the base stat block, and the race. Options are rarity-weighted like every other round — race plays no part in selection, but the body's race % still buffs the final BST. No separate cosmetic round.
+Round 1 (Body) merges the old Race + Appearance rounds: the picked character provides the looks, the name, the base stat block, and the race. Options are rarity-weighted like every other round — race plays no part in selection except the big-race (giant/oni/lunarian) variety guarantee, and never touches stats: racial physique already lives in each character's hand-tuned baseStats. No separate cosmetic round.
 
 ---
 
@@ -115,11 +115,7 @@ Adds attack, defense, speed, awareness, stamina. Skipped when the picked donor h
 
 Adds attack, defense, speed, awareness, stamina. Skipped when the picked donor has no weapon.
 
-### Step 5: Race % Modifiers (body stats only)
-
-The Round 1 pick's race applies small percentage modifiers to STR/DUR/SPD/AWR/STA (roughly ±4–10%, human +2% all). Never touches attack/defense — technique stays pure. Per-character base carries ~90% of power; race is flavor on top.
-
-### Step 6: Intelligence & Battle IQ (% bonuses)
+### Step 5: Intelligence & Battle IQ (% bonuses)
 
 - **Intelligence** boosts awareness: `AWR *= 1 + (intelligence / 100) * 0.3`.
 - **Battle IQ** boosts strength: `STR *= 1 + (battleIQ / 100) * 0.2`.
@@ -135,6 +131,6 @@ After all 8 rounds are complete, the result screen shows:
 - **Final character name** (from the Round 1 Body pick)
 - **Live rank** (`#X of 185`) computed in-browser against all 184 roster characters, with the closest neighbor above and below plus tie info
 - **All 7 stats** with calculated values
-- **Full breakdown** of each round's contribution (base, haki, DF, weapon, race %, intelligence, battle IQ)
+- **Full breakdown** of each round's contribution (base, haki, DF, weapon, intelligence, battle IQ)
 - **Draft picks recap** showing all 8 selections
 - **New Draft** button to start over

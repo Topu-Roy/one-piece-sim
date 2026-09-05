@@ -4,187 +4,187 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 
 | Rank | Name         | Rarity | BST    | Race     | Weapon                          |
 | ---- | ------------ | ------ | ------ | -------- | ------------------------------- |
-| 1    | Imu          | god    | 13,273 | human    | Nemesis                         |
-| 2    | Joy Boy      | god    | 12,955 | human    | None                            |
-| 3    | Rocks        | god    | 12,449 | human    | Eclipse                         |
-| 4    | Luffy        | god    | 11,637 | human    | None                            |
-| 5    | Shanks       | god    | 11,306 | human    | Gryphon                         |
-| 6    | Roger        | god    | 11,279 | human    | Ace                             |
-| 7    | Dragon       | god    | 11,226 | human    | None                            |
-| 8    | Whitebeard   | god    | 11,202 | human    | Murakumogiri                    |
-| 9    | Kaido        | legend | 11,071 | oni      | Hassaikai                       |
-| 10   | Big Mom      | legend | 10,496 | human    | Napoleon                        |
-| 11   | Garp         | legend | 10,325 | human    | None                            |
-| 12   | Akainu       | legend | 10,118 | human    | None                            |
-| 13   | Kuzan        | legend | 10,110 | human    | None                            |
-| 14   | Kizaru       | legend | 9,919  | human    | None                            |
-| 15   | Mihawk       | legend | 9,765  | human    | Yoru                            |
-| 16   | Green Bull   | legend | 9,570  | human    | Katana                          |
-| 17   | Loki         | legend | 9,393  | giant    | Ragnir                          |
-| 18   | Blackbeard   | legend | 9,320  | human    | None                            |
-| 19   | Sengoku      | legend | 9,305  | human    | None                            |
-| 20   | Katakuri     | epic   | 9,265  | human    | Mogura                          |
-| 21   | Oden         | legend | 9,061  | human    | Enma / Ame no Habakiri          |
-| 22   | Fujitora     | legend | 8,908  | human    | Yakuza Kasen                    |
-| 23   | Shamrock     | legend | 8,861  | human    | Cerberus                        |
-| 24   | Killingham   | legend | 8,786  | human    | Kirisame                        |
-| 25   | Nusjuro      | legend | 8,700  | human    | Shodai Kitetsu                  |
-| 26   | Saturn       | legend | 8,661  | human    | None                            |
-| 27   | Mars         | legend | 8,636  | human    | None                            |
-| 28   | Warcury      | legend | 8,521  | human    | None                            |
-| 29   | Ju Peter     | legend | 8,507  | human    | None                            |
-| 30   | Sommers      | legend | 8,284  | human    | Thorn Guard Sword               |
-| 31   | Gaban        | legend | 7,829  | human    | Twin Axes                       |
-| 32   | Gunko        | legend | 7,640  | human    | None                            |
-| 33   | Harald       | legend | 7,390  | giant    | Sword                           |
-| 34   | Yamato       | legend | 7,244  | oni      | Takeru                          |
-| 35   | Doflamingo   | epic   | 7,194  | human    | None                            |
-| 36   | Shiki        | legend | 7,184  | human    | Oto + Kogarashi                 |
-| 37   | Zoro         | legend | 7,034  | human    | Enma                            |
-| 38   | Shiryu       | legend | 7,005  | human    | Raiu                            |
-| 39   | Beckman      | legend | 6,865  | human    | Flintlock Rifle                 |
-| 40   | Sabo         | legend | 6,813  | human    | Pipe                            |
-| 41   | Dorry        | epic   | 6,752  | giant    | Terry Sword                     |
-| 42   | Rayleigh     | legend | 6,730  | human    | Cutlass                         |
-| 43   | Garling      | legend | 6,684  | human    | Saber                           |
-| 44   | Brogy        | legend | 6,667  | giant    | Bruiser Axe                     |
-| 45   | Queen        | epic   | 6,648  | human    | Cyborg Implants                 |
-| 46   | Jack         | epic   | 6,538  | fishman  | Shotel Blades                   |
-| 47   | Lucci        | epic   | 6,483  | human    | None                            |
-| 48   | Law          | legend | 6,432  | human    | Kikoku                          |
-| 49   | Enel         | epic   | 6,374  | skypiean | Nonosama Bo                     |
-| 50   | King         | epic   | 6,370  | lunarian | Katana                          |
-| 51   | Jinbe        | epic   | 6,264  | fishman  | None                            |
-| 52   | Weevil       | epic   | 6,254  | human    | Naginata                        |
-| 53   | Crocodile    | epic   | 6,197  | human    | Banana Gator Hook               |
-| 54   | Cracker      | epic   | 6,159  | human    | Pretzel                         |
-| 55   | Kuma         | epic   | 6,140  | human    | None                            |
-| 56   | Sanji        | legend | 6,030  | human    | None                            |
-| 57   | Inuarashi    | epic   | 6,026  | mink     | Rapier / Katana                 |
-| 58   | Smoothie     | epic   | 6,010  | longleg  | Drill-Sheathed Sword            |
-| 59   | Ashura Doji  | epic   | 6,008  | human    | Katana                          |
-| 60   | Kawamatsu    | epic   | 5,955  | fishman  | Soto Muso                       |
-| 61   | Lucky Roux   | epic   | 5,939  | human    | Flintlock Pistol                |
-| 62   | Magellan     | epic   | 5,853  | human    | Horns                           |
-| 63   | Ace          | epic   | 5,826  | human    | None                            |
-| 64   | Ryuma        | legend | 5,820  | human    | Shusui                          |
-| 65   | Morley       | epic   | 5,781  | giant    | Harpoon-Trident                 |
-| 66   | Marco        | epic   | 5,749  | human    | None                            |
-| 67   | Drake        | epic   | 5,734  | human    | Rapier & Four-Bladed Axe        |
-| 68   | Pizarro      | epic   | 5,693  | human    | Flintlock Pistol                |
-| 69   | Koby         | epic   | 5,682  | human    | None                            |
-| 70   | Nekomamushi  | epic   | 5,672  | mink     | Jumonji Yari                    |
-| 71   | Sentomaru    | basic  | 5,626  | human    | Giant Broadaxe                  |
-| 72   | Denjiro      | epic   | 5,575  | human    | Katana                          |
-| 73   | Pica         | basic  | 5,548  | human    | Unnamed Giant Katana            |
-| 74   | Kaku         | epic   | 5,515  | human    | Shirasaya                       |
-| 75   | Oven         | epic   | 5,437  | human    | Naginata                        |
-| 76   | Yasopp       | epic   | 5,377  | human    | Flintlock Pistol                |
-| 77   | Who's-Who    | epic   | 5,364  | human    | None                            |
-| 78   | Killer       | epic   | 5,267  | human    | Punishers                       |
-| 79   | Hancock      | epic   | 5,265  | human    | None                            |
-| 80   | Franky       | epic   | 5,194  | human    | General Franky / Cyborg Arsenal |
-| 81   | Burgess      | epic   | 5,191  | human    | None                            |
-| 82   | Vista        | epic   | 5,171  | human    | Kaken (Twin Sabers)             |
-| 83   | Kid          | legend | 5,167  | human    | None                            |
-| 84   | Vasco Shot   | epic   | 5,073  | human    | Flintlock Pistol                |
-| 85   | Urouge       | basic  | 5,044  | human    | Pillar Mace                     |
-| 86   | Pedro        | epic   | 4,961  | mink     | Rapier                          |
-| 87   | Saul         | epic   | 4,820  | giant    | None                            |
-| 88   | Karasu       | epic   | 4,803  | human    | None                            |
-| 89   | Perospero    | epic   | 4,799  | human    | None                            |
-| 90   | Ivankov      | epic   | 4,737  | human    | None                            |
-| 91   | Kalgara      | epic   | 4,596  | shandia  | Spear                           |
-| 92   | Ulti         | epic   | 4,154  | human    | Morning Star                    |
-| 93   | Hawkins      | epic   | 3,854  | human    | Warabide Sword                  |
-| 94   | Black Maria  | epic   | 3,791  | human    | Wanyudo                         |
-| 95   | Sasaki       | epic   | 3,738  | human    | Karakuri Rasento                |
-| 96   | Marigold     | basic  | 3,696  | human    | Halberd                         |
-| 97   | Carrot       | basic  | 3,692  | mink     | Electro Claws                   |
-| 98   | Kin'emon     | basic  | 3,672  | human    | Sukesan + Kakusan               |
-| 99   | Smoker       | epic   | 3,650  | human    | Nanashaku Jitte                 |
-| 100  | Devon        | epic   | 3,582  | human    | Sword / Spear                   |
-| 101  | Fisher Tiger | epic   | 3,515  | fishman  | Saber                           |
-| 102  | Tamago       | epic   | 3,463  | longleg  | Shikomizue                      |
-| 103  | Lindbergh    | basic  | 3,268  | mink     | Cool Shooter                    |
-| 104  | Cavendish    | epic   | 3,264  | human    | Durandal                        |
-| 105  | Sandersonia  | basic  | 3,177  | human    | None                            |
-| 106  | Brook        | epic   | 3,149  | human    | Soul Solid                      |
-| 107  | Moria        | epic   | 2,998  | human    | Giant Scissors                  |
-| 108  | Kiku         | epic   | 2,967  | human    | Katana                          |
-| 109  | Daifuku      | basic  | 2,937  | human    | None                            |
-| 110  | Momonosuke   | epic   | 2,930  | human    | Ame no Habakiri                 |
-| 111  | Laffitte     | epic   | 2,870  | human    | Flintlock Pistol                |
-| 112  | Kyros        | epic   | 2,838  | human    | Longsword                       |
-| 113  | Van Augur    | epic   | 2,836  | human    | Senriku                         |
-| 114  | Apoo         | epic   | 2,774  | longarm  | None                            |
-| 115  | Daz Bonez    | basic  | 2,735  | human    | None                            |
-| 116  | Raizo        | basic  | 2,660  | human    | Dual Katanas                    |
-| 117  | Page One     | basic  | 2,592  | human    | None                            |
-| 118  | Hody         | basic  | 2,587  | fishman  | Trident                         |
-| 119  | Doc Q        | epic   | 2,572  | human    | Double-Bladed Scythe            |
-| 120  | Caesar       | basic  | 2,448  | human    | None                            |
-| 121  | Wyper        | basic  | 2,442  | shandia  | Burn Bazooka                    |
-| 122  | Fukaboshi    | basic  | 2,407  | merfolk  | Trident                         |
-| 123  | Senor Pink   | basic  | 2,380  | human    | None                            |
-| 124  | Bege         | epic   | 2,377  | human    | None                            |
-| 125  | Kanjuro      | legend | 2,375  | human    | Tsuji Shibai                    |
-| 126  | Arlong       | basic  | 2,320  | fishman  | Kiribachi                       |
-| 127  | Bartolomeo   | basic  | 2,301  | human    | None                            |
-| 128  | Hyouzou      | basic  | 2,293  | fishman  | Katana & Seven Sabers           |
-| 129  | Rebecca      | basic  | 2,260  | human    | Longsword                       |
-| 130  | Pell         | basic  | 2,184  | human    | Exotic Sword                    |
-| 131  | Monet        | basic  | 2,145  | human    | None                            |
-| 132  | Gan Fall     | basic  | 2,113  | skypiean | Lance                           |
-| 133  | Bonney       | epic   | 2,088  | human    | None                            |
-| 134  | Bon Clay     | basic  | 2,053  | human    | None                            |
-| 135  | Tsuru        | epic   | 1,978  | human    | None                            |
-| 136  | Hajrudin     | epic   | 1,945  | giant    | None                            |
-| 137  | Kabu         | basic  | 1,885  | dwarf    | Twin Lances                     |
-| 138  | Robin        | epic   | 1,876  | human    | None                            |
-| 139  | Tashigi      | basic  | 1,872  | human    | Shigure                         |
-| 140  | Wadatsumi    | basic  | 1,830  | fishman  | None                            |
-| 141  | Leo          | basic  | 1,825  | dwarf    | Needles                         |
-| 142  | Bian         | basic  | 1,818  | dwarf    | Lance                           |
-| 143  | Usopp        | basic  | 1,786  | human    | Kabuto                          |
-| 144  | Nami         | basic  | 1,784  | human    | Sorcery Clima-Tact              |
-| 145  | Mont-d'Or    | basic  | 1,757  | human    | Rifle / Pistol                  |
-| 146  | Ideo         | basic  | 1,749  | longarm  | None                            |
-| 147  | Mr. 3        | basic  | 1,735  | human    | None                            |
-| 148  | Hack         | basic  | 1,697  | fishman  | None                            |
-| 149  | Shinobu      | basic  | 1,676  | human    | Katana                          |
-| 150  | Neptune      | epic   | 1,661  | merfolk  | Trident                         |
-| 151  | Hannyabal    | epic   | 1,459  | human    | Kessui                          |
-| 152  | Buggy        | epic   | 1,459  | human    | Muggy Ball                      |
-| 153  | Hatchan      | basic  | 1,424  | fishman  | Six Cutlasses                   |
-| 154  | Pudding      | basic  | 1,352  | human    | Walker .36                      |
-| 155  | Brûlée       | basic  | 1,343  | human    | Scythe                          |
-| 156  | Hina         | basic  | 1,327  | human    | None                            |
-| 157  | Sugar        | basic  | 1,274  | human    | None                            |
-| 158  | Helmeppo     | basic  | 1,255  | human    | Kukri                           |
-| 159  | Wapol        | basic  | 1,241  | human    | None                            |
-| 160  | Aisa         | basic  | 1,229  | shandia  | Burn Blade                      |
-| 161  | Zala         | basic  | 1,225  | human    | None                            |
-| 162  | Kamakiri     | basic  | 1,193  | shandia  | Spear / Burn Blade              |
-| 163  | Caribou      | basic  | 1,186  | human    | None                            |
-| 164  | Corazon      | basic  | 1,178  | human    | None                            |
-| 165  | Chopper      | basic  | 1,173  | human    | None                            |
-| 166  | Bepo         | basic  | 1,165  | mink     | Electro Claws                   |
-| 167  | Koza         | basic  | 1,106  | human    | Katana                          |
-| 168  | Vegapunk     | epic   | 1,032  | human    | None                            |
-| 169  | Ryuboshi     | basic  | 1,029  | merfolk  | Twin Rapiers                    |
-| 170  | Manboshi     | basic  | 1,019  | merfolk  | Longsword                       |
-| 171  | Perona       | basic  | 1,010  | human    | None                            |
-| 172  | Raki         | basic  | 922    | shandia  | Rifle                           |
-| 173  | Mansherry    | basic  | 862    | dwarf    | None                            |
-| 174  | Vivi         | basic  | 854    | human    | Peacock Slashers                |
-| 175  | Blue Gilly   | basic  | 768    | longleg  | None                            |
-| 176  | Gancho       | basic  | 674    | dwarf    | None                            |
-| 177  | Wicca        | basic  | 541    | dwarf    | None                            |
-| 178  | Koala        | basic  | 528    | human    | None                            |
-| 179  | Hogback      | basic  | 307    | human    | None                            |
-| 180  | Goldenweek   | basic  | 301    | human    | None                            |
-| 181  | Camie        | basic  | 245    | merfolk  | None                            |
-| 182  | Cobra        | basic  | 235    | human    | None                            |
-| 183  | Conis        | basic  | 210    | skypiean | None                            |
-| 184  | Shirahoshi   | basic  | 129    | merfolk  | None                            |
+| 1    | Imu          | god    | 13,070 | human    | Nemesis                         |
+| 2    | Joy Boy      | god    | 12,756 | human    | None                            |
+| 3    | Rocks        | god    | 12,264 | human    | Eclipse                         |
+| 4    | Luffy        | god    | 11,462 | human    | None                            |
+| 5    | Shanks       | god    | 11,133 | human    | Gryphon                         |
+| 6    | Roger        | god    | 11,108 | human    | Ace                             |
+| 7    | Dragon       | god    | 11,057 | human    | None                            |
+| 8    | Whitebeard   | god    | 11,037 | human    | Murakumogiri                    |
+| 9    | Kaido        | legend | 10,776 | oni      | Hassaikai                       |
+| 10   | Big Mom      | legend | 10,336 | human    | Napoleon                        |
+| 11   | Garp         | legend | 10,164 | human    | None                            |
+| 12   | Akainu       | legend | 9,957  | human    | None                            |
+| 13   | Kuzan        | legend | 9,949  | human    | None                            |
+| 14   | Kizaru       | legend | 9,762  | human    | None                            |
+| 15   | Mihawk       | legend | 9,625  | human    | Yoru                            |
+| 16   | Green Bull   | legend | 9,419  | human    | Katana                          |
+| 17   | Loki         | legend | 9,309  | giant    | Ragnir                          |
+| 18   | Sengoku      | legend | 9,168  | human    | None                            |
+| 19   | Blackbeard   | legend | 9,166  | human    | None                            |
+| 20   | Katakuri     | epic   | 9,115  | human    | Mogura                          |
+| 21   | Oden         | legend | 8,933  | human    | Enma / Ame no Habakiri          |
+| 22   | Fujitora     | legend | 8,771  | human    | Yakuza Kasen                    |
+| 23   | Shamrock     | legend | 8,731  | human    | Cerberus                        |
+| 24   | Killingham   | legend | 8,655  | human    | Kirisame                        |
+| 25   | Nusjuro      | legend | 8,569  | human    | Shodai Kitetsu                  |
+| 26   | Saturn       | legend | 8,531  | human    | None                            |
+| 27   | Mars         | legend | 8,507  | human    | None                            |
+| 28   | Warcury      | legend | 8,395  | human    | None                            |
+| 29   | Ju Peter     | legend | 8,381  | human    | None                            |
+| 30   | Sommers      | legend | 8,160  | human    | Thorn Guard Sword               |
+| 31   | Gaban        | legend | 7,708  | human    | Twin Axes                       |
+| 32   | Gunko        | legend | 7,527  | human    | None                            |
+| 33   | Harald       | legend | 7,313  | giant    | Sword                           |
+| 34   | Doflamingo   | epic   | 7,078  | human    | None                            |
+| 35   | Shiki        | legend | 7,066  | human    | Oto + Kogarashi                 |
+| 36   | Yamato       | legend | 7,053  | oni      | Takeru                          |
+| 37   | Zoro         | legend | 6,930  | human    | Enma                            |
+| 38   | Shiryu       | legend | 6,893  | human    | Raiu                            |
+| 39   | Beckman      | legend | 6,754  | human    | Flintlock Rifle                 |
+| 40   | Sabo         | legend | 6,708  | human    | Pipe                            |
+| 41   | Rayleigh     | legend | 6,628  | human    | Cutlass                         |
+| 42   | Garling      | legend | 6,582  | human    | Saber                           |
+| 43   | Queen        | epic   | 6,533  | human    | Cyborg Implants                 |
+| 44   | Dorry        | epic   | 6,515  | giant    | Terry Sword                     |
+| 45   | Brogy        | legend | 6,426  | giant    | Bruiser Axe                     |
+| 46   | Lucci        | epic   | 6,370  | human    | None                            |
+| 47   | Law          | legend | 6,332  | human    | Kikoku                          |
+| 48   | Jack         | epic   | 6,328  | fishman  | Shotel Blades                   |
+| 49   | King         | epic   | 6,201  | lunarian | Katana                          |
+| 50   | Weevil       | epic   | 6,152  | human    | Naginata                        |
+| 51   | Enel         | epic   | 6,147  | skypiean | Nonosama Bo                     |
+| 52   | Crocodile    | epic   | 6,095  | human    | Banana Gator Hook               |
+| 53   | Jinbe        | epic   | 6,070  | fishman  | None                            |
+| 54   | Cracker      | epic   | 6,055  | human    | Pretzel                         |
+| 55   | Kuma         | epic   | 6,031  | human    | None                            |
+| 56   | Smoothie     | epic   | 5,928  | longleg  | Drill-Sheathed Sword            |
+| 57   | Sanji        | legend | 5,923  | human    | None                            |
+| 58   | Ashura Doji  | epic   | 5,906  | human    | Katana                          |
+| 59   | Lucky Roux   | epic   | 5,837  | human    | Flintlock Pistol                |
+| 60   | Kawamatsu    | epic   | 5,799  | fishman  | Soto Muso                       |
+| 61   | Inuarashi    | epic   | 5,794  | mink     | Rapier / Katana                 |
+| 62   | Magellan     | epic   | 5,757  | human    | Horns                           |
+| 63   | Ace          | epic   | 5,728  | human    | None                            |
+| 64   | Ryuma        | legend | 5,725  | human    | Shusui                          |
+| 65   | Marco        | epic   | 5,653  | human    | None                            |
+| 66   | Drake        | epic   | 5,636  | human    | Rapier & Four-Bladed Axe        |
+| 67   | Morley       | epic   | 5,636  | giant    | Harpoon-Trident                 |
+| 68   | Pizarro      | epic   | 5,598  | human    | Flintlock Pistol                |
+| 69   | Koby         | epic   | 5,582  | human    | None                            |
+| 70   | Sentomaru    | basic  | 5,532  | human    | Giant Broadaxe                  |
+| 71   | Denjiro      | epic   | 5,482  | human    | Katana                          |
+| 72   | Pica         | basic  | 5,454  | human    | Unnamed Giant Katana            |
+| 73   | Nekomamushi  | epic   | 5,443  | mink     | Jumonji Yari                    |
+| 74   | Kaku         | epic   | 5,420  | human    | Shirasaya                       |
+| 75   | Oven         | epic   | 5,344  | human    | Naginata                        |
+| 76   | Yasopp       | epic   | 5,279  | human    | Flintlock Pistol                |
+| 77   | Who's-Who    | epic   | 5,269  | human    | None                            |
+| 78   | Hancock      | epic   | 5,180  | human    | None                            |
+| 79   | Killer       | epic   | 5,175  | human    | Punishers                       |
+| 80   | Franky       | epic   | 5,102  | human    | General Franky / Cyborg Arsenal |
+| 81   | Burgess      | epic   | 5,098  | human    | None                            |
+| 82   | Kid          | legend | 5,084  | human    | None                            |
+| 83   | Vista        | epic   | 5,078  | human    | Kaken (Twin Sabers)             |
+| 84   | Vasco Shot   | epic   | 4,986  | human    | Flintlock Pistol                |
+| 85   | Urouge       | basic  | 4,954  | human    | Pillar Mace                     |
+| 86   | Pedro        | epic   | 4,742  | mink     | Rapier                          |
+| 87   | Karasu       | epic   | 4,717  | human    | None                            |
+| 88   | Perospero    | epic   | 4,713  | human    | None                            |
+| 89   | Ivankov      | epic   | 4,652  | human    | None                            |
+| 90   | Saul         | epic   | 4,599  | giant    | None                            |
+| 91   | Kalgara      | epic   | 4,504  | shandia  | Spear                           |
+| 92   | Ulti         | epic   | 4,091  | human    | Morning Star                    |
+| 93   | Hawkins      | epic   | 3,795  | human    | Warabide Sword                  |
+| 94   | Black Maria  | epic   | 3,731  | human    | Wanyudo                         |
+| 95   | Sasaki       | epic   | 3,679  | human    | Karakuri Rasento                |
+| 96   | Marigold     | basic  | 3,638  | human    | Halberd                         |
+| 97   | Kin'emon     | basic  | 3,614  | human    | Sukesan + Kakusan               |
+| 98   | Smoker       | epic   | 3,593  | human    | Nanashaku Jitte                 |
+| 99   | Carrot       | basic  | 3,528  | mink     | Electro Claws                   |
+| 100  | Devon        | epic   | 3,526  | human    | Sword / Spear                   |
+| 101  | Fisher Tiger | epic   | 3,419  | fishman  | Saber                           |
+| 102  | Tamago       | epic   | 3,405  | longleg  | Shikomizue                      |
+| 103  | Cavendish    | epic   | 3,212  | human    | Durandal                        |
+| 104  | Lindbergh    | basic  | 3,133  | mink     | Cool Shooter                    |
+| 105  | Sandersonia  | basic  | 3,124  | human    | None                            |
+| 106  | Brook        | epic   | 3,100  | human    | Soul Solid                      |
+| 107  | Moria        | epic   | 2,948  | human    | Giant Scissors                  |
+| 108  | Kiku         | epic   | 2,917  | human    | Katana                          |
+| 109  | Momonosuke   | epic   | 2,889  | human    | Ame no Habakiri                 |
+| 110  | Daifuku      | basic  | 2,888  | human    | None                            |
+| 111  | Laffitte     | epic   | 2,823  | human    | Flintlock Pistol                |
+| 112  | Kyros        | epic   | 2,789  | human    | Longsword                       |
+| 113  | Van Augur    | epic   | 2,789  | human    | Senriku                         |
+| 114  | Apoo         | epic   | 2,761  | longarm  | None                            |
+| 115  | Daz Bonez    | basic  | 2,693  | human    | None                            |
+| 116  | Raizo        | basic  | 2,620  | human    | Dual Katanas                    |
+| 117  | Page One     | basic  | 2,549  | human    | None                            |
+| 118  | Doc Q        | epic   | 2,530  | human    | Double-Bladed Scythe            |
+| 119  | Hody         | basic  | 2,507  | fishman  | Trident                         |
+| 120  | Caesar       | basic  | 2,407  | human    | None                            |
+| 121  | Wyper        | basic  | 2,395  | shandia  | Burn Bazooka                    |
+| 122  | Fukaboshi    | basic  | 2,357  | merfolk  | Trident                         |
+| 123  | Kanjuro      | legend | 2,340  | human    | Tsuji Shibai                    |
+| 124  | Senor Pink   | basic  | 2,339  | human    | None                            |
+| 125  | Bege         | epic   | 2,337  | human    | None                            |
+| 126  | Bartolomeo   | basic  | 2,264  | human    | None                            |
+| 127  | Arlong       | basic  | 2,251  | fishman  | Kiribachi                       |
+| 128  | Hyouzou      | basic  | 2,227  | fishman  | Katana & Seven Sabers           |
+| 129  | Rebecca      | basic  | 2,220  | human    | Longsword                       |
+| 130  | Pell         | basic  | 2,151  | human    | Exotic Sword                    |
+| 131  | Monet        | basic  | 2,109  | human    | None                            |
+| 132  | Bonney       | epic   | 2,055  | human    | None                            |
+| 133  | Gan Fall     | basic  | 2,054  | skypiean | Lance                           |
+| 134  | Bon Clay     | basic  | 2,018  | human    | None                            |
+| 135  | Tsuru        | epic   | 1,947  | human    | None                            |
+| 136  | Kabu         | basic  | 1,855  | dwarf    | Twin Lances                     |
+| 137  | Hajrudin     | epic   | 1,845  | giant    | None                            |
+| 138  | Robin        | epic   | 1,844  | human    | None                            |
+| 139  | Tashigi      | basic  | 1,844  | human    | Shigure                         |
+| 140  | Leo          | basic  | 1,794  | dwarf    | Needles                         |
+| 141  | Bian         | basic  | 1,789  | dwarf    | Lance                           |
+| 142  | Usopp        | basic  | 1,757  | human    | Kabuto                          |
+| 143  | Nami         | basic  | 1,756  | human    | Sorcery Clima-Tact              |
+| 144  | Wadatsumi    | basic  | 1,754  | fishman  | None                            |
+| 145  | Ideo         | basic  | 1,731  | longarm  | None                            |
+| 146  | Mont-d'Or    | basic  | 1,731  | human    | Rifle / Pistol                  |
+| 147  | Mr. 3        | basic  | 1,706  | human    | None                            |
+| 148  | Shinobu      | basic  | 1,651  | human    | Katana                          |
+| 149  | Hack         | basic  | 1,640  | fishman  | None                            |
+| 150  | Neptune      | epic   | 1,631  | merfolk  | Trident                         |
+| 151  | Buggy        | epic   | 1,438  | human    | Muggy Ball                      |
+| 152  | Hannyabal    | epic   | 1,435  | human    | Kessui                          |
+| 153  | Hatchan      | basic  | 1,384  | fishman  | Six Cutlasses                   |
+| 154  | Pudding      | basic  | 1,333  | human    | Walker .36                      |
+| 155  | Brûlée       | basic  | 1,325  | human    | Scythe                          |
+| 156  | Hina         | basic  | 1,306  | human    | None                            |
+| 157  | Sugar        | basic  | 1,253  | human    | None                            |
+| 158  | Helmeppo     | basic  | 1,239  | human    | Kukri                           |
+| 159  | Wapol        | basic  | 1,222  | human    | None                            |
+| 160  | Zala         | basic  | 1,205  | human    | None                            |
+| 161  | Aisa         | basic  | 1,194  | shandia  | Burn Blade                      |
+| 162  | Caribou      | basic  | 1,168  | human    | None                            |
+| 163  | Kamakiri     | basic  | 1,166  | shandia  | Spear / Burn Blade              |
+| 164  | Corazon      | basic  | 1,160  | human    | None                            |
+| 165  | Chopper      | basic  | 1,156  | human    | None                            |
+| 166  | Bepo         | basic  | 1,124  | mink     | Electro Claws                   |
+| 167  | Koza         | basic  | 1,089  | human    | Katana                          |
+| 168  | Vegapunk     | epic   | 1,016  | human    | None                            |
+| 169  | Ryuboshi     | basic  | 1,009  | merfolk  | Twin Rapiers                    |
+| 170  | Manboshi     | basic  | 999    | merfolk  | Longsword                       |
+| 171  | Perona       | basic  | 996    | human    | None                            |
+| 172  | Raki         | basic  | 901    | shandia  | Rifle                           |
+| 173  | Mansherry    | basic  | 851    | dwarf    | None                            |
+| 174  | Vivi         | basic  | 841    | human    | Peacock Slashers                |
+| 175  | Blue Gilly   | basic  | 755    | longleg  | None                            |
+| 176  | Gancho       | basic  | 659    | dwarf    | None                            |
+| 177  | Wicca        | basic  | 527    | dwarf    | None                            |
+| 178  | Koala        | basic  | 518    | human    | None                            |
+| 179  | Hogback      | basic  | 301    | human    | None                            |
+| 180  | Goldenweek   | basic  | 295    | human    | None                            |
+| 181  | Camie        | basic  | 239    | merfolk  | None                            |
+| 182  | Cobra        | basic  | 230    | human    | None                            |
+| 183  | Conis        | basic  | 202    | skypiean | None                            |
+| 184  | Shirahoshi   | basic  | 127    | merfolk  | None                            |

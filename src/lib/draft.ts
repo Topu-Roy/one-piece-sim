@@ -1,6 +1,5 @@
 import type { Character, Race, Rarity, DraftState, DraftPick, StatBlock, RoundType } from "./types";
 import { Characters } from "../data/characters-v2";
-import { getRaceModifier } from "../data/races";
 
 /** Rarity roll probabilities: 40% basic, 30% epic, 20% legend, 10% god */
 function rollRarity(): Rarity {
@@ -115,7 +114,7 @@ function drawOption(roundType: RoundType, taken: Set<string>, excludedIds: Set<s
  */
 function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = new Set()): Character[] {
   // Round 1 body uses the standard rarity-weighted path — race plays
-  // no part in selection (race % still buffs the final BST).
+  // no part in selection except the big-race variety guarantee below.
   const taken = new Set<string>();
   const options: Character[] = [];
 
@@ -320,8 +319,8 @@ function resolveChar(pick: DraftPick | undefined): Character | null {
  * Calculate final stats from all picks — V2 additive system (7 stats).
  *
  * Formula: finalStat = characterBase + hakiBonus + dfBonus + weaponBonus,
- * then race % (body only), then intelligence boosts awareness
- * and battle IQ boosts strength (%).
+ * then intelligence boosts awareness and battle IQ boosts strength (%).
+ * Race is identity only (chip/label + R1 variety) — never a stat.
  *
  * Routing (attack/defense are distinct from strength/durability):
  *   STR = base.strength only (+ battleIQ %)
@@ -428,22 +427,10 @@ export function calculateFinalStats(picks: DraftPick[]): {
     });
   }
 
-  // Step 5: Race % modifiers (body stats only — never attack/defense).
-  // Race comes from the Round 1 Body pick.
-  if (bodyChar) {
-    const mod = getRaceModifier(bodyChar.race);
-    stats.strength *= 1 + mod.strength / 100;
-    stats.durability *= 1 + mod.durability / 100;
-    stats.speed *= 1 + mod.speed / 100;
-    stats.awareness *= 1 + mod.awareness / 100;
-    stats.stamina *= 1 + mod.stamina / 100;
-    breakdown.push({
-      label: `Race (${bodyChar.race})`,
-      modifier: `STR:+${mod.strength}% DUR:+${mod.durability}% SPD:+${mod.speed}% AWR:+${mod.awareness}% STA:+${mod.stamina}%`,
-    });
-  }
+  // No race step: racial physique already lives in the body's individual
+  // baseStats (hand-tuned from feats) — a separate % would double-count.
 
-  // Step 6: Intelligence boosts awareness, Battle IQ boosts strength (percentage bonuses)
+  // Step 5: Intelligence boosts awareness, Battle IQ boosts strength (percentage bonuses)
   const intChar = get("intelligence");
   if (intChar) {
     const bonus = intChar.baseStats.intelligence / 100;
@@ -515,13 +502,7 @@ export function calculateCharacterBST(char: Character): number {
     s.stamina += w.stamina;
   }
 
-  // Race % modifiers (body stats only — never attack/defense)
-  const mod = getRaceModifier(char.race);
-  s.strength *= 1 + mod.strength / 100;
-  s.durability *= 1 + mod.durability / 100;
-  s.speed *= 1 + mod.speed / 100;
-  s.awareness *= 1 + mod.awareness / 100;
-  s.stamina *= 1 + mod.stamina / 100;
+  // No race step (see calculateFinalStats): baseStats already carry it.
 
   // Intelligence boosts awareness, Battle IQ boosts strength (percentage)
   s.awareness *= 1 + (char.baseStats.intelligence / 100) * 0.3;

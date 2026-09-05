@@ -6,7 +6,7 @@
 
 - Pool: all characters, rarity-weighted per slot with stronger Round 1 dice (~16/35/30/20). Race plays no part in selection, except the guarantee: at least one option is always giant, oni, or lunarian.
 - Shows: character name, race (flavor label), rarity chip. No numbers shown.
-- Pick gives: looks + name + base stat block + race. Race % still buffs the final BST.
+- Pick gives: looks + name + base stat block + race. Race is identity only — it never touches stats (physique is already in each character's baseStats).
 - Note: per-character baseStats (hand-tuned from canonical feats), NOT a shared race table.
 - Options are unique within the round and exclude already-picked donors.
 
@@ -45,9 +45,7 @@ Step 3: flat DF additions (ATK/DEF/SPD/AWR/STA). Skipped if donor has none.
 
 Step 4: flat weapon additions (ATK/DEF/SPD/AWR/STA). Skipped if donor has none.
 
-Step 5: race % modifiers on STR/DUR/SPD/AWR/STA only (giant +10/+10/−10/0/+5, human +2% all, etc.). Never ATK/DEF.
-
-Step 6: intelligence % on AWR, battle IQ % on STR.
+Step 5: intelligence % on AWR, battle IQ % on STR.
 
 Result screen shows: final name (Round 1 pick), live rank vs all 184 roster characters with neighbors above/below, all 7 stats, per-round breakdown, picks recap, New Draft button.
 

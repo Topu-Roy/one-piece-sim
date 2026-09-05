@@ -1,11 +1,10 @@
 import { Characters } from "../src/data/characters-v2";
-import { getRaceModifier } from "../src/data/races";
 import { readFileSync, writeFileSync } from "fs";
 
 type Char = (typeof Characters)[number];
 type Seven = { str: number; atk: number; dur: number; def: number; spd: number; awr: number; sta: number };
 
-/** NEW formula: 7 stats, zero-base ATK/DEF, reflex->SPD, race % on body, int/biq %. */
+/** NEW formula: 7 stats, zero-base ATK/DEF, reflex->SPD, int/biq %. No race step. */
 function newStats(char: Char): Seven & { bst: number } {
   const b = char.baseStats;
   let str = b.strength;
@@ -39,12 +38,7 @@ function newStats(char: Char): Seven & { bst: number } {
     sta += w.stamina;
   }
 
-  const mod = getRaceModifier(char.race);
-  str *= 1 + mod.strength / 100;
-  dur *= 1 + mod.durability / 100;
-  spd *= 1 + mod.speed / 100;
-  awr *= 1 + mod.awareness / 100;
-  sta *= 1 + mod.stamina / 100;
+  // No race step: racial physique already lives in baseStats.
 
   awr *= 1 + (b.intelligence / 100) * 0.3;
   str *= 1 + (b.battleIQ / 100) * 0.2;
@@ -80,9 +74,9 @@ const oldRank = new Map(byOld.map((r, i) => [r.char.id, i + 1]));
 
 const fmt = (n: number) => n.toLocaleString();
 const lines = [
-  "# BST Preview — 7-stat + race % model",
+  "# BST Preview — 7-stat model (no race step)",
   "",
-  "New = STR/ATK/DUR/DEF/SPD/AWR/STA (ATK/DEF zero-base, reflex->SPD, race % body-only, int/biq %). Old = current Rankings-v2.md formula (5 merged, no race).",
+  "New = STR/ATK/DUR/DEF/SPD/AWR/STA (ATK/DEF zero-base, reflex->SPD, int/biq %). Old = current Rankings-v2.md formula (5 merged, no race).",
   "",
   "| Rank | Name | Rarity | Race | New BST | Old BST | Δ | STR | ATK | DUR | DEF | SPD | AWR | STA |",
   "| ---- | ---- | ------ | ---- | ------- | ------- | -- | --- | --- | --- | --- | --- | --- | --- |",
@@ -99,17 +93,6 @@ rows.forEach((r, i) => {
   if (Math.abs(or - (i + 1)) >= 3)
     lines.push(`- ${r.char.displayName}: ${or} -> ${i + 1} (BST ${fmt(r.old)} -> ${fmt(r.bst)})`);
 });
-
-lines.push("", "## Race group averages (new BST)", "");
-const groups = new Map<string, number[]>();
-rows.forEach((r) => {
-  if (!groups.has(r.char.race)) groups.set(r.char.race, []);
-  groups.get(r.char.race)?.push(r.bst);
-});
-[...groups.entries()]
-  .map(([race, arr]) => ({ race, avg: Math.round(arr.reduce((a, b) => a + b, 0) / arr.length), n: arr.length }))
-  .sort((a, b) => b.avg - a.avg)
-  .forEach((g) => lines.push(`- ${g.race}: ${fmt(g.avg)} (n=${g.n})`));
 
 writeFileSync("Preview-BST.md", lines.join("\n"));
 console.log(`Preview-BST.md written — ${rows.length} characters`);

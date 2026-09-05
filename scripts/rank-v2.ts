@@ -1,5 +1,4 @@
 import { Characters } from "../src/data/characters-v2";
-import { getRaceModifier } from "../src/data/races";
 import { writeFileSync } from "fs";
 
 /** BST calculator — 7 stats, uses character base stats (evaluated from canonical feats) */
@@ -41,13 +40,7 @@ function calculateBST(char: (typeof Characters)[0]): number {
     s.stamina += w.stamina;
   }
 
-  // Race % modifiers (body stats only — never attack/defense)
-  const mod = getRaceModifier(char.race);
-  s.strength *= 1 + mod.strength / 100;
-  s.durability *= 1 + mod.durability / 100;
-  s.speed *= 1 + mod.speed / 100;
-  s.awareness *= 1 + mod.awareness / 100;
-  s.stamina *= 1 + mod.stamina / 100;
+  // No race step: racial physique already lives in baseStats.
 
   // Intelligence boosts awareness, Battle IQ boosts strength (percentage)
   s.awareness *= 1 + (char.baseStats.intelligence / 100) * 0.3;

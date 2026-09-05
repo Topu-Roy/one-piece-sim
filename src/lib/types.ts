@@ -111,15 +111,6 @@ export type StatBlock = {
   stamina: number;
 };
 
-/** Race % modifiers (body stats only — never attack/defense). Values are percents. */
-export type RaceModifier = {
-  strength: number;
-  durability: number;
-  speed: number;
-  awareness: number;
-  stamina: number;
-};
-
 export type RoundType =
   "body" | "armament" | "observation" | "conqueror" | "devil_fruit" | "weapon" | "intelligence" | "battle_iq";
 
