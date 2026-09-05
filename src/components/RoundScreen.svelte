@@ -142,9 +142,8 @@
     {/if}
   {/key}
 
-  {#if $draft.picks.length > 0}
-    <div class="mt-12 flex w-full justify-center">
-      <DraftPicks picks={$draft.picks} />
-    </div>
-  {/if}
+  <!-- Always visible: ghost rows hold all 8 rounds until picked. -->
+  <div class="mt-12 flex w-full justify-center">
+    <DraftPicks picks={$draft.picks} />
+  </div>
 </div>
