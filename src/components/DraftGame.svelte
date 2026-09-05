@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isComplete } from "../stores/draft";
+  import { isComplete, currentRound } from "../stores/draft";
   import RoundScreen from "./RoundScreen.svelte";
   import ResultScreen from "./ResultScreen.svelte";
   import ancientBgRaw from "../assets/ancient_bg.jpg";
@@ -23,9 +23,17 @@
   ></div>
   <div class="relative">
     {#if $isComplete}
-      <ResultScreen />
+      {#key "result"}
+        <div class="animate-round">
+          <ResultScreen />
+        </div>
+      {/key}
     {:else}
-      <RoundScreen />
+      {#key $currentRound}
+        <div class="animate-round">
+          <RoundScreen />
+        </div>
+      {/key}
     {/if}
   </div>
 </div>

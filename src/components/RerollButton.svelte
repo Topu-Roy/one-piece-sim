@@ -12,7 +12,7 @@
 </script>
 
 <button
-  class="flex items-center gap-1.5 rounded-full border border-hairline bg-canvas px-4 py-2 text-sm font-medium text-ink transition-colors active:bg-surface-soft disabled:cursor-not-allowed disabled:opacity-40"
+  class="flex items-center gap-1.5 rounded-full border border-hairline bg-parchment px-4 py-2 text-sm font-medium text-ink transition-colors active:bg-surface-strong disabled:cursor-not-allowed disabled:opacity-40"
   on:click={handleReroll}
   disabled={!canReroll}
   title={canReroll ? "Replace these 4 options" : "No rerolls left"}

@@ -145,7 +145,7 @@
 </script>
 
 <button
-  class="relative flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-canvas p-4 active:bg-surface-soft {waiting
+  class="relative flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-parchment p-4 active:bg-surface-strong {waiting
     ? 'opacity-60'
     : ''}"
   on:click={handleClick}

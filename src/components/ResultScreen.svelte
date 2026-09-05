@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div class="mb-12 w-full max-w-2xl rounded-[10px] border border-hairline bg-canvas p-6">
+    <div class="mb-12 w-full max-w-2xl rounded-[10px] border border-hairline bg-parchment p-6">
       <h2 class="mb-4 text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Stat Breakdown</h2>
       <div class="flex flex-col gap-2">
         {#each stats.breakdown as item (item.label)}

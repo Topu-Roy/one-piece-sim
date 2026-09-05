@@ -14,6 +14,9 @@
   /* Surfaces */
   --color-canvas: #ffffff;
   --color-surface-soft: #f8fafc;
+  /* Parchment: midpoint between soft white and cream for card surfaces
+     over the dark ancient backdrop. Tune here, applies everywhere. */
+  --color-parchment: #f6f1e7;
   --color-surface-strong: #e0e2e6;
   --color-surface-dark: #181d26;
   --color-hairline: #dddddd;
@@ -42,6 +45,28 @@
   --font-display:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial,
     sans-serif;
+}
+
+/* Round transition: quick rise-and-fade on mount. The 1s beat before
+   shuffling lives in RoundScreen (revealReady), not here — hiding the
+   wrapper would run card timers invisibly underneath. */
+@keyframes round-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-round {
+  animation: round-in 350ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-round {
+    animation: none;
+  }
 }
 
 /* Shadow outline for names overlaid on card art (readable on any image). */

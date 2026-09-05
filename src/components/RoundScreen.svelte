@@ -26,6 +26,13 @@
   let lockUpTo = -1;
   let activeIndex = 0;
 
+  // Beat before shuffling: the round fades in (skeleton, then dimmed
+  // cards), holds 1s, and only then does card 0 start. Timer cleared
+  // on every fresh round so rerolls re-arm the beat.
+  let revealReady = false;
+  let beatTimer: ReturnType<typeof setTimeout> | null = null;
+  const BEAT_MS = 1000;
+
   // Image warm-up: the round starts once the 15 fixed decoys settle.
   // The 4 real faces warm in the background (not gated) — each card's
   // lock additionally waits for its own art to decode (1s cap), so a
@@ -46,6 +53,11 @@
   function startRound(key: string, motion: boolean) {
     lockUpTo = -1;
     activeIndex = motion ? 99 : 0;
+    revealReady = false;
+    if (beatTimer !== null) {
+      clearTimeout(beatTimer);
+      beatTimer = null;
+    }
 
     // Whole roster warms in the background (cache + SW), gated or not.
     // Runs once — all 184 faces download while the player drafts.
@@ -57,6 +69,7 @@
     if (motion) {
       // Nothing animates — reals render eager, no warm-up needed.
       preloading = false;
+      revealReady = true;
       return;
     }
 
@@ -70,6 +83,11 @@
     }).then(() => {
       if (preloadKey !== key) return;
       preloading = false;
+      // Cards are mounted (dimmed "?") — hold the beat, then shuffle.
+      beatTimer = setTimeout(() => {
+        if (preloadKey !== key) return;
+        revealReady = true;
+      }, BEAT_MS);
     });
   }
   $: startRound(revealKey, reducedMotion);
@@ -90,20 +108,20 @@
 
 <div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
   <div class="mb-6 flex w-full items-center justify-between gap-4">
-    <div class="text-left">
-      <p class="mb-1 text-xs font-medium tracking-[0.16px] text-on-dark/70 uppercase">
-        Round {round} of 8
-      </p>
-      <h1 class="font-display text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
+    <p class="shrink-0 text-xs font-medium tracking-[0.16px] text-on-dark/70 uppercase">
+      Round {round} of 8
+    </p>
+    <div class="flex items-center gap-3">
+      <h1 class="text-right font-display text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
         {label}
       </h1>
-    </div>
 
-    {#if showReroll}
-      <div class="shrink-0">
-        <RerollButton />
-      </div>
-    {/if}
+      {#if showReroll}
+        <div class="shrink-0">
+          <RerollButton />
+        </div>
+      {/if}
+    </div>
   </div>
 
   {#key revealKey}
@@ -117,9 +135,11 @@
         aria-label="Loading characters"
       >
         {#each Array(4) as _, i (i)}
-          <div class="flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-canvas p-4">
-            <div class="-mx-4 -mt-4 aspect-square w-[calc(100%+2rem)] rounded-t-[10px] bg-surface-soft"></div>
-            <div class="h-3 w-2/3 rounded-full bg-surface-soft"></div>
+          <div
+            class="flex w-full flex-col items-center gap-3 rounded-[10px] border border-hairline bg-parchment p-4"
+          >
+            <div class="-mx-4 -mt-4 aspect-square w-[calc(100%+2rem)] rounded-t-[10px] bg-surface-strong"></div>
+            <div class="h-3 w-2/3 rounded-full bg-surface-strong"></div>
           </div>
         {/each}
       </div>
@@ -137,7 +157,7 @@
             onLockRequest={handleLockRequest}
             onLocked={handleLocked}
             revealDelay={!reducedMotion ? LOCK_BASE_MS : 0}
-            canStart={i <= activeIndex}
+            canStart={revealReady && i <= activeIndex}
             {lockUpTo}
             {decoyPool}
           />
