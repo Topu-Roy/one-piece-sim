@@ -1773,3 +1773,14 @@ APPLIED to `src/data/characters-v2.ts` (baseStats only — rarity, haki, DF, wea
 - Era/form decisions: Bonney = true child body · Moria = present fat body · Hody = clean (no steroids) · Hyouzou = clean · Chopper = Brain-Point base · Kuma = pre-erase mind (no numeric change) · Vegapunk = Stella old man.
 - Post-apply: `tsc` clean, `eslint` clean, `prettier` clean, rankings regen'd, 300-draft headless sanity (0 big-race misses, 0 bad drafts), `astro build` clean.
 - Ranking effect: 8 gods all still top 9 (Kaido intrudes at 7 on corrected 10,689). Biggest movers down: Shanks (Mihawk convergence), Luffy (rubber/G2/FS stripped to DF/haki), Whitebeard (sick-body SPD/AWR). Dragon holds #4 untouched — speculative-policy artifact, revisit when feats land.
+
+## Cap log (ceiling 950)
+
+APPLIED manually, one Edit per character (user request — no script).
+
+- Rule: any `baseStats` physical (STR/DUR/SPD/AWR/STA) above 950 → 950. INT/BIQ untouched.
+- 19 characters: Imu (5 fields), Joy Boy (5), Rocks (3), Roger (4), Garp (2), Teach (DUR), Dragon (AWR), Luffy (STR/SPD/STA), Whitebeard (STR/DUR), Kaido (STR/DUR/STA), Big Mom (STR/DUR), Jinbe (DUR), Kuma (DUR), Oden (STA), Smoothie (STR), Yasopp (AWR), Dorry (STR/DUR), Brogy (STR/DUR), Saul (STR/DUR).
+- Straggler sweep caught 5 the plan missed (Smoothie, Yasopp, Dorry, Brogy, Saul) + Luffy SPD 975. Verified zero base physicals above 950 after.
+- Peer ladders preserved: Roger=WB (both →950), Dorry=Brogy (both →950/950), Shanks≈Mihawk + admirals untouched.
+- Ranking effect: god order intact (Imu > Joy Boy > Rocks > Dragon > Luffy > Roger > WB > Shanks). Imu 13,070 → 12,018 (−8%). Kaido drops to 8, Akainu enters top 10 (Big Mom out).
+- Post-apply: `tsc` clean, `eslint` clean, `prettier` clean, rankings regen'd, 300-draft sanity clean, `astro build` clean.
