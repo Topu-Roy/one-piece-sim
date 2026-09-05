@@ -1,105 +1,145 @@
 <script lang="ts">
   import { draft, finalStats } from "../stores/draft";
+  import { Characters } from "../data/characters-v2";
   import { rankBuild } from "../lib/draft";
-  import DraftPicks from "./DraftPicks.svelte";
 
   $: stats = $finalStats;
   $: picks = $draft.picks;
   $: appearancePick = picks.find((p) => p.roundType === "body");
   $: buildRank = stats ? rankBuild(stats.stats) : null;
+  // Hero: the drafted body's face + name (replaces the old text header).
+  $: bodyChar = Characters.find((c) => c.displayName === appearancePick?.characterName);
+  let heroError = false;
 
-  // Demo-grid pastel cycle for the 7 stat tiles.
-  const tileSurfaces = ["bg-peach", "bg-mint", "bg-cream", "bg-yellow", "bg-surface-soft", "bg-peach", "bg-mint"];
+  function faceOf(name: string | undefined): string {
+    if (!name) return "";
+    return Characters.find((c) => c.displayName === name)?.imageURL ?? "";
+  }
+
+  // All 8 round donors, resolved by id for the picks strip.
+  function pickFace(id: string): string {
+    return Characters.find((c) => c.id === id)?.imageURL ?? "";
+  }
 
   function handleNewDraft() {
     draft.reset();
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-24">
-  <div class="mb-12 text-center">
-    <p class="mb-4 text-sm font-medium tracking-[0.16px] text-on-dark/70 uppercase">Draft Complete</p>
-    <h1 class="font-display text-4xl leading-[1.2] font-normal text-on-dark md:text-[40px]">
-      {appearancePick?.characterName ?? "Your Character"}
-    </h1>
-  </div>
+<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
+  <!-- Hero: the drafted body, face + name overlaid (no text header). -->
+  {#if bodyChar?.imageURL && !heroError}
+    <div class="relative mb-8 aspect-square w-full max-w-80 overflow-hidden rounded-md border border-hairline">
+      <img
+        src={bodyChar.imageURL}
+        alt={bodyChar.displayName}
+        class="h-full w-full object-cover"
+        loading="eager"
+        on:error={() => (heroError = true)}
+      />
+      <!-- Rank numeral centered on the art. -->
+      {#if buildRank}
+        <div
+          class="text-art-outline pointer-events-none absolute inset-0 flex items-center justify-center font-hand text-7xl leading-none font-normal text-yellow md:text-8xl"
+        >
+          #{buildRank.rank}
+        </div>
+      {/if}
+      <div
+        class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 pb-3 text-center font-hand text-4xl leading-[1.1] font-normal text-yellow"
+      >
+        {bodyChar.fullName}
+      </div>
+    </div>
+  {/if}
 
   {#if stats}
     {#if buildRank}
-      <div class="mb-12 w-full max-w-2xl rounded-xl bg-forest p-8 text-center md:p-12">
-        <h2 class="mb-2 text-sm font-medium tracking-[0.16px] text-on-dark uppercase">Your Rank</h2>
-        <div class="font-display text-[32px] leading-[1.2] font-normal text-on-dark">
-          #{buildRank.rank}
-          <span class="text-sm font-normal text-on-dark"> of {buildRank.total} </span>
+      <!-- Rank panel: dark statement card, gold numeral, ladder pills. -->
+      <div class="mb-8 w-full max-w-lg rounded-xl border border-white/40 bg-surface-dark p-6 text-center md:p-8">
+        <div class="flex items-baseline justify-center gap-2">
+          <span class="font-hand text-6xl leading-none font-normal text-yellow md:text-7xl">
+            #{buildRank.rank}
+          </span>
+          <span class="text-sm font-normal text-on-dark/70">of {buildRank.total}</span>
         </div>
-        <div class="mt-1 text-sm text-on-dark">
-          BST {buildRank.bst.toLocaleString()}
-          {#if buildRank.tied.length > 0}
-            <span>· tied with {buildRank.tied.join(", ")}</span>
+        {#if buildRank.tied.length > 0}
+          <p class="mt-2 text-xs text-on-dark/60">Tied with {buildRank.tied.join(", ")}</p>
+        {/if}
+        <!-- Ladder faces: above · you · below, rounded, you ringed gold. -->
+        <div class="mt-5 flex items-center justify-center gap-3">
+          {#if buildRank.above && faceOf(buildRank.above.name)}
+            <img
+              src={faceOf(buildRank.above.name)}
+              alt={buildRank.above.name}
+              class="h-12 w-12 rounded-full border border-white/20 object-cover opacity-80"
+              loading="lazy"
+            />
+          {/if}
+          {#if bodyChar?.imageURL}
+            <img
+              src={bodyChar.imageURL}
+              alt={bodyChar.displayName}
+              class="h-16 w-16 rounded-full border-2 border-mustard object-cover"
+              loading="eager"
+            />
+          {/if}
+          {#if buildRank.below && faceOf(buildRank.below.name)}
+            <img
+              src={faceOf(buildRank.below.name)}
+              alt={buildRank.below.name}
+              class="h-12 w-12 rounded-full border border-white/20 object-cover opacity-80"
+              loading="lazy"
+            />
           {/if}
         </div>
-        <div class="mx-auto mt-6 flex max-w-md flex-col gap-1">
+        <!-- All 8 round donors, smaller, under the ladder faces. -->
+        <div class="mt-4 flex items-center justify-center gap-1.5">
+          {#each picks as pick (pick.round)}
+            {#if pickFace(pick.characterId)}
+              <img
+                src={pickFace(pick.characterId)}
+                alt={pick.characterName}
+                title={`R${pick.round}: ${pick.characterName}`}
+                class="h-8 w-8 rounded-full border border-white/20 object-cover"
+                loading="lazy"
+              />
+            {/if}
+          {/each}
+        </div>
+        <div class="mx-auto mt-5 flex max-w-xs flex-col gap-1.5">
           {#if buildRank.above}
-            <div class="flex items-center justify-between border-b border-white/20 py-1.5">
-              <span class="text-[10px] font-medium tracking-wider text-on-dark uppercase">
-                ▲ {buildRank.above.name}
-              </span>
-              <span class="text-xs text-on-dark">
-                {buildRank.above.bst.toLocaleString()}
-              </span>
+            <div
+              class="flex items-center justify-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-[11px] font-medium tracking-wider text-on-dark/70 uppercase"
+            >
+              <span aria-hidden="true">▲</span>
+              {buildRank.above.name}
             </div>
           {/if}
-          <div class="flex items-center justify-between border-b border-white/20 py-1.5">
-            <span class="text-[10px] font-medium tracking-wider text-on-dark uppercase"> ● You </span>
-            <span class="text-xs font-medium text-on-dark">{buildRank.bst.toLocaleString()}</span>
+          <div
+            class="flex items-center justify-center gap-2 rounded-full bg-mustard px-4 py-1.5 text-[11px] font-medium tracking-wider text-ink uppercase"
+          >
+            <span aria-hidden="true">●</span>
+            You
           </div>
           {#if buildRank.below}
-            <div class="flex items-center justify-between border-b border-white/20 py-1.5">
-              <span class="text-[10px] font-medium tracking-wider text-on-dark uppercase">
-                ▼ {buildRank.below.name}
-              </span>
-              <span class="text-xs text-on-dark">
-                {buildRank.below.bst.toLocaleString()}
-              </span>
+            <div
+              class="flex items-center justify-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-[11px] font-medium tracking-wider text-on-dark/70 uppercase"
+            >
+              <span aria-hidden="true">▼</span>
+              {buildRank.below.name}
             </div>
           {/if}
         </div>
       </div>
     {/if}
 
-    <div class="mb-12 w-full max-w-2xl">
-      <h2 class="mb-4 text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Final Stats</h2>
-      <div class="grid grid-cols-4 gap-3 text-center md:grid-cols-7">
-        {#each [{ k: "STR", v: stats.stats.strength }, { k: "ATK", v: stats.stats.attack }, { k: "DUR", v: stats.stats.durability }, { k: "DEF", v: stats.stats.defense }, { k: "SPD", v: stats.stats.speed }, { k: "AWR", v: stats.stats.awareness }, { k: "STA", v: stats.stats.stamina }] as tile, i (tile.k)}
-          <div class="flex flex-col gap-1 rounded-[10px] p-4 {tileSurfaces[i % tileSurfaces.length]}">
-            <span class="text-[10px] font-medium tracking-wider text-muted uppercase">{tile.k}</span>
-            <span class="font-display text-2xl leading-[1.2] font-normal text-ink">{tile.v}</span>
-          </div>
-        {/each}
-      </div>
-    </div>
-
-    <div class="mb-12 w-full max-w-2xl rounded-[10px] border border-hairline bg-parchment p-6">
-      <h2 class="mb-4 text-2xl leading-[1.35] font-normal tracking-[0.12px] text-ink">Stat Breakdown</h2>
-      <div class="flex flex-col gap-2">
-        {#each stats.breakdown as item (item.label)}
-          <div class="flex items-center justify-between border-b border-hairline py-2">
-            <span class="text-sm text-ink">{item.label}</span>
-            <span class="text-[10px] text-muted">{item.modifier}</span>
-          </div>
-        {/each}
-      </div>
-    </div>
-
-    <div class="mb-12 flex w-full justify-center">
-      <DraftPicks {picks} />
-    </div>
+    <!-- Gold CTA: ink vanishes against the darkened backdrop. -->
+    <button
+      class="rounded-xl bg-mustard px-6 py-4 text-base font-medium text-ink active:bg-yellow"
+      on:click={handleNewDraft}
+    >
+      Try Again
+    </button>
   {/if}
-
-  <button
-    class="rounded-xl bg-ink px-6 py-4 text-base font-medium text-on-dark active:bg-surface-dark"
-    on:click={handleNewDraft}
-  >
-    New Draft
-  </button>
 </div>

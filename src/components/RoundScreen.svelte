@@ -138,7 +138,7 @@
       >
         {#each Array(4) as _, i (i)}
           <div
-            class="flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-parchment"
+            class="flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-surface-soft"
           >
             <div class="aspect-square w-full bg-surface-strong"></div>
           </div>

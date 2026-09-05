@@ -39,7 +39,7 @@
   let pickImageErrors: Record<number, boolean> = {};
 </script>
 
-<div class="w-full max-w-lg rounded-[10px] border border-hairline bg-parchment p-4">
+<div class="w-full max-w-lg rounded-[10px] border border-hairline bg-surface-soft p-4">
   <div class="mb-2 flex items-baseline justify-between">
     <h2 class="text-lg leading-[1.35] font-normal tracking-[0.12px] text-ink">Draft Picks</h2>
     <span class="text-xs font-medium tracking-wider text-muted uppercase">
