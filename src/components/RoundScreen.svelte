@@ -107,75 +107,74 @@
 </script>
 
 <div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
-  <div class="mb-6 flex w-full items-center justify-between gap-4">
+  <div class="flex w-full items-center justify-between gap-4 pb-8">
     <p class="shrink-0 text-xs font-medium tracking-[0.16px] text-on-dark/70 uppercase">
       Round {round} of 8
     </p>
-    <div class="flex items-center gap-3">
-      <h1 class="text-right font-display text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
-        {label}
-      </h1>
 
-      {#if showReroll}
-        <div class="shrink-0">
-          <RerollButton />
-        </div>
-      {/if}
-    </div>
+    <h1 class="mt-1 text-center font-display text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
+      {label}
+    </h1>
+
+    {#if showReroll}
+      <div class="shrink-0">
+        <RerollButton />
+      </div>
+    {/if}
   </div>
 
   {#key revealKey}
     <!-- Transition scoped to the options area only: header above and
          Draft Picks below never replay it. Key remounts per fresh options. -->
     <div class="animate-round w-full">
-    {#if preloading}
-      <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
-      <!-- One shared height floor (edge-to-edge square art) on all screens. -->
-      <div
-        class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4"
-        aria-busy="true"
-        aria-label="Loading characters"
-      >
-        {#each Array(4) as _, i (i)}
-          <div
-            class="flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-surface-soft"
-          >
-            <div class="aspect-square w-full bg-surface-strong"></div>
-          </div>
-        {/each}
-      </div>
-    {:else}
-      <div class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4">
-        {#each options as character, i (character.id)}
-          <CharacterCard
-            {character}
-            {roundType}
-            index={i}
-            onSelect={handleSelect}
-            onLockRequest={handleLockRequest}
-            onLocked={handleLocked}
-            revealDelay={!reducedMotion ? LOCK_BASE_MS : 0}
-            canStart={revealReady && i <= activeIndex}
-            {lockUpTo}
-            {decoyPool}
-          />
-        {/each}
-      </div>
-    {/if}
-    <!-- Caption slot always rendered (invisible when idle) so the
-         grid never jumps when loading finishes. -->
-    <p class="mt-3 text-center text-sm tracking-wider uppercase {preloading ? 'text-on-dark/70' : 'invisible'}">
       {#if preloading}
-        Loading faces… {loadedCount}/{loadTotal}
+        <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
+        <!-- One shared height floor (edge-to-edge square art) on all screens. -->
+        <div
+          class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4"
+          aria-busy="true"
+          aria-label="Loading characters"
+        >
+          {#each Array(4) as _, i (i)}
+            <div
+              class="flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-surface-soft"
+            >
+              <div class="aspect-square w-full bg-surface-strong"></div>
+            </div>
+          {/each}
+        </div>
       {:else}
-        &nbsp;
+        <div class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4">
+          {#each options as character, i (character.id)}
+            <CharacterCard
+              {character}
+              {roundType}
+              index={i}
+              onSelect={handleSelect}
+              onLockRequest={handleLockRequest}
+              onLocked={handleLocked}
+              revealDelay={!reducedMotion ? LOCK_BASE_MS : 0}
+              canStart={revealReady && i <= activeIndex}
+              {lockUpTo}
+              {decoyPool}
+            />
+          {/each}
+        </div>
       {/if}
-    </p>
+      <!-- Caption slot always rendered (invisible when idle) so the
+         grid never jumps when loading finishes. -->
+      <p class="mt-3 text-center text-sm tracking-wider uppercase {preloading ? 'text-on-dark/70' : 'invisible'}">
+        {#if preloading}
+          Loading faces… {loadedCount}/{loadTotal}
+        {:else}
+          &nbsp;
+        {/if}
+      </p>
     </div>
   {/key}
 
   <!-- Always visible: ghost rows hold all 8 rounds until picked. -->
-  <div class="mt-6 flex w-full justify-center">
+  <div class="flex w-full justify-center">
     <DraftPicks picks={$draft.picks} />
   </div>
 </div>
