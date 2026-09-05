@@ -186,7 +186,7 @@ export const Characters: Character[] = [
       speed: 900,
       awareness: 850,
       stamina: 900,
-      intelligence: 48,
+      intelligence: 60,
       battleIQ: 95,
     },
     haki: {
@@ -1777,7 +1777,7 @@ export const Characters: Character[] = [
       speed: 475,
       awareness: 475,
       stamina: 600,
-      intelligence: 54,
+      intelligence: 69,
       battleIQ: 65,
     },
     haki: {
@@ -1863,7 +1863,7 @@ export const Characters: Character[] = [
       speed: 750,
       awareness: 650,
       stamina: 725,
-      intelligence: 54,
+      intelligence: 64,
       battleIQ: 69,
     },
     haki: {
@@ -2594,7 +2594,7 @@ export const Characters: Character[] = [
       speed: 700,
       awareness: 625,
       stamina: 575,
-      intelligence: 58,
+      intelligence: 65,
       battleIQ: 80,
     },
     haki: {
@@ -2809,7 +2809,7 @@ export const Characters: Character[] = [
       speed: 600,
       awareness: 625,
       stamina: 625,
-      intelligence: 60,
+      intelligence: 64,
       battleIQ: 80,
     },
     haki: {
@@ -2981,7 +2981,7 @@ export const Characters: Character[] = [
       speed: 600,
       awareness: 600,
       stamina: 600,
-      intelligence: 58,
+      intelligence: 63,
       battleIQ: 78,
     },
     haki: {
@@ -3411,7 +3411,7 @@ export const Characters: Character[] = [
       speed: 300,
       awareness: 400,
       stamina: 800,
-      intelligence: 55,
+      intelligence: 58,
       battleIQ: 78,
     },
     haki: {
@@ -3454,7 +3454,7 @@ export const Characters: Character[] = [
       speed: 350,
       awareness: 600,
       stamina: 700,
-      intelligence: 55,
+      intelligence: 66,
       battleIQ: 75,
     },
     haki: {
@@ -3712,7 +3712,7 @@ export const Characters: Character[] = [
       speed: 600,
       awareness: 450,
       stamina: 700,
-      intelligence: 58,
+      intelligence: 64,
       battleIQ: 80,
     },
     haki: {
@@ -4013,7 +4013,7 @@ export const Characters: Character[] = [
       speed: 420,
       awareness: 290,
       stamina: 280,
-      intelligence: 55,
+      intelligence: 64,
       battleIQ: 74,
     },
     haki: {
@@ -4400,7 +4400,7 @@ export const Characters: Character[] = [
       speed: 260,
       awareness: 370,
       stamina: 475,
-      intelligence: 55,
+      intelligence: 64,
       battleIQ: 81,
     },
     haki: {
@@ -4443,7 +4443,7 @@ export const Characters: Character[] = [
       speed: 200,
       awareness: 220,
       stamina: 380,
-      intelligence: 55,
+      intelligence: 62,
       battleIQ: 72,
     },
     haki: {
@@ -4658,7 +4658,7 @@ export const Characters: Character[] = [
       speed: 350,
       awareness: 330,
       stamina: 320,
-      intelligence: 52,
+      intelligence: 63,
       battleIQ: 66,
     },
     haki: {
@@ -4701,7 +4701,7 @@ export const Characters: Character[] = [
       speed: 340,
       awareness: 320,
       stamina: 310,
-      intelligence: 53,
+      intelligence: 63,
       battleIQ: 72,
     },
     haki: {
@@ -5432,7 +5432,7 @@ export const Characters: Character[] = [
       speed: 275,
       awareness: 260,
       stamina: 315,
-      intelligence: 55,
+      intelligence: 63,
       battleIQ: 58,
     },
     haki: {
@@ -5561,7 +5561,7 @@ export const Characters: Character[] = [
       speed: 175,
       awareness: 205,
       stamina: 175,
-      intelligence: 60,
+      intelligence: 65,
       battleIQ: 60,
     },
     haki: {
@@ -6292,7 +6292,7 @@ export const Characters: Character[] = [
       speed: 170,
       awareness: 140,
       stamina: 120,
-      intelligence: 50,
+      intelligence: 60,
       battleIQ: 70,
     },
     haki: {
@@ -6851,7 +6851,7 @@ export const Characters: Character[] = [
       speed: 80,
       awareness: 90,
       stamina: 130,
-      intelligence: 55,
+      intelligence: 63,
       battleIQ: 45,
     },
     haki: {
@@ -6980,7 +6980,7 @@ export const Characters: Character[] = [
       speed: 60,
       awareness: 90,
       stamina: 80,
-      intelligence: 48,
+      intelligence: 65,
       battleIQ: 40,
     },
     haki: {
@@ -7066,7 +7066,7 @@ export const Characters: Character[] = [
       speed: 120,
       awareness: 100,
       stamina: 130,
-      intelligence: 55,
+      intelligence: 60,
       battleIQ: 68,
     },
     haki: {
@@ -7195,7 +7195,7 @@ export const Characters: Character[] = [
       speed: 80,
       awareness: 80,
       stamina: 110,
-      intelligence: 58,
+      intelligence: 71,
       battleIQ: 55,
     },
     haki: {
@@ -7367,7 +7367,7 @@ export const Characters: Character[] = [
       speed: 140,
       awareness: 110,
       stamina: 90,
-      intelligence: 55,
+      intelligence: 59,
       battleIQ: 60,
     },
     haki: {
@@ -7754,7 +7754,7 @@ export const Characters: Character[] = [
       speed: 50,
       awareness: 43,
       stamina: 40,
-      intelligence: 54,
+      intelligence: 66,
       battleIQ: 30,
     },
     haki: {
