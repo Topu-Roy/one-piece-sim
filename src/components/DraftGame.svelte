@@ -2,6 +2,7 @@
   import { isComplete, currentRound } from "../stores/draft";
   import RoundScreen from "./RoundScreen.svelte";
   import ResultScreen from "./ResultScreen.svelte";
+  import NavBar from "./NavBar.svelte";
   import ancientBgRaw from "../assets/ancient_bg.jpg";
 
   // Astro resolves src/ image imports to a metadata object at runtime
@@ -22,6 +23,7 @@
     style="background-image: url({ancientBg})"
   ></div>
   <div class="relative">
+    <NavBar />
     {#if $isComplete}
       {#key "result"}
         <div class="animate-round">

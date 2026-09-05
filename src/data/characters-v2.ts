@@ -238,7 +238,7 @@ export const Characters: Character[] = [
       conqueror: { tier: "none", attack: 0, stamina: 0, defense: 0 },
     },
     devilFruit: {
-      type: "paramecia",
+      type: "logia",
       japaneseName: "Yami Yami no Mi",
       englishName: "Dark-Dark Fruit",
       awakened: false,
