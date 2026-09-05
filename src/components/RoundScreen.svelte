@@ -125,23 +125,25 @@
   </div>
 
   {#key revealKey}
+    <!-- Transition scoped to the options area only: header above and
+         Draft Picks below never replay it. Key remounts per fresh options. -->
+    <div class="animate-round w-full">
     {#if preloading}
       <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
       <!-- One shared height floor (edge-to-edge square art) on all screens. -->
       <div
-        class="grid min-h-[160px] w-full grid-cols-2 gap-6 md:min-h-[230px] md:grid-cols-4"
+        class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4"
         aria-busy="true"
         aria-label="Loading characters"
       >
         {#each Array(4) as _, i (i)}
-          <div class="flex w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-parchment">
+          <div
+            class="flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-parchment"
+          >
             <div class="aspect-square w-full bg-surface-strong"></div>
           </div>
         {/each}
       </div>
-      <p class="mt-6 text-sm tracking-wider text-on-dark/70 uppercase">
-        Loading faces… {loadedCount}/{loadTotal}
-      </p>
     {:else}
       <div class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4">
         {#each options as character, i (character.id)}
@@ -160,10 +162,20 @@
         {/each}
       </div>
     {/if}
+    <!-- Caption slot always rendered (invisible when idle) so the
+         grid never jumps when loading finishes. -->
+    <p class="mt-3 text-center text-sm tracking-wider uppercase {preloading ? 'text-on-dark/70' : 'invisible'}">
+      {#if preloading}
+        Loading faces… {loadedCount}/{loadTotal}
+      {:else}
+        &nbsp;
+      {/if}
+    </p>
+    </div>
   {/key}
 
   <!-- Always visible: ghost rows hold all 8 rounds until picked. -->
-  <div class="mt-12 flex w-full justify-center">
+  <div class="mt-6 flex w-full justify-center">
     <DraftPicks picks={$draft.picks} />
   </div>
 </div>

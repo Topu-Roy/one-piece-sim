@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isComplete, currentRound } from "../stores/draft";
+  import { isComplete } from "../stores/draft";
   import RoundScreen from "./RoundScreen.svelte";
   import ResultScreen from "./ResultScreen.svelte";
   import NavBar from "./NavBar.svelte";
@@ -22,20 +22,14 @@
     class="fixed inset-0 bg-cover bg-center bg-no-repeat brightness-50"
     style="background-image: url({ancientBg})"
   ></div>
+  <!-- No round transition here: it lives on the options grid only,
+       so the header and Draft Picks table never replay it. -->
   <div class="relative">
     <NavBar />
     {#if $isComplete}
-      {#key "result"}
-        <div class="animate-round">
-          <ResultScreen />
-        </div>
-      {/key}
+      <ResultScreen />
     {:else}
-      {#key $currentRound}
-        <div class="animate-round">
-          <RoundScreen />
-        </div>
-      {/key}
+      <RoundScreen />
     {/if}
   </div>
 </div>

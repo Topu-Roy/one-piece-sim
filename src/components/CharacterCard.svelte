@@ -165,8 +165,8 @@
 </script>
 
 <button
-  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-md border border-hairline bg-parchment active:bg-surface-strong {waiting
-    ? 'opacity-80'
+  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-parchment active:bg-surface-strong {waiting
+    ? 'opacity-60'
     : ''}"
   on:click={handleClick}
 >

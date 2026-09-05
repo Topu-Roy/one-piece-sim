@@ -39,7 +39,7 @@
   let pickImageErrors: Record<number, boolean> = {};
 </script>
 
-<div class="w-full max-w-2xl rounded-[10px] border border-hairline bg-parchment p-4">
+<div class="w-full max-w-lg rounded-[10px] border border-hairline bg-parchment p-4">
   <div class="mb-2 flex items-baseline justify-between">
     <h2 class="text-lg leading-[1.35] font-normal tracking-[0.12px] text-ink">Draft Picks</h2>
     <span class="text-xs font-medium tracking-wider text-muted uppercase">
@@ -51,35 +51,44 @@
       {@const pick = byRound.get(round)}
       {@const roundType = getRoundType(round)}
       {#if pick}
+        <!-- Zones: round name left, avatar+name centered, tier right. -->
         <div class="flex items-center gap-2.5 border-b border-hairline py-1.5 last:border-b-0">
           <span class="w-28 shrink-0 text-[10px] font-medium tracking-wider text-muted uppercase">
             {roundName(pick.roundType)}
           </span>
-          <div
-            class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-hairline bg-surface-soft"
-          >
-            {#if getCharImage(pick.characterName) && !pickImageErrors[pick.round]}
-              <img
-                src={getCharImage(pick.characterName)}
-                alt={pick.characterName}
-                class="h-full w-full object-cover"
-                loading="lazy"
-                on:error={() => (pickImageErrors[pick.round] = true)}
-              />
-            {:else}
-              <span class="flex h-full w-full items-center justify-center text-xs text-ink">
-                {pick.characterName.charAt(0)}
+          <div class="flex min-w-0 flex-1 items-center justify-center">
+            <div class="flex w-30 justify-start gap-2">
+              <div
+                class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-hairline bg-surface-soft"
+              >
+                {#if getCharImage(pick.characterName) && !pickImageErrors[pick.round]}
+                  <img
+                    src={getCharImage(pick.characterName)}
+                    alt={pick.characterName}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                    on:error={() => (pickImageErrors[pick.round] = true)}
+                  />
+                {:else}
+                  <span class="flex h-full w-full items-center justify-center text-xs text-ink">
+                    {pick.characterName.charAt(0)}
+                  </span>
+                {/if}
+              </div>
+              <span class="min-w-0 truncate text-sm text-ink">
+                {pick.characterName}
               </span>
-            {/if}
+            </div>
           </div>
-          <span class="min-w-0 flex-1 truncate text-sm text-ink">
-            {pick.characterName}
+          <!-- Picked rows always show their tier, basic included. -->
+          <span
+            class="w-14 shrink-0 text-right text-[10px] font-medium tracking-wider uppercase {pick.rarity ===
+            'basic'
+              ? 'text-muted'
+              : rarityText(pick.rarity)}"
+          >
+            {pick.rarity}
           </span>
-          {#if pick.rarity !== "basic"}
-            <span class="shrink-0 text-[10px] font-medium tracking-wider uppercase {rarityText(pick.rarity)}">
-              {pick.rarity}
-            </span>
-          {/if}
         </div>
       {:else}
         <!-- Upcoming pick: ghost row doubles as draft progress. -->
@@ -87,12 +96,19 @@
           <span class="w-28 shrink-0 text-[10px] font-medium tracking-wider text-muted uppercase">
             {roundName(roundType)}
           </span>
-          <div
-            class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-dashed border-border-strong bg-canvas text-xs text-muted"
-          >
-            ?
+          <div class="flex min-w-0 flex-1 items-center justify-center">
+            <div class="flex w-30 justify-start gap-2">
+              <div
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-dashed border-border-strong bg-canvas text-xs text-muted"
+              >
+                ?
+              </div>
+              <span class="min-w-0 truncate text-sm text-muted"> Awaiting pick </span>
+            </div>
           </div>
-          <span class="text-sm text-muted"> Awaiting pick </span>
+          <span class="w-14 shrink-0 text-right text-[10px] font-medium tracking-wider text-muted uppercase">
+            --
+          </span>
         </div>
       {/if}
     {/each}
