@@ -30,7 +30,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 24   | Gaban        | legend | 7,415  | human    | None                            |
 | 25   | Yamato       | legend | 6,997  | oni      | Takeru                          |
 | 26   | Zoro         | legend | 6,962  | human    | Enma                            |
-| 27   | Katakuri     | epic   | 6,906  | human    | Mogura                          |
+| 27   | Katakuri     | legend | 6,906  | human    | Mogura                          |
 | 28   | Garling      | legend | 6,897  | human    | None                            |
 | 29   | Shiki        | legend | 6,789  | human    | Oto + Kogarashi                 |
 | 30   | Gunko        | legend | 6,657  | human    | None                            |
@@ -45,9 +45,9 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 39   | Ryuma        | legend | 5,918  | human    | Shusui                          |
 | 40   | Sengoku      | legend | 5,827  | human    | None                            |
 | 41   | Law          | legend | 5,785  | human    | Kikoku                          |
-| 42   | Marco        | epic   | 5,658  | human    | None                            |
-| 43   | King         | epic   | 5,578  | lunarian | None                            |
-| 44   | Ace          | epic   | 5,542  | human    | None                            |
+| 42   | Marco        | legend | 5,658  | human    | None                            |
+| 43   | King         | legend | 5,578  | lunarian | None                            |
+| 44   | Ace          | legend | 5,542  | human    | None                            |
 | 45   | Sanji        | legend | 5,458  | human    | None                            |
 | 46   | Cracker      | epic   | 5,428  | human    | Pretzel                         |
 | 47   | Smoothie     | epic   | 5,420  | longleg  | None                            |
@@ -71,7 +71,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 65   | Lucci        | epic   | 4,837  | human    | None                            |
 | 66   | Killer       | epic   | 4,665  | human    | Punishers                       |
 | 67   | Perospero    | epic   | 4,630  | human    | None                            |
-| 68   | Sentomaru    | basic  | 4,621  | human    | Giant Broadaxe                  |
+| 68   | Sentomaru    | epic   | 4,621  | human    | Giant Broadaxe                  |
 | 69   | Yasopp       | epic   | 4,586  | human    | Flintlock Pistol                |
 | 70   | Ashura Doji  | epic   | 4,576  | human    | None                            |
 | 71   | Kawamatsu    | epic   | 4,568  | fishman  | Soto Muso                       |
@@ -91,9 +91,9 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 85   | Franky       | epic   | 3,909  | human    | General Franky / Cyborg Arsenal |
 | 86   | Tamago       | epic   | 3,886  | longleg  | Shikomizue                      |
 | 87   | Dorry        | epic   | 3,883  | giant    | Terry Sword                     |
-| 88   | Brogy        | legend | 3,869  | giant    | Bruiser Axe                     |
+| 88   | Brogy        | epic   | 3,869  | giant    | Bruiser Axe                     |
 | 89   | Burgess      | epic   | 3,852  | human    | None                            |
-| 90   | Urouge       | basic  | 3,823  | human    | Pillar Mace                     |
+| 90   | Urouge       | epic   | 3,823  | human    | Pillar Mace                     |
 | 91   | Van Augur    | epic   | 3,807  | human    | Senriku                         |
 | 92   | Ivankov      | epic   | 3,799  | human    | None                            |
 | 93   | Hawkins      | epic   | 3,790  | human    | Warabide Sword                  |
@@ -101,8 +101,8 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 95   | Ulti         | epic   | 3,775  | human    | Morning Star                    |
 | 96   | Saul         | epic   | 3,745  | giant    | None                            |
 | 97   | Kalgara      | epic   | 3,689  | shandia  | None                            |
-| 98   | Marigold     | basic  | 3,643  | human    | Halberd                         |
-| 99   | Kin'emon     | basic  | 3,642  | human    | Sukesan + Kakusan               |
+| 98   | Marigold     | epic   | 3,643  | human    | Halberd                         |
+| 99   | Kin'emon     | epic   | 3,642  | human    | Sukesan + Kakusan               |
 | 100  | Devon        | epic   | 3,492  | human    | None                            |
 | 101  | Fisher Tiger | epic   | 3,416  | fishman  | Saber                           |
 | 102  | Cavendish    | epic   | 3,351  | human    | Durandal                        |
@@ -111,7 +111,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 105  | Kyros        | epic   | 3,277  | human    | None                            |
 | 106  | Pica         | basic  | 3,261  | human    | Unnamed Giant Katana            |
 | 107  | Sandersonia  | basic  | 3,142  | human    | None                            |
-| 108  | Lindbergh    | basic  | 3,133  | mink     | Cool Shooter                    |
+| 108  | Lindbergh    | epic   | 3,133  | mink     | Cool Shooter                    |
 | 109  | Page One     | basic  | 3,123  | human    | None                            |
 | 110  | Moria        | epic   | 3,101  | human    | Giant Scissors                  |
 | 111  | Tsuru        | epic   | 2,996  | human    | None                            |
@@ -122,7 +122,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 116  | Doc Q        | epic   | 2,767  | human    | Double-Bladed Scythe            |
 | 117  | Wyper        | basic  | 2,632  | shandia  | Burn Bazooka                    |
 | 118  | Carrot       | basic  | 2,616  | mink     | None                            |
-| 119  | Kanjuro      | legend | 2,596  | human    | Tsuji Shibai                    |
+| 119  | Kanjuro      | epic   | 2,596  | human    | Tsuji Shibai                    |
 | 120  | Hody         | basic  | 2,367  | fishman  | None                            |
 | 121  | Fukaboshi    | basic  | 2,347  | merfolk  | Trident                         |
 | 122  | Bege         | epic   | 2,337  | human    | None                            |
@@ -132,7 +132,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 126  | Senor Pink   | basic  | 2,253  | human    | None                            |
 | 127  | Arlong       | basic  | 2,251  | fishman  | Kiribachi                       |
 | 128  | Hyouzou      | basic  | 2,220  | fishman  | Katana & Seven Sabers           |
-| 129  | Momonosuke   | epic   | 2,123  | human    | Ame no Habakiri                 |
+| 129  | Momonosuke   | basic  | 2,123  | human    | Ame no Habakiri                 |
 | 130  | Rebecca      | basic  | 2,064  | human    | None                            |
 | 131  | Gan Fall     | basic  | 2,004  | skypiean | None                            |
 | 132  | Tashigi      | basic  | 1,997  | human    | Shigure                         |
@@ -150,9 +150,9 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 144  | Mont-d'Or    | basic  | 1,731  | human    | Walker                          |
 | 145  | Bartolomeo   | basic  | 1,694  | human    | None                            |
 | 146  | Hack         | basic  | 1,640  | fishman  | None                            |
-| 147  | Neptune      | epic   | 1,620  | merfolk  | Trident                         |
+| 147  | Neptune      | basic  | 1,620  | merfolk  | Trident                         |
 | 148  | Wadatsumi    | basic  | 1,548  | fishman  | None                            |
-| 149  | Buggy        | epic   | 1,507  | human    | Muggy Ball                      |
+| 149  | Buggy        | basic  | 1,507  | human    | Muggy Ball                      |
 | 150  | Kamakiri     | basic  | 1,472  | shandia  | Spear / Burn Blade              |
 | 151  | Nami         | basic  | 1,430  | human    | Sorcery Clima-Tact              |
 | 152  | Mr. 3        | basic  | 1,424  | human    | None                            |
@@ -178,7 +178,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 172  | Vivi         | basic  | 837    | human    | Peacock Slashers                |
 | 173  | Blue Gilly   | basic  | 816    | longleg  | None                            |
 | 174  | Mansherry    | basic  | 729    | dwarf    | None                            |
-| 175  | Vegapunk     | epic   | 631    | human    | None                            |
+| 175  | Vegapunk     | basic  | 631    | human    | None                            |
 | 176  | Wicca        | basic  | 525    | dwarf    | None                            |
 | 177  | Koala        | basic  | 515    | human    | None                            |
 | 178  | Gancho       | basic  | 419    | dwarf    | None                            |

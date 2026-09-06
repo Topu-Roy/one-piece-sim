@@ -1891,7 +1891,7 @@ export const Characters: Character[] = [
       awareness: 150,
       stamina: 150,
     },
-    rarity: "epic",
+    rarity: "legend",
   },
   {
     id: "marco-the-phoenix",
@@ -1934,7 +1934,7 @@ export const Characters: Character[] = [
       awareness: 0,
       stamina: 0,
     },
-    rarity: "epic",
+    rarity: "legend",
   },
   {
     id: "sanji",
@@ -2149,7 +2149,7 @@ export const Characters: Character[] = [
       awareness: 150,
       stamina: 150,
     },
-    rarity: "epic",
+    rarity: "legend",
   },
   {
     id: "edward-weevil",
@@ -2235,7 +2235,7 @@ export const Characters: Character[] = [
       awareness: 0,
       stamina: 0,
     },
-    rarity: "epic",
+    rarity: "legend",
   },
   {
     id: "donquixote-doflamingo",
@@ -3181,7 +3181,7 @@ export const Characters: Character[] = [
       awareness: 100,
       stamina: 90,
     },
-    rarity: "basic",
+    rarity: "epic",
   },
   {
     id: "manmayer-gunko",
@@ -3439,7 +3439,7 @@ export const Characters: Character[] = [
       awareness: 150,
       stamina: 150,
     },
-    rarity: "legend",
+    rarity: "epic",
   },
   {
     id: "morley",
@@ -3525,7 +3525,7 @@ export const Characters: Character[] = [
       awareness: 100,
       stamina: 90,
     },
-    rarity: "basic",
+    rarity: "epic",
   },
   {
     id: "jesus-burgess",
@@ -4643,7 +4643,7 @@ export const Characters: Character[] = [
       awareness: 160,
       stamina: 150,
     },
-    rarity: "basic",
+    rarity: "epic",
   },
   {
     id: "boa-sandersonia",
@@ -4729,7 +4729,7 @@ export const Characters: Character[] = [
       awareness: 105,
       stamina: 100,
     },
-    rarity: "basic",
+    rarity: "epic",
   },
   {
     id: "kikunojo",
@@ -4815,7 +4815,7 @@ export const Characters: Character[] = [
       awareness: 120,
       stamina: 120,
     },
-    rarity: "basic",
+    rarity: "epic",
   },
   {
     id: "laffitte",
@@ -5718,7 +5718,7 @@ export const Characters: Character[] = [
       awareness: 100,
       stamina: 100,
     },
-    rarity: "epic",
+    rarity: "basic",
   },
   {
     id: "hack",
@@ -6105,7 +6105,7 @@ export const Characters: Character[] = [
       awareness: 60,
       stamina: 60,
     },
-    rarity: "legend",
+    rarity: "epic",
   },
   {
     id: "perona",
@@ -6406,7 +6406,7 @@ export const Characters: Character[] = [
       awareness: 105,
       stamina: 100,
     },
-    rarity: "epic",
+    rarity: "basic",
   },
   {
     id: "charlotte-mont-dor",
@@ -7008,7 +7008,7 @@ export const Characters: Character[] = [
       awareness: 70,
       stamina: 60,
     },
-    rarity: "epic",
+    rarity: "basic",
   },
   {
     id: "pell",
@@ -7610,7 +7610,7 @@ export const Characters: Character[] = [
       awareness: 0,
       stamina: 0,
     },
-    rarity: "epic",
+    rarity: "basic",
   },
   {
     id: "camie",
