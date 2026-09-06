@@ -112,7 +112,7 @@
       Round {round} of 8
     </p>
 
-    <h1 class="mt-1 text-center font-display text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
+    <h1 class="mt-1 text-center font-hand text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
       {label}
     </h1>
 
