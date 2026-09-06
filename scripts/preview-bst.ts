@@ -1,4 +1,5 @@
 import { Characters } from "../src/data/characters-v2";
+import { softCapBody } from "../src/lib/draft";
 import { readFileSync, writeFileSync } from "fs";
 
 type Char = (typeof Characters)[number];
@@ -7,13 +8,13 @@ type Seven = { str: number; atk: number; dur: number; def: number; spd: number; 
 /** NEW formula: 7 stats, zero-base ATK/DEF, reflex->SPD, int/biq %. No race step. */
 function newStats(char: Char): Seven & { bst: number } {
   const b = char.baseStats;
-  let str = b.strength;
+  let str = softCapBody(b.strength);
   let atk = 0;
-  let dur = b.durability;
+  let dur = softCapBody(b.durability);
   let def = 0;
-  let spd = b.speed;
-  let awr = b.awareness;
-  let sta = b.stamina;
+  let spd = softCapBody(b.speed);
+  let awr = softCapBody(b.awareness);
+  let sta = softCapBody(b.stamina);
 
   atk += char.haki.armament.attack + char.haki.conqueror.attack;
   def += char.haki.armament.defense + char.haki.conqueror.defense;

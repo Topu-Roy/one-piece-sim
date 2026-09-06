@@ -99,7 +99,7 @@ All calculations happen **after the draft is complete**, not during. Picks are s
 
 ### Step 1: Base Stats (from Body pick)
 
-Set STR/DUR/SPD/AWR/STA from the Round 1 character's individual baseStats (evaluated from canonical feats — not from a race table). ATK and DEF start at 0.
+Set STR/DUR/SPD/AWR/STA from the Round 1 character's individual baseStats (evaluated from canonical feats — not from a race table). ATK and DEF start at 0. Each base value passes through a soft-cap (knee 500 × 0.5): values at/below 500 count fully, every point above counts half — this compresses the stretched god-tier top end so donor rounds decide more, while weak bodies stay byte-identical and peer order never flips.
 
 ### Step 2: Haki (flat additions)
 

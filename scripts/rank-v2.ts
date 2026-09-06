@@ -1,16 +1,17 @@
 import { Characters } from "../src/data/characters-v2";
+import { softCapBody } from "../src/lib/draft";
 import { writeFileSync } from "fs";
 
 /** BST calculator — 7 stats, uses character base stats (evaluated from canonical feats) */
 function calculateBST(char: (typeof Characters)[0]): number {
   const s = {
-    strength: char.baseStats.strength,
+    strength: softCapBody(char.baseStats.strength),
     attack: 0,
-    durability: char.baseStats.durability,
+    durability: softCapBody(char.baseStats.durability),
     defense: 0,
-    speed: char.baseStats.speed,
-    awareness: char.baseStats.awareness,
-    stamina: char.baseStats.stamina,
+    speed: softCapBody(char.baseStats.speed),
+    awareness: softCapBody(char.baseStats.awareness),
+    stamina: softCapBody(char.baseStats.stamina),
   };
 
   // Haki — additive (attack/defense separate from strength/durability)

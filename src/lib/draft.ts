@@ -28,6 +28,20 @@ function pickRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+/**
+ * Body soft-cap (knee 500 × 0.5): compresses the stretched top end of R1
+ * bodies so donor rounds decide more. Below the knee values pass through
+ * untouched (weak bodies byte-identical); above it, every point counts half.
+ * Monotonic — never flips peer order. MUST stay in sync between
+ * calculateFinalStats (Step 1) and calculateCharacterBST or ranks break.
+ */
+const BODY_KNEE = 500;
+const BODY_FACTOR = 0.5;
+
+export function softCapBody(value: number): number {
+  return value <= BODY_KNEE ? value : BODY_KNEE + (value - BODY_KNEE) * BODY_FACTOR;
+}
+
 /** Get characters filtered by rarity */
 function getCharactersByRarity(rarity: Rarity): Character[] {
   return Characters.filter((c) => c.rarity === rarity);
@@ -343,13 +357,13 @@ export function calculateFinalStats(picks: DraftPick[]): {
   const bodyChar = get("body");
   const stats: StatBlock = bodyChar
     ? {
-        strength: bodyChar.baseStats.strength,
+        strength: softCapBody(bodyChar.baseStats.strength),
         attack: 0,
-        durability: bodyChar.baseStats.durability,
+        durability: softCapBody(bodyChar.baseStats.durability),
         defense: 0,
-        speed: bodyChar.baseStats.speed,
-        awareness: bodyChar.baseStats.awareness,
-        stamina: bodyChar.baseStats.stamina,
+        speed: softCapBody(bodyChar.baseStats.speed),
+        awareness: softCapBody(bodyChar.baseStats.awareness),
+        stamina: softCapBody(bodyChar.baseStats.stamina),
       }
     : { strength: 100, attack: 0, durability: 100, defense: 0, speed: 100, awareness: 100, stamina: 100 };
 
@@ -466,13 +480,13 @@ export function calculateFinalStats(picks: DraftPick[]): {
 /** Simplified BST calculator — V2 additive system (7 stats) */
 export function calculateCharacterBST(char: Character): number {
   const s = {
-    strength: char.baseStats.strength,
+    strength: softCapBody(char.baseStats.strength),
     attack: 0,
-    durability: char.baseStats.durability,
+    durability: softCapBody(char.baseStats.durability),
     defense: 0,
-    speed: char.baseStats.speed,
-    awareness: char.baseStats.awareness,
-    stamina: char.baseStats.stamina,
+    speed: softCapBody(char.baseStats.speed),
+    awareness: softCapBody(char.baseStats.awareness),
+    stamina: softCapBody(char.baseStats.stamina),
   };
 
   // Haki — additive (attack/defense separate from strength/durability)

@@ -1784,3 +1784,13 @@ APPLIED manually, one Edit per character (user request — no script).
 - Peer ladders preserved: Roger=WB (both →950), Dorry=Brogy (both →950/950), Shanks≈Mihawk + admirals untouched.
 - Ranking effect: god order intact (Imu > Joy Boy > Rocks > Dragon > Luffy > Roger > WB > Shanks). Imu 13,070 → 12,018 (−8%). Kaido drops to 8, Akainu enters top 10 (Big Mom out).
 - Post-apply: `tsc` clean, `eslint` clean, `prettier` clean, rankings regen'd, 300-draft sanity clean, `astro build` clean.
+
+## Soft-cap log (body curve, knee 500 × 0.5)
+
+APPLIED in code, not data — `softCapBody()` in `src/lib/draft.ts`, wired into Step 1 of `calculateFinalStats` AND `calculateCharacterBST` (both, or ranks break). Rank/preview scripts import it (duplicated formula copies removed — single source of truth). `CORE_IDEA.md` Step 1 documents it.
+
+- Rule: base physical ≤500 counts fully, every point above counts half. Monotonic — peer order never flips. Weak bodies (all ≤500) byte-identical.
+- Calibration (in-memory sweep, knee×factor): A (500×0.5) chosen over B (600×0.4) — better R1-share compression (61.0% → 56.8% for Zoro-avg build) AND cleaner rank preservation (top-9 order identical to linear; only #10 BM→Loki boundary swap). God relative order identical; Garp-body > WB/Shanks bodies holds; admirals relative order holds.
+- Measured: Imu base-5 4750 → 3625; Imu full BST 12,018 → 10,785 (−10%); Imu−Zoro full-BST gap 4,889 → 4,291. Nami unchanged (1,430).
+- One wrong edit made and instantly reverted mid-session (`pickRandom` return type) — verified zero diff via `git diff` before proceeding.
+- Post-apply: `tsc` clean, `eslint` clean, `prettier` clean, rankings regen'd, 300-draft sanity clean, `astro build` clean.
