@@ -14,9 +14,9 @@ The game has no backend — all logic, data, and simulation run client-side.
 2. The game presents **8 rounds**, one per attribute.
 3. Each round shows **4 character options**, each representing a "donor" for that round's attribute.
 4. The player selects one option — only the attribute tied to that round transfers to the player's custom character. The rest of that character's data is discarded.
-5. The player has **2 rerolls total**, shared across rounds 1–7 (not per-round). A reroll replaces the current round's 4 options with 4 new ones.
+5. The player has **2 rerolls total**, shared across all 8 rounds (not per-round). A reroll replaces the current round's 4 options with 4 new ones.
 6. After all 8 rounds are complete, the player has a fully custom character built from up to 8 different "donors."
-7. The finished character's stats are calculated from all picks and displayed on a result screen with a full breakdown plus a live rank against the full roster.
+7. The finished character's stats are calculated from all picks and the live rank is displayed on a result screen — rank-only by design, raw stat values stay under the hood.
 8. **New Draft** button restarts.
 
 ---
@@ -40,7 +40,7 @@ Round 1 (Body) merges the old Race + Appearance rounds: the picked character pro
 
 ## Rerolls
 
-- The player has **2 total rerolls** for the entire draft (Rounds 1–7 only, not Round 8).
+- The player has **2 total rerolls** for the entire draft, usable in any round including Round 8.
 - A reroll discards the current 4 options for that round and replaces them with 4 newly selected options.
 - Because rerolls are scarce and shared, players must decide strategically which rounds are worth spending a reroll on (typically Devil Fruit and Haki, since they define playstyle most heavily) rather than relying on rerolls to fix every weak round.
 - This scarcity ensures high variance between playthroughs — two players with the same luck can end up with meaningfully different builds depending on where they chose to spend their rerolls.
@@ -56,14 +56,14 @@ Each of the 4 options in a round gets an **independent** rarity roll:
 - **20% Legend** — the strongest characters in the setting (e.g. Admirals, Yonko commanders, Gorosei).
 - **10% God** — the canon apex (Imu, Joy Boy, Rocks, Luffy, Shanks, Roger, Dragon, Whitebeard).
 
-Round 1 (Body) rolls stronger dice — observed roughly 16% basic / 35% epic / 30% legend / 20% god — and guarantees at least one giant, oni, or lunarian among the 4 options.
+Round 1 (Body) rolls stronger dice — 25% god / 25% legend / 30% epic / 20% basic (observed god lands slightly lower: the big-race guarantee backfills ~1 slot per round from a pool with no gods) — and guarantees at least one giant, oni, or lunarian among the 4 options.
 
 ### Selection Process
 
 1. Roll rarity for each of the 4 options independently.
 2. Pick a random character matching that rarity from the available pool.
 3. Options are unique within the round and never re-offer already-picked donors.
-4. If no fresh character exists for that rarity in the pool, fall back to any rarity (fresh first, picked donors only as a last resort).
+4. If no fresh character exists for that rarity in the pool, fall back to any rarity — fresh faces only. Already-picked donors are never re-offered, and a final dedupe pass guarantees 4 unique options every round.
 
 ---
 
@@ -89,7 +89,7 @@ Final builds have **7 stats**. Strength/durability are distinct from attack/defe
 - **AWR (Awareness)** — perception. Base + observation + DF + weapon (+ Intelligence %).
 - **STA (Stamina)** — endurance. Base + armament/conqueror + DF + weapon.
 
-BST (Battle Stat Total) = sum of all 7.
+BST (Battle Stat Total) = rounded integer sum of all 7. One shared implementation feeds both the rankings file and the live in-app rank, so the two can never disagree.
 
 ---
 
@@ -120,17 +120,15 @@ Adds attack, defense, speed, awareness, stamina. Skipped when the picked donor h
 - **Intelligence** boosts awareness: `AWR *= 1 + (intelligence / 100) * 0.3`.
 - **Battle IQ** boosts strength: `STR *= 1 + (battleIQ / 100) * 0.2`.
 
-Finally, present the created character with all 7 stats on the result screen.
+Finally, the 7 stats feed the live rank on the result screen. Results are rank-only by design — raw stat values stay hidden.
 
 ---
 
 ## Result Screen
 
-After all 8 rounds are complete, the result screen shows:
+After all 8 rounds are complete, the result screen shows (rank-only by design):
 
-- **Final character name** (from the Round 1 Body pick)
-- **Live rank** (`#X of 185`) computed in-browser against all 184 roster characters, with the closest neighbor above and below plus tie info
-- **All 7 stats** with calculated values
-- **Full breakdown** of each round's contribution (base, haki, DF, weapon, intelligence, battle IQ)
-- **Draft picks recap** showing all 8 selections
-- **New Draft** button to start over
+- **Hero art** of the Round 1 Body pick with the rank numeral and name overlaid
+- **Live rank** (`#X of 185`) computed in-browser against all 184 roster characters, with the closest neighbor above and below, tie info, and ladder faces
+- **8-donor strip** recapping every round's pick
+- **Try Again** button to start over

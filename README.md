@@ -1,46 +1,43 @@
-# Astro Starter Kit: Basics
+# Anime Draft — One Piece Character Draft Builder
 
-```sh
-bun create astro@latest -- --template basics
-```
+A browser draft game: build an original "strongest possible character" by harvesting **one trait per round** from 4 donor options, over **8 rounds** (Body → Armament → Observation → Conqueror's → Devil Fruit → Weapon → Intelligence → Battle IQ). Final builds resolve to **7 stats** (STR/ATK/DUR/DEF/SPD/AWR/STA) and rank live against all **184** roster characters. Rank-only results — raw numbers stay hidden.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Stack: Astro 7 + Svelte 5 + Tailwind CSS v4 + TypeScript (strict), client-side only. Package manager: **Bun**.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command                  | Action                                        |
+| :----------------------- | :-------------------------------------------- |
+| `bun install`            | Install dependencies                          |
+| `bun dev`                | Dev server at `localhost:4321`                |
+| `bun run build`          | Production build to `./dist/`                 |
+| `bun run preview`        | Preview the build locally                     |
+| `bun run tsc --noEmit`   | Typecheck                                     |
+| `bun run lint`           | ESLint                                        |
+| `bun run lint:fix`       | ESLint with autofix                           |
+| `bun run format`         | Prettier write                                |
+| `bun scripts/rank-v2.ts` | Regenerate `Rankings-v2.md` from current data |
+
+After data or formula changes: regen rankings → `tsc` → `lint:fix` → `format` → `lint` → sanity drafts → `build`.
+
+## Project Structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+├── components/      # DraftGame, RoundScreen, CharacterCard, DraftPicks,
+│                    # ResultScreen, RerollButton, NavBar (Svelte)
+├── data/            # characters-v2.ts — all 184 hand-tuned characters
+├── lib/             # draft.ts — rolls, guarantees, stat math, ranking
+│                    # types.ts, preload.ts, cloudinary.ts
+├── stores/          # draft.ts — Svelte draft state store
+├── assets/          # ancient_bg.jpg backdrop
+└── pages/index.astro# client:only entry
+scripts/rank-v2.ts   # rankings generator (imports the lib's BST — no copy)
+Rankings-v2.md       # generated roster rankings (read, don't hand-edit)
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Docs
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command               | Action                                           |
-| :-------------------- | :----------------------------------------------- |
-| `bun install`         | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `CORE_IDEA.md` — game design document (rounds, rarity, 7-stat formula)
+- `Rounds.md`, `DESIGN.md` — round spec, visual design system
+- `*_REVIEW.md`, `MISPLACED.md`, `RARITY_REVIEW.md` — canon audit trails behind the numbers
