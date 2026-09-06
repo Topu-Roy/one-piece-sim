@@ -1,5 +1,5 @@
 import { Characters } from "../src/data/characters-v2";
-import { softCapBody } from "../src/lib/draft";
+import { softCapBody, weaponLabel } from "../src/lib/draft";
 import { writeFileSync } from "fs";
 
 /** BST calculator — 7 stats, uses character base stats (evaluated from canonical feats) */
@@ -55,7 +55,7 @@ const results = Characters.map((char) => ({
   bst: calculateBST(char),
   race: char.race,
   rarity: char.rarity,
-  weapon: char.weapon.name || "None",
+  weapon: weaponLabel(char),
 }));
 
 results.sort((a, b) => b.bst - a.bst);

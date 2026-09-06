@@ -2,7 +2,7 @@
 
 Pool sizes before: god 8 · legend 38 · epic 70 · basic 68.
 Rule: rarity ≈ draft value (BST tier + canon standing). Blurry lines fixed at legend↔epic (~5.5k) and epic↔basic (~3.3k).
-STATUS: AUDIT ONLY — apply pass follows.
+STATUS: APPLIED — see Apply log at end of file.
 
 ## Promote to legend (+4)
 

@@ -3,6 +3,7 @@
   import type { Character, RoundType } from "../lib/types";
   import { Characters } from "../data/characters-v2";
   import { REAL_ART_CAP_MS } from "../lib/preload";
+  import { weaponLabel } from "../lib/draft";
 
   export let character: Character;
   export let roundType: RoundType;
@@ -154,11 +155,16 @@
   }
 
   // Item name chip (stacked under the info chip): the fruit / weapon
-  // name is the whole point of those rounds. Blank names show "Unknown".
+  // name is the whole point of those rounds. Unnamed-but-held weapons use
+  // the shared weaponLabel fallback ("Unnamed {type}", never "None");
+  // blank fruit names show "Unknown".
   $: nameChip = (() => {
     if (!nameChipWanted()) return null;
-    const raw = roundType === "devil_fruit" ? character.devilFruit.englishName : character.weapon.name;
-    return raw.trim() === "" ? "Unknown" : raw;
+    if (roundType === "devil_fruit") {
+      const raw = character.devilFruit.englishName;
+      return raw.trim() === "" ? "Unknown" : raw;
+    }
+    return weaponLabel(character);
   })();
 
   let imageError = false;

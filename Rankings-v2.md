@@ -4,7 +4,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 
 | Rank | Name         | Rarity | BST    | Race     | Weapon                          |
 | ---- | ------------ | ------ | ------ | -------- | ------------------------------- |
-| 1    | Imu          | god    | 11,392 | human    | None                            |
+| 1    | Imu          | god    | 11,392 | human    | Unnamed spear                   |
 | 2    | Joy Boy      | god    | 11,371 | human    | None                            |
 | 3    | Rocks        | god    | 10,641 | human    | Eclipse                         |
 | 4    | Kaido        | legend | 10,074 | oni      | Hassaikai                       |
@@ -16,7 +16,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 10   | Loki         | legend | 9,311  | giant    | Ragnir                          |
 | 11   | Big Mom      | legend | 9,116  | human    | Napoleon                        |
 | 12   | Mihawk       | legend | 8,763  | human    | Yoru                            |
-| 13   | Green Bull   | legend | 8,620  | human    | None                            |
+| 13   | Green Bull   | legend | 8,620  | human    | Unnamed sword                   |
 | 14   | Kuzan        | legend | 8,534  | human    | None                            |
 | 15   | Akainu       | legend | 8,532  | human    | None                            |
 | 16   | Kizaru       | legend | 8,298  | human    | None                            |
@@ -25,32 +25,32 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 19   | Shamrock     | legend | 7,786  | human    | Cerberus                        |
 | 20   | Blackbeard   | legend | 7,753  | human    | None                            |
 | 21   | Fujitora     | legend | 7,686  | human    | Yakuza Kasen                    |
-| 22   | Rayleigh     | legend | 7,445  | human    | None                            |
+| 22   | Rayleigh     | legend | 7,445  | human    | Unnamed sword                   |
 | 23   | Oden         | legend | 7,445  | human    | Enma / Ame no Habakiri          |
-| 24   | Gaban        | legend | 7,415  | human    | None                            |
+| 24   | Gaban        | legend | 7,415  | human    | Unnamed club                    |
 | 25   | Yamato       | legend | 6,997  | oni      | Takeru                          |
 | 26   | Zoro         | legend | 6,962  | human    | Enma                            |
 | 27   | Katakuri     | legend | 6,906  | human    | Mogura                          |
-| 28   | Garling      | legend | 6,897  | human    | None                            |
+| 28   | Garling      | legend | 6,897  | human    | Unnamed sword                   |
 | 29   | Shiki        | legend | 6,789  | human    | Oto + Kogarashi                 |
 | 30   | Gunko        | legend | 6,657  | human    | None                            |
-| 31   | Killingham   | legend | 6,619  | human    | None                            |
+| 31   | Killingham   | legend | 6,619  | human    | Unnamed spear                   |
 | 32   | Shiryu       | legend | 6,406  | human    | Raiu                            |
-| 33   | Sommers      | legend | 6,391  | human    | None                            |
-| 34   | Harald       | legend | 6,364  | giant    | None                            |
+| 33   | Sommers      | legend | 6,391  | human    | Unnamed sword                   |
+| 34   | Harald       | legend | 6,364  | giant    | Unnamed sword                   |
 | 35   | Beckman      | legend | 6,228  | human    | Flintlock Rifle                 |
-| 36   | Sabo         | legend | 6,118  | human    | None                            |
+| 36   | Sabo         | legend | 6,118  | human    | Unnamed staff                   |
 | 37   | Saturn       | legend | 6,089  | human    | None                            |
 | 38   | Warcury      | legend | 6,080  | human    | None                            |
 | 39   | Ryuma        | legend | 5,918  | human    | Shusui                          |
 | 40   | Sengoku      | legend | 5,827  | human    | None                            |
 | 41   | Law          | legend | 5,785  | human    | Kikoku                          |
 | 42   | Marco        | legend | 5,658  | human    | None                            |
-| 43   | King         | legend | 5,578  | lunarian | None                            |
+| 43   | King         | legend | 5,578  | lunarian | Unnamed sword                   |
 | 44   | Ace          | legend | 5,542  | human    | None                            |
 | 45   | Sanji        | legend | 5,458  | human    | None                            |
 | 46   | Cracker      | epic   | 5,428  | human    | Pretzel                         |
-| 47   | Smoothie     | epic   | 5,420  | longleg  | None                            |
+| 47   | Smoothie     | epic   | 5,420  | longleg  | Unnamed sword                   |
 | 48   | Kid          | legend | 5,371  | human    | None                            |
 | 49   | Ju Peter     | legend | 5,356  | human    | None                            |
 | 50   | Mars         | legend | 5,346  | human    | None                            |
@@ -58,26 +58,26 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 52   | Hancock      | epic   | 5,124  | human    | None                            |
 | 53   | Jack         | epic   | 5,111  | fishman  | Shotel Blades                   |
 | 54   | Doflamingo   | epic   | 5,066  | human    | None                            |
-| 55   | Kaku         | epic   | 5,066  | human    | None                            |
+| 55   | Kaku         | epic   | 5,066  | human    | Unnamed sword                   |
 | 56   | Drake        | epic   | 5,065  | human    | Rapier & Four-Bladed Axe        |
 | 57   | Queen        | epic   | 5,046  | human    | Cyborg Implants                 |
-| 58   | Vista        | epic   | 5,037  | human    | None                            |
-| 59   | Who's-Who    | epic   | 5,026  | human    | None                            |
+| 58   | Vista        | epic   | 5,037  | human    | Unnamed sword                   |
+| 59   | Who's-Who    | epic   | 5,026  | human    | Unnamed sword                   |
 | 60   | Morley       | epic   | 4,977  | giant    | Harpoon-Trident                 |
-| 61   | Inuarashi    | epic   | 4,947  | mink     | None                            |
+| 61   | Inuarashi    | epic   | 4,947  | mink     | Unnamed sword                   |
 | 62   | Nekomamushi  | epic   | 4,941  | mink     | Jumonji Yari                    |
 | 63   | Oven         | epic   | 4,913  | human    | Naginata                        |
 | 64   | Kuma         | epic   | 4,862  | human    | None                            |
 | 65   | Lucci        | epic   | 4,837  | human    | None                            |
 | 66   | Killer       | epic   | 4,665  | human    | Punishers                       |
-| 67   | Perospero    | epic   | 4,630  | human    | None                            |
+| 67   | Perospero    | epic   | 4,630  | human    | Unnamed staff                   |
 | 68   | Sentomaru    | epic   | 4,621  | human    | Giant Broadaxe                  |
 | 69   | Yasopp       | epic   | 4,586  | human    | Flintlock Pistol                |
-| 70   | Ashura Doji  | epic   | 4,576  | human    | None                            |
+| 70   | Ashura Doji  | epic   | 4,576  | human    | Unnamed sword                   |
 | 71   | Kawamatsu    | epic   | 4,568  | fishman  | Soto Muso                       |
 | 72   | Lucky Roux   | epic   | 4,538  | human    | Flintlock Pistol                |
-| 73   | Denjiro      | epic   | 4,522  | human    | None                            |
-| 74   | Weevil       | epic   | 4,511  | human    | None                            |
+| 73   | Denjiro      | epic   | 4,522  | human    | Unnamed sword                   |
+| 74   | Weevil       | epic   | 4,511  | human    | Unnamed spear                   |
 | 75   | Pedro        | epic   | 4,506  | mink     | Rapier                          |
 | 76   | Smoker       | epic   | 4,454  | human    | Nanashaku Jitte                 |
 | 77   | Magellan     | epic   | 4,400  | human    | None                            |
@@ -100,15 +100,15 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 94   | Vasco Shot   | epic   | 3,789  | human    | Flintlock Pistol                |
 | 95   | Ulti         | epic   | 3,775  | human    | Morning Star                    |
 | 96   | Saul         | epic   | 3,745  | giant    | None                            |
-| 97   | Kalgara      | epic   | 3,689  | shandia  | None                            |
+| 97   | Kalgara      | epic   | 3,689  | shandia  | Unnamed spear                   |
 | 98   | Marigold     | epic   | 3,643  | human    | Halberd                         |
 | 99   | Kin'emon     | epic   | 3,642  | human    | Sukesan + Kakusan               |
-| 100  | Devon        | epic   | 3,492  | human    | None                            |
+| 100  | Devon        | epic   | 3,492  | human    | Unnamed spear                   |
 | 101  | Fisher Tiger | epic   | 3,416  | fishman  | Saber                           |
 | 102  | Cavendish    | epic   | 3,351  | human    | Durandal                        |
 | 103  | Brook        | epic   | 3,327  | human    | Soul Solid                      |
-| 104  | Kiku         | epic   | 3,302  | human    | None                            |
-| 105  | Kyros        | epic   | 3,277  | human    | None                            |
+| 104  | Kiku         | epic   | 3,302  | human    | Unnamed sword                   |
+| 105  | Kyros        | epic   | 3,277  | human    | Unnamed sword                   |
 | 106  | Pica         | basic  | 3,261  | human    | Unnamed Giant Katana            |
 | 107  | Sandersonia  | basic  | 3,142  | human    | None                            |
 | 108  | Lindbergh    | epic   | 3,133  | mink     | Cool Shooter                    |
@@ -123,7 +123,7 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 117  | Wyper        | basic  | 2,632  | shandia  | Burn Bazooka                    |
 | 118  | Carrot       | basic  | 2,616  | mink     | None                            |
 | 119  | Kanjuro      | epic   | 2,596  | human    | Tsuji Shibai                    |
-| 120  | Hody         | basic  | 2,367  | fishman  | None                            |
+| 120  | Hody         | basic  | 2,367  | fishman  | Unnamed spear                   |
 | 121  | Fukaboshi    | basic  | 2,347  | merfolk  | Trident                         |
 | 122  | Bege         | epic   | 2,337  | human    | None                            |
 | 123  | Daz Bonez    | basic  | 2,333  | human    | None                            |
@@ -133,8 +133,8 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 127  | Arlong       | basic  | 2,251  | fishman  | Kiribachi                       |
 | 128  | Hyouzou      | basic  | 2,220  | fishman  | Katana & Seven Sabers           |
 | 129  | Momonosuke   | basic  | 2,123  | human    | Ame no Habakiri                 |
-| 130  | Rebecca      | basic  | 2,064  | human    | None                            |
-| 131  | Gan Fall     | basic  | 2,004  | skypiean | None                            |
+| 130  | Rebecca      | basic  | 2,064  | human    | Unnamed sword                   |
+| 131  | Gan Fall     | basic  | 2,004  | skypiean | Unnamed spear                   |
 | 132  | Tashigi      | basic  | 1,997  | human    | Shigure                         |
 | 133  | Monet        | basic  | 1,957  | human    | None                            |
 | 134  | Bon Clay     | basic  | 1,953  | human    | None                            |
@@ -166,13 +166,13 @@ Rankings based on 7-stat sum (STR/ATK/DUR/DEF/SPD/AWR/STA): characterBase + haki
 | 160  | Caribou      | basic  | 1,131  | human    | None                            |
 | 161  | Shinobu      | basic  | 1,103  | human    | None                            |
 | 162  | Wapol        | basic  | 1,101  | human    | None                            |
-| 163  | Koza         | basic  | 1,089  | human    | None                            |
+| 163  | Koza         | basic  | 1,089  | human    | Unnamed sword                   |
 | 164  | Aisa         | basic  | 1,056  | shandia  | Burn Blade                      |
 | 165  | Bepo         | basic  | 1,030  | mink     | None                            |
 | 166  | Corazon      | basic  | 1,025  | human    | None                            |
 | 167  | Ryuboshi     | basic  | 1,007  | merfolk  | Twin Rapiers                    |
-| 168  | Raki         | basic  | 1,007  | shandia  | None                            |
-| 169  | Manboshi     | basic  | 998    | merfolk  | None                            |
+| 168  | Raki         | basic  | 1,007  | shandia  | Unnamed rifle                   |
+| 169  | Manboshi     | basic  | 998    | merfolk  | Unnamed sword                   |
 | 170  | Zala         | basic  | 955    | human    | None                            |
 | 171  | Perona       | basic  | 934    | human    | None                            |
 | 172  | Vivi         | basic  | 837    | human    | Peacock Slashers                |

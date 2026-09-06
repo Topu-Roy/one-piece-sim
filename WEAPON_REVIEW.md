@@ -2,7 +2,7 @@
 
 Scope: `weapon` block ONLY (type + name + 5 stats). Holders: does the filed type/name/stats match the canonical HELD weapon? Nones: does canon show a signature held weapon that's missing? DF-constructs (Kuzan ice saber, Kizaru light sword, Monet snow sword) and body parts (Crocodile hook, Magellan horns, Daz Bonez blades, Electro claws) are NOT held weapons — correctly filed none, omissions NOT added for them.
 
-STATUS: AUDIT ONLY — no values applied yet. Apply pass comes after.
+STATUS: APPLIED — see Apply log at end of file.
 
 ## Standards
 

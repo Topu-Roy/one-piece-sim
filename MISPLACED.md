@@ -1,7 +1,7 @@
 # Misplaced Rankings — placement pass
 
 Source: `Rankings-v2.md` post-weapon-audit. Portrayal bumps ALLOWED (user call) where feats are thin.
-STATUS: AUDIT ONLY — numbers below are directions; exact values set by diagnose script, then scripted apply.
+STATUS: APPLIED — see Apply log at end of file.
 
 ## God-tier compression (Imu / Joy Boy → ~11.4k, same level)
 

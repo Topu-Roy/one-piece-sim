@@ -42,6 +42,17 @@ export function softCapBody(value: number): number {
   return value <= BODY_KNEE ? value : BODY_KNEE + (value - BODY_KNEE) * BODY_FACTOR;
 }
 
+/**
+ * Display label for a character's weapon. Unnamed-but-held weapons (Imu's
+ * polearm, Harald's greatsword, ...) must NOT render as "None" — that means
+ * unarmed. Falls back to "Unnamed {type}".
+ */
+export function weaponLabel(char: Character): string {
+  if (char.weapon.type === "none") return "None";
+  const name = char.weapon.name.trim();
+  return name !== "" ? name : `Unnamed ${char.weapon.type}`;
+}
+
 /** Get characters filtered by rarity */
 function getCharactersByRarity(rarity: Rarity): Character[] {
   return Characters.filter((c) => c.rarity === rarity);
