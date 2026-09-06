@@ -3,12 +3,10 @@
   import RoundScreen from "./RoundScreen.svelte";
   import ResultScreen from "./ResultScreen.svelte";
   import NavBar from "./NavBar.svelte";
-  import ancientBgRaw from "../assets/ancient_bg.jpg";
 
-  // Astro resolves src/ image imports to a metadata object at runtime
-  // (bundler types still say string) — unwrap to the hashed URL.
+  // Backdrop served from Cloudinary (f_auto/q_auto) — same pattern as faces.
   const ancientBg: string =
-    typeof ancientBgRaw === "string" ? ancientBgRaw : (ancientBgRaw as unknown as { src: string }).src;
+    "https://res.cloudinary.com/nn2w9isf/image/upload/f_auto,q_auto/v1/anime-draft/ancient_bg?_a=BAMAROFG0";
 </script>
 
 <!-- Ancient backdrop for the whole draft flow (rounds + result).
