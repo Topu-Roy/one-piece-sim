@@ -134,8 +134,9 @@ function drawOption(roundType: RoundType, taken: Set<string>, excludedIds: Set<s
 
 /**
  * Generate 4 options for a round.
- * Every round (body included) rolls rarity per slot (40/30/20/10).
- * Options are unique within the round and never re-offer picked donors.
+ * Every round rolls rarity per slot (body 25/25/30/20 god/legend/epic/
+ * basic, all others 10/20/30/40). Options are unique within the round
+ * and never re-offer picked donors.
  */
 function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = new Set()): Character[] {
   // Round 1 body uses the standard rarity-weighted path — race plays
@@ -153,12 +154,19 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
     const freshBig = (list: Character[]) => list.filter((c) => !taken.has(c.id) && !excludedIds.has(c.id));
     const bigOfRarity = freshBig(Characters.filter((c) => BIG_RACES.includes(c.race) && c.rarity === rarity));
     const anyBigFresh = freshBig(Characters.filter((c) => BIG_RACES.includes(c.race)));
+    // Last resort still respects taken/excluded — a duplicate or re-offered
+    // donor is worse than a softened guarantee.
+    const lastResortBig = Characters.filter(
+      (c) => BIG_RACES.includes(c.race) && !taken.has(c.id) && !excludedIds.has(c.id),
+    );
     const candidates =
       bigOfRarity.length > 0
         ? bigOfRarity
         : anyBigFresh.length > 0
           ? anyBigFresh
-          : Characters.filter((c) => BIG_RACES.includes(c.race));
+          : lastResortBig.length > 0
+            ? lastResortBig
+            : Characters.filter((c) => BIG_RACES.includes(c.race));
     const idx = Math.floor(Math.random() * options.length);
     taken.delete(options[idx].id);
     const choice = pickRandom(candidates);
@@ -180,7 +188,9 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
           (c) => holds(c) && !options.some((o) => o.id === c.id) && !excludedIds.has(c.id),
         );
         const pool =
-          fresh.length > 0 ? fresh : Characters.filter((c) => holds(c) && !options.some((o) => o.id === c.id));
+          fresh.length > 0
+            ? fresh
+            : Characters.filter((c) => holds(c) && !options.some((o) => o.id === c.id) && !excludedIds.has(c.id));
         if (pool.length === 0) break;
         const replacement = pickRandom(pool);
         taken.delete(nh.id);
@@ -201,7 +211,7 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
         if (weaponUsers.length >= 3) break;
         const idx = options.indexOf(nw);
         const candidates = Characters.filter(
-          (c) => c.weapon.type !== "none" && !options.some((o) => o.id === c.id),
+          (c) => c.weapon.type !== "none" && !options.some((o) => o.id === c.id) && !excludedIds.has(c.id),
         );
         const replacement = candidates.length > 0 ? pickRandom(candidates) : undefined;
         if (replacement) {
@@ -213,6 +223,29 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
       }
     }
   }
+
+  // Safety net: options must be unique within the round and must never
+  // re-offer an already-picked donor. Fallback ladders above can leak a
+  // picked id when thin rarity slices exhaust (mostly on rerolls) — swap
+  // any offender for a fresh face from the round's full pool.
+  const seen = new Set<string>();
+  options.forEach((option, index) => {
+    if (!seen.has(option.id) && !excludedIds.has(option.id)) {
+      seen.add(option.id);
+      return;
+    }
+    const freshPool = getFullPool(roundType).filter((c) => !seen.has(c.id) && !excludedIds.has(c.id));
+    const uniquePool = freshPool.length > 0 ? freshPool : getFullPool(roundType).filter((c) => !seen.has(c.id));
+    if (uniquePool.length === 0) {
+      seen.add(option.id);
+      return; // pool truly exhausted — keep as-is
+    }
+    taken.delete(option.id);
+    const replacement = pickRandom(uniquePool);
+    taken.add(replacement.id);
+    options[index] = replacement;
+    seen.add(replacement.id);
+  });
 
   return options;
 }
@@ -447,7 +480,7 @@ export function calculateFinalStats(picks: DraftPick[]): {
     stats.awareness += w.awareness;
     stats.stamina += w.stamina;
     breakdown.push({
-      label: `Weapon (${w.name})`,
+      label: `Weapon (${weaponLabel(weaponChar)})`,
       modifier: `+${w.attack} ATK, +${w.defense} DEF, +${w.speed} SPD, +${w.awareness} AWR, +${w.stamina} STA`,
     });
   }
@@ -488,7 +521,7 @@ export function calculateFinalStats(picks: DraftPick[]): {
   return { stats, breakdown };
 }
 
-/** Simplified BST calculator — V2 additive system (7 stats) */
+/** Simplified BST calculator — V2 additive system (7 stats), integer total. */
 export function calculateCharacterBST(char: Character): number {
   const s = {
     strength: softCapBody(char.baseStats.strength),
@@ -533,17 +566,17 @@ export function calculateCharacterBST(char: Character): number {
   s.awareness *= 1 + (char.baseStats.intelligence / 100) * 0.3;
   s.strength *= 1 + (char.baseStats.battleIQ / 100) * 0.2;
 
-  return (
-    Math.round((s.strength + s.attack + s.durability + s.defense + s.speed + s.awareness + s.stamina) * 10) / 10
-  );
+  // Integer total: single rounding rule shared by rank script, preview and
+  // live rankBuild — file and app can never disagree on a BST again.
+  return Math.round(s.strength + s.attack + s.durability + s.defense + s.speed + s.awareness + s.stamina);
 }
 
 export type BuildRank = {
   rank: number;
   total: number;
   bst: number;
-  above: { name: string; bst: number } | null;
-  below: { name: string; bst: number } | null;
+  above: { id: string; name: string; bst: number } | null;
+  below: { id: string; name: string; bst: number } | null;
   tied: string[];
 };
 
@@ -553,8 +586,10 @@ export type BuildRank = {
  * Runs live in-browser (184 cheap calcs) — always in sync with tuning.
  */
 export function rankBuild(stats: StatBlock): BuildRank {
-  const r = (n: number) => Math.round(n * 10) / 10;
-  const bst = r(
+  // Integer BST (same rule as calculateCharacterBST) — strict float
+  // equality is exact on integers, epsilon guards the summation noise.
+  const eps = 1e-6;
+  const bst = Math.round(
     stats.strength +
       stats.attack +
       stats.durability +
@@ -564,17 +599,17 @@ export function rankBuild(stats: StatBlock): BuildRank {
       stats.stamina,
   );
 
-  const table = Characters.map((c) => ({ name: c.displayName, bst: calculateCharacterBST(c) })).sort(
+  const table = Characters.map((c) => ({ id: c.id, name: c.displayName, bst: calculateCharacterBST(c) })).sort(
     (a, b) => b.bst - a.bst,
   );
 
-  const better = table.filter((t) => t.bst > bst);
-  const tied = table.filter((t) => t.bst === bst).map((t) => t.name);
+  const better = table.filter((t) => t.bst - bst > eps);
+  const tied = table.filter((t) => Math.abs(t.bst - bst) < eps).map((t) => t.name);
   const rank = better.length + 1;
 
   // Neighbors: closest roster BST strictly above / below
   const above = better.length > 0 ? better[better.length - 1] : null;
-  const below = table.find((t) => t.bst < bst) ?? null;
+  const below = table.find((t) => bst - t.bst > eps) ?? null;
 
   return { rank, total: table.length + 1, bst, above, below, tied };
 }

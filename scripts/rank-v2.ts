@@ -1,58 +1,12 @@
 import { Characters } from "../src/data/characters-v2";
-import { softCapBody, weaponLabel } from "../src/lib/draft";
+import { calculateCharacterBST, weaponLabel } from "../src/lib/draft";
 import { writeFileSync } from "fs";
 
-/** BST calculator — 7 stats, uses character base stats (evaluated from canonical feats) */
-function calculateBST(char: (typeof Characters)[0]): number {
-  const s = {
-    strength: softCapBody(char.baseStats.strength),
-    attack: 0,
-    durability: softCapBody(char.baseStats.durability),
-    defense: 0,
-    speed: softCapBody(char.baseStats.speed),
-    awareness: softCapBody(char.baseStats.awareness),
-    stamina: softCapBody(char.baseStats.stamina),
-  };
-
-  // Haki — additive (attack/defense separate from strength/durability)
-  s.attack += char.haki.armament.attack + char.haki.conqueror.attack;
-  s.defense += char.haki.armament.defense + char.haki.conqueror.defense;
-  s.speed += char.haki.observation.speed + char.haki.observation.reflex;
-  s.awareness += char.haki.observation.awareness;
-  s.stamina += char.haki.armament.stamina + char.haki.conqueror.stamina;
-
-  // Devil Fruit — additive
-  if (char.devilFruit.type !== "none") {
-    const df = char.devilFruit;
-    s.attack += df.attack;
-    s.defense += df.defense;
-    s.speed += df.speed;
-    s.awareness += df.awareness;
-    s.stamina += df.stamina;
-  }
-
-  // Weapon — additive
-  if (char.weapon.type !== "none") {
-    const w = char.weapon;
-    s.attack += w.attack;
-    s.defense += w.defense;
-    s.speed += w.speed;
-    s.awareness += w.awareness;
-    s.stamina += w.stamina;
-  }
-
-  // No race step: racial physique already lives in baseStats.
-
-  // Intelligence boosts awareness, Battle IQ boosts strength (percentage)
-  s.awareness *= 1 + (char.baseStats.intelligence / 100) * 0.3;
-  s.strength *= 1 + (char.baseStats.battleIQ / 100) * 0.2;
-
-  return Math.round(s.strength + s.attack + s.durability + s.defense + s.speed + s.awareness + s.stamina);
-}
+/** Rankings use the lib's single BST implementation — no local copy to drift. */
 
 const results = Characters.map((char) => ({
   name: char.displayName,
-  bst: calculateBST(char),
+  bst: calculateCharacterBST(char),
   race: char.race,
   rarity: char.rarity,
   weapon: weaponLabel(char),

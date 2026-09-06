@@ -9,8 +9,8 @@
   $: byRound = new Map(picks.map((p) => [p.round, p]));
   const rounds = Array.from({ length: TOTAL_ROUNDS }, (_, i) => i + 1);
 
-  function getCharImage(name: string): string {
-    const char = Characters.find((c) => c.displayName === name);
+  function getCharImage(id: string): string {
+    const char = Characters.find((c) => c.id === id);
     return char?.imageURL ?? "";
   }
 
@@ -61,9 +61,9 @@
               <div
                 class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-white/20 bg-surface-dark"
               >
-                {#if getCharImage(pick.characterName) && !pickImageErrors[pick.round]}
+                {#if getCharImage(pick.characterId) && !pickImageErrors[pick.round]}
                   <img
-                    src={getCharImage(pick.characterName)}
+                    src={getCharImage(pick.characterId)}
                     alt={pick.characterName}
                     class="h-full w-full object-cover"
                     loading="lazy"

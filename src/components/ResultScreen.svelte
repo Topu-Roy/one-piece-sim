@@ -8,12 +8,12 @@
   $: appearancePick = picks.find((p) => p.roundType === "body");
   $: buildRank = stats ? rankBuild(stats.stats) : null;
   // Hero: the drafted body's face + name (replaces the old text header).
-  $: bodyChar = Characters.find((c) => c.displayName === appearancePick?.characterName);
+  $: bodyChar = Characters.find((c) => c.id === appearancePick?.characterId);
   let heroError = false;
 
-  function faceOf(name: string | undefined): string {
-    if (!name) return "";
-    return Characters.find((c) => c.displayName === name)?.imageURL ?? "";
+  function faceOf(id: string | undefined): string {
+    if (!id) return "";
+    return Characters.find((c) => c.id === id)?.imageURL ?? "";
   }
 
   // All 8 round donors, resolved by id for the picks strip.
@@ -68,9 +68,9 @@
         {/if}
         <!-- Ladder faces: above · you · below, rounded, you ringed gold. -->
         <div class="mt-5 flex items-center justify-center gap-3">
-          {#if buildRank.above && faceOf(buildRank.above.name)}
+          {#if buildRank.above && faceOf(buildRank.above.id)}
             <img
-              src={faceOf(buildRank.above.name)}
+              src={faceOf(buildRank.above.id)}
               alt={buildRank.above.name}
               class="h-12 w-12 rounded-full border border-white/20 object-cover opacity-80"
               loading="lazy"
@@ -84,9 +84,9 @@
               loading="eager"
             />
           {/if}
-          {#if buildRank.below && faceOf(buildRank.below.name)}
+          {#if buildRank.below && faceOf(buildRank.below.id)}
             <img
-              src={faceOf(buildRank.below.name)}
+              src={faceOf(buildRank.below.id)}
               alt={buildRank.below.name}
               class="h-12 w-12 rounded-full border border-white/20 object-cover opacity-80"
               loading="lazy"

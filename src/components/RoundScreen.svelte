@@ -14,7 +14,7 @@
   $: options = $roundOptions;
   $: roundType = getRoundType(round);
   $: label = getRoundLabel(round);
-  $: showReroll = round <= 7;
+  // Rerolls are a 2-per-draft resource usable in any round, final included.
 
   // Signature changes on new options (initial + rerolls) → fresh cards.
   $: revealKey = roundType + ":" + options.map((o) => o.id).join(",");
@@ -116,11 +116,9 @@
       {label}
     </h1>
 
-    {#if showReroll}
-      <div class="shrink-0">
-        <RerollButton />
-      </div>
-    {/if}
+    <div class="shrink-0">
+      <RerollButton />
+    </div>
   </div>
 
   {#key revealKey}
