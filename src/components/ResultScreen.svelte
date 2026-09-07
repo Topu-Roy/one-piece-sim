@@ -29,7 +29,9 @@
 <div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
   <!-- Hero: the drafted body, face + name overlaid (no text header). -->
   {#if bodyChar?.imageURL && !heroError}
-    <div class="relative mb-8 aspect-square w-full max-w-80 overflow-hidden rounded-md border border-hairline">
+    <div
+      class="relative mb-8 aspect-square w-full max-w-80 overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-[6px_6px_0_#3a2a18]"
+    >
       <img
         src={bodyChar.imageURL}
         alt={bodyChar.displayName}
@@ -55,16 +57,18 @@
 
   {#if stats}
     {#if buildRank}
-      <!-- Rank panel: dark statement card, gold numeral, ladder pills. -->
-      <div class="mb-8 w-full max-w-lg rounded-xl border border-white/40 bg-surface-dark p-6 text-center md:p-8">
+      <!-- Rank panel: forest signature card, gold numeral, ladder pills. -->
+      <div
+        class="mb-8 w-full max-w-lg rounded-3xl border-4 border-cocoa bg-forest p-6 text-center shadow-[8px_8px_0_#3a2a18] md:p-8"
+      >
         <div class="flex items-baseline justify-center gap-2">
           <span class="font-hand text-6xl leading-none font-normal text-yellow md:text-7xl">
             #{buildRank.rank}
           </span>
-          <span class="text-sm font-normal text-on-dark/70">of {buildRank.total}</span>
+          <span class="text-sm font-bold text-white/70">of {buildRank.total}</span>
         </div>
         {#if buildRank.tied.length > 0}
-          <p class="mt-2 text-xs text-on-dark/60">Tied with {buildRank.tied.join(", ")}</p>
+          <p class="mt-2 text-xs font-bold text-white/60">Tied with {buildRank.tied.join(", ")}</p>
         {/if}
         <!-- Ladder faces: above · you · below, rounded, you ringed gold. -->
         <div class="mt-5 flex items-center justify-center gap-3">
@@ -110,21 +114,21 @@
         <div class="mx-auto mt-5 flex max-w-xs flex-col gap-1.5">
           {#if buildRank.above}
             <div
-              class="flex items-center justify-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-[11px] font-medium tracking-wider text-on-dark/70 uppercase"
+              class="flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-4 py-1.5 text-[11px] font-bold tracking-wider text-white/70 uppercase"
             >
               <span aria-hidden="true">▲</span>
               {buildRank.above.name}
             </div>
           {/if}
           <div
-            class="flex items-center justify-center gap-2 rounded-full bg-mustard px-4 py-1.5 text-[11px] font-medium tracking-wider text-ink uppercase"
+            class="flex items-center justify-center gap-2 rounded-full border-2 border-cocoa bg-mustard px-4 py-1.5 text-[11px] font-bold tracking-wider text-ink uppercase"
           >
             <span aria-hidden="true">●</span>
             You
           </div>
           {#if buildRank.below}
             <div
-              class="flex items-center justify-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-[11px] font-medium tracking-wider text-on-dark/70 uppercase"
+              class="flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-4 py-1.5 text-[11px] font-bold tracking-wider text-white/70 uppercase"
             >
               <span aria-hidden="true">▼</span>
               {buildRank.below.name}
@@ -134,9 +138,9 @@
       </div>
     {/if}
 
-    <!-- Gold CTA: ink vanishes against the darkened backdrop. -->
+    <!-- Coral sticker CTA with the toy squish. -->
     <button
-      class="rounded-xl bg-mustard px-6 py-4 text-base font-medium text-ink active:bg-yellow"
+      class="rounded-2xl border-4 border-cocoa bg-coral px-6 py-4 text-base font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
       on:click={handleNewDraft}
     >
       Try Again

@@ -5,6 +5,10 @@
  * against the calm editorial body.
  */
 import "@fontsource/peralta/400.css";
+import "@fontsource/fredoka/400.css";
+import "@fontsource/fredoka/500.css";
+import "@fontsource/fredoka/600.css";
+import "@fontsource/fredoka/700.css";
 import "../styles/global.css";
 import pkg from "../../package.json";
 
@@ -54,11 +58,11 @@ const canonical = `${SITE}${canonicalPath}`;
     <meta content={description} name="twitter:description" />
     <meta content={ogImage} name="twitter:image" />
   </head>
-  <body>
+  <body class="font-playful">
     <slot />
-    <footer class="w-full bg-surface-dark">
+    <footer class="w-full border-t-4 border-cocoa bg-paper">
       <div
-        class="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-2 px-6 py-6 text-[11px] tracking-wide text-on-dark/60 sm:flex-row"
+        class="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-2 px-6 py-6 text-[11px] font-bold tracking-wide text-cocoa/70 sm:flex-row"
       >
         <span>Anime Draft · v{pkg.version}</span>
         <span>Unofficial fan project. One Piece © Eiichiro Oda / Shueisha.</span>

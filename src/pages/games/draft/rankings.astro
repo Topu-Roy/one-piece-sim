@@ -22,49 +22,47 @@ const ranked = [...Characters]
 >
   <NavBar showRestart={false} />
 
-  <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
-    <p class="text-xs font-medium tracking-[0.16px] text-ink/60 uppercase">
-      <a class="text-blue-700" href="/games/draft">One Piece draft game</a> · Rankings
-    </p>
-    <h1 class="mt-2 font-display text-4xl leading-[1.1] font-normal text-ink">
-      Strongest One Piece characters, ranked
-    </h1>
-    <p class="mt-4 text-base leading-relaxed text-ink/70">
-      All 184 roster characters scored by the same feat-graded stat model that powers the draft game — 7 stats,
-      hand-tuned from canon, summed to one battle total. Imu leads at 11,392, just 21 points above Joy Boy's Nika.
-      Think you can build better? Your donors come from this exact list.
-    </p>
-    <a
-      class="mt-6 inline-block rounded-xl bg-ink px-6 py-4 text-base font-medium text-white active:bg-black"
-      href="/games/draft"
-    >
-      Draft from this roster
-    </a>
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+      <p class="text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
+        <a class="text-coral underline" href="/games/draft">One Piece draft game</a> · Rankings
+      </p>
+      <h1 class="mt-2 font-hand text-5xl leading-[1.05]">Strongest One Piece characters, ranked</h1>
+      <p class="mt-4 text-lg leading-relaxed">
+        All 184 roster characters scored by the same feat-graded stat model that powers the draft game — 7 stats,
+        hand-tuned from canon, summed to one battle total. Imu leads at 11,392, just 21 points above Joy Boy's
+        Nika. Think you can build better? Your donors come from this exact list.
+      </p>
+      <a
+        class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        href="/games/draft"
+      >
+        ⚓ Draft from this roster
+      </a>
 
-    <h2 class="mt-12 mb-4 font-display text-2xl font-normal text-ink">
-      Full rankings ({ranked.length})
-    </h2>
-    <ol class="overflow-hidden rounded-xl border border-hairline">
-      {
-        ranked.map((c, i) => (
-          <li class="flex items-center justify-between gap-3 border-b border-hairline px-4 py-2.5 last:border-b-0">
-            <span class="text-sm text-ink">
-              <span class="mr-3 text-ink/50">#{i + 1}</span>
-              {c.name}
-            </span>
-            <span class="shrink-0 text-sm text-ink/60">
-              {c.rarity} · {c.bst.toLocaleString()}
-            </span>
-          </li>
-        ))
-      }
-    </ol>
+      <h2 class="mt-12 mb-4 font-hand text-4xl">Full rankings ({ranked.length})</h2>
+      <ol class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+        {
+          ranked.map((c, i) => (
+            <li class="flex items-center justify-between gap-3 border-b border-cocoa/20 px-4 py-2.5 last:border-b-0">
+              <span>
+                <span class="mr-3 font-bold text-cocoa/50">#{i + 1}</span>
+                <span class="font-bold">{c.name}</span>
+              </span>
+              <span class="shrink-0 text-sm text-cocoa/60">
+                {c.rarity} · {c.bst.toLocaleString()}
+              </span>
+            </li>
+          ))
+        }
+      </ol>
 
-    <p class="mt-8 text-sm leading-relaxed text-ink/60">
-      Stats follow the draft game's model: body base soft-capped above 500, haki / Devil Fruit / weapon added flat,
-      intelligence and battle IQ as percentage bonuses. New to the format? Read
-      <a class="text-blue-700" href="/games/draft/how-to-play">how to play</a> or
-      <a class="text-blue-700" href="/games/draft">start drafting</a>.
-    </p>
-  </main>
+      <p class="mt-8 text-sm leading-relaxed text-cocoa/60">
+        Stats follow the draft game's model: body base soft-capped above 500, haki / Devil Fruit / weapon added
+        flat, intelligence and battle IQ as percentage bonuses. New to the format? Read
+        <a class="font-bold text-coral underline" href="/games/draft/how-to-play">how to play</a> or
+        <a class="font-bold text-coral underline" href="/games/draft">start drafting</a>.
+      </p>
+    </main>
+  </div>
 </Layout>

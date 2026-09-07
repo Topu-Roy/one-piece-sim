@@ -42,105 +42,115 @@ const faqs = [
 >
   <NavBar showRestart={false} />
 
-  <main class="mx-auto w-full max-w-5xl px-6">
-    <!-- Hero: white canvas, H1 carries brand + minigames terms. -->
-    <section class="py-16 text-center md:py-24">
-      <p class="text-xs font-medium tracking-[0.16px] text-ink/60 uppercase">Free One Piece minigames</p>
-      <h1 class="mt-3 font-display text-4xl leading-[1.1] font-normal text-ink md:text-5xl">Anime Draft</h1>
-      <p class="mx-auto mt-4 max-w-xl text-base text-ink/70">
-        Draft your own pirate from 184 One Piece characters — harvest haki, Devil Fruits and weapons round by
-        round, then rank your custom build against the full roster.
-      </p>
-      <div class="mt-8 flex items-center justify-center gap-4">
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-5xl px-6">
+      <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
+      <section class="py-14 text-center md:py-20">
+        <p
+          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+        >
+          ★ Free One Piece minigames ★
+        </p>
+        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05] text-cocoa">Anime Draft</h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg">
+          Draft your own pirate from 184 One Piece characters — harvest haki, Devil Fruits and weapons round by
+          round, then rank your custom build against the full roster.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a
+            class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            href="/games/draft"
+          >
+            ⚓ Play the draft game
+          </a>
+          <a
+            class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            href="/games/draft/how-to-play"
+          >
+            How to play
+          </a>
+        </div>
+      </section>
+
+      <!-- Game card: forest signature surface, yellow CTA. -->
+      <section
+        class="mb-12 rotate-[-0.5deg] rounded-3xl border-4 border-cocoa bg-forest p-8 text-white shadow-[8px_8px_0_#3a2a18] md:p-10"
+      >
+        <p class="text-xs font-bold tracking-[0.16px] text-white/60 uppercase">Featured minigame</p>
+        <h2 class="mt-2 font-hand text-4xl">One Piece Draft Game</h2>
+        <p class="mt-3 max-w-2xl">
+          Eight rounds. Four donors per round. Body, three haki types, Devil Fruit, weapon, intelligence, battle IQ
+          — then a live rank out of 185. Two rerolls per draft, 184 canon-graded donors, zero accounts.
+        </p>
         <a
-          class="rounded-xl bg-ink px-6 py-4 text-base font-medium text-white active:bg-black"
+          class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-8 py-3 text-lg font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
           href="/games/draft"
         >
-          Play the One Piece draft game
+          Start drafting →
         </a>
+      </section>
+
+      <!-- Rankings teaser: top 5, links to the full P2 magnet page. -->
+      <section class="mb-12">
+        <div class="mb-4 flex items-baseline justify-between">
+          <h2 class="font-hand text-4xl">Strongest right now</h2>
+          <a class="text-sm font-bold text-coral underline" href="/games/draft/rankings">
+            Full 184-character rankings
+          </a>
+        </div>
+        <ol class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+          {
+            top5.map((c, i) => (
+              <li class="flex items-center justify-between border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+                <span class="text-cocoa">
+                  <span class="mr-3 font-bold text-cocoa/50">#{i + 1}</span>
+                  <span class="font-bold">{c.name}</span>
+                </span>
+                <span class="text-sm text-cocoa/60">
+                  {c.rarity} · {c.bst.toLocaleString()}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <!-- FAQ: P3 long-tails, equity stays on-page (no outbound links). -->
+      <section class="mx-auto mb-12 max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">One Piece powers, answered</h2>
+        <div class="mt-6 flex flex-col gap-4">
+          {
+            faqs.map((f) => (
+              <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
+                <summary class="cursor-pointer text-lg font-bold text-cocoa">{f.q}</summary>
+                <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Secondary links: spokes of the hub. -->
+      <section class="mb-16 flex flex-wrap justify-center gap-3">
         <a
-          class="rounded-xl border border-hairline bg-white px-6 py-4 text-base font-medium text-ink"
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
           href="/games/draft/how-to-play"
         >
           How to play
         </a>
-      </div>
-    </section>
-
-    <!-- Game card: dark signature surface, exact-anchor CTA home to the game. -->
-    <section class="mb-16 rounded-xl bg-surface-dark p-8 md:p-12">
-      <p class="text-xs font-medium tracking-[0.16px] text-on-dark/60 uppercase">Featured minigame</p>
-      <h2 class="mt-2 font-display text-3xl leading-[1.2] font-normal text-on-dark">One Piece Draft Game</h2>
-      <p class="mt-3 max-w-2xl text-sm text-on-dark/70">
-        Eight rounds. Four donors per round. Body, three haki types, Devil Fruit, weapon, intelligence, battle IQ —
-        then a live rank out of 185. Two rerolls per draft, 184 canon-graded donors, zero accounts.
-      </p>
-      <a
-        class="mt-6 inline-block rounded-xl bg-mustard px-6 py-4 text-base font-medium text-ink active:bg-yellow"
-        href="/games/draft"
-      >
-        Start drafting
-      </a>
-    </section>
-
-    <!-- Rankings teaser: top 5, links to the full P2 magnet page. -->
-    <section class="mb-16">
-      <div class="mb-4 flex items-baseline justify-between">
-        <h2 class="font-display text-2xl font-normal text-ink md:text-3xl">Strongest right now</h2>
-        <a class="text-sm font-medium text-blue-700" href="/games/draft/rankings"> Full 184-character rankings </a>
-      </div>
-      <ol class="overflow-hidden rounded-xl border border-hairline">
-        {
-          top5.map((c, i) => (
-            <li class="flex items-center justify-between border-b border-hairline px-4 py-3 last:border-b-0">
-              <span class="text-sm text-ink">
-                <span class="mr-3 text-ink/50">#{i + 1}</span>
-                {c.name}
-              </span>
-              <span class="text-sm text-ink/60">
-                {c.rarity} · {c.bst.toLocaleString()}
-              </span>
-            </li>
-          ))
-        }
-      </ol>
-    </section>
-
-    <!-- FAQ: P3 long-tails, equity stays on-page (no outbound links). -->
-    <section class="mb-16 max-w-3xl">
-      <h2 class="mb-4 font-display text-2xl font-normal text-ink md:text-3xl">One Piece powers, answered</h2>
-      <div class="flex flex-col gap-3">
-        {
-          faqs.map((f) => (
-            <details class="rounded-xl border border-hairline bg-white px-5 py-4">
-              <summary class="cursor-pointer text-base font-medium text-ink">{f.q}</summary>
-              <p class="mt-2 text-sm leading-relaxed text-ink/70">{f.a}</p>
-            </details>
-          ))
-        }
-      </div>
-    </section>
-
-    <!-- Secondary links: spokes of the hub. -->
-    <section class="mb-16 flex flex-wrap gap-3">
-      <a
-        class="rounded-full border border-hairline px-4 py-2 text-sm font-medium text-ink"
-        href="/games/draft/how-to-play"
-      >
-        How to play
-      </a>
-      <a
-        class="rounded-full border border-hairline px-4 py-2 text-sm font-medium text-ink"
-        href="/games/draft/rankings"
-      >
-        Character rankings
-      </a>
-      <a
-        class="rounded-full border border-hairline px-4 py-2 text-sm font-medium text-ink"
-        href="/games/draft/characters"
-      >
-        Straw Hat guides
-      </a>
-    </section>
-  </main>
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
+          href="/games/draft/rankings"
+        >
+          Character rankings
+        </a>
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
+          href="/games/draft/characters"
+        >
+          Straw Hat guides
+        </a>
+      </section>
+    </main>
+  </div>
 </Layout>

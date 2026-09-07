@@ -11,8 +11,9 @@
   }
 </script>
 
+<!-- White sticker button: ink outline, hard shadow, squish on press. -->
 <button
-  class="flex items-center gap-1.5 rounded-full border border-hairline bg-surface-soft px-4 py-2 text-sm font-medium text-ink transition-colors active:bg-surface-strong disabled:cursor-not-allowed disabled:opacity-40"
+  class="flex items-center gap-1.5 rounded-2xl border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-40"
   on:click={handleReroll}
   disabled={!canReroll}
   title={canReroll ? "Replace these 4 options" : "No rerolls left"}

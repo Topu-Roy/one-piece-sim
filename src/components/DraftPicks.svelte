@@ -22,15 +22,15 @@
       .join(" ");
   }
 
-  // Tier-colored text for the dark panel: gold / white / mint.
+  // Tier colors that read on white paper: coral / ink / forest.
   function rarityText(rarity: DraftPick["rarity"]): string {
     switch (rarity) {
       case "god":
-        return "text-mustard";
+        return "text-coral";
       case "legend":
-        return "text-on-dark";
+        return "text-cocoa";
       case "epic":
-        return "text-mint";
+        return "text-forest";
       default:
         return "";
     }
@@ -39,28 +39,26 @@
   let pickImageErrors: Record<number, boolean> = {};
 </script>
 
-<div class="w-full max-w-lg rounded-[10px] border border-white/10 bg-surface-dark p-4">
-  <div class="mb-2 flex items-baseline justify-between">
-    <h2 class="text-lg leading-[1.35] font-normal tracking-[0.12px] text-on-dark">Draft Picks</h2>
-    <span class="text-xs font-medium tracking-wider text-on-dark/60 uppercase">
+<div class="w-full max-w-lg rounded-2xl border-4 border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+  <div class="mb-2 flex items-baseline justify-between px-4 pt-4">
+    <h2 class="font-hand text-2xl leading-[1.35] font-normal text-cocoa">Draft Picks</h2>
+    <span class="text-xs font-bold tracking-wider text-cocoa/60 uppercase">
       {picks.length}/{TOTAL_ROUNDS}
     </span>
   </div>
-  <div class="flex flex-col gap-1">
+  <div class="flex flex-col gap-1 px-4 pb-4">
     {#each rounds as round (round)}
       {@const pick = byRound.get(round)}
       {@const roundType = getRoundType(round)}
       {#if pick}
         <!-- Zones: round name left, avatar+name centered, tier right. -->
-        <div class="flex items-center gap-2.5 border-b border-white/10 py-1.5 last:border-b-0">
-          <span class="w-28 shrink-0 text-center text-[10px] font-medium tracking-wider text-on-dark/60 uppercase">
+        <div class="flex items-center gap-2.5 border-b border-cocoa/20 py-1.5 last:border-b-0">
+          <span class="w-28 shrink-0 text-center text-[10px] font-bold tracking-wider text-cocoa/60 uppercase">
             {roundName(pick.roundType)}
           </span>
           <div class="flex min-w-0 flex-1 items-center justify-center">
             <div class="flex w-30 justify-start gap-2">
-              <div
-                class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-white/20 bg-surface-dark"
-              >
+              <div class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border-2 border-cocoa bg-paper">
                 {#if getCharImage(pick.characterId) && !pickImageErrors[pick.round]}
                   <img
                     src={getCharImage(pick.characterId)}
@@ -70,21 +68,20 @@
                     on:error={() => (pickImageErrors[pick.round] = true)}
                   />
                 {:else}
-                  <span class="flex h-full w-full items-center justify-center text-xs text-on-dark">
+                  <span class="flex h-full w-full items-center justify-center text-xs font-bold text-cocoa">
                     {pick.characterName.charAt(0)}
                   </span>
                 {/if}
               </div>
-              <span class="min-w-0 truncate text-sm text-on-dark">
+              <span class="min-w-0 truncate text-sm font-bold text-cocoa">
                 {pick.characterName}
               </span>
             </div>
           </div>
           <!-- Picked rows always show their tier, basic included. -->
           <span
-            class="w-14 shrink-0 text-right text-[10px] font-medium tracking-wider uppercase {pick.rarity ===
-            'basic'
-              ? 'text-on-dark/60'
+            class="w-14 shrink-0 text-right text-[10px] font-bold tracking-wider uppercase {pick.rarity === 'basic'
+              ? 'text-cocoa/60'
               : rarityText(pick.rarity)}"
           >
             {pick.rarity}
@@ -92,21 +89,21 @@
         </div>
       {:else}
         <!-- Upcoming pick: ghost row doubles as draft progress. -->
-        <div class="flex items-center gap-2.5 border-b border-white/10 py-1.5 opacity-50 last:border-b-0">
-          <span class="w-28 shrink-0 text-center text-[10px] font-medium tracking-wider text-on-dark/60 uppercase">
+        <div class="flex items-center gap-2.5 border-b border-cocoa/20 py-1.5 opacity-60 last:border-b-0">
+          <span class="w-28 shrink-0 text-center text-[10px] font-bold tracking-wider text-cocoa/60 uppercase">
             {roundName(roundType)}
           </span>
           <div class="flex min-w-0 flex-1 items-center justify-center">
             <div class="flex w-30 justify-start gap-2">
               <div
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-dashed border-white/20 text-xs text-on-dark/60"
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-cocoa/40 text-xs font-bold text-cocoa/60"
               >
                 ?
               </div>
-              <span class="min-w-0 truncate text-sm text-on-dark/60"> Awaiting pick </span>
+              <span class="min-w-0 truncate text-sm text-cocoa/60"> Awaiting pick </span>
             </div>
           </div>
-          <span class="w-14 shrink-0 text-right text-[10px] font-medium tracking-wider text-on-dark/60 uppercase">
+          <span class="w-14 shrink-0 text-right text-[10px] font-bold tracking-wider text-cocoa/60 uppercase">
             --
           </span>
         </div>

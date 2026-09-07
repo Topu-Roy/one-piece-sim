@@ -17,6 +17,9 @@
   /* Parchment: midpoint between soft white and cream for card surfaces
      over the dark ancient backdrop. Tune here, applies everywhere. */
   --color-parchment: #f6f1e7;
+  /* Wanted Poster paper + ink brown (see design.md). */
+  --color-paper: #f5e9d4;
+  --color-cocoa: #3a2a18;
   --color-surface-strong: #e0e2e6;
   --color-surface-dark: #181d26;
   --color-hairline: #dddddd;
@@ -37,6 +40,9 @@
 
   /* Handwritten accent (card names only) */
   --font-hand: "Peralta", serif;
+
+  /* Playful rounded body (Wanted Poster system, see design.md) */
+  --font-playful: "Fredoka", ui-rounded, system-ui, sans-serif;
 
   /* Font families (Haas substitute stack) */
   --font-sans:

@@ -108,11 +108,11 @@
 
 <div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
   <div class="flex w-full items-center justify-between gap-4 pb-8">
-    <p class="shrink-0 text-xs font-medium tracking-[0.16px] text-on-dark/70 uppercase">
+    <p class="shrink-0 text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
       Round {round} of 8
     </p>
 
-    <h1 class="mt-1 text-center font-hand text-2xl leading-[1.2] font-normal text-on-dark md:text-3xl">
+    <h1 class="mt-1 text-center font-hand text-2xl leading-[1.2] font-normal text-cocoa md:text-3xl">
       {label}
     </h1>
 
@@ -135,9 +135,9 @@
         >
           {#each Array(4) as _, i (i)}
             <div
-              class="flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-surface-soft"
+              class="flex aspect-square w-full flex-col overflow-hidden rounded-2xl border-4 border-cocoa bg-white"
             >
-              <div class="aspect-square w-full bg-surface-strong"></div>
+              <div class="aspect-square w-full bg-paper"></div>
             </div>
           {/each}
         </div>
@@ -161,7 +161,11 @@
       {/if}
       <!-- Caption slot always rendered (invisible when idle) so the
          grid never jumps when loading finishes. -->
-      <p class="mt-3 text-center text-sm tracking-wider uppercase {preloading ? 'text-on-dark/70' : 'invisible'}">
+      <p
+        class="mt-3 text-center text-sm font-bold tracking-wider uppercase {preloading
+          ? 'text-cocoa/60'
+          : 'invisible'}"
+      >
         {#if preloading}
           Loading faces… {loadedCount}/{loadTotal}
         {:else}

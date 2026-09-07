@@ -171,7 +171,7 @@
 </script>
 
 <button
-  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-[10px] border border-hairline bg-surface-soft active:bg-surface-strong {waiting
+  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none {waiting
     ? 'opacity-60'
     : ''}"
   on:click={handleClick}
@@ -180,14 +180,14 @@
     <span class="absolute top-3 left-3 z-10 flex max-w-[70%] flex-col items-start gap-1">
       {#if infoChip}
         <span
-          class="rounded-full bg-ink/70 px-2 py-0.5 text-[10px] font-medium tracking-widest text-on-dark uppercase"
+          class="rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 text-[10px] font-bold tracking-widest text-cocoa uppercase"
         >
           {infoChip}
         </span>
       {/if}
       {#if nameChip}
         <span
-          class="max-w-full truncate rounded-full bg-ink/70 px-2 py-0.5 text-[10px] font-medium tracking-wider text-on-dark"
+          class="max-w-full truncate rounded-lg border-2 border-cocoa bg-white px-2 py-0.5 text-[10px] font-bold tracking-wider text-cocoa"
           title={nameChip}
         >
           {nameChip}
@@ -197,7 +197,7 @@
   {/if}
 
   <div
-    class="relative flex aspect-square w-full items-center justify-center overflow-hidden bg-surface-soft text-4xl text-ink"
+    class="relative flex aspect-square w-full items-center justify-center overflow-hidden bg-paper font-hand text-4xl text-cocoa"
   >
     {#if !realLoaded && character.imageURL}
       <!-- Hidden warm-up: card locks only after its real art decodes (1s cap). -->

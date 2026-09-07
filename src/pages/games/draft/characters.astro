@@ -132,69 +132,74 @@ const weaponOf = (id: string) => {
 >
   <NavBar showRestart={false} />
 
-  <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
-    <p class="text-xs font-medium tracking-[0.16px] text-ink/60 uppercase">
-      <a class="text-blue-700" href="/games/draft">One Piece draft game</a> · Straw Hats
-    </p>
-    <h1 class="mt-2 font-display text-4xl leading-[1.1] font-normal text-ink">Straw Hat powers, graded</h1>
-    <p class="mt-4 text-base leading-relaxed text-ink/70">
-      All ten Straw Hats, scored by the same feat-graded model behind the draft game — haki tiers, Devil Fruits,
-      weapons and overall rank out of 184. Every one of them is draftable:
-      <a class="text-blue-700" href="/games/draft">play the draft game</a>.
-    </p>
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+      <p class="text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
+        <a class="text-coral underline" href="/games/draft">One Piece draft game</a> · Straw Hats
+      </p>
+      <h1 class="mt-2 font-hand text-5xl leading-[1.05]">Straw Hat powers, graded</h1>
+      <p class="mt-4 text-lg leading-relaxed">
+        All ten Straw Hats, scored by the same feat-graded model behind the draft game — haki tiers, Devil Fruits,
+        weapons and overall rank out of 184. Every one of them is draftable:
+        <a class="font-bold text-coral underline" href="/games/draft">play the draft game</a>.
+      </p>
 
-    <div class="mt-10 flex flex-col gap-6">
-      {
-        guides.map((g) => {
-          const c = Characters.find((x) => x.id === g.id)!;
-          return (
-            <section class="overflow-hidden rounded-xl border border-hairline" id={g.id}>
-              <div class="flex gap-4 p-5">
-                {c.imageURL && (
-                  <img
-                    alt={c.displayName}
-                    class="h-20 w-20 shrink-0 rounded-full border border-hairline object-cover"
-                    loading="lazy"
-                    src={c.imageURL}
-                  />
-                )}
-                <div class="min-w-0">
-                  <h2 class="font-display text-2xl font-normal text-ink">{c.displayName}</h2>
-                  <p class="mt-0.5 text-sm text-ink/60">
-                    #{rankOf(g.id)} of 184 · {c.rarity} · {calculateCharacterBST(c).toLocaleString()} BST
-                  </p>
-                  <p class="mt-2 text-sm leading-relaxed text-ink/70">{g.blurb}</p>
+      <div class="mt-10 flex flex-col gap-6">
+        {
+          guides.map((g) => {
+            const c = Characters.find((x) => x.id === g.id)!;
+            return (
+              <section
+                class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]"
+                id={g.id}
+              >
+                <div class="flex gap-4 p-5">
+                  {c.imageURL && (
+                    <img
+                      alt={c.displayName}
+                      class="h-20 w-20 shrink-0 rounded-full border-[3px] border-cocoa object-cover"
+                      loading="lazy"
+                      src={c.imageURL}
+                    />
+                  )}
+                  <div class="min-w-0">
+                    <h2 class="font-hand text-3xl">{c.displayName}</h2>
+                    <p class="mt-0.5 text-sm text-cocoa/60">
+                      #{rankOf(g.id)} of 184 · {c.rarity} · {calculateCharacterBST(c).toLocaleString()} BST
+                    </p>
+                    <p class="mt-2 leading-relaxed text-cocoa/80">{g.blurb}</p>
+                  </div>
                 </div>
-              </div>
-              <dl class="border-t border-hairline bg-white px-5 py-3 text-sm">
-                <div class="flex gap-2 py-1">
-                  <dt class="w-20 shrink-0 text-ink/50">Haki</dt>
-                  <dd class="text-ink/80">{hakiLine(g.id)}</dd>
-                </div>
-                <div class="flex gap-2 py-1">
-                  <dt class="w-20 shrink-0 text-ink/50">Fruit</dt>
-                  <dd class="text-ink/80">{fruitLine(g.id)}</dd>
-                </div>
-                <div class="flex gap-2 py-1">
-                  <dt class="w-20 shrink-0 text-ink/50">Weapon</dt>
-                  <dd class="text-ink/80">{weaponOf(g.id)}</dd>
-                </div>
-              </dl>
-              <details class="border-t border-hairline px-5 py-3">
-                <summary class="cursor-pointer text-sm font-medium text-ink">{g.qa.q}</summary>
-                <p class="mt-1.5 text-sm leading-relaxed text-ink/70">{g.qa.a}</p>
-              </details>
-            </section>
-          );
-        })
-      }
-    </div>
+                <dl class="border-t-[3px] border-t-cocoa bg-white px-5 py-3 text-sm">
+                  <div class="flex gap-2 py-1">
+                    <dt class="w-20 shrink-0 font-bold text-cocoa/50">Haki</dt>
+                    <dd class="text-cocoa/80">{hakiLine(g.id)}</dd>
+                  </div>
+                  <div class="flex gap-2 py-1">
+                    <dt class="w-20 shrink-0 font-bold text-cocoa/50">Fruit</dt>
+                    <dd class="text-cocoa/80">{fruitLine(g.id)}</dd>
+                  </div>
+                  <div class="flex gap-2 py-1">
+                    <dt class="w-20 shrink-0 font-bold text-cocoa/50">Weapon</dt>
+                    <dd class="text-cocoa/80">{weaponOf(g.id)}</dd>
+                  </div>
+                </dl>
+                <details class="border-t-[3px] border-t-cocoa px-5 py-3">
+                  <summary class="cursor-pointer font-bold">{g.qa.q}</summary>
+                  <p class="mt-1.5 leading-relaxed text-cocoa/80">{g.qa.a}</p>
+                </details>
+              </section>
+            );
+          })
+        }
+      </div>
 
-    <a
-      class="mt-12 inline-block rounded-xl bg-mustard px-6 py-4 text-base font-medium text-ink active:bg-yellow"
-      href="/games/draft"
-    >
-      Draft the Straw Hats yourself
-    </a>
-  </main>
+      <a
+        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        href="/games/draft"
+      >
+        ⚓ Draft the Straw Hats yourself
+      </a>
+    </main>
+  </div>
 </Layout>
