@@ -1,6 +1,9 @@
 <script lang="ts">
   import { draft } from "../stores/draft";
 
+  // Hub pages reuse the bar as chrome without the restart action.
+  export let showRestart: boolean = true;
+
   function handleNewDraft() {
     draft.reset();
   }
@@ -9,13 +12,15 @@
 <!-- Solid ink bar: yellow brand + ghost restart, always available. -->
 <nav class="w-full bg-surface-dark">
   <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
-    <span class="font-hand text-2xl leading-none font-normal text-yellow">Anime Draft</span>
+    <a href="/" class="font-hand text-2xl leading-none font-normal text-yellow">Anime Draft</a>
 
-    <button
-      class="rounded-full border border-white/30 px-4 py-1.5 text-xs font-medium tracking-wider text-on-dark uppercase transition-colors hover:bg-white/10"
-      on:click={handleNewDraft}
-    >
-      New Draft
-    </button>
+    {#if showRestart}
+      <button
+        class="rounded-full border border-white/30 px-4 py-1.5 text-xs font-medium tracking-wider text-on-dark uppercase transition-colors hover:bg-white/10"
+        on:click={handleNewDraft}
+      >
+        New Draft
+      </button>
+    {/if}
   </div>
 </nav>

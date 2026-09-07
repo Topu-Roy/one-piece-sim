@@ -1,0 +1,70 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import NavBar from "../../../components/NavBar.svelte";
+import { Characters } from "../../../data/characters-v2";
+import { calculateCharacterBST } from "../../../lib/draft";
+
+// P2 magnet: full 184-character BST table. Ranks and refers — CTA home to game.
+const ranked = [...Characters]
+  .map((c) => ({
+    name: c.displayName,
+    rarity: c.rarity,
+    race: c.race,
+    bst: calculateCharacterBST(c),
+  }))
+  .sort((a, b) => b.bst - a.bst);
+---
+
+<Layout
+  canonicalPath="/games/draft/rankings"
+  description="Every One Piece powerhouse ranked by feat-graded battle stats: Imu #1 at 11,392, Joy Boy #2. Browse all 184 characters, then draft your own pirate."
+  title="Strongest One Piece Characters Ranked — Full 184 List"
+>
+  <NavBar showRestart={false} />
+
+  <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+    <p class="text-xs font-medium tracking-[0.16px] text-ink/60 uppercase">
+      <a class="text-blue-700" href="/games/draft">One Piece draft game</a> · Rankings
+    </p>
+    <h1 class="mt-2 font-display text-4xl leading-[1.1] font-normal text-ink">
+      Strongest One Piece characters, ranked
+    </h1>
+    <p class="mt-4 text-base leading-relaxed text-ink/70">
+      All 184 roster characters scored by the same feat-graded stat model that powers the draft game — 7 stats,
+      hand-tuned from canon, summed to one battle total. Imu leads at 11,392, just 21 points above Joy Boy's Nika.
+      Think you can build better? Your donors come from this exact list.
+    </p>
+    <a
+      class="mt-6 inline-block rounded-xl bg-ink px-6 py-4 text-base font-medium text-white active:bg-black"
+      href="/games/draft"
+    >
+      Draft from this roster
+    </a>
+
+    <h2 class="mt-12 mb-4 font-display text-2xl font-normal text-ink">
+      Full rankings ({ranked.length})
+    </h2>
+    <ol class="overflow-hidden rounded-xl border border-hairline">
+      {
+        ranked.map((c, i) => (
+          <li class="flex items-center justify-between gap-3 border-b border-hairline px-4 py-2.5 last:border-b-0">
+            <span class="text-sm text-ink">
+              <span class="mr-3 text-ink/50">#{i + 1}</span>
+              {c.name}
+            </span>
+            <span class="shrink-0 text-sm text-ink/60">
+              {c.rarity} · {c.bst.toLocaleString()}
+            </span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="mt-8 text-sm leading-relaxed text-ink/60">
+      Stats follow the draft game's model: body base soft-capped above 500, haki / Devil Fruit / weapon added flat,
+      intelligence and battle IQ as percentage bonuses. New to the format? Read
+      <a class="text-blue-700" href="/games/draft/how-to-play">how to play</a> or
+      <a class="text-blue-700" href="/games/draft">start drafting</a>.
+    </p>
+  </main>
+</Layout>

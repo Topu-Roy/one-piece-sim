@@ -7,6 +7,26 @@
 import "@fontsource/peralta/400.css";
 import "../styles/global.css";
 import pkg from "../../package.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+}
+
+// Swap at launch — single constant feeds canonical + OG URLs site-wide.
+const SITE = "https://anime-draft.example";
+const BACKDROP_OG =
+  "https://res.cloudinary.com/nn2w9isf/image/upload/f_auto,q_auto/v1/anime-draft/ancient_bg?_a=BAMAROFG0";
+
+const {
+  title = "Anime Draft — Free One Piece Minigames",
+  description = "Anime Draft is a free One Piece minigame hub. Draft your own pirate from 184 characters, rank the strongest, and play more games.",
+  canonicalPath = "/",
+  ogImage = BACKDROP_OG,
+} = Astro.props;
+const canonical = `${SITE}${canonicalPath}`;
 ---
 
 <!doctype html>
@@ -16,7 +36,19 @@ import pkg from "../../package.json";
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <meta content={Astro.generator} name="generator" />
-    <title>Anime Draft — One Piece Character Builder</title>
+    <title>{title}</title>
+    <meta content={description} name="description" />
+    <link href={canonical} rel="canonical" />
+    <meta content="#181d26" name="theme-color" />
+    <meta content="website" property="og:type" />
+    <meta content={title} property="og:title" />
+    <meta content={description} property="og:description" />
+    <meta content={canonical} property="og:url" />
+    <meta content={ogImage} property="og:image" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content={title} name="twitter:title" />
+    <meta content={description} name="twitter:description" />
+    <meta content={ogImage} name="twitter:image" />
   </head>
   <body>
     <slot />

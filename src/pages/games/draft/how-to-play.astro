@@ -1,0 +1,91 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import NavBar from "../../../components/NavBar.svelte";
+
+// Per-game guide: rules, rounds, rarity, formula. Feeds /games/draft.
+const rounds = [
+  { n: 1, name: "Body", shows: "Name + race + rarity", pool: "All characters · ≥1 giant, oni or lunarian" },
+  { n: 2, name: "Armament Haki", shows: "Name + haki tier", pool: "All characters · ≥2 holders" },
+  { n: 3, name: "Observation Haki", shows: "Name + haki tier", pool: "All characters · ≥2 holders" },
+  { n: 4, name: "Conqueror's Haki", shows: "Name + haki tier", pool: "All characters · ≥2 holders" },
+  { n: 5, name: "Devil Fruit", shows: "Name + fruit name", pool: "Devil Fruit users only" },
+  { n: 6, name: "Weapon", shows: "Name + weapon name", pool: "≥3 of 4 are weapon users" },
+  { n: 7, name: "Intelligence", shows: "Name + INT value", pool: "All characters" },
+  { n: 8, name: "Battle IQ", shows: "Name + BIQ value", pool: "All characters" },
+];
+---
+
+<Layout
+  canonicalPath="/games/draft/how-to-play"
+  description="How to play the free One Piece draft game: 8 rounds, 4 donors each, 2 rerolls. Body, haki, Devil Fruit, weapon, intelligence and battle IQ explained."
+  title="How to Play the One Piece Draft Game — Rules & Rounds"
+>
+  <NavBar showRestart={false} />
+
+  <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+    <p class="text-xs font-medium tracking-[0.16px] text-ink/60 uppercase">
+      <a class="text-blue-700" href="/games/draft">One Piece draft game</a> · Guide
+    </p>
+    <h1 class="mt-2 font-display text-4xl leading-[1.1] font-normal text-ink">How to play</h1>
+    <p class="mt-4 text-base leading-relaxed text-ink/70">
+      Build an original pirate by harvesting one trait per round from 4 donor characters. Eight rounds, two shared
+      rerolls, then a live rank against all 184 roster characters.
+    </p>
+    <a
+      class="mt-6 inline-block rounded-xl bg-ink px-6 py-4 text-base font-medium text-white active:bg-black"
+      href="/games/draft"
+    >
+      Play now — it's free
+    </a>
+
+    <h2 class="mt-12 mb-4 font-display text-2xl font-normal text-ink">The 8 rounds</h2>
+    <div class="overflow-hidden rounded-xl border border-hairline">
+      {
+        rounds.map((r) => (
+          <div class="border-b border-hairline px-4 py-3 last:border-b-0">
+            <p class="text-sm font-medium text-ink">
+              Round {r.n} — {r.name}
+            </p>
+            <p class="mt-0.5 text-sm text-ink/60">
+              Shows: {r.shows} · Pool: {r.pool}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <h2 class="mt-12 mb-4 font-display text-2xl font-normal text-ink">Rarity & rerolls</h2>
+    <div class="flex flex-col gap-3 text-sm leading-relaxed text-ink/70">
+      <p>
+        Each option rolls rarity independently: 40% basic, 30% epic, 20% legend, 10% god. The body round rolls
+        hotter (25% god) and always includes a giant, oni or lunarian. Options are unique per round and never
+        repeat an already-picked donor.
+      </p>
+      <p>
+        You get 2 rerolls for the whole draft, usable in any round including the last. Spend them where they matter
+        most — Devil Fruit and haki rounds define a build.
+      </p>
+    </div>
+
+    <h2 class="mt-12 mb-4 font-display text-2xl font-normal text-ink">How stats work</h2>
+    <div class="flex flex-col gap-3 text-sm leading-relaxed text-ink/70">
+      <p>
+        Builds resolve to 7 stats: strength and durability come from the body only; attack and defense start at
+        zero and are fed purely by haki, Devil Fruit and weapon picks; speed, awareness and stamina mix base with
+        donor bonuses. Intelligence boosts awareness and battle IQ boosts strength by percentage.
+      </p>
+      <p>
+        Every donor stat is hand-graded from canon feats across 184 characters — see exactly where each one stands
+        on the
+        <a class="text-blue-700" href="/games/draft/rankings">full rankings page</a>.
+      </p>
+    </div>
+
+    <a
+      class="mt-12 inline-block rounded-xl bg-mustard px-6 py-4 text-base font-medium text-ink active:bg-yellow"
+      href="/games/draft"
+    >
+      Start your draft
+    </a>
+  </main>
+</Layout>

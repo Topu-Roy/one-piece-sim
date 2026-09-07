@@ -1,0 +1,200 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import NavBar from "../../../components/NavBar.svelte";
+import { Characters } from "../../../data/characters-v2";
+import { calculateCharacterBST, weaponLabel } from "../../../lib/draft";
+
+// Single Straw Hat hub: one strong page, zero doorway footprint.
+// Powers copy is rendered from dataset values, blurbs are editorial.
+const guides = [
+  {
+    id: "monkey-d-luffy",
+    blurb:
+      "Captain. Gear 5 Nika — a Mythical Zoan — plus supreme Armament and Conqueror's with advanced Observation. The highest-ranked Straw Hat in our model.",
+    qa: {
+      q: "What is Luffy's Devil Fruit called?",
+      a: "The Human-Human Fruit, Model: Nika — a Mythical Zoan the World Government renamed the Gum-Gum Fruit to hide. It grants the Gear 5 Sun God form.",
+    },
+  },
+  {
+    id: "roronoa-zoro",
+    blurb:
+      "First mate. No Devil Fruit — pure swordsmanship with advanced Armament and advanced Conqueror's coating through Enma. The crew's best weapon donor.",
+    qa: {
+      q: "Does Zoro have Conqueror's Haki?",
+      a: "Yes — advanced Conqueror's, unlocked against King in Wano and coated through his blades. Our data grades it advanced tier.",
+    },
+  },
+  {
+    id: "nami",
+    blurb:
+      "Navigator. No Devil Fruit and no haki — Nami fights with the Sorcery Clima-Tact staff and Zeus's thunder. Proof a build doesn't need haki to matter.",
+    qa: {
+      q: "Does Nami have a Devil Fruit?",
+      a: "No. Her weather eggs, mirages and Zeus thundercloud come from technology and a stolen soul-homie — no fruit, no haki, all tactics.",
+    },
+  },
+  {
+    id: "usopp",
+    blurb:
+      "Sniper. No Devil Fruit, but basic Observation Haki awakened in Dressrosa, paired with the Kabuto slingshot and Pop Green ammo.",
+    qa: {
+      q: "Does Usopp have Haki?",
+      a: "Yes — Observation, awakened sensing Sugar's aura across Dressrosa. It's basic tier in our data, but it makes him a legit round-3 donor.",
+    },
+  },
+  {
+    id: "sanji",
+    blurb:
+      "Cook. No Devil Fruit — advanced Armament and advanced Observation with Ifrit Jambe flames and exoskeleton durability. The crew's fastest fighter.",
+    qa: {
+      q: "Does Sanji have a Devil Fruit?",
+      a: "No — he famously refused even the Invisible Fruit on principle. His power is pure body: flames, speed, and advanced haki on both sides.",
+    },
+  },
+  {
+    id: "tony-tony-chopper",
+    blurb:
+      "Doctor. The Human-Human Fruit (standard Zoan) with no haki — Monster Point transformations carry his combat weight entirely through the fruit.",
+    qa: {
+      q: "What is Chopper's Devil Fruit?",
+      a: "The Human-Human Fruit — it turned a reindeer human-like and, with Rumble Balls, unlocks forms up to Monster Point.",
+    },
+  },
+  {
+    id: "nico-robin",
+    blurb:
+      "Archaeologist. The Flower-Flower Fruit (Paramecia) with no haki — Demonio Fleur giant limbs scale purely off fruit mastery and anatomy knowledge.",
+    qa: {
+      q: "What is Robin's Devil Fruit?",
+      a: "The Flower-Flower Fruit — sprout any body part on any surface. Wano's Demonio Fleur showed its top-end grappling power.",
+    },
+  },
+  {
+    id: "franky",
+    blurb:
+      "Shipwright. No Devil Fruit and no haki — a self-made cyborg wielding the General Franky arsenal. The crew's technology answer to powers.",
+    qa: {
+      q: "Does Franky have a Devil Fruit?",
+      a: "No. Every ability is cola-powered cybernetics he built himself — lasers, rockets, and the General Franky mecha.",
+    },
+  },
+  {
+    id: "brook",
+    blurb:
+      "Musician. The Revive-Revive Fruit (Paramecia) with no haki — soul chill through the Soul Solid sword plus unmatched speed make him lethal anyway.",
+    qa: {
+      q: "What is Brook's Devil Fruit?",
+      a: "The Revive-Revive Fruit — one extra life plus soul projection and freezing soul energy channeled through his blade.",
+    },
+  },
+  {
+    id: "jinbe",
+    blurb:
+      "Helmsman. No Devil Fruit and no weapon — basic Armament and Observation behind Fish-Man Karate shockwaves that hit through armor and water alike.",
+    qa: {
+      q: "Does Jinbe have Haki?",
+      a: "Yes — basic Armament and Observation, layered over Fish-Man Karate mastery. A former Warlord with fundamentals most pirates lack.",
+    },
+  },
+];
+
+const table = [...Characters]
+  .map((c) => ({ id: c.id, bst: calculateCharacterBST(c) }))
+  .sort((a, b) => b.bst - a.bst);
+const rankOf = (id: string) => table.findIndex((t) => t.id === id) + 1;
+
+const hakiLine = (id: string) => {
+  const c = Characters.find((x) => x.id === id)!;
+  const parts = [
+    `Armament ${c.haki.armament.tier}`,
+    `Observation ${c.haki.observation.tier}`,
+    `Conqueror's ${c.haki.conqueror.tier}`,
+  ];
+  return parts.join(" · ");
+};
+
+const fruitLine = (id: string) => {
+  const c = Characters.find((x) => x.id === id)!;
+  return c.devilFruit.type === "none" ? "No Devil Fruit" : `${c.devilFruit.englishName} (${c.devilFruit.type})`;
+};
+
+const weaponOf = (id: string) => {
+  const c = Characters.find((x) => x.id === id)!;
+  return c.weapon.type === "none" ? "Unarmed" : weaponLabel(c);
+};
+---
+
+<Layout
+  canonicalPath="/games/draft/characters"
+  description="Every Straw Hat's powers graded: who has Conqueror's Haki, who ate a Devil Fruit, and where each ranks of 184. Then draft them in the One Piece draft game."
+  title="Straw Hat Powers Explained — Haki, Fruits & Ranks"
+>
+  <NavBar showRestart={false} />
+
+  <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+    <p class="text-xs font-medium tracking-[0.16px] text-ink/60 uppercase">
+      <a class="text-blue-700" href="/games/draft">One Piece draft game</a> · Straw Hats
+    </p>
+    <h1 class="mt-2 font-display text-4xl leading-[1.1] font-normal text-ink">Straw Hat powers, graded</h1>
+    <p class="mt-4 text-base leading-relaxed text-ink/70">
+      All ten Straw Hats, scored by the same feat-graded model behind the draft game — haki tiers, Devil Fruits,
+      weapons and overall rank out of 184. Every one of them is draftable:
+      <a class="text-blue-700" href="/games/draft">play the draft game</a>.
+    </p>
+
+    <div class="mt-10 flex flex-col gap-6">
+      {
+        guides.map((g) => {
+          const c = Characters.find((x) => x.id === g.id)!;
+          return (
+            <section class="overflow-hidden rounded-xl border border-hairline" id={g.id}>
+              <div class="flex gap-4 p-5">
+                {c.imageURL && (
+                  <img
+                    alt={c.displayName}
+                    class="h-20 w-20 shrink-0 rounded-full border border-hairline object-cover"
+                    loading="lazy"
+                    src={c.imageURL}
+                  />
+                )}
+                <div class="min-w-0">
+                  <h2 class="font-display text-2xl font-normal text-ink">{c.displayName}</h2>
+                  <p class="mt-0.5 text-sm text-ink/60">
+                    #{rankOf(g.id)} of 184 · {c.rarity} · {calculateCharacterBST(c).toLocaleString()} BST
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-ink/70">{g.blurb}</p>
+                </div>
+              </div>
+              <dl class="border-t border-hairline bg-white px-5 py-3 text-sm">
+                <div class="flex gap-2 py-1">
+                  <dt class="w-20 shrink-0 text-ink/50">Haki</dt>
+                  <dd class="text-ink/80">{hakiLine(g.id)}</dd>
+                </div>
+                <div class="flex gap-2 py-1">
+                  <dt class="w-20 shrink-0 text-ink/50">Fruit</dt>
+                  <dd class="text-ink/80">{fruitLine(g.id)}</dd>
+                </div>
+                <div class="flex gap-2 py-1">
+                  <dt class="w-20 shrink-0 text-ink/50">Weapon</dt>
+                  <dd class="text-ink/80">{weaponOf(g.id)}</dd>
+                </div>
+              </dl>
+              <details class="border-t border-hairline px-5 py-3">
+                <summary class="cursor-pointer text-sm font-medium text-ink">{g.qa.q}</summary>
+                <p class="mt-1.5 text-sm leading-relaxed text-ink/70">{g.qa.a}</p>
+              </details>
+            </section>
+          );
+        })
+      }
+    </div>
+
+    <a
+      class="mt-12 inline-block rounded-xl bg-mustard px-6 py-4 text-base font-medium text-ink active:bg-yellow"
+      href="/games/draft"
+    >
+      Draft the Straw Hats yourself
+    </a>
+  </main>
+</Layout>
