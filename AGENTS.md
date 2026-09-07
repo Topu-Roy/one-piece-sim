@@ -1,6 +1,6 @@
 ## Instructions
 
-- Follow the design system of DESIGN.md - each component will be aligned with this design system
+- Follow the design system of design.md - each component will be aligned with this design system
 - Use Tailwindcss v4 for styling. Use updated v4 classes
 - Always use Bun as the package manager and executing files
 - Be strict with types using typescript

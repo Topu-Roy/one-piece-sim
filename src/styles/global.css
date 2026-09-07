@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Design tokens from DESIGN.md (Airtable editorial system).
+  Design tokens — see design.md ("Wanted Poster" system).
   Tailwind v4 exposes these as utilities, e.g. bg-canvas, text-ink.
   Haas Grotesk substitute: system grotesk stack (Inter/system-ui per spec note).
 */

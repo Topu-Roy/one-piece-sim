@@ -39,5 +39,5 @@ Rankings-v2.md       # generated roster rankings (read, don't hand-edit)
 ## Docs
 
 - `CORE_IDEA.md` — game design document (rounds, rarity, 7-stat formula)
-- `Rounds.md`, `DESIGN.md` — round spec, visual design system
+- `Rounds.md`, `design.md` — round spec, visual design system
 - `*_REVIEW.md`, `MISPLACED.md`, `RARITY_REVIEW.md` — canon audit trails behind the numbers

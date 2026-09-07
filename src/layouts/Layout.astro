@@ -13,6 +13,8 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   ogImage?: string;
+  // Style previews and utility pages opt out of the index.
+  noindex?: boolean;
 }
 
 // Swap at launch — single constant feeds canonical + OG URLs site-wide.
@@ -25,6 +27,7 @@ const {
   description = "Anime Draft is a free One Piece minigame hub. Draft your own pirate from 184 characters, rank the strongest, and play more games.",
   canonicalPath = "/",
   ogImage = BACKDROP_OG,
+  noindex = false,
 } = Astro.props;
 const canonical = `${SITE}${canonicalPath}`;
 ---
@@ -39,6 +42,7 @@ const canonical = `${SITE}${canonicalPath}`;
     <title>{title}</title>
     <meta content={description} name="description" />
     <link href={canonical} rel="canonical" />
+    {noindex && <meta content="noindex, nofollow" name="robots" />}
     <meta content="#181d26" name="theme-color" />
     <meta content="website" property="og:type" />
     <meta content={title} property="og:title" />

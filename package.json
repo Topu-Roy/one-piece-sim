@@ -1,7 +1,7 @@
 {
   "name": "anime-draft",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -20,6 +20,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/svelte": "^9.0.1",
     "@eslint/js": "^10.0.1",
+    "@fontsource/fredoka": "^5.3.0",
     "@fontsource/peralta": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "@typescript-eslint/parser": "^8.68.0",
