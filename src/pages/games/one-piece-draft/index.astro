@@ -1,0 +1,177 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import NavBar from "../../../components/NavBar.svelte";
+import { Characters } from "../../../games/one-piece-draft/data/characters-v2";
+import { calculateCharacterBST } from "../../../games/one-piece-draft/lib/draft";
+
+// Landing: owns the P1 query. Full SEO content + Play CTA → /play.
+const ranked = [...Characters]
+  .map((c) => ({ name: c.displayName, rarity: c.rarity, bst: calculateCharacterBST(c) }))
+  .sort((a, b) => b.bst - a.bst);
+const top5 = ranked.slice(0, 5);
+
+const steps = [
+  {
+    t: "Pick yer body",
+    d: "Round 1 sets looks, name and base stats — rarity-weighted, always a big-race option.",
+  },
+  { t: "Harvest haki", d: "Rounds 2–4: Armament, Observation, Conqueror's. Two guaranteed holders per round." },
+  {
+    t: "Fruit & weapon",
+    d: "Rounds 5–6: Devil Fruit users only, then 3-of-4 weapon users. The build-defining picks.",
+  },
+  {
+    t: "Mind & rank",
+    d: "Rounds 7–8: intelligence and battle IQ boost stats by percent — then a live rank of 185.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How long does a draft take?",
+    a: "About five minutes — eight quick rounds, four donors each. Cards reveal one at a time, or tap ahead to fast-forward.",
+  },
+  {
+    q: "Is it free? Do I need an account?",
+    a: "Free forever, zero accounts. Your draft lives in the browser and vanishes when you close the tab — try again as often as you like.",
+  },
+  {
+    q: "What do rerolls do?",
+    a: "You get 2 per draft, usable in any round including the last. A reroll swaps the current 4 donors for 4 fresh faces — save them for Devil Fruit and haki rounds.",
+  },
+  {
+    q: "What does the final rank mean?",
+    a: "Your 7-stat build is scored by the same feat-graded model as all 184 roster characters. Rank #1 of 185 beats Imu himself — good luck.",
+  },
+  {
+    q: "Can I play on my phone?",
+    a: "Yes — the whole game is touch-first and mobile-sized. Draft on the bus, argue about the results everywhere else.",
+  },
+];
+---
+
+<Layout
+  canonicalPath="/games/one-piece-draft"
+  description="Play the free One Piece draft game: harvest haki, Devil Fruits and weapons from 184 characters over 8 rounds, then rank your custom pirate build."
+  title="One Piece Draft Game — Build Your Strongest Pirate"
+>
+  <NavBar showRestart={false} />
+
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-5xl px-6">
+      <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
+      <section class="py-14 text-center md:py-20">
+        <p
+          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+        >
+          ★ Free One Piece minigame ★
+        </p>
+        <h1 class="mx-auto mt-6 max-w-3xl font-hand text-6xl leading-[1.05]">One Piece Draft Game</h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg">
+          Build your strongest pirate: draft a body, three haki, a Devil Fruit and a weapon from 184 canon-graded
+          characters — then rank your custom build against the full roster.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a
+            class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            href="/games/one-piece-draft/play"
+          >
+            ⚓ Play now — it's free
+          </a>
+          <a
+            class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            href="/games/one-piece-draft/how-to-play"
+          >
+            How to play
+          </a>
+        </div>
+      </section>
+
+      <!-- How it works: 4 steps. -->
+      <section class="mb-12">
+        <h2 class="text-center font-hand text-4xl">How a draft works</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-4">
+          {
+            steps.map((s, i) => (
+              <div class="rounded-2xl border-[3px] border-cocoa bg-white p-5 shadow-[4px_4px_0_#3a2a18]">
+                <p class="font-hand text-3xl text-coral">Step {i + 1}</p>
+                <p class="mt-1 font-bold">{s.t}</p>
+                <p class="mt-1 text-sm text-cocoa/70">{s.d}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Rankings teaser: top 5, links to the P2 magnet page. -->
+      <section class="mb-12">
+        <div class="mb-4 flex items-baseline justify-between">
+          <h2 class="font-hand text-4xl">Strongest right now</h2>
+          <a class="text-sm font-bold text-coral underline" href="/games/one-piece-draft/rankings">
+            Full 184-character rankings
+          </a>
+        </div>
+        <ol class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+          {
+            top5.map((c, i) => (
+              <li class="flex items-center justify-between border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+                <span>
+                  <span class="mr-3 font-bold text-cocoa/50">#{i + 1}</span>
+                  <span class="font-bold">{c.name}</span>
+                </span>
+                <span class="text-sm text-cocoa/60">
+                  {c.rarity} · {c.bst.toLocaleString()}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <!-- FAQ: play-flavored (hub keeps the lore questions — no duplication). -->
+      <section class="mx-auto mb-12 max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Before ye play</h2>
+        <div class="mt-6 flex flex-col gap-4">
+          {
+            faqs.map((f) => (
+              <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
+                <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
+                <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Spokes + final CTA. -->
+      <section class="mb-16 text-center">
+        <a
+          class="inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+          href="/games/one-piece-draft/play"
+        >
+          ⚓ Start drafting
+        </a>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a
+            class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+            href="/games/one-piece-draft/how-to-play"
+          >
+            How to play
+          </a>
+          <a
+            class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+            href="/games/one-piece-draft/rankings"
+          >
+            Character rankings
+          </a>
+          <a
+            class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+            href="/games/one-piece-draft/characters"
+          >
+            Straw Hat guides
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>

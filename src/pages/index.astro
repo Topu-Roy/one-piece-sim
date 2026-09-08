@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.svelte";
-import { Characters } from "../data/characters-v2";
-import { calculateCharacterBST } from "../lib/draft";
+import { Characters } from "../games/one-piece-draft/data/characters-v2";
+import { calculateCharacterBST } from "../games/one-piece-draft/lib/draft";
 
 // Hub landing: brand + game cards + rankings teaser + FAQ.
-// All equity flows to /games/draft via exact-anchor CTAs.
+// All equity flows to /games/one-piece-draft via exact-anchor CTAs.
 const ranked = [...Characters]
   .map((c) => ({ name: c.displayName, rarity: c.rarity, bst: calculateCharacterBST(c) }))
   .sort((a, b) => b.bst - a.bst);
@@ -59,13 +59,13 @@ const faqs = [
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/games/draft"
+            href="/games/one-piece-draft/play"
           >
             ⚓ Play the draft game
           </a>
           <a
             class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/games/draft/how-to-play"
+            href="/games/one-piece-draft/how-to-play"
           >
             How to play
           </a>
@@ -84,7 +84,7 @@ const faqs = [
         </p>
         <a
           class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-8 py-3 text-lg font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-          href="/games/draft"
+          href="/games/one-piece-draft/play"
         >
           Start drafting →
         </a>
@@ -94,7 +94,7 @@ const faqs = [
       <section class="mb-12">
         <div class="mb-4 flex items-baseline justify-between">
           <h2 class="font-hand text-4xl">Strongest right now</h2>
-          <a class="text-sm font-bold text-coral underline" href="/games/draft/rankings">
+          <a class="text-sm font-bold text-coral underline" href="/games/one-piece-draft/rankings">
             Full 184-character rankings
           </a>
         </div>
@@ -134,19 +134,19 @@ const faqs = [
       <section class="mb-16 flex flex-wrap justify-center gap-3">
         <a
           class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
-          href="/games/draft/how-to-play"
+          href="/games/one-piece-draft/how-to-play"
         >
           How to play
         </a>
         <a
           class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
-          href="/games/draft/rankings"
+          href="/games/one-piece-draft/rankings"
         >
           Character rankings
         </a>
         <a
           class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
-          href="/games/draft/characters"
+          href="/games/one-piece-draft/characters"
         >
           Straw Hat guides
         </a>

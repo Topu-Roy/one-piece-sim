@@ -3,7 +3,9 @@
 Volumes from keyword-tool check (Sep 2026). Every term maps to exactly one
 URL — no two pages target the same query (cannibalization guard).
 
-## P1 — Game page (`/games/draft`): intent-first, must-win
+## P1 — Game landing (`/games/one-piece-draft`): intent-first, must-win
+
+## (`/games/one-piece-draft/play` = game, noindex → landing — converts, never mapped)
 
 | Keyword                            | Volume | Note                                                                |
 | ---------------------------------- | ------ | ------------------------------------------------------------------- |
@@ -19,7 +21,7 @@ URL — no two pages target the same query (cannibalization guard).
 | one piece minigames       | check  | Hub copy only — NOT a page target (hub intent belongs to multi-game hubs; revisit if game #2 ships) |
 | one piece mini games free | check  | Hub copy variant of above                                                                           |
 
-## P2 — Rankings (`/games/draft/rankings`): traffic magnet → refers to game
+## P2 — Rankings (`/games/one-piece-draft/rankings`): traffic magnet → refers to game
 
 | Keyword                               | Volume | Note                                                             |
 | ------------------------------------- | ------ | ---------------------------------------------------------------- |
@@ -27,7 +29,7 @@ URL — no two pages target the same query (cannibalization guard).
 | one piece strongest characters ranked | <100   | Page title target                                                |
 | imu one piece                         | >10k   | Imu-#1 narrative intro; game page can never target this directly |
 
-## P3 — FAQ + How-to-play (`/`, `/games/draft/how-to-play`): near-zero competition
+## P3 — FAQ + How-to-play (`/`, `/games/one-piece-draft/how-to-play`): near-zero competition
 
 | Keyword                               | Volume | Note                                             |
 | ------------------------------------- | ------ | ------------------------------------------------ |
@@ -38,7 +40,7 @@ URL — no two pages target the same query (cannibalization guard).
 | imu vs joy boy                        | check  | Hub FAQ — our 11,392 vs 11,371 gap is the hook   |
 | does zoro have conqueror's haki       | check  | Hub FAQ                                          |
 
-## P4 — Characters (`/games/draft/characters`): single page, name+modifier only
+## P4 — Characters (`/games/one-piece-draft/characters`): single page, name+modifier only
 
 Never bare `[name] one piece` (Fandom/Wikipedia/Netflix own all ten heads).
 One page, ten anchored sections — no doorway footprint.

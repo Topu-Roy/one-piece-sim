@@ -1,5 +1,5 @@
-import { Characters } from "../src/data/characters-v2";
-import { calculateCharacterBST, weaponLabel } from "../src/lib/draft";
+import { Characters } from "../data/characters-v2";
+import { calculateCharacterBST, weaponLabel } from "../lib/draft";
 import { writeFileSync } from "fs";
 
 /** Rankings use the lib's single BST implementation — no local copy to drift. */
@@ -27,7 +27,7 @@ results.forEach((r, i) => {
   lines.push(`| ${i + 1} | ${r.name} | ${r.rarity} | ${r.bst.toLocaleString()} | ${r.race} | ${r.weapon} |`);
 });
 
-writeFileSync("Rankings-v2.md", lines.join("\n"));
+writeFileSync("src/games/one-piece-draft/docs/Rankings-v2.md", lines.join("\n"));
 console.log(`Rankings-v2.md written — ${results.length} characters`);
 console.log("\nTop 10:");
 results.slice(0, 10).forEach((r, i) => {

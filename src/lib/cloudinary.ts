@@ -17,8 +17,8 @@ cloudinary.config({
 });
 
 const FOLDER = "anime-draft/characters";
-const INPUT_DIR = "src/assets/thumbnails-optimized";
-const OUTPUT_FILE = "src/data/image-urls.json";
+const INPUT_DIR = "src/games/one-piece-draft/assets/thumbnails-optimized";
+const OUTPUT_FILE = "src/games/one-piece-draft/data/image-urls.json";
 
 const files = readdirSync(INPUT_DIR).filter((f) => extname(f) === ".webp");
 

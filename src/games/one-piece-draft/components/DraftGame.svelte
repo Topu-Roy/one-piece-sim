@@ -2,7 +2,7 @@
   import { isComplete } from "../stores/draft";
   import RoundScreen from "./RoundScreen.svelte";
   import ResultScreen from "./ResultScreen.svelte";
-  import NavBar from "./NavBar.svelte";
+  import NavBar from "../../../components/NavBar.svelte";
 </script>
 
 <!-- Parchment canvas per the Wanted Poster system — no atmospheric

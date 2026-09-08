@@ -2,8 +2,8 @@ import { readdirSync } from "fs";
 import { execSync } from "child_process";
 import { join, basename, extname } from "path";
 
-const inputDir = "src/assets/thumbnails";
-const outputDir = "src/assets/thumbnails-optimized";
+const inputDir = "src/games/one-piece-draft/assets/thumbnails";
+const outputDir = "src/games/one-piece-draft/assets/thumbnails-optimized";
 
 const files = readdirSync(inputDir);
 let converted = 0;

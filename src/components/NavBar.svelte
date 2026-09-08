@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { draft } from "../stores/draft";
+  // Shared chrome, but restart acts on the draft game's store (static pages
+  // render with showRestart={false}, so the import is inert there).
+  import { draft } from "../games/one-piece-draft/stores/draft";
 
   // Hub pages reuse the bar as chrome without the restart action.
   export let showRestart: boolean = true;

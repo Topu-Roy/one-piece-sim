@@ -6,38 +6,52 @@ Stack: Astro 7 + Svelte 5 + Tailwind CSS v4 + TypeScript (strict), client-side o
 
 ## Commands
 
-| Command                  | Action                                        |
-| :----------------------- | :-------------------------------------------- |
-| `bun install`            | Install dependencies                          |
-| `bun dev`                | Dev server at `localhost:4321`                |
-| `bun run build`          | Production build to `./dist/`                 |
-| `bun run preview`        | Preview the build locally                     |
-| `bun run tsc --noEmit`   | Typecheck                                     |
-| `bun run lint`           | ESLint                                        |
-| `bun run lint:fix`       | ESLint with autofix                           |
-| `bun run format`         | Prettier write                                |
-| `bun scripts/rank-v2.ts` | Regenerate `Rankings-v2.md` from current data |
+| Command                                            | Action                                |
+| :------------------------------------------------- | :------------------------------------ |
+| `bun install`                                      | Install dependencies                  |
+| `bun dev`                                          | Dev server at `localhost:4321`        |
+| `bun run build`                                    | Production build to `./dist/`         |
+| `bun run preview`                                  | Preview the build locally             |
+| `bun run tsc --noEmit`                             | Typecheck                             |
+| `bun run lint`                                     | ESLint                                |
+| `bun run lint:fix`                                 | ESLint with autofix                   |
+| `bun run format`                                   | Prettier write                        |
+| `bun src/games/one-piece-draft/scripts/rank-v2.ts` | Regenerate rankings from current data |
 
 After data or formula changes: regen rankings → `tsc` → `lint:fix` → `format` → `lint` → sanity drafts → `build`.
 
 ## Project Structure
 
+Per-game folders: each game owns its code, data, scripts and docs under
+`src/games/[slug]/`. Routes are thin wrappers in `src/pages/games/[slug]/`.
+Shared chrome (Layout, styles, NavBar, uploader) stays at `src/` top level.
+
 ```text
 src/
-├── components/      # DraftGame, RoundScreen, CharacterCard, DraftPicks,
-│                    # ResultScreen, RerollButton, NavBar (Svelte)
-├── data/            # characters-v2.ts — all 184 hand-tuned characters
-├── lib/             # draft.ts — rolls, guarantees, stat math, ranking
-│                    # types.ts, preload.ts, cloudinary.ts
-├── stores/          # draft.ts — Svelte draft state store
-├── assets/          # ancient_bg.jpg backdrop
-└── pages/index.astro# client:only entry
-scripts/rank-v2.ts   # rankings generator (imports the lib's BST — no copy)
-Rankings-v2.md       # generated roster rankings (read, don't hand-edit)
+├── pages/             # hub index.astro, preview/a.astro
+│   └── games/one-piece-draft/
+│       ├── index.astro      # landing (SEO owner, P1 query)
+│       ├── play.astro       # game + SEO footer (noindex → landing)
+│       └── how-to-play|rankings|characters.astro
+├── games/one-piece-draft/
+│   ├── components/    # DraftGame, RoundScreen, CharacterCard, DraftPicks,
+│   │                  # ResultScreen, RerollButton (Svelte)
+│   ├── lib/           # draft.ts (rolls, guarantees, math, ranking),
+│   │                  # types.ts, preload.ts
+│   ├── data/          # characters-v2.ts (184 hand-tuned), image-urls.json
+│   ├── stores/        # draft.ts — Svelte draft state store
+│   ├── assets/        # thumbnails-optimized/ (Cloudinary upload source)
+│   ├── scripts/       # rank-v2.ts (imports the lib's BST — no copy)
+│   └── docs/          # CORE_IDEA, Rounds, *_REVIEW, MISPLACED, RARITY_REVIEW,
+│                      # Rankings-v2.md (generated — read, don't hand-edit)
+├── components/NavBar.svelte  # shared chrome
+├── layouts/Layout.astro      # shared chrome (SEO props)
+├── lib/cloudinary.ts         # generic uploader
+└── assets/ancient_bg.avif    # site OG master
 ```
 
 ## Docs
 
-- `CORE_IDEA.md` — game design document (rounds, rarity, 7-stat formula)
-- `Rounds.md`, `design.md` — round spec, visual design system
-- `*_REVIEW.md`, `MISPLACED.md`, `RARITY_REVIEW.md` — canon audit trails behind the numbers
+- `src/games/one-piece-draft/docs/CORE_IDEA.md` — game design (rounds, rarity, formula)
+- `src/games/one-piece-draft/docs/Rounds.md`, `design.md` — round spec, visual design system
+- `src/games/one-piece-draft/docs/*_REVIEW.md`, `MISPLACED.md`, `RARITY_REVIEW.md` — canon audit trails
