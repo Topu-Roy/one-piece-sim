@@ -4,8 +4,8 @@ import NavBar from "../../../components/NavBar.svelte";
 import { Characters } from "../../../games/one-piece-draft/data/characters-v2";
 import { calculateCharacterBST, weaponLabel } from "../../../games/one-piece-draft/lib/draft";
 
-// Single Straw Hat hub: one strong page, zero doorway footprint.
-// Powers copy is rendered from dataset values, blurbs are editorial.
+// All-characters hub: 10 graded Straw Hat guides + every donor grouped by
+// tier (god → basic = strongest first). Card grids carry image + name only.
 const guides = [
   {
     id: "monkey-d-luffy",
@@ -99,11 +99,6 @@ const guides = [
   },
 ];
 
-const table = [...Characters]
-  .map((c) => ({ id: c.id, bst: calculateCharacterBST(c) }))
-  .sort((a, b) => b.bst - a.bst);
-const rankOf = (id: string) => table.findIndex((t) => t.id === id) + 1;
-
 const hakiLine = (id: string) => {
   const c = Characters.find((x) => x.id === id)!;
   const parts = [
@@ -123,28 +118,62 @@ const weaponOf = (id: string) => {
   const c = Characters.find((x) => x.id === id)!;
   return c.weapon.type === "none" ? "Unarmed" : weaponLabel(c);
 };
+
+const tiers = [
+  {
+    key: "god",
+    title: "God tier",
+    blurb:
+      "The canon apex — eight monsters above the rest. Imu, Joy Boy, Rocks, Luffy, Shanks, Roger, Dragon and Whitebeard. Pull one in any round and the draft bends around you.",
+  },
+  {
+    key: "legend",
+    title: "Legend tier",
+    blurb:
+      "Yonko commanders, Admirals, Warlords and Gorosei — the strongest mortals in the setting. Legend donors win more drafts than gods, simply because you actually draw them.",
+  },
+  {
+    key: "epic",
+    title: "Epic tier",
+    blurb:
+      "Top officers, Warlord crews and New World veterans. Epic is the workhorse tier — solid haki, real fruits, honest weapons in nearly every round.",
+  },
+  {
+    key: "basic",
+    title: "Basic tier",
+    blurb:
+      "East Blue rookies, comic relief and lovable weaklings. Basics rarely carry a round — but a basic body with god donors still wins drafts.",
+  },
+] as const;
+
+const byTier = (rarity: string) =>
+  [...Characters]
+    .filter((c) => c.rarity === rarity)
+    .map((c) => ({ id: c.id, name: c.displayName, imageURL: c.imageURL, bst: calculateCharacterBST(c) }))
+    .sort((a, b) => b.bst - a.bst);
 ---
 
 <Layout
   canonicalPath="/one-piece/draft/characters"
-  description="Every Straw Hat's powers graded: who has Conqueror's Haki, who ate a Devil Fruit, and where each ranks of 184. Then draft them in the One Piece draft game."
-  title="Straw Hat Powers Explained — Haki, Fruits & Ranks"
+  description="Every One Piece character in the draft game, grouped god to basic: Straw Hat powers graded, all 184 donors with haki, Devil Fruits and weapons."
+  title="One Piece Characters — All 184 by Tier, Powers & Ranks"
 >
   <NavBar showRestart={false} />
 
   <div class="bg-paper text-cocoa">
-    <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+    <main class="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
       <p class="text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
-        <a class="text-coral underline" href="/one-piece/draft">One Piece draft game</a> · Straw Hats
+        <a class="text-coral underline" href="/one-piece/draft">One Piece draft game</a> · Characters
       </p>
-      <h1 class="mt-2 font-hand text-5xl leading-[1.05]">Straw Hat powers, graded</h1>
-      <p class="mt-4 text-lg leading-relaxed">
-        All ten Straw Hats, scored by the same feat-graded model behind the draft game — haki tiers, Devil Fruits,
-        weapons and overall rank out of 184. Every one of them is draftable:
-        <a class="font-bold text-coral underline" href="/one-piece/draft/play">play the draft game</a>.
+      <h1 class="mt-2 font-hand text-5xl leading-[1.05]">One Piece characters</h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed">
+        All 184 draftable characters, grouped strongest-first: god, legend, epic, basic. Straw Hat powers graded
+        stat by stat below — then the full roster, every one of them draftable:
+        <a class="font-bold text-coral underline" href="/one-piece/draft#play">play the draft game</a>.
       </p>
 
-      <div class="mt-10 flex flex-col gap-6">
+      <h2 class="mt-12 mb-4 font-hand text-4xl">Straw Hats</h2>
+      <div class="grid gap-6 md:grid-cols-2">
         {
           guides.map((g) => {
             const c = Characters.find((x) => x.id === g.id)!;
@@ -163,10 +192,8 @@ const weaponOf = (id: string) => {
                     />
                   )}
                   <div class="min-w-0">
-                    <h2 class="font-hand text-3xl">{c.displayName}</h2>
-                    <p class="mt-0.5 text-sm text-cocoa/60">
-                      #{rankOf(g.id)} of 184 · {c.rarity} · {calculateCharacterBST(c).toLocaleString()} BST
-                    </p>
+                    <h3 class="font-hand text-3xl">{c.displayName}</h3>
+                    <p class="mt-0.5 text-sm font-bold text-coral uppercase">{c.rarity}</p>
                     <p class="mt-2 leading-relaxed text-cocoa/80">{g.blurb}</p>
                   </div>
                 </div>
@@ -194,11 +221,41 @@ const weaponOf = (id: string) => {
         }
       </div>
 
+      {
+        tiers.map((t) => {
+          const members = byTier(t.key);
+          return (
+            <section class="mt-12">
+              <div class="mb-4 flex items-baseline justify-between">
+                <h2 class="font-hand text-4xl">{t.title}</h2>
+                <span class="text-sm font-bold text-cocoa/60">{members.length} characters</span>
+              </div>
+              <p class="mb-4 max-w-2xl text-cocoa/80">{t.blurb}</p>
+              <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6">
+                {members.map((m) => (
+                  <div class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+                    {m.imageURL && (
+                      <img
+                        alt={m.name}
+                        class="aspect-square w-full object-cover"
+                        loading="lazy"
+                        src={m.imageURL}
+                      />
+                    )}
+                    <p class="px-1 py-2 text-center font-hand text-lg leading-tight">{m.name}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })
+      }
+
       <a
         class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-        href="/one-piece/draft/play"
+        href="/one-piece/draft#play"
       >
-        ⚓ Draft the Straw Hats yourself
+        ⚓ Draft them yourself
       </a>
     </main>
   </div>

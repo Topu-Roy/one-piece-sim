@@ -106,7 +106,7 @@
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
+<div class="mx-auto flex w-full max-w-5xl flex-col items-center px-6 py-8">
   <div class="flex w-full items-center justify-between gap-4 pb-8">
     <p class="shrink-0 text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
       Round {round} of 8
@@ -176,7 +176,7 @@
   {/key}
 
   <!-- Always visible: ghost rows hold all 8 rounds until picked. -->
-  <div class="flex w-full justify-center">
+  <div class="flex w-full flex-col items-center justify-center gap-2">
     <DraftPicks picks={$draft.picks} />
   </div>
 </div>

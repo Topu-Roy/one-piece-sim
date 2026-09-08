@@ -5,7 +5,7 @@ URL — no two pages target the same query (cannibalization guard).
 
 ## P1 — Game landing (`/one-piece/draft`): intent-first, must-win
 
-## (`/one-piece/draft/play` = game, indexed self-canonical — captures "play ..." queries, links home to landing)
+## (game embedded with `#play` anchor — "play ..." queries land here, no separate play URL)
 
 | Keyword                            | Volume | Note                                                                |
 | ---------------------------------- | ------ | ------------------------------------------------------------------- |
@@ -29,7 +29,7 @@ URL — no two pages target the same query (cannibalization guard).
 | one piece minigames | check  | Hero copy + H1 support                     |
 | best one piece game | >100   | Hero copy; landing + draft pages reinforce |
 
-## P2 — Rankings (`/one-piece/draft/rankings`): traffic magnet → refers to game
+## P2 — Characters (`/one-piece/draft/characters`): traffic magnet → refers to game
 
 | Keyword                               | Volume | Note                                                             |
 | ------------------------------------- | ------ | ---------------------------------------------------------------- |

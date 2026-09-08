@@ -19,7 +19,7 @@
     <div class="hidden items-center gap-5 text-sm font-bold text-cocoa/70 sm:flex">
       <a href="/one-piece">One Piece</a>
       <a href="/one-piece/draft">Draft</a>
-      <a href="/one-piece/draft/rankings">Rankings</a>
+      <a href="/one-piece/draft/characters">Characters</a>
       <a href="/one-piece/draft/how-to-play">Guides</a>
     </div>
 

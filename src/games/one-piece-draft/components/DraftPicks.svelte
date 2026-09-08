@@ -2,8 +2,13 @@
   import type { DraftPick } from "../lib/types";
   import { TOTAL_ROUNDS, getRoundType } from "../lib/draft";
   import { Characters } from "../data/characters-v2";
+  import { draft } from "../stores/draft";
 
   export let picks: DraftPick[];
+
+  function handleReset() {
+    draft.reset();
+  }
 
   // Reactive: rebuild every time picks changes, or the list never updates.
   $: byRound = new Map(picks.map((p) => [p.round, p]));
@@ -111,3 +116,12 @@
     {/each}
   </div>
 </div>
+
+{#if picks.length > 0}
+  <button
+    class="mt-3 rounded-2xl border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+    on:click={handleReset}
+  >
+    ↺ Restart draft
+  </button>
+{/if}

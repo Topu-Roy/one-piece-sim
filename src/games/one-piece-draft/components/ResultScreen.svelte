@@ -55,11 +55,19 @@
     </div>
   {/if}
 
+  <!-- Coral sticker CTA with the toy squish. -->
+  <button
+    class="rounded-2xl border-4 border-cocoa bg-coral px-6 py-4 text-base font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+    on:click={handleNewDraft}
+  >
+    Try Again
+  </button>
+
   {#if stats}
     {#if buildRank}
       <!-- Rank panel: forest signature card, gold numeral, ladder pills. -->
       <div
-        class="mb-8 w-full max-w-lg rounded-3xl border-4 border-cocoa bg-forest p-6 text-center shadow-[8px_8px_0_#3a2a18] md:p-8"
+        class="my-8 w-full max-w-lg rounded-3xl border-4 border-cocoa bg-forest p-6 text-center shadow-[8px_8px_0_#3a2a18] md:p-8"
       >
         <div class="flex items-baseline justify-center gap-2">
           <span class="font-hand text-6xl leading-none font-normal text-yellow md:text-7xl">
@@ -137,13 +145,5 @@
         </div>
       </div>
     {/if}
-
-    <!-- Coral sticker CTA with the toy squish. -->
-    <button
-      class="rounded-2xl border-4 border-cocoa bg-coral px-6 py-4 text-base font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-      on:click={handleNewDraft}
-    >
-      Try Again
-    </button>
   {/if}
 </div>

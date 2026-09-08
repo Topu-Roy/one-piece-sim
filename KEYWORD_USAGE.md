@@ -1,292 +1,55 @@
-# Keyword usage — per page
+# Keyword usage — per route
 
-Generated from built HTML (`bun run build` first). Case-insensitive body-text counts (scripts/styles excluded). Title/H1 placement listed separately — one exact-match in title + H1 outweighs ten body mentions.
+Generated from built HTML (`bun run build` first). Case-insensitive body-text counts (scripts/styles excluded). One exact-match in title + H1 outweighs ten body mentions.
 
-## Title / H1 per page
+## `/`
 
-- `/`
-  - Title: Anime Draft — Free Anime Minigames
-  - H1: Anime Draft
-- `/one-piece`
-  - Title: One Piece Games — Free Minigames | Anime Draft
-  - H1: One Piece Games
-- `/one-piece/draft`
-  - Title: One Piece Draft Game — Build Your Strongest Pirate
-  - H1: One Piece Draft Game
-- `/one-piece/draft/play`
-  - Title: Play — One Piece Draft Game | Anime Draft
-  - H1: Play the One Piece draft game
-- `/one-piece/draft/how-to-play`
-  - Title: How to Play the One Piece Draft Game — Rules &amp; Rounds
-  - H1: How to play
-- `/one-piece/draft/rankings`
-  - Title: Strongest One Piece Characters Ranked — Full 184 List
-  - H1: Strongest One Piece characters, ranked
-- `/one-piece/draft/characters`
-  - Title: Straw Hat Powers Explained — Haki, Fruits &amp; Ranks
-  - H1: Straw Hat powers, graded
+- Title: Anime Draft — Free Anime Minigames
+- H1: Anime Draft
+- Body: 170 words
+- P1: "one piece draft game" ×2
+- Hub: "anime draft" ×5, "anime minigames" ×2, "free anime minigames" ×2
+- P1F: "one piece games" ×1, "naruto" ×3
+- P4: "haki" ×1
 
-## P1
+## `/one-piece`
 
-- "one piece draft game" — total 11
-  - `/`: 2
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 2
-  - `/one-piece/draft/play`: 3
-  - `/one-piece/draft/how-to-play`: 2
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 1
+- Title: One Piece Games — Free Minigames | Anime Draft
+- H1: One Piece Games
+- Body: 1002 words
+- P1: "best one piece game" ×1, "build your own pirate" ×1
+- Hub: "anime draft" ×3
+- P1F: "one piece games" ×4
+- P3: "does blackbeard have conqueror" ×1, "does garp have conqueror" ×1, "does koby have conqueror" ×1, "what is imu" ×1, "imu vs joy boy" ×2, "does zoro have conqueror" ×1
+- P4: "luffy" ×3, "zoro" ×3, "usopp" ×1, "sanji" ×1, "devil fruit" ×8, "haki" ×10
 
-- "best one piece game" — total 2
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 1
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
+## `/one-piece/draft`
 
-- "build your own pirate" — total 2
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 1
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
+- Title: One Piece Draft Game — Build Your Strongest Pirate
+- H1: One Piece Draft Game
+- Body: 1009 words
+- P1: "one piece draft game" ×3, "best one piece game" ×1, "build your own pirate" ×1
+- Hub: "anime draft" ×2
+- P4: "luffy" ×3, "devil fruit" ×7, "haki" ×11
 
-- "build your own one piece character" — total 0
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
+## `/one-piece/draft/how-to-play`
 
-## Hub
+- Title: How to Play the One Piece Draft Game — Rules &amp; Rounds
+- H1: How to play
+- Body: 362 words
+- P1: "one piece draft game" ×2
+- Hub: "anime draft" ×2
+- P4: "devil fruit" ×4, "haki" ×8
 
-- "anime draft" — total 18
-  - `/`: 5
-  - `/one-piece`: 3
-  - `/one-piece/draft`: 2
-  - `/one-piece/draft/play`: 2
-  - `/one-piece/draft/how-to-play`: 2
-  - `/one-piece/draft/rankings`: 2
-  - `/one-piece/draft/characters`: 2
+## `/one-piece/draft/characters`
 
-- "one piece minigame" — total 1
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 1
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-- "one piece mini games" — total 1
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-## P2
-
-- "strongest one piece characters ranked" — total 1
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 0
-
-- "strongest one piece characters" — total 2
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 2
-  - `/one-piece/draft/characters`: 0
-
-- "imu one piece" — total 1
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 0
-
-## P3
-
-- "does blackbeard have conqueror" — total 1
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-- "does garp have conqueror" — total 1
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-- "does koby have conqueror" — total 1
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-- "what is imu" — total 1
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-- "imu vs joy boy" — total 2
-  - `/`: 0
-  - `/one-piece`: 2
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 0
-
-- "does zoro have conqueror" — total 2
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 0
-  - `/one-piece/draft/characters`: 1
-
-## P4
-
-- "luffy" — total 5
-  - `/`: 0
-  - `/one-piece`: 1
-  - `/one-piece/draft`: 1
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "zoro" — total 5
-  - `/`: 0
-  - `/one-piece`: 2
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "nami" — total 4
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 3
-
-- "usopp" — total 3
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "sanji" — total 3
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "chopper" — total 3
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "robin" — total 3
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "franky" — total 6
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 5
-
-- "brook" — total 3
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "jinbe" — total 3
-  - `/`: 0
-  - `/one-piece`: 0
-  - `/one-piece/draft`: 0
-  - `/one-piece/draft/play`: 0
-  - `/one-piece/draft/how-to-play`: 0
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 2
-
-- "devil fruit" — total 32
-  - `/`: 0
-  - `/one-piece`: 3
-  - `/one-piece/draft`: 3
-  - `/one-piece/draft/play`: 1
-  - `/one-piece/draft/how-to-play`: 4
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 20
-
-- "haki" — total 43
-  - `/`: 1
-  - `/one-piece`: 5
-  - `/one-piece/draft`: 3
-  - `/one-piece/draft/play`: 1
-  - `/one-piece/draft/how-to-play`: 8
-  - `/one-piece/draft/rankings`: 1
-  - `/one-piece/draft/characters`: 24
+- Title: One Piece Characters — All 184 by Tier, Powers &amp; Ranks
+- H1: One Piece characters
+- Body: 1062 words
+- P1: "one piece draft game" ×1
+- Hub: "anime draft" ×2
+- P3: "does zoro have conqueror" ×1
+- P4: "luffy" ×4, "zoro" ×3, "nami" ×4, "usopp" ×3, "sanji" ×3, "chopper" ×3, "robin" ×3, "franky" ×6, "brook" ×3, "jinbe" ×3, "devil fruit" ×19, "haki" ×23
 
 ## Notes
 

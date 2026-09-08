@@ -7,9 +7,7 @@ const pages: Record<string, string> = {
   "/": "dist/index.html",
   "/one-piece": "dist/one-piece/index.html",
   "/one-piece/draft": "dist/one-piece/draft/index.html",
-  "/one-piece/draft/play": "dist/one-piece/draft/play/index.html",
   "/one-piece/draft/how-to-play": "dist/one-piece/draft/how-to-play/index.html",
-  "/one-piece/draft/rankings": "dist/one-piece/draft/rankings/index.html",
   "/one-piece/draft/characters": "dist/one-piece/draft/characters/index.html",
 };
 
@@ -20,7 +18,8 @@ const keywords: Record<string, string[]> = {
     "build your own pirate",
     "build your own one piece character",
   ],
-  Hub: ["anime draft", "one piece minigame", "one piece mini games"],
+  Hub: ["anime draft", "anime minigames", "free anime minigames"],
+  P1F: ["one piece games", "one piece minigames", "naruto"],
   P2: ["strongest one piece characters ranked", "strongest one piece characters", "imu one piece"],
   P3: [
     "does blackbeard have conqueror",
@@ -85,22 +84,17 @@ for (const u of urls) {
   h1s[u] = h1Of(html);
 }
 
-let md = `# Keyword usage — per page
+let md = `# Keyword usage — per route
 
-Generated from built HTML (\`bun run build\` first). Case-insensitive body-text counts (scripts/styles excluded). Title/H1 placement listed separately — one exact-match in title + H1 outweighs ten body mentions.
-
-## Title / H1 per page
-
+Generated from built HTML (\`bun run build\` first). Case-insensitive body-text counts (scripts/styles excluded). One exact-match in title + H1 outweighs ten body mentions.
 `;
-for (const u of urls) md += `- \`${u}\`\n  - Title: ${titles[u]}\n  - H1: ${h1s[u] || "(none)"}\n`;
-
-for (const [group, phrases] of Object.entries(keywords)) {
-  md += `\n## ${group}\n`;
-  for (const k of phrases) {
-    const cells = urls.map((u) => ({ u, n: count(texts[u], k) }));
-    const total = cells.reduce((a, b) => a + b.n, 0);
-    md += `\n- "${k}" — total ${total}\n`;
-    for (const c of cells) md += `  - \`${c.u}\`: ${c.n}\n`;
+for (const u of urls) {
+  const words = texts[u].split(" ").filter(Boolean).length;
+  md += `\n## \`${u}\`\n\n- Title: ${titles[u]}\n- H1: ${h1s[u] || "(none)"}\n- Body: ${words} words\n`;
+  for (const [group, phrases] of Object.entries(keywords)) {
+    const hits = phrases.map((k) => ({ k, n: count(texts[u], k) })).filter((h) => h.n > 0);
+    if (hits.length === 0) continue;
+    md += `- ${group}: ${hits.map((h) => `"${h.k}" ×${h.n}`).join(", ")}\n`;
   }
 }
 
