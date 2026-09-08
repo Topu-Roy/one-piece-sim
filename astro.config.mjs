@@ -12,7 +12,14 @@ export default defineConfig({
   site: "https://anime-draft.example",
   integrations: [
     svelte(),
-    sitemap(),
+    // Noindexed pages (style previews) stay out of the sitemap — listing
+    // them contradicts their robots directives.
+    sitemap({
+      serialize(item) {
+        if (item.url.includes("/preview/")) return undefined;
+        return item;
+      },
+    }),
     partytown(),
     // Service worker: forced CacheFirst for character art (header-independent,
     // persistent ~30 days / 250 faces). App shell precached by default.

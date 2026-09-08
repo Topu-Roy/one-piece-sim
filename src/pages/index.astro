@@ -1,155 +1,132 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.svelte";
-import { Characters } from "../games/one-piece-draft/data/characters-v2";
-import { calculateCharacterBST } from "../games/one-piece-draft/lib/draft";
 
-// Hub landing: brand + game cards + rankings teaser + FAQ.
-// All equity flows to /games/one-piece-draft via exact-anchor CTAs.
-const ranked = [...Characters]
-  .map((c) => ({ name: c.displayName, rarity: c.rarity, bst: calculateCharacterBST(c) }))
-  .sort((a, b) => b.bst - a.bst);
-const top5 = ranked.slice(0, 5);
-
+// Brand hub: franchise-neutral. Sells anime minigames, routes to franchises.
+// Lore FAQ moved to /one-piece — this page keeps brand questions only.
 const faqs = [
   {
-    q: "Does Blackbeard have Conqueror's Haki?",
-    a: "Never demonstrated in the manga or anime, and unconfirmed on his Vivre Card — he fights Yonko-tier on two Devil Fruits and elite Armament instead. Try drafting his Yami Yami no Mi in the draft game and see how far fruit power alone takes a build.",
+    q: "What is Anime Draft?",
+    a: "A free anime minigame hub. Play quick browser games — no download, no account — starting with the One Piece draft game. Naruto games are next.",
   },
   {
-    q: "Does Garp have Conqueror's Haki?",
-    a: "Yes — confirmed, and our data rates it among the strongest in the series. Garp is one of the best Conqueror's donors you can pull in round 4.",
+    q: "Is it really free?",
+    a: "Yes — every game is free forever. No accounts, no paywalls. Your progress lives in the browser.",
   },
   {
-    q: "What is Imu's Devil Fruit?",
-    a: "Still unnamed in canon — a grimoire-like power granting covenants, regeneration and abyss summons. In our 184-character rankings Imu sits #1 at 11,392 BST, 21 points above Joy Boy.",
-  },
-  {
-    q: "Who would win, Imu or Joy Boy?",
-    a: "By our feat-graded stat model: Imu, by 21 BST. Joy Boy's Nika Mythical Zoan keeps it the closest matchup at the top of the list — see the full rankings.",
-  },
-  {
-    q: "Does Zoro have Conqueror's Haki?",
-    a: "Yes — advanced Conqueror's, unlocked against King in Wano. Zoro is a premium round-4 donor and a top weapon pull with Enma-class blades.",
+    q: "Which anime are coming next?",
+    a: "Naruto games are on the map after One Piece. One hub, many crews — same draft-and-rank formula, new worlds.",
   },
 ];
 ---
 
 <Layout
   canonicalPath="/"
-  description="Anime Draft is a free One Piece minigame hub. Play the One Piece draft game — build your own pirate from 184 characters — plus rankings and character guides."
-  title="Anime Draft — Free One Piece Minigames"
+  description="Anime Draft — free anime minigames in your browser. Play the One Piece draft game, rank pirates, and watch for Naruto games next."
+  title="Anime Draft — Free Anime Minigames"
 >
   <NavBar showRestart={false} />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Anime Draft?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A free anime minigame hub. Play quick browser games with no download and no account, starting with the One Piece draft game."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — every game is free forever. No accounts, no paywalls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which anime are coming next?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Naruto games are on the map after One Piece."
+          }
+        }
+      ]
+    }
+  </script>
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl px-6">
-      <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
+      <!-- Hero: banner pill, Peralta H1, sticker button. -->
       <section class="py-14 text-center md:py-20">
         <p
           class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
         >
-          ★ Free One Piece minigames ★
+          ★ Free anime minigames ★
         </p>
-        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05] text-cocoa">Anime Draft</h1>
+        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05]">Anime Draft</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
-          Draft your own pirate from 184 One Piece characters — harvest haki, Devil Fruits and weapons round by
-          round, then rank your custom build against the full roster.
+          Quick anime games in yer browser — draft pirates today, ninjas tomorrow. No download, no account, five
+          minutes a game.
         </p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/games/one-piece-draft/play"
+            href="/one-piece"
           >
-            ⚓ Play the draft game
+            ⚓ Play One Piece games
           </a>
           <a
             class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/games/one-piece-draft/how-to-play"
+            href="/one-piece/draft/play"
           >
-            How to play
+            Jump to the draft
           </a>
         </div>
       </section>
 
-      <!-- Game card: forest signature surface, yellow CTA. -->
-      <section
-        class="mb-12 rotate-[-0.5deg] rounded-3xl border-4 border-cocoa bg-forest p-8 text-white shadow-[8px_8px_0_#3a2a18] md:p-10"
-      >
-        <p class="text-xs font-bold tracking-[0.16px] text-white/60 uppercase">Featured minigame</p>
-        <h2 class="mt-2 font-hand text-4xl">One Piece Draft Game</h2>
-        <p class="mt-3 max-w-2xl">
-          Eight rounds. Four donors per round. Body, three haki types, Devil Fruit, weapon, intelligence, battle IQ
-          — then a live rank out of 185. Two rerolls per draft, 184 canon-graded donors, zero accounts.
-        </p>
-        <a
-          class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-8 py-3 text-lg font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-          href="/games/one-piece-draft/play"
-        >
-          Start drafting →
-        </a>
-      </section>
-
-      <!-- Rankings teaser: top 5, links to the full P2 magnet page. -->
+      <!-- Franchise cards: One Piece live, Naruto soon. -->
       <section class="mb-12">
-        <div class="mb-4 flex items-baseline justify-between">
-          <h2 class="font-hand text-4xl">Strongest right now</h2>
-          <a class="text-sm font-bold text-coral underline" href="/games/one-piece-draft/rankings">
-            Full 184-character rankings
-          </a>
+        <h2 class="text-center font-hand text-4xl">Pick yer world</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          <div
+            class="rotate-[-0.5deg] rounded-3xl border-4 border-cocoa bg-forest p-8 text-white shadow-[8px_8px_0_#3a2a18]"
+          >
+            <p class="text-xs font-bold tracking-[0.16px] text-white/60 uppercase">Live now</p>
+            <h3 class="mt-2 font-hand text-4xl">One Piece</h3>
+            <p class="mt-2 text-sm">Draft game · rankings · Straw Hat guides · haki answers.</p>
+            <a
+              class="mt-5 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-6 py-3 font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+              href="/one-piece"
+            >
+              Set sail →
+            </a>
+          </div>
+          <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
+            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Soon</p>
+            <h3 class="mt-2 font-hand text-4xl">Naruto</h3>
+            <p class="mt-2 text-sm">Draft yer shinobi. Jutsu, tailed beasts, live ranks.</p>
+          </div>
         </div>
-        <ol class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
-          {
-            top5.map((c, i) => (
-              <li class="flex items-center justify-between border-b border-cocoa/20 px-4 py-3 last:border-b-0">
-                <span class="text-cocoa">
-                  <span class="mr-3 font-bold text-cocoa/50">#{i + 1}</span>
-                  <span class="font-bold">{c.name}</span>
-                </span>
-                <span class="text-sm text-cocoa/60">
-                  {c.rarity} · {c.bst.toLocaleString()}
-                </span>
-              </li>
-            ))
-          }
-        </ol>
       </section>
 
-      <!-- FAQ: P3 long-tails, equity stays on-page (no outbound links). -->
-      <section class="mx-auto mb-12 max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">One Piece powers, answered</h2>
+      <!-- Brand FAQ. -->
+      <section class="mx-auto mb-16 max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Fair questions</h2>
         <div class="mt-6 flex flex-col gap-4">
           {
             faqs.map((f) => (
               <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
-                <summary class="cursor-pointer text-lg font-bold text-cocoa">{f.q}</summary>
+                <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
                 <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
               </details>
             ))
           }
         </div>
-      </section>
-
-      <!-- Secondary links: spokes of the hub. -->
-      <section class="mb-16 flex flex-wrap justify-center gap-3">
-        <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
-          href="/games/one-piece-draft/how-to-play"
-        >
-          How to play
-        </a>
-        <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
-          href="/games/one-piece-draft/rankings"
-        >
-          Character rankings
-        </a>
-        <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa"
-          href="/games/one-piece-draft/characters"
-        >
-          Straw Hat guides
-        </a>
       </section>
     </main>
   </div>

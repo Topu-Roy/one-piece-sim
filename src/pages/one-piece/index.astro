@@ -1,0 +1,228 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.svelte";
+import { Characters } from "../../games/one-piece-draft/data/characters-v2";
+import { calculateCharacterBST } from "../../games/one-piece-draft/lib/draft";
+
+// Franchise hub: all One Piece games, rankings teaser, lore FAQ.
+// Feeds /one-piece/draft via exact-anchor CTAs.
+const ranked = [...Characters]
+  .map((c) => ({ name: c.displayName, rarity: c.rarity, bst: calculateCharacterBST(c) }))
+  .sort((a, b) => b.bst - a.bst);
+const top5 = ranked.slice(0, 5);
+
+const faqs = [
+  {
+    q: "Does Blackbeard have Conqueror's Haki?",
+    a: "Never demonstrated in the manga or anime, and unconfirmed on his Vivre Card — he fights Yonko-tier on two Devil Fruits and elite Armament instead. Try drafting his Yami Yami no Mi in the draft game and see how far fruit power alone takes a build.",
+  },
+  {
+    q: "Does Garp have Conqueror's Haki?",
+    a: "Yes — confirmed, and our data rates it among the strongest in the series. Garp is one of the best Conqueror's donors you can pull in round 4.",
+  },
+  {
+    q: "What is Imu's Devil Fruit?",
+    a: "Still unnamed in canon — a grimoire-like power granting covenants, regeneration and abyss summons. In our 184-character rankings Imu sits #1 at 11,392 BST, 21 points above Joy Boy.",
+  },
+  {
+    q: "Imu vs Joy Boy — who would win?",
+    a: "By our feat-graded stat model: Imu, by 21 BST. Joy Boy's Nika Mythical Zoan keeps this imu vs joy boy debate the closest matchup at the top of the list — see the full rankings.",
+  },
+  {
+    q: "Does Zoro have Conqueror's Haki?",
+    a: "Yes — advanced Conqueror's, unlocked against King in Wano. Zoro is a premium round-4 donor and a top weapon pull with Enma-class blades.",
+  },
+  {
+    q: "Does Koby have Conqueror's Haki?",
+    a: "Unconfirmed — Honesty Impact showed black-lightning effects, but neither the manga nor his Vivre Card confirms it. Our data lists Koby without a Conqueror's tier, so don't bank a round-4 pick on him.",
+  },
+];
+---
+
+<Layout
+  canonicalPath="/one-piece"
+  description="Free One Piece games: play the One Piece draft game — build your own pirate from 184 characters — plus rankings, Straw Hat guides and haki answers."
+  title="One Piece Games — Free Minigames | Anime Draft"
+>
+  <NavBar showRestart={false} />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Blackbeard have Conqueror's Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never demonstrated in the manga or anime, and unconfirmed on his Vivre Card — he fights Yonko-tier on two Devil Fruits and elite Armament instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Garp have Conqueror's Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — confirmed, and our data rates it among the strongest in the series."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Imu's Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Still unnamed in canon — a grimoire-like power granting covenants, regeneration and abyss summons. In our rankings Imu sits #1 at 11,392 BST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Imu vs Joy Boy — who would win?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By our feat-graded stat model: Imu, by 21 BST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Zoro have Conqueror's Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — advanced Conqueror's, unlocked against King in Wano."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Koby have Conqueror's Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unconfirmed — neither the manga nor his Vivre Card confirms it."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-5xl px-6">
+      <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
+      <section class="py-14 text-center md:py-20">
+        <p
+          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+        >
+          ★ Free One Piece games ★
+        </p>
+        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05]">One Piece Games</h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg">
+          The best One Piece game collection in yer browser — free One Piece mini games, no download. Start with
+          the draft game: build your own pirate from 184 characters and rank him against the full roster.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a
+            class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            href="/one-piece/draft/play"
+          >
+            ⚓ Play the draft game
+          </a>
+          <a
+            class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            href="/one-piece/draft"
+          >
+            Game home
+          </a>
+        </div>
+      </section>
+
+      <!-- Game list: live forest card + locked future cards. -->
+      <section class="mb-12">
+        <h2 class="text-center font-hand text-4xl">Pick yer game</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          <div
+            class="rotate-[-0.5deg] rounded-3xl border-4 border-cocoa bg-forest p-6 text-white shadow-[8px_8px_0_#3a2a18]"
+          >
+            <p class="text-xs font-bold tracking-[0.16px] text-white/60 uppercase">Live now</p>
+            <h3 class="mt-2 font-hand text-3xl">Draft Game</h3>
+            <p class="mt-2 text-sm">8 rounds · 184 donors · live rank of 185.</p>
+            <a
+              class="mt-4 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-6 py-3 font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+              href="/one-piece/draft/play"
+            >
+              Play →
+            </a>
+          </div>
+          <div class="rounded-3xl border-4 border-cocoa/40 bg-white p-6 opacity-70">
+            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Soon</p>
+            <h3 class="mt-2 font-hand text-3xl">Guess the Devil Fruit</h3>
+            <p class="mt-2 text-sm">Name the fruit from hints. Daily challenge.</p>
+          </div>
+          <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-6 opacity-70">
+            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Soon</p>
+            <h3 class="mt-2 font-hand text-3xl">Haki Quiz</h3>
+            <p class="mt-2 text-sm">Who holds what? Armament to Conqueror's.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rankings teaser: top 5, links to the P2 magnet page. -->
+      <section class="mb-12">
+        <div class="mb-4 flex items-baseline justify-between">
+          <h2 class="font-hand text-4xl">Strongest right now</h2>
+          <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/rankings">
+            Full 184-character rankings
+          </a>
+        </div>
+        <ol class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+          {
+            top5.map((c, i) => (
+              <li class="flex items-center justify-between border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+                <span>
+                  <span class="mr-3 font-bold text-cocoa/50">#{i + 1}</span>
+                  <span class="font-bold">{c.name}</span>
+                </span>
+                <span class="text-sm text-cocoa/60">
+                  {c.rarity} · {c.bst.toLocaleString()}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <!-- Lore FAQ: the P3 net lives here. -->
+      <section class="mx-auto mb-12 max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">One Piece powers, answered</h2>
+        <div class="mt-6 flex flex-col gap-4">
+          {
+            faqs.map((f) => (
+              <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
+                <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
+                <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Spokes. -->
+      <section class="mb-16 flex flex-wrap justify-center gap-3">
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          href="/one-piece/draft/how-to-play"
+        >
+          How to play
+        </a>
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          href="/one-piece/draft/rankings"
+        >
+          Character rankings
+        </a>
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          href="/one-piece/draft/characters"
+        >
+          Straw Hat guides
+        </a>
+      </section>
+    </main>
+  </div>
+</Layout>

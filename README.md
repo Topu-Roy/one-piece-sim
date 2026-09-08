@@ -23,15 +23,16 @@ After data or formula changes: regen rankings → `tsc` → `lint:fix` → `form
 ## Project Structure
 
 Per-game folders: each game owns its code, data, scripts and docs under
-`src/games/[slug]/`. Routes are thin wrappers in `src/pages/games/[slug]/`.
-Shared chrome (Layout, styles, NavBar, uploader) stays at `src/` top level.
+`src/games/[slug]/`. Routes are thin wrappers under franchise hubs
+(`src/pages/[franchise]/[slug]/`). Shared chrome stays at `src/` top level.
 
 ```text
 src/
-├── pages/             # hub index.astro, preview/a.astro
-│   └── games/one-piece-draft/
+├── pages/                   # hub index.astro, preview/a.astro
+│   ├── one-piece/index.astro      # franchise hub (SEO: one piece games)
+│   └── one-piece/draft/
 │       ├── index.astro      # landing (SEO owner, P1 query)
-│       ├── play.astro       # game + SEO footer (noindex → landing)
+│       ├── play.astro       # game + SEO footer (indexed, self-canonical)
 │       └── how-to-play|rankings|characters.astro
 ├── games/one-piece-draft/
 │   ├── components/    # DraftGame, RoundScreen, CharacterCard, DraftPicks,

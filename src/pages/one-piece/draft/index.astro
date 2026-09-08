@@ -51,11 +51,70 @@ const faqs = [
 ---
 
 <Layout
-  canonicalPath="/games/one-piece-draft"
+  canonicalPath="/one-piece/draft"
   description="Play the free One Piece draft game: harvest haki, Devil Fruits and weapons from 184 characters over 8 rounds, then rank your custom pirate build."
   title="One Piece Draft Game — Build Your Strongest Pirate"
 >
   <NavBar showRestart={false} />
+  <!-- Structured data (static — keep answers in sync with the visible FAQ). -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "One Piece Draft Game",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a draft take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About five minutes — eight quick rounds, four donors each. Cards reveal one at a time, or tap ahead to fast-forward."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free? Do I need an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free forever, zero accounts. Your draft lives in the browser and vanishes when you close the tab."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do rerolls do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get 2 per draft, usable in any round including the last. A reroll swaps the current 4 donors for 4 fresh faces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the final rank mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your 7-stat build is scored by the same feat-graded model as all 184 roster characters. Rank #1 of 185 beats Imu himself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I play on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — the whole game is touch-first and mobile-sized."
+          }
+        }
+      ]
+    }
+  </script>
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl px-6">
@@ -68,19 +127,20 @@ const faqs = [
         </p>
         <h1 class="mx-auto mt-6 max-w-3xl font-hand text-6xl leading-[1.05]">One Piece Draft Game</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
-          Build your strongest pirate: draft a body, three haki, a Devil Fruit and a weapon from 184 canon-graded
-          characters — then rank your custom build against the full roster.
+          Build your own pirate and make him the strongest: draft a body, three haki, a Devil Fruit and a weapon
+          from 184 canon-graded characters — then rank your custom build against the full roster. Free, no account,
+          five minutes a draft — the best One Piece game for powerscaling debates.
         </p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/games/one-piece-draft/play"
+            href="/one-piece/draft/play"
           >
             ⚓ Play now — it's free
           </a>
           <a
             class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/games/one-piece-draft/how-to-play"
+            href="/one-piece/draft/how-to-play"
           >
             How to play
           </a>
@@ -107,7 +167,7 @@ const faqs = [
       <section class="mb-12">
         <div class="mb-4 flex items-baseline justify-between">
           <h2 class="font-hand text-4xl">Strongest right now</h2>
-          <a class="text-sm font-bold text-coral underline" href="/games/one-piece-draft/rankings">
+          <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/rankings">
             Full 184-character rankings
           </a>
         </div>
@@ -147,26 +207,26 @@ const faqs = [
       <section class="mb-16 text-center">
         <a
           class="inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-          href="/games/one-piece-draft/play"
+          href="/one-piece/draft/play"
         >
           ⚓ Start drafting
         </a>
         <div class="mt-6 flex flex-wrap justify-center gap-3">
           <a
             class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
-            href="/games/one-piece-draft/how-to-play"
+            href="/one-piece/draft/how-to-play"
           >
             How to play
           </a>
           <a
             class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
-            href="/games/one-piece-draft/rankings"
+            href="/one-piece/draft/rankings"
           >
             Character rankings
           </a>
           <a
             class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
-            href="/games/one-piece-draft/characters"
+            href="/one-piece/draft/characters"
           >
             Straw Hat guides
           </a>
