@@ -13,8 +13,8 @@
 
 <!-- Parchment bar, ink rule, Peralta brand + section links + coral restart. -->
 <nav class="w-full border-b-4 border-cocoa bg-paper">
-  <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-6 py-4">
-    <a href="/" class="shrink-0 font-hand text-3xl leading-none font-normal text-cocoa">Anime Draft</a>
+  <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
+    <a href="/" class="shrink-0 font-hand text-2xl leading-none font-normal text-cocoa sm:text-3xl">Anime Draft</a>
 
     <div class="hidden items-center gap-5 text-sm font-bold text-cocoa/70 sm:flex">
       <a href="/one-piece">One Piece</a>
@@ -25,7 +25,7 @@
 
     {#if showRestart}
       <button
-        class="shrink-0 rounded-2xl border-[3px] border-cocoa bg-coral px-4 py-1.5 text-xs font-bold tracking-wider text-white uppercase shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        class="shrink-0 rounded-2xl border-[3px] border-cocoa bg-coral px-3 py-1 text-[11px] font-bold tracking-wider text-white uppercase shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none sm:px-4 sm:py-1.5 sm:text-xs"
         on:click={handleNewDraft}
       >
         New Draft

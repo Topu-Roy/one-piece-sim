@@ -106,19 +106,24 @@
   }
 </script>
 
-<div class="mx-auto flex w-full max-w-5xl flex-col items-center px-6 py-8">
-  <div class="flex w-full items-center justify-between gap-4 pb-8">
-    <p class="shrink-0 text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
-      Round {round} of 8
-    </p>
+<div class="mx-auto flex w-full max-w-5xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
+  <!-- Mobile: meta row (round + reroll) on top, title full-width below.
+       Desktop: single row, title centered. -->
+  <div class="flex w-full flex-col gap-3 pb-6 sm:pb-8">
+    <div class="flex w-full items-center justify-between gap-3">
+      <p class="shrink-0 text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
+        Round {round} of 8
+      </p>
+      <div class="shrink-0">
+        <RerollButton />
+      </div>
+    </div>
 
-    <h1 class="mt-1 text-center font-hand text-2xl leading-[1.2] font-normal text-cocoa md:text-3xl">
+    <h1
+      class="w-full text-center font-hand text-3xl leading-[1.15] font-normal text-balance text-cocoa sm:mt-1 sm:text-2xl md:text-3xl"
+    >
       {label}
     </h1>
-
-    <div class="shrink-0">
-      <RerollButton />
-    </div>
   </div>
 
   {#key revealKey}
@@ -129,7 +134,7 @@
         <!-- Loading state: skeleton cards hold the grid shape until art is cached. -->
         <!-- One shared height floor (edge-to-edge square art) on all screens. -->
         <div
-          class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4"
+          class="grid min-h-40 w-full grid-cols-2 gap-3 sm:gap-6 md:min-h-57.5 md:grid-cols-4"
           aria-busy="true"
           aria-label="Loading characters"
         >
@@ -142,7 +147,7 @@
           {/each}
         </div>
       {:else}
-        <div class="grid min-h-40 w-full grid-cols-2 gap-6 md:min-h-57.5 md:grid-cols-4">
+        <div class="grid min-h-40 w-full grid-cols-2 gap-3 sm:gap-6 md:min-h-57.5 md:grid-cols-4">
           {#each options as character, i (character.id)}
             <CharacterCard
               {character}

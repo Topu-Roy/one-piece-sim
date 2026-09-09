@@ -233,7 +233,7 @@
       <span>{shuffling ? "?" : character.displayName.charAt(0)}</span>
     {/if}
     <div
-      class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 pb-2 text-center font-hand text-2xl leading-[1.1] font-normal text-yellow"
+      class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 pb-2 text-center font-hand text-xl leading-[1.1] font-normal text-yellow sm:text-2xl"
     >
       {#if shuffling || waiting}
         ?
