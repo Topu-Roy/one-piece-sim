@@ -46,13 +46,13 @@
   }
 </script>
 
-<div class="mx-auto flex w-full max-w-5xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
+<div class="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
   {#if state.phase === "ranking"}
-    <div class="grid w-full gap-4 md:grid-cols-5 md:gap-6">
-      <div class="order-2 md:order-1 md:col-span-3">
+    <div class="flex w-full items-center justify-center gap-4 md:gap-4">
+      <div class="order-2 w-[55%] md:order-1 md:col-span-3">
         <SlotList lineup={state.lineup} onSelect={placeIn} placements={state.placements} />
       </div>
-      <div class="order-1 md:order-2 md:col-span-2 md:sticky md:top-4 md:self-start">
+      <div class="order-1 flex-1 md:sticky md:top-4 md:order-2 md:col-span-2 md:self-start">
         {#key current.id}
           <div class="animate-round">
             <BlindCard character={current} round={state.currentRound + 1} />
@@ -74,7 +74,9 @@
       </p>
       <h2 class="mt-4 font-hand text-4xl text-cocoa">All 10 placed!</h2>
       <p class="mt-2 text-cocoa/70">Scoring drops next — how close is yer list to the true order?</p>
-      <SlotList lineup={state.lineup} onSelect={() => {}} placements={state.placements} />
+      <div class="flex items-center justify-center">
+        <SlotList lineup={state.lineup} onSelect={() => {}} placements={state.placements} />
+      </div>
       <button
         class="mt-6 rounded-2xl border-4 border-cocoa bg-coral px-8 py-3 text-lg font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
         onclick={restart}
