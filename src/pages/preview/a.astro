@@ -4,9 +4,16 @@ import "@fontsource/fredoka/400.css";
 import "@fontsource/fredoka/500.css";
 import "@fontsource/fredoka/600.css";
 import "@fontsource/fredoka/700.css";
+import { Characters } from "../../games/one-piece-draft/data/characters-v2";
+import { calculateCharacterBST } from "../../games/one-piece-draft/lib/draft";
 
 // STYLE A — "Wanted Poster": parchment, thick ink outlines, hard sticker
 // shadows, tilted badges. Peralta headings + Fredoka rounded body.
+
+// Card showroom: strongest face on the roster fronts every variant.
+const top1 = [...Characters]
+  .map((c) => ({ name: c.displayName, imageURL: c.imageURL, bst: calculateCharacterBST(c) }))
+  .sort((a, b) => b.bst - a.bst)[0];
 ---
 
 <Layout canonicalPath="/preview/a" description="Style preview A" noindex title="Style A — Wanted Poster">
@@ -79,6 +86,137 @@ import "@fontsource/fredoka/700.css";
         >
           Set sail →
         </a>
+      </section>
+
+      <section class="mx-auto mb-16 max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Wanted sideways — pick W1–W4</h2>
+        <p class="mt-2 text-center">All four link to the draft game. Winner goes on /one-piece.</p>
+
+        <div class="mt-8 grid gap-8 md:grid-cols-2">
+          <!-- W1: masthead top — WANTED banner, sideways row below. -->
+          <div>
+            <p class="mb-2 text-center text-sm font-bold tracking-[0.2em] uppercase">W1 · Masthead top</p>
+            <a
+              class="block rotate-[0.5deg] rounded-3xl border-4 border-cocoa bg-white p-4 text-center shadow-[8px_8px_0_#3a2a18]"
+              href="/one-piece/draft"
+            >
+              <p class="font-hand text-3xl tracking-[0.12em] text-cocoa">WANTED</p>
+              <p class="text-xs font-bold tracking-[0.3em] text-cocoa/60 uppercase">Dead or alive</p>
+              <div class="mt-3 flex items-stretch gap-4 text-left">
+                <div class="relative w-2/5 shrink-0 overflow-hidden rounded-2xl border-[3px] border-cocoa">
+                  <img
+                    alt={top1.name}
+                    class="absolute inset-0 h-full w-full object-cover object-top"
+                    loading="lazy"
+                    src={top1.imageURL}
+                  />
+                </div>
+                <div class="flex min-w-0 flex-col justify-center py-1">
+                  <h3 class="font-hand text-2xl leading-[1.05] text-cocoa">Create the Strongest Character</h3>
+                  <span
+                    class="mt-3 inline-block w-fit rounded-2xl border-[3px] border-cocoa bg-coral px-6 py-2 text-base font-bold text-white shadow-[4px_4px_0_#3a2a18]"
+                  >
+                    Play →
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- W2: masthead in column — small WANTED opens the type stack. -->
+          <div>
+            <p class="mb-2 text-center text-sm font-bold tracking-[0.2em] uppercase">W2 · Masthead in column</p>
+            <a
+              class="flex rotate-[-0.5deg] items-stretch gap-4 rounded-3xl border-4 border-cocoa bg-white p-4 shadow-[8px_8px_0_#3a2a18]"
+              href="/one-piece/draft"
+            >
+              <div class="relative w-2/5 shrink-0 overflow-hidden rounded-2xl border-[3px] border-cocoa">
+                <img
+                  alt={top1.name}
+                  class="absolute inset-0 h-full w-full object-cover object-top"
+                  loading="lazy"
+                  src={top1.imageURL}
+                />
+              </div>
+              <div class="flex min-w-0 flex-col justify-center py-1">
+                <p class="font-hand text-2xl tracking-[0.12em] text-cocoa">WANTED</p>
+                <p class="text-[11px] font-bold tracking-[0.3em] text-cocoa/60 uppercase">Dead or alive</p>
+                <h3 class="mt-2 font-hand text-2xl leading-[1.05] text-cocoa">Create the Strongest Character</h3>
+                <p class="mt-1 text-sm text-cocoa/70">Draft 8 powers onto one pirate.</p>
+                <span
+                  class="mt-3 inline-block w-fit rounded-2xl border-[3px] border-cocoa bg-yellow px-6 py-2 text-base font-bold text-cocoa shadow-[4px_4px_0_#3a2a18]"
+                >
+                  Play →
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- W3: stamp overlap — big WANTED stamp crashes over the art. -->
+          <div>
+            <p class="mb-2 text-center text-sm font-bold tracking-[0.2em] uppercase">W3 · Stamp overlap</p>
+            <a
+              class="flex rotate-[0.5deg] items-stretch gap-4 rounded-3xl border-4 border-cocoa bg-white p-4 shadow-[8px_8px_0_#3a2a18]"
+              href="/one-piece/draft"
+            >
+              <div class="relative w-2/5 shrink-0 overflow-hidden rounded-2xl border-[3px] border-cocoa">
+                <img
+                  alt={top1.name}
+                  class="absolute inset-0 h-full w-full object-cover object-top"
+                  loading="lazy"
+                  src={top1.imageURL}
+                />
+                <p
+                  class="absolute top-2 -right-2 rotate-12 rounded-lg border-[3px] border-cocoa bg-coral px-3 py-1 font-hand text-lg tracking-[0.1em] text-white"
+                >
+                  WANTED
+                </p>
+              </div>
+              <div class="flex min-w-0 flex-col justify-center py-1">
+                <p class="text-[11px] font-bold tracking-[0.3em] text-cocoa/60 uppercase">Dead or alive</p>
+                <h3 class="mt-1 font-hand text-2xl leading-[1.05] text-cocoa">Create the Strongest Character</h3>
+                <span
+                  class="mt-3 inline-block w-fit rounded-2xl border-[3px] border-cocoa bg-coral px-6 py-2 text-base font-bold text-white shadow-[4px_4px_0_#3a2a18]"
+                >
+                  Play →
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- W4: bounty column — WANTED, title, bounty pill, full-width coral. -->
+          <div>
+            <p class="mb-2 text-center text-sm font-bold tracking-[0.2em] uppercase">W4 · Bounty column</p>
+            <a
+              class="flex rotate-[-0.5deg] items-stretch gap-4 rounded-3xl border-4 border-cocoa bg-white p-4 shadow-[8px_8px_0_#3a2a18]"
+              href="/one-piece/draft"
+            >
+              <div class="relative w-2/5 shrink-0 overflow-hidden rounded-2xl border-[3px] border-cocoa">
+                <img
+                  alt={top1.name}
+                  class="absolute inset-0 h-full w-full object-cover object-top"
+                  loading="lazy"
+                  src={top1.imageURL}
+                />
+              </div>
+              <div class="flex min-w-0 flex-1 flex-col justify-center py-1">
+                <p class="font-hand text-2xl tracking-[0.12em] text-cocoa">WANTED</p>
+                <p class="text-[11px] font-bold tracking-[0.3em] text-cocoa/60 uppercase">Dead or alive</p>
+                <h3 class="mt-2 font-hand text-2xl leading-[1.05] text-cocoa">Create the Strongest Character</h3>
+                <p
+                  class="mt-2 w-fit -rotate-1 rounded-lg border-[3px] border-cocoa bg-yellow px-3 py-1 text-xs font-bold tracking-[0.2em] text-cocoa uppercase"
+                >
+                  ★ Free to play ★
+                </p>
+                <span
+                  class="mt-3 block rounded-2xl border-[3px] border-cocoa bg-coral px-6 py-2 text-center text-base font-bold text-white shadow-[4px_4px_0_#3a2a18]"
+                >
+                  Play →
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
       </section>
 
       <section class="mx-auto mb-16 max-w-3xl">
