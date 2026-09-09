@@ -1,0 +1,63 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.svelte";
+import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRankGame.svelte";
+
+// Blind rank: ten mystery donors, one locked top-10. No take-backs.
+---
+
+<Layout
+  canonicalPath="/one-piece/blind-rank"
+  description="One Piece blind ranking game — 10 random characters, one locked top-10 list. Place each reveal without knowing what's next. Free, no account."
+  title="One Piece Blind Ranking Game — Rank 10, No Take-Backs | Anime Draft"
+>
+  <NavBar showRestart={false} />
+
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-5xl space-y-12 px-6">
+      <section class="pt-8 text-center">
+        <p
+          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+        >
+          ★ New game ★
+        </p>
+        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05]">Blind Rank</h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg">
+          Ten donors walk in one at a time. Slot each into yer top 10 without knowing who comes next — locked
+          forever, no take-backs.
+        </p>
+      </section>
+
+      <section>
+        <BlindRankGame client:only="svelte" />
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">How blind ranking works</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Each run draws 10 unique donors from all 184 roster characters — god-tier monsters or loveable
+            weaklings, in random reveal order. Tap any empty slot from 1 to 10 to lock the current donor in. Once
+            placed, a donor never moves.
+          </p>
+          <p>
+            The tension is the game: burn slot 1 early on a legend and a god walks in at round 9 with nowhere to
+            go. Fill all 10 slots to lock yer list — scoring against the true order drops next.
+          </p>
+        </div>
+      </section>
+
+      <section class="flex flex-wrap justify-center gap-3 pb-12">
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          href="/one-piece/draft"
+        >
+          Draft game
+        </a>
+        <a class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold" href="/one-piece">
+          All One Piece games
+        </a>
+      </section>
+    </main>
+  </div>
+</Layout>
