@@ -154,13 +154,14 @@ const faqs = [
   </script>
 
   <div class="bg-paper text-cocoa">
-    <main class="mx-auto w-full max-w-5xl px-6" id="play">
+    <main class="mx-auto w-full max-w-5xl space-y-16 px-6">
       <!-- The game itself. -->
-
-      <DraftGame chrome={false} client:only="svelte" />
+      <section id="play">
+        <DraftGame chrome={false} client:only="svelte" />
+      </section>
 
       <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
-      <section class="pt-8 pb-14 text-center md:pb-20">
+      <section class="text-center">
         <p
           class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
         >
@@ -176,7 +177,7 @@ const faqs = [
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="#play"
+            href="/one-piece/draft"
           >
             ⚓ Play now
           </a>
@@ -190,7 +191,7 @@ const faqs = [
       </section>
 
       <!-- How it works: 4 steps. -->
-      <section class="mb-12">
+      <section>
         <h2 class="text-center font-hand text-4xl">How a draft works</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-4">
           {
@@ -206,7 +207,7 @@ const faqs = [
       </section>
 
       <!-- Characters teaser: top 5 cards, links to the P2 magnet page. -->
-      <section class="mb-12">
+      <section>
         <div class="mb-4 flex items-baseline justify-between">
           <h2 class="font-hand text-4xl">Strongest right now</h2>
           <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/characters">
@@ -233,7 +234,7 @@ const faqs = [
       </section>
 
       <!-- Strategy: how drafts are actually won. -->
-      <section class="mx-auto mb-12 max-w-3xl">
+      <section class="mx-auto max-w-3xl">
         <h2 class="text-center font-hand text-4xl">Draft like a Yonko</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
@@ -271,7 +272,7 @@ const faqs = [
       </section>
 
       <!-- FAQ: play-flavored (hub keeps the lore questions — no duplication). -->
-      <section class="mx-auto mb-12 max-w-3xl">
+      <section class="mx-auto max-w-3xl">
         <h2 class="text-center font-hand text-4xl">Before ye play</h2>
         <div class="mt-6 flex flex-col gap-4">
           {
@@ -286,10 +287,10 @@ const faqs = [
       </section>
 
       <!-- Spokes + final CTA. -->
-      <section class="mb-16 text-center">
+      <section class="text-center">
         <a
           class="inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-          href="#play"
+          href="/one-piece/draft"
         >
           ⚓ Start drafting
         </a>
@@ -310,7 +311,7 @@ const faqs = [
       </section>
 
       <!-- About: the audit promise, kept on the ranking page. -->
-      <section class="mx-auto mb-16 max-w-3xl text-center">
+      <section class="mx-auto max-w-3xl pb-12 text-center">
         <h2 class="font-hand text-4xl">Fair winds, pirate</h2>
         <p class="mt-4 leading-relaxed text-cocoa/70">
           Every donor stat is hand-graded from manga and anime feats — grades follow demonstrated powers,

@@ -26,7 +26,7 @@
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 py-8">
+<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 pt-6">
   <!-- Hero: the drafted body, face + name overlaid (no text header). -->
   {#if bodyChar?.imageURL && !heroError}
     <div

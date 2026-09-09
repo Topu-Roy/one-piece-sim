@@ -106,7 +106,7 @@
   }
 </script>
 
-<div class="mx-auto flex w-full max-w-5xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
+<div class="mx-auto flex w-full max-w-5xl flex-col items-center px-4 pt-6 sm:px-6">
   <!-- Mobile: meta row (round + reroll) on top, title full-width below.
        Desktop: single row, title centered. -->
   <div class="flex w-full flex-col gap-3 pb-6 sm:pb-8">
