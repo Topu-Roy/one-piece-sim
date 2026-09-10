@@ -1,0 +1,76 @@
+---
+// Sideways game-mode card for /[verse] hubs: art left with a tilted
+// stamp, kicker + title + bottom-anchored sticker button right.
+// Whole card is one link.
+type Tone = "coral" | "yellow";
+
+type Props = {
+  href: string;
+  imageURL: string;
+  imageAlt: string;
+  stampText: string;
+  stampTone?: Tone;
+  kicker: string;
+  title: string;
+  buttonText?: string;
+  buttonTone?: Tone;
+  tiltClass?: string;
+};
+
+const {
+  href,
+  imageURL,
+  imageAlt,
+  stampText,
+  stampTone = "coral",
+  kicker,
+  title,
+  buttonText = "Play →",
+  buttonTone = "coral",
+  tiltClass = "rotate-[0.5deg]",
+} = Astro.props;
+
+const stampTones: Record<Tone, string> = {
+  coral: "bg-coral text-white",
+  yellow: "bg-yellow text-cocoa",
+};
+
+const buttonTones: Record<Tone, string> = {
+  coral: "bg-coral text-white",
+  yellow: "bg-yellow text-cocoa",
+};
+---
+
+<a
+  class:list={[
+    "flex items-stretch gap-4 rounded-3xl border-4 border-cocoa bg-white p-4 shadow-[8px_8px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none",
+    tiltClass,
+  ]}
+  href={href}
+>
+  <div class="relative w-2/5 shrink-0 overflow-hidden rounded-2xl border-[3px] border-cocoa">
+    <img alt={imageAlt} class="absolute inset-0 h-full w-full object-cover object-top" loading="lazy" src={imageURL} />
+    <p
+      class:list={[
+        "absolute top-2 -right-2 rotate-12 rounded-lg border-[3px] border-cocoa px-3 py-1 font-hand text-lg tracking-widest",
+        stampTones[stampTone],
+      ]}
+    >
+      {stampText}
+    </p>
+  </div>
+  <div class="flex min-w-0 flex-1 flex-col py-1">
+    <p class="text-[11px] font-bold tracking-[0.3em] text-cocoa/60 uppercase">{kicker}</p>
+    <h3 class="mt-1 font-hand text-2xl leading-[1.05] text-cocoa">{title}</h3>
+    <div class="flex flex-1 flex-col justify-end">
+      <span
+        class:list={[
+          "mt-3 inline-block w-fit rounded-2xl border-[3px] border-cocoa px-6 py-2 text-base font-bold shadow-[4px_4px_0_#3a2a18]",
+          buttonTones[buttonTone],
+        ]}
+      >
+        {buttonText}
+      </span>
+    </div>
+  </div>
+</a>
