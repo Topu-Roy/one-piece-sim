@@ -56,7 +56,7 @@ Each of the 4 options in a round gets an **independent** rarity roll:
 - **20% Legend** — the strongest characters in the setting (e.g. Admirals, Yonko commanders, Gorosei).
 - **10% God** — the canon apex (Imu, Joy Boy, Rocks, Luffy, Shanks, Roger, Dragon, Whitebeard).
 
-Round 1 (Body) rolls stronger dice — 25% god / 25% legend / 30% epic / 20% basic (observed god lands slightly lower: the big-race guarantee backfills ~1 slot per round from a pool with no gods) — and guarantees at least one giant, oni, or lunarian among the 4 options.
+Round 1 (Body) rolls 0% god / 30% legend / 40% epic / 30% basic — no god bodies; gods are earned through donor rounds — and guarantees at least one giant, oni, or lunarian among the 4 options.
 
 ### Selection Process
 

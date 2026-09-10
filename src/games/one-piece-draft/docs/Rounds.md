@@ -4,7 +4,7 @@
 
 ## Round 1 — Body
 
-- Pool: all characters, rarity-weighted per slot with stronger Round 1 dice (~16/35/30/20). Race plays no part in selection, except the guarantee: at least one option is always giant, oni, or lunarian.
+- Pool: all characters, rarity-weighted per slot with Round 1 dice (rolls 0/30/40/30 god/legend/epic/basic — no god bodies; observed skews legend/epic via the guarantee below). Race plays no part in selection, except the guarantee: at least one option is always giant, oni, or lunarian.
 - Shows: character name, race (flavor label), rarity chip. No numbers shown.
 - Pick gives: looks + name + base stat block + race. Race is identity only — it never touches stats (physique is already in each character's baseStats).
 - Note: per-character baseStats (hand-tuned from canonical feats), NOT a shared race table.

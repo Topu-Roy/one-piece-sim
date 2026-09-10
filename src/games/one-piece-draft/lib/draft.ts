@@ -11,15 +11,15 @@ function rollRarity(): Rarity {
 }
 
 /**
- * Round 1 body odds lean strong (rolls): 20% basic, 30% epic, 25% legend, 25% god.
- * Observed runs slightly lower on god — the big-race guarantee backfills
- * ~1 slot per round from a pool with no gods (5 legend / 5 epic).
+ * Round 1 body odds (rolls): 30% basic, 40% epic, 30% legend, 0% god.
+ * No god bodies — the body sets the base, gods are earned through donor
+ * rounds. The big-race guarantee backfills ~1 slot per round from a pool
+ * with no gods (5 legend / 5 epic).
  */
 function rollBodyRarity(): Rarity {
   const roll = Math.random() * 100;
-  if (roll < 25) return "god";
-  if (roll < 50) return "legend";
-  if (roll < 80) return "epic";
+  if (roll < 30) return "legend";
+  if (roll < 70) return "epic";
   return "basic";
 }
 
